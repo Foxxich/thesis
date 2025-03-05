@@ -1,0 +1,1346 @@
+\chapter{Badania eksperymentalne}\label{chapt:testsResults}
+
+\section{Wprowadzenie do badań}
+\subsection{Cel przeprowadzonych eksperymentów}
+Celem przeprowadzonych eksperymentów było zbadanie efektywności,
+stabilności oraz praktycznej użyteczności czterech autorskich modeli
+klasyfikacyjnych: \textbf{Metoda17}, \textbf{Metoda18},
+\textbf{Metoda19}, oraz \textbf{Metoda20}, a także porównanie
+ich wyników z wynikami uzyskanymi za pomocą istniejących podejść,
+wspominanych w rozdziale \textbf{Przegląd wybranych artykułów}. Badania
+miały na celu ocenę skuteczności tych metod w wykrywaniu
+\emph{\textbf{fake news}} w różnych scenariuszach danych, uwzględniając
+zmienne proporcje klas oraz różne poziomy złożoności zbiorów danych.
+
+Każdy z analizowanych modeli reprezentuje odmienne podejścia w
+dziedzinie uczenia maszynowego, takie jak dynamiczne ważenie próbek w
+sieciach neuronowych (\textbf{Metoda17}), kombinacje klasyfikatorów
+z meta-modelami (\textbf{Metoda18, Metoda19, Metoda20}), czy
+zaawansowane techniki ensemble. Porównanie wyników autorskich metod z
+wynikami klasycznych i hybrydowych rozwiązań pozwoliło na ocenę ich
+konkurencyjności w kontekście istniejących algorytmów.
+
+Eksperymenty miały na celu:
+
+\begin{itemize}
+\item
+  \textbf{Porównanie skuteczności modeli autorskich i klasycznych} pod
+  względem najważniejszych metryk, takich jak \textbf{Accuracy,
+  Execution Time} i \textbf{Log Loss}.
+\item
+  \textbf{Analizę zdolności generalizacyjnych} modeli na danych
+  testowych, z uwzględnieniem ich adaptacyjności do różnych typów danych
+  i scenariuszy.
+\item
+  \textbf{Ocenę wydajności obliczeniowej} modeli (Execution Time) w
+  kontekście potencjalnego zastosowania w rzeczywistych systemach
+  wykrywających fake news.
+\end{itemize}
+
+\subsection{Uzasadnienie zastosowania wybranych metryk}
+W eksperymentach zastosowano zestaw wszechstronnych metryk, które
+umożliwiają kompleksową ocenę modeli.
+
+\textbf{Accuracy} jest podstawową miarą skuteczności modelu, wskazującą
+odsetek poprawnych klasyfikacji. W przypadku zrównoważonych zbiorów
+danych Accuracy jest dobrym wskaźnikiem ogólnej jakości modelu, jednak w
+scenariuszach z nierównomiernym rozkładem klas może być mniej
+miarodajne.
+
+\textbf{Log Loss} mierzy niepewność modelu w predykcjach. Niska wartość
+Log Loss wskazuje, że model generuje bardziej pewne i spójne prognozy.
+
+\textbf{Execution Time (Czas wykonania)} jest kluczową miarą
+efektywności obliczeniowej. Wskazuje czas potrzebny na wytrenowanie i
+ocenę modelu, co ma istotne znaczenie w kontekście wdrożeń w systemach
+produkcyjnych.
+
+\section{Metodologia}
+\subsection{Opis zestawów danych użytych w eksperymentach}
+ISOT Fake News Dataset to jedno z najbardziej popularnych i szeroko
+stosowanych zbiorów danych w badaniach nad wykrywaniem fałszywych
+informacji. Został stworzony przez zespół badawczy z University of
+Victoria w Kanadzie i służy jako punkt odniesienia dla eksperymentów
+związanych z klasyfikacją tekstu oraz analizą fałszywych wiadomości.
+
+\subsubsection{Struktura zbioru danych}
+ISOT Fake News Dataset składa się z następujących kategorii danych.
+\textbf{Fake News}, która zawiera nowości o wskazanych poniżej
+własnościach:
+
+\begin{itemize}
+\item
+  Zawiera artykuły sklasyfikowane jako fałszywe informacje, których
+  celem jest wprowadzanie w błąd lub manipulacja opinią publiczną.
+\item
+  Źródła tych artykułów pochodzą głównie z witryn internetowych znanych
+  z publikowania niesprawdzonych, sensacyjnych lub celowo
+  wprowadzających w błąd treści.
+\item
+  Często charakteryzują się emocjonalnym językiem, prowokacyjnymi
+  nagłówkami i brakiem wiarygodnych źródeł.
+\end{itemize}
+
+Zrozumiałym jest z opisu, że \textbf{True News} jest przeciwieństwem
+oraz wspomnijmy o jego następujących cechach:
+
+\begin{itemize}
+\item
+  Zawiera artykuły uznane za prawdziwe, publikowane przez renomowane
+  agencje informacyjne takie jak Associated Press, Reuters czy BBC.
+\item
+  Są to treści oparte na rzetelnym dziennikarstwie, w których stosuje
+  się wiarygodne źródła i odpowiednie standardy edytorskie.
+\end{itemize}
+
+\subsubsection{Liczba próbek}
+Zbiór zawiera około \textbf{40 000 artykułów} podzielonych równomiernie
+między kategorię „Fake'' i „True''.
+
+\subsubsection{Cechy tekstowe}
+Próbki zostały przetworzone w formie wektorów cech przy użyciu dwóch
+metod, a mianowicie \textbf{TF-IDF} oraz \textbf{SentenceTransformer}.
+\textbf{TF-IDF (Term Frequency-Inverse Document Frequency)} pozwala na
+uchwycenie znaczenia słów w kontekście dokumentu i całego korpusu.
+Natomiast \textbf{SentenceTransformer} bardziej zaawansowana metoda
+bazująca na reprezentacji semantycznej tekstu, wykorzystująca
+transformery do ekstrakcji cech.
+
+\subsubsection{Podział danych}
+Zbiór danych został odpowiednio podzielony, aby umożliwić skuteczne
+trenowanie i testowanie modeli:
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{5cm}|p{10cm}|}
+\hline
+\textbf{Część zbioru} & \textbf{Cechy} \\ \hline
+Zbiór treningowy, wynosi 80\% danych & Zawiera próbki używane do trenowania modeli \\ \hline
+Zbiór testowy, wynosi 20\% danych & Służy do oceny skuteczności wytrenowanego modelu na niewidzianych wcześniej danych \\ \hline
+\end{tabular}
+\caption{Podział zbioru danych i jego cechy}
+\label{tab:podzial_zbioru}
+\end{table}
+
+\subsection{Szczegóły dotyczące analizy PR Curve}
+PR Curve (Precision-Recall Curve) to jedno z podstawowych narzędzi
+służących do oceny skuteczności modeli klasyfikacji binarnej,
+szczególnie w przypadku problemów z nierównomiernym rozkładem klas. W
+badaniach nad wykrywaniem fałszywych informacji PR Curve odgrywa
+kluczową rolę, umożliwiając ocenę zdolności modeli do minimalizowania
+przypadków False Positives i False Negatives, co jest szczególnie
+istotne w kontekście klasyfikacji takich danych.
+
+Proces analizy PR Curve składa się z trzech głównych kroków. Pierwszym
+jest obliczanie metryk Precision i Recall dla różnych wartości progów
+klasyfikacji, co pozwala na stworzenie pełnej krzywej Precision-Recall.
+Następnie tworzy się wykresy, gdzie Precision umieszcza się na osi Y, a
+Recall na osi X, co pozwala na wizualizację zdolności modeli do
+klasyfikacji próbek. Ostatnim krokiem jest porównanie wartości PR-AUC,
+czyli obszaru pod krzywą Precision-Recall, który wskazuje na ogólną
+skuteczność modeli w wykrywaniu istotnych przypadków przy minimalizacji
+błędów.
+
+Znaczenie analizy PR Curve w eksperymentach:
+
+\begin{itemize}
+\item
+  \textbf{Lepsza interpretacja wyników w nierównomiernych zbiorach
+  danych:} W przypadku problemów takich jak wykrywanie fake news, klasy
+  mogą być silnie niezrównoważone (np. więcej artykułów prawdziwych niż
+  fałszywych). Metryki takie jak Accuracy mogą w takich przypadkach
+  wprowadzać w błąd, dlatego PR Curve jest bardziej miarodajna.
+\item
+  \textbf{Ocena modeli w różnych waMetodakach:} Analiza PR Curve umożliwia
+  ocenę skuteczności modeli w zależności od zmiany progów klasyfikacji,
+  co ma kluczowe znaczenie w praktycznych zastosowaniach.
+\item
+  \textbf{Możliwość porównania algorytmów:} PR Curve pozwala na
+  porównanie różnych modeli pod kątem ich zdolności do radzenia sobie z
+  trudnymi przypadkami. Dzięki temu można wskazać modele bardziej
+  odpowiednie do wykrywania fake news.
+\end{itemize}
+
+\section{Wyniki eksperymentalne dla bazowych metod}
+Porównanie wyników bazowych rozwiązań według miar \textbf{Log Loss},
+\textbf{Accuracy} oraz \textbf{Execution Time} pozwala na wszechstronną
+ocenę skuteczności, precyzji i wydajności analizowanych modeli. Wybór
+tych kryteriów umożliwia kompleksową analizę, która uwzględnia zarówno
+jakość predykcji, jak i aspekty praktyczne, takie jak dokładność modeli,
+precyzja w ocenie błędu oraz czas potrzebny na uzyskanie wyników.
+Podziały na \textbf{few shot}, \textbf{one shot} oraz \textbf{no shot}
+są kluczowe, ponieważ pozwalają ocenić skuteczność modeli w różnych
+scenariuszach dostępności danych. Dzięki nim można zrozumieć, jak dobrze
+modele radzą sobie w sytuacjach ograniczonych zasobów treningowych, co
+jest szczególnie istotne w praktycznych zastosowaniach, gdzie pełne dane
+nie zawsze są dostępne. Te kryteria odgrywają fundamentalną rolę w
+ocenie uniwersalności i adaptacyjności badanych rozwiązań.
+
+Dla przeprowadzenia eksperymentu wyłącznie autorskich metod, zostały
+wybrane \textbf{Sentence-BERT (SBERT)} jako reprezentację semantyczną
+tekstu oraz \textbf{Few-Shot Learning (FSL)} do techniki uczenia w
+kontekście danych. W przypadku analizy danych, obie dokładnie
+\textbf{SBERT} oraz \textbf{FSL} okazały się kluczowe dla uzyskania
+wysokiej jakości wyników dla zaimplementowanych metod,
+\textbf{wspominanych w rozdziale „Przegląd literatury''}.
+
+SBERT wyróżnia się na tle innych modeli, takich jak BERT czy RoBERTa,
+dzięki swojej zdolności do dokładniejszego uchwycenia relacji
+semantycznych między zdaniami. Pozwoliło to na znaczne zwiększenie
+efektywności w detekcji fałszywych wiadomości, co czyni go idealnym
+narzędziem w kontekście tego projektu.
+
+Z kolei Few-Shot Learning pokazał swoją elastyczność i zdolność do
+działania w sytuacjach, gdzie dostęp do dużych zbiorów danych jest
+ograniczony. Dzięki umiejętności skutecznego uczenia się na podstawie
+kilku przykładów, metoda ta umożliwiła osiągnięcie stabilnych i
+precyzyjnych wyników nawet w trudnych waMetodakach.
+
+\subsection{Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie BERT}
+\subsubsection{Log Loss}
+\paragraph{Wyniki}
+Na podstawie przedstawionych wykresów Log Loss dla trzech podejść
+uczenia maszynowego: klasycznego (no-shot), few-shot oraz one-shot,
+można zaobserwować następujące zależności w porównaniu z czerwonymi
+wynikami (Metoda17, Metoda18, Metoda19, Metoda20):
+
+\textbf{Na pierwszym wykresie (no-shot)} widoczna jest umiarkowana
+stabilność modeli, ponieważ większość uruchomień osiąga Log Loss w
+zakresie od 0.4 do 0.6. Wyróżnia się jednak \textbf{Metoda5}, które
+odnotowało najwyższą wartość Log Loss wynoszącą \textbf{1.2}, co
+wskazuje na problemy z dopasowaniem w tym przypadku. W porównaniu do
+wyników autorskich metod, takich jak \textbf{Metoda17} (0.02),
+\textbf{Metoda18} (0.002) oraz \textbf{Metoda19} (0.02), \textbf{Metoda5} wypada
+bardzo słabo, a istniejące metody reprezentują się gorzej. Wyniki
+autorskich metod charakteryzują się wyjątkowo niskimi wartościami Log
+Loss, oprócz \textbf{Metoda20 (0.62),} co nadal wskazuje na znacznie lepsze
+dopasowanie modeli w tych uruchomieniach.
+
+\textbf{Na drugim wykresie (few-shot)} większość uruchomień osiągnęła
+Log Loss w przedziale od 0.4 do 0.7. Wyjątkiem są \textbf{Metoda9} (0.7) i
+\textbf{Metoda6} (0.7), które wykazują wyższe wartości. Z kolei
+\textbf{Metoda10} osiągnęło najniższy Log Loss wynoszący \textbf{0.4}, co
+świadczy o najlepszym dopasowaniu modelu w tej grupie. W porównaniu do
+wyników autorskich metod, takich jak \textbf{Metoda17} (0.02),
+\textbf{Metoda18} (0.002) oraz \textbf{Metoda19} (0.02), widoczna jest
+przewaga zaimplementowanych modeli, które osiągają zdecydowanie niższe
+Log Loss niż większość wyników z tej grupy. Niestety \textbf{Metoda20
+(0.62)} posiada najgorszy wynik wśród autorskich rozwiązań, ale nadal
+znajduje się w dopuszczalnej skali granic wyników.
+
+\textbf{Na trzecim wykresie (one-shot)} większość uruchomień
+charakteryzuje się stabilnym Log Loss poniżej 0.6. Jednakże
+\textbf{Metoda5} z powrotem znacząco odstaje z wartością Log Loss wynoszącą
+\textbf{2.5}, co wskazuje na wyraźne problemy w tym podejściu. Najlepsze
+wyniki osiągnęły \textbf{Metoda1} (0.5), \textbf{Metoda9} (0.6) i
+\textbf{Metoda10} (0.6), które wykazały najniższe wartości Log Loss,
+potwierdzając skuteczność tych modeli. W porównaniu do wyników
+autorskich metod, widoczna jest dominacja autorskich modeli, które
+wykazują znacznie lepsze dopasowanie i większą stabilność. Wspominając
+wyłącznie o \textbf{Metoda20 (0.62)}, nawet taki wynik można zaznaczyć do
+najlepszych, porównując z wynikami \textbf{Metoda5(2.7), Metoda14(0.75),
+Metoda15(1.5) oraz Metoda16(0.75).}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_classic_Log Loss_comparison.png}
+\caption{Log Loss Bert z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.1}
+\label{fig:stat1.1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_few_shot_Log Loss_comparison.png}
+\caption{Log Loss Bert z few shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.2}
+\label{fig:stat1.2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_one_shot_Log Loss_comparison.png}
+\caption{Log Loss Bert z one shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.3}
+\label{fig:stat1.3}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Najlepsze wyniki są w wypadku najniższych Log Loss, czyli Metoda19, Metoda18,
+Metoda17 pełniają nasz cel, posiadając najniższe możliwe wartości Log Loss.
+Natomiast wśród najgorszych wyników, od razu się rzucają w oczy Metoda5,
+Metoda9, Metoda14, Metoda15 oraz Metoda16.
+
+Podejście few-shot wykazuje największą stabilność, ponieważ większość
+uruchomień osiąga niższego Log Loss, a najlepsze wyniki osiągają
+wyjątkowo niskie wartości Log Loss. One-shot oraz no-shot dają są
+najmniej stabilne -- szczególnie w przypadku Metoda5, gdzie Log Loss osiąga
+najwyższej wartości, co wyraźnie odstaje od pozostałych wyników. W
+każdym podejściu czerwone modele (Metoda17, Metoda18, Metoda19, Metoda20) uzyskują
+najlepsze rezultaty, co czyni je wzorem skuteczności.
+
+\subsubsection{Accuracy}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (no-shot)} większość uruchomień
+charakteryzuje się stabilnym poziomem Accuracy wynoszącym około
+\textbf{0.75}. Wyróżniają się jednak rozwiązania autorskiej
+implementacji: \textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19} i
+\textbf{Metoda20}, które osiągają maksymalny poziom Accuracy większy
+\textbf{0.9}, przy czym \textbf{Metoda20(0.9),} \textbf{Metoda17(1.0)},
+\textbf{Metoda18(1.0)}, \textbf{Metoda19(1.0)}. To wskazuje, że modele te
+znacznie przewyższają pozostałe pod względem skuteczności.
+
+\textbf{Na drugim wykresie (few-shot)} większość uruchomień prezentuje
+stabilne Accuracy na poziomie \textbf{0.6--0.7}. Najwyższe wyniki
+osiągają autorskie modele: \textbf{Metoda20(0.9),} \textbf{Metoda17(1.0)},
+\textbf{Metoda18(1.0)}, \textbf{Metoda19(1.0)}, podobnie jak w podejściu
+no-shot. W przypadku zaimplementowanych gotowych rozwiązań, takich jak
+\textbf{Metoda5}(0.9), Metoda10(1.0), Metoda11(0.8), widać poprawę w porównaniu
+do innych, które osiągają wartości poniżej \textbf{0.8}.
+
+\textbf{Na trzecim wykresie (one-shot)} widoczne są większe różnice w
+Accuracy pomiędzy poszczególnymi uruchomieniami. Autorskie modele
+\textbf{Metoda20(0.9),} \textbf{Metoda17(1.0)}, \textbf{Metoda18(1.0)},
+\textbf{Metoda19(1.0)} ponownie osiągają najwyższe wyniki, co wskazuje na
+ich wyraźną przewagę. Natomiast istniejące gotowe rozwiązania, są
+wszystkie równe i w zakresie 0.5.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_classic_Accuracy_comparison.png}
+\caption{Accuracy Bert z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.4}
+\label{fig:stat1.4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_few_shot_Accuracy_comparison.png}
+\caption{Accuracy Bert z few shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.5}
+\label{fig:stat1.5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_one_shot_Accuracy_comparison.png}
+\caption{Accuracy Bert z one shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.6}
+\label{fig:stat1.6}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Najlepsze wyniki są przy najwyższym poziomie Accuracy, sa dla
+\textbf{Metoda20(0.9),} \textbf{Metoda17(1.0)}, \textbf{Metoda18(1.0)},
+\textbf{Metoda19(1.0)} oraz już istniejących rozwiązań, takich jak
+\textbf{Metoda5}(0.9), Metoda10(1.0). Patrząc na to, że pod względem Log Loss
+\textbf{Metoda5} osiągnął najgorszego możliwego wyniku, natomiast posiada
+taki dobry w przypadku Accuracy. Naszym zdaniem, ten model był warty
+uwagi i był uwzględniony przy tworzeniu metod autorskich.
+
+Autorskie modele Metoda17, Metoda18, Metoda19, Metoda20 osiągają najwyższą
+skuteczność w każdym podejściu, uzyskując Accuracy na najwyższym
+możliwym poziomie, co czyni je wzorem dopasowania. Podejście no-shot
+oraz few-shot wykazują większą stabilność niż one-shot, gdzie większość
+uruchomień osiąga Accuracy na poziomie \textasciitilde0.5, co wskazuje
+na ograniczoną skuteczność tego podejścia.
+
+\subsubsection{Execution Time}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (podejście no-shot):} większość gotowych
+rozwiązań charakteryzuje się krótkim czasem wykonania,
+nieprzekraczającym \textbf{20 sekund} (np. \textbf{Metoda5}, \textbf{Metoda6},
+\textbf{Metoda10, Metoda13}). Wyjątkiem jest \textbf{Metoda16}, które osiąga czas
+wykonania wynoszący około \textbf{450 sekund}, oraz \textbf{Metoda3}, które
+przekracza \textbf{200 sekund}, co wskazuje na większą złożoność
+obliczeniową lub nieoptymalność w tych przypadkach. Autorskie modele
+(\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19}, \textbf{Metoda20})
+osiągają zróżnicowane wyniki -- najdłuższy czas wykazuje \textbf{Metoda18}
+(550 sekund), natomiast \textbf{Metoda20} (15 sekund) działa zdecydowanie
+szybciej i jest na liście najszybszych modeli.
+
+\textbf{Na drugim wykresie (few-shot)} większość niebieskich uruchomień
+wykazuje podobnie krótkie czasy wykonania jak w podejściu no-shot (np.
+\textbf{Metoda5}, \textbf{Metoda6}, \textbf{Metoda10, Metoda13}). \textbf{Metoda3} oraz
+\textbf{Metoda16} ponownie charakteryzują się dłuższym czasem wykonania,
+wynoszącym odpowiednio około \textbf{150 sekund} i \textbf{500 sekund}.
+Jednak autorskie modele osiągają zróżnicowane wyniki -- najkrótszy czas
+wykonania ma \textbf{Metoda20} (\textasciitilde15 sekund), a najdłuższy
+\textbf{Metoda18} (\textasciitilde500 sekund).
+
+\textbf{Na trzecim wykresie (one-shot)} zachowuje się ta sama tendencja
+w czasach wykonania. Większość istniających modeli działa szybko, nie
+przekraczając \textbf{10 sekund} (\textbf{Metoda6}, \textbf{Metoda10, Metoda13,
+Metoda15}), jednak \textbf{Metoda16} (\textasciitilde300 sekund)
+charakteryzuje się zauważalnie dłuższym czasem. Autorskie modele
+osiągają czasy od \textbf{10 sekund} (\textbf{Metoda20}) do \textbf{500
+sekund} (\textbf{Metoda18}), co wskazuje na większą złożoność modeli w tej
+grupie, ale nadal najlepszemu wynikowi wśród wszystkich rozwiązań Metoda20
+(15 sekund).
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_classic_Execution Time (s)_comparison.png}
+\caption{Execution Time Bert z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.7}
+\label{fig:stat1.7}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_few_shot_Execution Time (s)_comparison.png}
+\caption{Execution Time Bert z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.8}
+\label{fig:stat1.8}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_1_one_shot_Execution Time (s)_comparison.png}
+\caption{Execution Time Bert z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat1.9}
+\label{fig:stat1.9}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Najlepsze wyniki, które polegają na najkrótszym czasie wykonania należą
+do \textbf{Metoda6}, \textbf{Metoda10, Metoda13} oraz autorskiej implementacji
+Metoda20. Niestety wśród najgorszych możliwych wyników, niezależnie od
+metodologii, zawsze na wszystkich wykresach tendencja pozostawała taka
+sama negatywna dla \textbf{Metoda18} (\textasciitilde500 sekund),
+\textbf{Metoda3} oraz Metoda16. Patrząc na najlepszy możliwy wynik wśród
+Accuracy oraz Log Loss, taki czas wykonania dla Metoda18 nie powinienem się
+charakteryzować negatywnie. Natomiast Metoda20 posiada najlepszy możliwy
+czas wśród metod autorskich, mając lekko gorsze wyniki w porównaniu
+Accuracy oraz Log Loss.
+
+
+
+
+\subsection{Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie RoBERTa}
+\subsubsection{Log Loss}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (podejście no-shot)} większość gotowych
+rozwiązań osiąga wartości Log Loss w przedziale od \textbf{0.6} do
+\textbf{0.7}, co wskazuje na umiarkowaną stabilność w klasycznym
+podejściu. Wyjątkiem jest \textbf{Metoda5}, które osiągnęło najwyższą
+wartość Log Loss wynoszącą \textbf{1.4}, co sugeruje poważne problemy z
+dopasowaniem modelu w tym przypadku. Autorskie uruchomienia
+(\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19}) osiągają wyjątkowo
+niskie wartości Log Loss w zakresie od \textbf{0.01} do \textbf{0.3}, co
+czyni je wyraźnie lepszymi. Natomiast Metoda20 znajduje się w zakresie tych
+zwykłych metod, będąc w przedziale od \textbf{0.6} do \textbf{0.7.}
+
+\textbf{Na drugim wykresie (few-shot)} większość istniejących modeli
+osiąga wartości Log Loss w przedziale \textbf{0.6--0.7}, z wyraźnym
+wyjątkiem dla \textbf{Metoda5}, które osiągnęło stosunkowo niską wartość
+wynoszącą około \textbf{0.3}, co wskazuje na lepsze dopasowanie w tej
+iteracji. Autorskie uruchomienia ponownie dominują, osiągając wartości
+Log Loss w zakresie do \textbf{0.01} (\textbf{Metoda17}, \textbf{Metoda18},
+\textbf{Metoda19}) i podobnie jak poprzednio, od \textbf{0.6 do 0.7} dla
+\textbf{Metoda20}.
+
+\textbf{Na trzecim wykresie (one-shot)} większość gotowych uruchomień
+charakteryzuje się wartościami Log Loss poniżej \textbf{1.0}, co
+wskazuje na większą stabilność w porównaniu do pozostałych podejść.
+Wyjątkiem jest \textbf{Metoda5}, które osiągnęło najwyższą wartość
+wynoszącą aż \textbf{3.5}, co jest znacznie gorszym wynikiem w
+porównaniu do pozostałych uruchomień. Autorskie podejścia
+(\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19}) do rozwiązania problemu
+pozostają najlepsze, osiągając najniższe wartości Log Loss, podobnie jak
+w poprzednich wykresach. Również w tym przypadku tendencja do wyników u
+autorskiej implementacji Metoda20 zostaje taka sama jak było dla few-shot
+oraz no-shot.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_classic_Log Loss_comparison.png}
+\caption{Log Loss RoBERTa z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.1}
+\label{fig:stat2.1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_few_shot_Log Loss_comparison.png}
+\caption{Log Loss RoBERTa z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.2}
+\label{fig:stat2.2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_one_shot_Log Loss_comparison.png}
+\caption{Log Loss RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.3}
+\label{fig:stat2.3}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Autorskie modele (\textbf{Metoda17, Metoda18, Metoda19}) konsekwentnie osiągają
+najlepsze wyniki w każdym podejściu, z Log Loss w przedziale
+\textbf{0.01}, co czyni je najbardziej stabilnymi i skutecznymi.
+Podejście \textbf{few-shot oraz one-shot} charakteryzują się największą
+stabilnością dla gotowych modeli, z większością wyników poniżej
+\textbf{0.7}. W one-shot Metoda5 znacząco odstaje z wartością Log Loss
+wynoszącą aż \textbf{3.5}. Podejście \textbf{few-shot} wykazuje pewną
+poprawę w \textbf{Metoda5}, ale większość wyników jest zbliżona do
+one-shot. Podejście one-shot jest najmniej stabilne -- szczególnie w
+przypadku \textbf{Metoda5}, co wyraźnie odstaje od innych wyników.
+Autorskie modele pozostają wzorem jakości w każdym podejściu.
+
+\subsubsection{Accuracy}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (podejście no-shot)} większość gotowych
+metod osiąga Accuracy na poziomie około \textbf{0.6}, co wskazuje na
+umiarkowaną skuteczność klasycznego podejścia. Natomiast autorskie
+rozwiązania (\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19},
+\textbf{Metoda20}) zdecydowanie przewyższają pozostałe wyniki, osiągając
+maksymalne Accuracy na poziomie \textbf{1.0} w przypadku \textbf{Metoda17},
+\textbf{Metoda18}, \textbf{Metoda19} oraz 0.9 dla Metoda20, co potwierdza ich
+wysoką jakość.
+
+\textbf{Na drugim wykresie (few-shot)} widoczne są większe różnice
+pomiędzy uruchomieniami. Najwyższe wyniki osiąga \textbf{Metoda5} (0.8),
+natomiast najniższe \textbf{Metoda11} (\textasciitilde0.3). Autorskie
+modele się trzymają tendencji ponownie osiągają maksymalne Accuracy
+równą \textbf{1.0}, w przypadku \textbf{Metoda17}, \textbf{Metoda18},
+\textbf{Metoda19} oraz 0.9 dla Metoda20.
+
+\textbf{Na trzecim wykresie (one-shot) wyniki się} się wyróżniają w
+porównaniu do poprzednich. Większość zwykłych uruchomień osiąga Accuracy
+w przedziale równym 0.5, co jest negatywnym wynikiem i pokazuje, że
+wykorzystywanie one-shot ogranicza zbyt mocno działanie istniejących
+algorytmów. Autorskie modele dotrzymują się wspominanego trendu powyżej.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_classic_Accuracy_comparison.png}
+\caption{Accuracy RoBERTa z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.4}
+\label{fig:stat2.4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_few_shot_Accuracy_comparison.png}
+\caption{Accuracy RoBERTa z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.5}
+\label{fig:stat2.5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_one_shot_Accuracy_comparison.png}
+\caption{Accuracy RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.6}
+\label{fig:stat2.6}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Autorskie modele (\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19},
+\textbf{Metoda20}) konsekwentnie osiągają najlepsze wyniki w każdym
+podejściu, uzyskując maksymalne Accuracy w zakresie od 0.9 i do
+\textbf{1.0}, co świadczy o ich najwyższej skuteczności. W podejściu
+\textbf{no-shot} i \textbf{few-shot} można zaobserwować większą
+różnorodność w wynikach klasycznych modeli, przy czym \textbf{Metoda5}
+wyróżnia się w tych podejściach z wynikami zbliżonymi do \textbf{0.8}.
+Podejście one-shot wykazuje najniższą skuteczność, wszystkie istniejące
+modele osiągających Accuracy na poziomie \textbf{0.5}. Dominacja
+autorskich modeli potwierdza ich wyższość niezależnie od podejścia.
+
+\subsubsection{Execution Time}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (podejście no-shot)} większość klasycznych
+uruchomień charakteryzuje się relatywnie krótkimi czasami wykonania,
+mieszczącymi się w przedziale \textbf{0--200 sekund}. Wyjątkiem jest
+\textbf{Metoda9} (1400 sekund) oraz \textbf{Metoda16} (1600 sekund), które
+znacząco odstają od pozostałych wyników, co sugeruje większą złożoność
+obliczeniową lub nieoptymalność modeli w tych przypadkach. Autorskie
+metody (\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19}, \textbf{Metoda20})
+mają zróżnicowane czasy -- najkrótszy czas osiąga \textbf{Metoda20} (10
+sekund), a najdłuższy \textbf{Metoda18} (500 sekund).
+
+\textbf{Na drugim wykresie (few-shot)} większość już zaproponowanych ma
+krótkie czasy wykonania, poniżej \textbf{200 sekund}. Jednakże
+\textbf{Metoda16} (500 sekund) i \textbf{Metoda3} (150 sekund) charakteryzują
+się dłuższymi czasami, wskazując na większe wymagania obliczeniowe w
+tych przypadkach. Wymyślone autorskie modele zachowują tendencję z
+pierwszego wykresu -- \textbf{Metoda20} ma najkrótszy czas (10 sekund),
+natomiast najdłuższy czas osiąga \textbf{Metoda18} (500 sekund).
+
+\textbf{Na trzecim wykresie (one-shot)} wyniki są zbliżone do podejść
+few-shot i no-shot. Tendencja zachowuje się taka sama co poprzednio, z
+mianowicie oczywisty banał wynika, że większość niebieskich uruchomień
+osiąga czasy poniżej \textbf{200 sekund}, z wyjątkiem dla \textbf{Metoda16
+oraz Metoda3}. Wśród zaproponowanych przez nas modeli, \textbf{Metoda20} ma
+najkrótszy czas (10 sekund) i się wyróżnia w porównaniu do innych
+autorskich modeli.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_classic_Execution Time (s)_comparison.png}
+\caption{Execution Time RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.7}
+\label{fig:stat2.7}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_few_shot_Execution Time (s)_comparison.png}
+\caption{Execution Time RoBERTa z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.8}
+\label{fig:stat2.8}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_2_one_shot_Execution Time (s)_comparison.png}
+\caption{Execution Time RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat2.9}
+\label{fig:stat2.9}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Autorski model \textbf{Metoda20} się charakteryzuje się jednym najlepszych
+czasów wykonania, będąc najefektywniejsze we wszystkich podejściach z
+czasem około \textbf{10 sekund}. \textbf{Metoda18} systematycznie osiąga
+najdłuższe czasy wykonania wśród czerwonych modeli
+(\textasciitilde400--500 sekund). We wszystkich podejściach, wśród
+zwykłych modeli \textbf{Metoda3, Metoda9} i \textbf{Metoda16} znacząco odstają ze
+sporym czasem, co może wskazywać na nieoptymalność konfiguracji lub dużą
+złożoność obliczeniową. Szczególnie negatywna tendencję zachowują
+\textbf{Metoda3 oraz} Metoda16, bo posiadają najgorsze czasy wykonania we
+wszystkich konfiguracjachWorking.
+
+\subsection{Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie Sentence-BERT (SBERT)}
+\subsubsection{Log Loss}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (klasyczne podejście no-shot)} większość
+klasycznych metod uruchomienia osiąga wartości Log Loss w przedziale od
+\textbf{0.1} do \textbf{0.3}, co wskazuje na umiarkowaną stabilność tego
+podejścia. Wyjątkiem jest \textbf{Metoda4}, które osiągnęło najwyższą
+wartość Log Loss wynoszącą około \textbf{0.5}, co sugeruje problemy z
+dopasowaniem modelu. Autorskie uruchomienia \textbf{Metoda17},
+\textbf{Metoda18}, \textbf{Metoda19}osiągają wartości od \textbf{0.002} do
+\textbf{0.05}, przy czym \textbf{Metoda20} znacznie odstaje z najwyższą
+wartością w tej grupie, osiągając 0.6.
+
+\textbf{Na drugim wykresie (few-shot)} zauważalne są większe różnice w
+wynikach zwykłych modeli. Większość osiąga wartości Log Loss od
+\textbf{0.1} do \textbf{0.4}, a najwyższą wartość zanotowano dla
+\textbf{Metoda5} (0.8). Autorskie uruchomienia \textbf{Metoda17},
+\textbf{Metoda18}, \textbf{Metoda19} ponownie dominują, przy czym
+\textbf{Metoda20} znacznie odstaje, posiadając wyniki około \textbf{0.6}.
+
+\textbf{Na trzecim wykresie (one-shot)} wyniki są bardziej stabilne.
+Najniższe wartości są zaznaczone w przypadku Metoda5, Metoda13 oraz Metoda16.
+Wyjątkami w negatywnym sensie są \textbf{Metoda20 i Metoda2}, które osiągnęły
+najwyższą wartość wśród czerwonych modeli, wynoszącą \textbf{0.6}.
+Wspominając o autorskich uruchomieniach \textbf{Metoda17}, \textbf{Metoda18},
+\textbf{Metoda19} osiągają wyjątkowo niskie wartości Log Loss 0.01.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_classic_Log Loss_comparison.png}
+\caption{Log Loss SBERT z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.1}
+\label{fig:stat3.1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_few_shot_Log Loss_comparison.png}
+\caption{Log Loss SBERT z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.2}
+\label{fig:stat3.2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_one_shot_Log Loss_comparison.png}
+\caption{Log Loss SBERT z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.3}
+\label{fig:stat3.3}
+\end{figure}
+
+\paragraph{Podsumowanie}
+\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19} konsekwentnie osiągają
+najniższe wartości Log Loss w każdym podejściu, co potwierdza ich
+skuteczność. Jednak \textbf{Metoda20} w każdym podejściu osiąga wyraźnie
+wyższe wartości Log Loss w porównaniu do innych autorskich modeli.
+Modele klasyczne, takie jak \textbf{Metoda13 i Metoda16} niezależnie od
+podejścia, charakteryzują się najniższymi wartościami Log Loss, co może
+sugerować poprawne dopasowanie modeli w tych iteracjach. Natomiast Metoda5
+jest dość zmienne, co łatwo wywnioskować z porównania jego wyników dla
+few-shot, gdzie posiada najgorsze możliwe wartości wraz z one-shot,
+gdzie już ma najlepsze możliwe wartości.
+
+\subsubsection{Accuracy}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (klasyczne podejście no-shot) w}iększość
+modeli osiąga wysokie Accuracy, mieszczące się w zakresie od
+\textbf{0.8} do \textbf{1.0}, co świadczy o stabilnej skuteczności
+modeli w klasycznym podejściu. Autorskie uruchomienia \textbf{Metoda17},
+\textbf{Metoda18}, \textbf{Metoda19}, \textbf{Metoda20} osiągają maksymalną
+wartość Accuracy równą \textbf{1.0}, co czyni je najlepszymi w tej
+grupie. Spośród autorskich wyników wyróżnia się \textbf{Metoda20} z niższą
+wartością Accuracy 0.9.
+
+\textbf{Na drugim wykresie (few-shot)} większość klasycznych uruchomień
+również osiąga wysokie wartości Accuracy, wynoszące od \textbf{0.80} do
+\textbf{1.0}. Wyjątkiem są modele takie jak \textbf{Metoda3} i
+\textbf{Metoda4}, które osiągają wartości w dolnej granicy zakresu.
+Autorskie modele \textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19},
+\textbf{Metoda20} konsekwentnie osiągają Accuracy, utrzymując poprzednio
+obserwowane tendencje.
+
+\textbf{Na trzecim wykresie (one-shot) u większości} modeli osiągnięto
+wartość Accuracy zbliżone do \textbf{1.0}. Modele \textbf{Metoda17},
+\textbf{Metoda18}, \textbf{Metoda19} osiągają najwyższe wartości Accuracy,
+równą \textbf{1.0}, natomiast najniższy wynik należy do \textbf{Metoda20.}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_classic_Accuracy_comparison.png}
+\caption{Accuracy SBERT z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.4}
+\label{fig:stat3.4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_few_shot_Accuracy_comparison.png}
+\caption{Accuracy SBERT z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.5}
+\label{fig:stat3.5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_one_shot_Accuracy_comparison.png}
+\caption{Accuracy SBERT z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.6}
+\label{fig:stat3.6}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Praktycznie wszystkie autorskie modele \textbf{Metoda17}, \textbf{Metoda18},
+\textbf{Metoda19} osiągają najwyższe wartości Accuracy we wszystkich
+podejściach, co potwierdza ich przewagę w jakości. Klasyczne podejście
+no-shot oraz few-shot charakteryzują się większym rozrzutem wyników
+wśród niebieskich modeli, z nieco niższymi wartościami Accuracy
+(\textasciitilde0.85) w kilku uruchomieniach (\textbf{Metoda2},
+\textbf{Metoda3}, \textbf{Metoda4}). Podejście one-shot wykazuje największą
+stabilność, z większością modeli osiągających wyniki bliskie
+\textbf{1.0}, co czyni je najbardziej spójnym pod względem skuteczności.
+Czerwone modele niezmiennie dominują w każdej grupie.
+
+\subsubsection{Execution Time}
+\paragraph{Wyniki}
+\textbf{Na pierwszym wykresie (klasyczne podejście no-shot)} większość
+klasycznych uruchomień osiąga czasy wykonania poniżej \textbf{200
+sekund}, co wskazuje na ich relatywnie wysoką efektywność obliczeniową.
+Najlepsze wyniki sa dla Metoda1, Metoda5, Metoda10, Metoda13 oraz Metoda16. Wyjątkiem
+są \textbf{Metoda9} (4500 sekund), \textbf{Metoda16} (3500 sekund), które
+znacząco odbiegają od pozostałych wyników. Autorskie modele
+\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19}, \textbf{Metoda20})
+charakteryzują się zróżnicowanymi czasami wykonania -- najkrótszy czas
+osiąga \textbf{Metoda20} (10 sekund), a najdłuższy \textbf{Metoda18}
+(\textasciitilde400 sekund).
+
+\textbf{Na drugim wykresie (few-shot)} widać, że modele rzadko osiągają
+czasy poniżej \textbf{250 sekund}, wyróżniając wśród najlepszych Metoda5,
+Metoda6, Metoda10 i Metoda15. A wyjątkami od negatywnej strony są \textbf{Metoda3}
+(\textasciitilde1200 sekund) i \textbf{Metoda14} (\textasciitilde1700
+sekund). Autorskie uruchomienia zachowują przewagę -- \textbf{Metoda20}
+osiąga najkrótszy czas (\textasciitilde10 sekund), a \textbf{Metoda18}
+ponownie najdłuższy (\textasciitilde400 sekund).
+
+\textbf{Na trzecim wykresie (one-shot) są} największe rozbieżności
+czasów wykonania wśród niebieskich modeli. Chociaż większość z nich
+osiąga czasy poniżej \textbf{200 sekund}, to \textbf{Metoda3} (1200 sekund)
+oraz \textbf{Metoda14} (1400 sekund) znacząco odbiegają od pozostałych
+wyników. Autorskie modele zachowują stabilność, z \textbf{Metoda20} jako
+najszybszym (\textasciitilde10 sekund) i \textbf{Metoda18} jako
+najwolniejszym (\textasciitilde400 sekund).
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_classic_Execution Time (s)_comparison.png}
+\caption{Execution Time SBERT z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.7}
+\label{fig:stat3.7}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_few_shot_Execution Time (s)_comparison.png}
+\caption{Execution Time SBERT z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.8}
+\label{fig:stat3.8}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/stats/results_3_one_shot_Execution Time (s)_comparison.png}
+\caption{Execution Time SBERT z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}\label{stat3.9}
+\label{fig:stat3.9}
+\end{figure}
+
+\paragraph{Podsumowanie}
+Autorskie modele \textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19},
+\textbf{Metoda20} konsekwentnie osiągają krótsze czasy wykonania w
+porównaniu do większości zwykłych modeli, z \textbf{Metoda20} osiągającym
+najkrótszy czas (\textasciitilde10 sekund) w każdym podejściu. Wśród
+zwykłych modeli zauważalne są znaczące odstępstwa w czasie wykonania --
+szczególnie w podejściu \textbf{no-shot}, gdzie \textbf{Metoda9}
+(\textasciitilde4000 sekund) oraz \textbf{Metoda14} (\textasciitilde2000
+sekund) wykazują dużą złożoność obliczeniową. Podejście
+\textbf{few-shot} i \textbf{one-shot} są bardziej stabilne pod względem
+czasu, jednak również posiadają odstające modele (\textbf{Metoda3},
+\textbf{Metoda4}, \textbf{Metoda14}).
+
+
+
+
+
+\section{Porównanie wyników najlepszych bazowych rozwiązań}
+\subsection{Proponowane testy statystyczne}
+\textbf{Test Shapiro-Wilka} pozwala ocenić, czy dane w kolumnach
+numerycznych mają rozkład normalny. Jest to szczególnie istotne,
+ponieważ wiele testów statystycznych zakłada normalność danych, a sam
+\textbf{test Shapiro-Wilka} jest skuteczny zwłaszcza przy małych
+próbkach.
+
+\textbf{Test Kruskala-Wallisa} umożliwia porównanie median pomiędzy
+grupami, co pozwala określić, czy różnice między nimi są istotne
+statystycznie. Jego dużą zaletą jest brak założenia normalności
+rozkładu, dzięki czemu nadaje się do pracy z danymi o nieznanym lub
+nienormalnym rozkładzie.
+
+\textbf{Korelacja Pearsona} służy do pomiaru \textbf{liniowej
+zależności} pomiędzy dwiema zmiennymi liczbowymi. Jest przydatna w
+identyfikacji silnych relacji liniowych, które mogą wskazywać na
+potencjalne zależności przyczynowo-skutkowe w danych.
+
+Z kolei \textbf{korelacja Spearmana} ocenia \textbf{monotoniczną
+zależność} między zmiennymi, co sprawdza się w przypadku zależności
+nieliniowych lub danych porządkowych z wartościami odstającymi.
+
+\textbf{Histogramy} wizualizują rozkład danych w kolumnach numerycznych,
+co pozwala na szybką ocenę \textbf{kształtu rozkładu, asymetrii} oraz
+\textbf{obecności wartości odstających}.
+
+\subsection{Wybrane najlepsze bazowe metody}
+W analizie wyników wyraźnie wyróżnia się \textbf{Metoda10}, który osiągnął
+najniższy Log Loss w podejściu few-shot (0.4), co świadczy o najlepszym
+dopasowaniu modelu w tej grupie.
+
+Kolejnym istotnym modelem jest \textbf{Metoda1}, który charakteryzował się
+stabilnymi wartościami Log Loss poniżej 0.6 w podejściu one-shot,
+potwierdzając swoją skuteczność.
+
+W przypadku \textbf{Metoda9} odnotowano stabilny Log Loss (0.6) oraz dobrą
+skuteczność w podejściu one-shot, co czyni go godnym uwagi.
+
+Na szczególną uwagę zasługuje również \textbf{Metoda5}, który mimo słabego
+wyniku w metryce Log Loss w niektórych podejściach, osiągnął bardzo
+dobry wynik w Accuracy (0.9) w podejściu few-shot, pokazując swoje
+możliwości.
+
+Dodatkowo \textbf{Metoda6} wykazał się stabilnością oraz krótkimi czasami
+wykonania zarówno w podejściu no-shot, jak i few-shot, co czyni go
+jednym z efektywniejszych modeli pod względem wydajności.
+
+Wreszcie, \textbf{Metoda13} charakteryzował się krótkimi czasami wykonania
+oraz stabilnymi wynikami w większości podejść, co potwierdza jego dobrą
+optymalizację i skuteczność.
+
+
+\subsection{Reprezentacja wszystkich danych statystycznych}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Accuracy} & \textbf{Log Loss} & \textbf{Execution Time (s)} & \textbf{Metoda} \\ \hline
+1   & 0.026802889 & 37.7056427  & Metoda10\_results.csv \\ \hline
+0.8 & 0.45171819  & 0.723993063 & Metoda13\_results.csv \\ \hline
+1   & 0.027981209 & 74.19449925 & Metoda17\_results.csv \\ \hline
+1   & 0.002108043 & 543.5069363 & Metoda18\_results.csv \\ \hline
+1   & 0.027397671 & 162.6634991 & Metoda19\_results.csv \\ \hline
+0.5 & 0.504755825 & 22.14533353 & Metoda1\_results.csv  \\ \hline
+0.9 & 0.624626705 & 14.41849785 & Metoda20\_results.csv \\ \hline
+0.8 & 0.79800817  & 106.7345865 & Metoda5\_results.csv  \\ \hline
+0.9 & 0.335556619 & 96.85355759 & Metoda6\_results.csv  \\ \hline
+1   & 0.05420126  & 5254.920101 & Metoda9\_results.csv  \\ \hline
+\end{tabular}
+\caption{Porównanie wyników eksperymentalnych}
+\label{tab:wyniki_eksperymentalne}
+\end{table}
+
+\subsubsection{Test Shapiro-Wilka}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{metric} & \textbf{test}         & \textbf{mean} & \textbf{std} & \textbf{p\_value} & \textbf{normal\_distribution} \\ \hline
+Log Loss        & Shapiro-Wilk          & 0.285321123   & 0.296203627  & 0.057119309       & TRUE                          \\ \hline
+\end{tabular}
+\caption{Wyniki testu Shapiro-Wilka dla metryki Log Loss}
+\label{tab:shapiro_wilk_log_loss}
+\end{table}
+Metryka \textbf{Log Loss} wykazuje zgodność z rozkładem normalnym na
+podstawie wyniku testu Shapiro-Wilka. Średnia wartość Log Loss wynosi
+\textbf{0.2853}, a odchylenie standardowe to \textbf{0.2962}. Wartość p
+równa \textbf{0.0571} jest wyższa od poziomu istotności 0.05, co
+wskazuje, że dane mogą być analizowane za pomocą metod parametrycznych.
+
+\subsubsection{Test Kruskala-Wallisa}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{metric} & \textbf{test}        & \textbf{stat} & \textbf{p\_value} & \textbf{significant} \\ \hline
+Accuracy        & Kruskal-Wallis      & 9             & 0.437274189        & FALSE                \\ \hline
+Log Loss        & Kruskal-Wallis      & 9             & 0.437274189        & FALSE                \\ \hline
+Execution Time (s) & Kruskal-Wallis   & 9             & 0.437274189        & FALSE                \\ \hline
+\end{tabular}
+\caption{Wyniki testu Kruskala-Wallisa dla różnych metryk}
+\label{tab:kruskal_wallis}
+\end{table}
+Test Kruskala-Wallisa jest używany do porównania więcej niż dwóch grup
+pod względem median, zakładając, że dane niekoniecznie pochodzą z
+rozkładu normalnego. Możemy zauważyć, że dla każdej z analizowanych
+metryk wartość \textbf{p-value} jest większa od typowego poziomu
+istotności (\textbf{0.05}). To prowadzi nas do wniosku, że:
+
+\begin{itemize}
+\item
+  Nie ma dowodów na istotne różnice w dokładności modeli pomiędzy
+  grupami.
+\item
+  Różnice w wartościach funkcji strat logarytmicznych również nie są
+  istotne.
+\item
+  Czas wykonania różni się między eksperymentami, jednak różnice te nie
+  są statystycznie znaczące.
+\end{itemize}
+
+\textbf{Jakie wnioski można wyciągnąć?}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Accuracy}:
+
+  \begin{itemize}
+  \item
+    Możemy zauważyć, że dokładność modeli osiąga wartość maksymalną w
+    wielu przypadkach. To może sugerować, że użyte algorytmy są dobrze
+    dostosowane do danych. Jednak brak istotności statystycznej
+    wskazuje, że różnice między eksperymentami nie są znaczące.
+  \item
+    W praktyce oznacza to, że wybór konkretnego modelu spośród
+    analizowanych eksperymentów prawdopodobnie nie wpłynie znacząco na
+    osiąganą dokładność.
+  \end{itemize}
+\item
+  \textbf{Log Loss}:
+
+  \begin{itemize}
+  \item
+    Funkcja strat logarytmicznych charakteryzuje się mniejszymi
+    wartościami w lepszych modelach. Widzimy, że wartości te różnią się
+    między eksperymentami, ale test Kruskala-Wallisa nie wskazuje na
+    istotne różnice.
+  \item
+    Możemy przypuszczać, że wszystkie analizowane modele mają
+    porównywalną zdolność do przewidywania prawdopodobieństw.
+  \end{itemize}
+\item
+  \textbf{Execution Time}:
+
+  \begin{itemize}
+  \item
+    Analizując czas wykonania, widzimy znaczne różnice między
+    eksperymentami. Przykładowo, w jednym przypadku czas wynosi zaledwie
+    0.7 sekundy, a w innym przekracza \textbf{543 sekund}. Pomimo tego,
+    test statystyczny nie wykazuje istotności tych różnic.
+  \item
+    Może to wynikać z faktu, że dla testu Kruskala-Wallisa liczy się
+    rozkład wartości, a nie same ekstremalne różnice.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Co jeszcze możemy zrobić?}
+
+Bazując na wynikach, możemy rozważyć kilka dalszych kroków:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Szczegółowa analiza danych}:
+
+  \begin{itemize}
+  \item
+    Sprawdzenie, czy wyniki nie są zakłócane przez potencjalne błędy w
+    danych wejściowych lub metodologii.
+  \item
+    Analiza rozkładów wartości każdej metryki w grupach, co może pomóc
+    lepiej zrozumieć brak istotności statystycznej.
+  \end{itemize}
+\item
+  \textbf{Dalsze testy statystyczne}:
+
+  \begin{itemize}
+  \item
+    Jeśli chcemy potwierdzić te wyniki, możemy przeprowadzić inne testy,
+    takie jak ANOVA lub test U Manna-Whitneya, które mogą lepiej
+    uwzględniać różnice między parami grup.
+  \end{itemize}
+\item
+  \textbf{Optymalizacja czasowa}:
+
+  \begin{itemize}
+  \item
+    W przypadku \textbf{Execution Time}, warto zastanowić się nad
+    optymalizacją algorytmów, które wymagają najdłuższego czasu
+    obliczeń.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Podsumowanie}
+
+Widzimy, że przeprowadzone analizy pozwalają na wyciągnięcie kilku
+istotnych wniosków:
+
+\begin{itemize}
+\item
+  Brak istotnych różnic w wynikach testu sugeruje, że użyte algorytmy
+  mają podobną skuteczność w każdej z analizowanych metryk.
+\item
+  Znaczne różnice w czasie wykonania wymagają dodatkowej analizy,
+  szczególnie jeśli celem jest zwiększenie efektywności obliczeniowej.
+\item
+  Na podstawie przedstawionych wyników możemy uznać, że test
+  Kruskala-Wallisa nie wykazał różnic statystycznie istotnych, co
+  oznacza, że różnorodność wyników nie wpływa znacząco na ogólną jakość
+  modeli w badanej grupie.
+\end{itemize}
+
+\subsubsection{Korelacja Pearsona}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{}                  & \textbf{Accuracy} & \textbf{Log Loss} & \textbf{Execution Time (s)} \\ \hline
+\textbf{Accuracy}          & 1                 & 0.669047872        & 0.27774502                  \\ \hline
+\textbf{Log Loss}          & 0.669047872       & 1                 & -0.314798004                \\ \hline
+\textbf{Execution Time (s)} & 0.27774502        & 0.314798004        & 1                           \\ \hline
+\end{tabular}
+\caption{Macierz korelacji między Accuracy, Log Loss i Execution Time}
+\label{tab:korelacja}
+\end{table}
+Na pierwszy rzut oka możemy zauważyć znaczne zróżnicowanie między
+wynikami poszczególnych eksperymentów. Na przykład:
+
+\begin{itemize}
+\item
+  Dokładność (Accuracy) waha się między 80\% a 100\%.
+\item
+  Log Loss zmienia się od wartości bardzo niskich, bliskich zera, do
+  znacznie wyższych.
+\item
+  Czas wykonania różni się diametralnie, od niecałej sekundy do ponad
+  500 sekund.
+\end{itemize}
+
+Te różnice wskazują, że w eksperymentach mogły być testowane różne
+modele, zestawy danych lub konfiguracje hiperparametrów.
+
+\textbf{Jakie zależności możemy zauważyć?}
+
+Po obliczeniu korelacji Pearsona między zmiennymi, uzyskaliśmy macierz
+korelacji zapisaną w pliku pearson\_correlation\_matrix.csv. Macierz ta
+ukazuje siłę i kieMetodaek relacji między trzema głównymi zmiennymi:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Accuracy (dokładność),
+\item
+  Log Loss (strata logarytmiczna),
+\item
+  Execution Time (czas wykonania).
+\end{enumerate}
+
+Wartości korelacji prezentują się następująco:
+
+\begin{itemize}
+\item
+  Korelacja między \textbf{Accuracy} a \textbf{Log Loss} wynosi
+  \textbf{-0.669}.
+\item
+  Korelacja między \textbf{Execution Time} a \textbf{Accuracy} wynosi
+  \textbf{0.278}.
+\item
+  Korelacja między \textbf{Execution Time} a \textbf{Log Loss} wynosi
+  \textbf{-0.315}.
+\end{itemize}
+
+\textbf{Co możemy wywnioskować na podstawie korelacji?}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Accuracy i Log Loss:}
+
+  \begin{itemize}
+  \item
+    Zauważamy umiarkowanie silną ujemną korelację między dokładnością a
+    funkcją straty logarytmicznej. W praktyce oznacza to, że im lepsza
+    dokładność modelu, tym niższa wartość Log Loss. Jest to zgodne z
+    intuicją, ponieważ dokładne modele generują bardziej precyzyjne
+    przewidywania, co prowadzi do mniejszego błędu.
+  \item
+    Warto podkreślić, że zależność ta jest kluczowa dla oceny jakości
+    modeli. Wysoka dokładność przy jednocześnie niskiej wartości Log
+    Loss oznacza, że model radzi sobie dobrze nie tylko w klasyfikacji,
+    ale również w przypisywaniu poprawnych prawdopodobieństw.
+  \end{itemize}
+\item
+  \textbf{Accuracy i Execution Time:}
+
+  \begin{itemize}
+  \item
+    Korelacja między dokładnością a czasem wykonania wynosi
+    \textbf{0.278}, co sugeruje słabą dodatnią zależność. Możemy
+    zauważyć, że dłuższy czas wykonania modelu często wiąże się z
+    nieznacznie lepszą dokładnością. Jest to zrozumiałe, gdyż bardziej
+    złożone modele, które wymagają więcej czasu obliczeniowego, często
+    oferują wyższą dokładność.
+  \item
+    Warto jednak zwrócić uwagę na koszt obliczeniowy -- długie czasy
+    wykonania mogą być problematyczne w praktycznych zastosowaniach,
+    gdzie istotna jest szybkość działania modelu.
+  \end{itemize}
+\item
+  \textbf{Execution Time i Log Loss:}
+
+  \begin{itemize}
+  \item
+    Korelacja między czasem wykonania a Log Loss wynosi \textbf{-0.315},
+    co wskazuje na słabą ujemną zależność. Możemy zauważyć, że modele,
+    które działają dłużej, mają tendencję do osiągania mniejszych
+    wartości Log Loss. To ponownie sugeruje, że bardziej złożone
+    algorytmy, choć czasochłonne, mogą generować bardziej precyzyjne
+    przewidywania.
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Jak możemy wykorzystać te wyniki?}
+
+Dane te dostarczają cennych informacji, które mogą być wykorzystane do
+optymalizacji procesu modelowania:
+
+\begin{itemize}
+\item
+  \textbf{Zrozumienie kompromisu między dokładnością a czasem
+  wykonania:} Jeśli czas obliczeń jest ograniczeniem, można zdecydować
+  się na mniej złożone modele, które oferują akceptowalny poziom
+  dokładności przy krótszym czasie wykonania.
+\item
+  \textbf{Monitorowanie jakości predykcji:} Dzięki relacji między
+  Accuracy a Log Loss możemy lepiej ocenić, czy poprawa jednego
+  wskaźnika wpływa pozytywnie na drugi.
+\item
+  \textbf{Planowanie zasobów obliczeniowych:} Słaba korelacja między
+  Execution Time a Log Loss wskazuje, że istnieją sposoby na skrócenie
+  czasu działania bez znaczącej utraty jakości predykcji.
+\end{itemize}
+
+\textbf{Podsumowanie}
+
+Wyniki korelacji Pearsona pokazują, że dokładność modeli, ich funkcja
+straty logarytmicznej oraz czas wykonania są ze sobą powiązane w różnym
+stopniu. Widoczne zależności sugerują, że wybór modelu zawsze będzie
+wymagał kompromisu między jakością predykcji a kosztami obliczeniowymi.
+Warto wykorzystać te informacje do dalszej optymalizacji i tworzenia
+bardziej efektywnych modeli, szczególnie w kontekście zastosowań
+wymagających równowagi między szybkością działania a dokładnością.
+
+
+
+
+\subsubsection{Korelacja Spearmana}
+Dzięki analizie danych z macierzy korelacji Spearmana możemy zauważyć
+kilka istotnych zależności między cechami, które opisują wyniki
+działania modeli. Nasza analiza obejmuje trzy kluczowe metryki:
+\textbf{dokładność (Accuracy)}, \textbf{stratę logarytmiczną (Log Loss)}
+oraz \textbf{czas wykonania (Execution Time)}. Interpretując wyniki
+korelacji, zauważamy konkretne wzorce, które pomagają lepiej zrozumieć,
+jak te zmienne wpływają na siebie nawzajem.
+
+\textbf{Możemy zauważyć...}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Silny negatywny związek między dokładnością a stratą
+  logarytmiczną}: Wartość korelacji Spearmana wynosi -0.8398, co
+  oznacza, że dokładność rośnie wraz ze spadkiem straty logarytmicznej.
+  Jest to intuicyjne, ponieważ modele lepiej przewidujące wyniki mają
+  niższe wartości funkcji kosztu. Na przykład model o dokładności 1.0
+  osiąga niską stratę logarytmiczną, co widzimy w danych wejściowych
+  (np. 0.0268 w jednym przypadku).
+\end{enumerate}
+
+\textbf{Widzimy więc}, że inwestowanie w optymalizację modeli pod kątem
+precyzyjności ma sens, gdy celem jest minimalizacja strat. Modele, które
+skuteczniej przewidują poprawne klasyfikacje, mają tendencję do
+minimalizowania błędów w swoich prognozach.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Umiarkowany pozytywny związek między dokładnością a czasem
+  wykonania}: Korelacja Spearmana wynosi 0.5794. \textbf{Oznacza to}, że
+  wyższa dokładność modeli często wiąże się z wydłużonym czasem ich
+  działania. Na przykład modele, które osiągają dokładność 1.0, mają
+  czasy wykonania sięgające nawet 543 sekund, podczas gdy mniej dokładne
+  modele (np. dokładność 0.8) kończą się znacznie szybciej.
+\end{enumerate}
+
+\textbf{Możemy zatem zauważyć}, że bardziej złożone modele, które
+wymagają większej liczby operacji obliczeniowych, częściej osiągają
+lepsze wyniki. Jednak warto zadać pytanie, czy czas wykonania jest
+akceptowalny w zależności od potrzeb danego projektu. W praktyce może
+być konieczne znalezienie kompromisu między czasem działania a jakością
+wyników.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  \textbf{Słaby negatywny związek między stratą logarytmiczną a czasem
+  wykonania}: Wartość korelacji wynosi -0.4424, co sugeruje, że modele z
+  niższą stratą logarytmiczną mogą wymagać więcej czasu na wykonanie.
+  Chociaż związek ten nie jest bardzo silny, \textbf{widzimy pewną
+  tendencję}, że bardziej dokładne modele z niską stratą potrzebują
+  dodatkowych zasobów obliczeniowych.
+\end{enumerate}
+
+\textbf{Możemy zauważyć}, że optymalizacja strat może być powiązana z
+wyższym kosztem czasowym. Dla użytkowników priorytetem może być
+określenie, czy minimalizacja strat jest wystarczająco ważna, by
+uzasadnić wydłużenie czasu działania.
+
+\textbf{Możemy interpretować...}
+
+Korelacje Spearmana pomagają nam lepiej zrozumieć wzorce w danych i
+pozwalają na głębszą analizę efektywności modeli. \textbf{Możemy
+interpretować wyniki} w kontekście trzech kluczowych wniosków:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Dokładność jako najważniejszy cel:} Silny negatywny związek
+  między dokładnością a stratą logarytmiczną sugeruje, że precyzyjne
+  modele z małym błędem predykcji są najbardziej pożądane w naszym
+  kontekście. Widzimy, że minimalizacja straty logarytmicznej idzie w
+  parze z lepszymi wynikami, co potwierdza słuszność optymalizacji w tym
+  kieMetodaku.
+\item
+  \textbf{Koszt czasowy jako wyzwanie:} Modele o wysokiej dokładności
+  wymagają dłuższego czasu wykonania. Możemy zauważyć, że istnieje
+  potrzeba znalezienia kompromisu między szybkością działania a jakością
+  wyników. W przypadku zastosowań czasu rzeczywistego skrócenie czasu
+  działania może być kluczowe, nawet kosztem minimalnej utraty
+  dokładności.
+\item
+  \textbf{Zależności między stratą a czasem działania:} Choć relacja
+  między stratą logarytmiczną a czasem działania jest słabsza, widzimy,
+  że modele, które minimalizują stratę, często wymagają dodatkowych
+  zasobów obliczeniowych. W praktyce optymalizacja czasu działania może
+  obejmować uproszczenie architektury modelu bez znaczącej utraty
+  dokładności.
+\end{enumerate}
+
+\textbf{Możemy ulepszyć...}
+
+Aby efektywnie wykorzystać wyniki analizy, możemy wdrożyć kilka zmian i
+ulepszeń:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Zoptymalizowanie algorytmów pod kątem czasu działania:} Wydaje
+  się, że niektóre modele osiągają wysoką dokładność przy minimalnym
+  koszcie czasowym. \textbf{Możemy zastosować} techniki takie jak
+  redukcja liczby funkcji lub uproszczenie obliczeń, aby przyspieszyć
+  modele bez większej utraty dokładności.
+\item
+  \textbf{Wyważenie dokładności i czasu:} Jeśli czas działania jest
+  krytyczny, warto rozważyć modele o nieco niższej dokładności, ale
+  krótszym czasie działania. \textbf{Możemy zaprojektować} algorytmy,
+  które dynamicznie dostosowują złożoność w zależności od wymagań
+  użytkownika.
+\item
+  \textbf{Wykorzystanie korelacji do selekcji modeli:} Wyniki Spearmana
+  mogą służyć jako podstawa do automatycznej selekcji modeli. Na
+  przykład modele o wysokiej dokładności i umiarkowanym czasie działania
+  mogą być preferowane w sytuacjach, gdzie dokładność jest kluczowa, ale
+  czas działania nie może być zbyt długi.
+\end{enumerate}
+
+\textbf{Podsumowując...}
+
+Test korelacji Spearmana pozwolił na odkrycie istotnych zależności
+między kluczowymi zmiennymi opisującymi wyniki modeli. Możemy zauważyć,
+że dokładność jest silnie powiązana z minimalizacją straty
+logarytmicznej oraz umiarkowanie zależna od czasu wykonania. Relacja
+między stratą a czasem działania jest słabsza, ale zauważalna.
+
+Nasza analiza wskazuje, że optymalizacja modeli powinna uwzględniać te
+wzorce, aby zrównoważyć dokładność, czas działania i zasoby
+obliczeniowe. Możemy ulepszyć procesy optymalizacyjne, opierając się na
+korelacjach, by stworzyć bardziej efektywne i wydajne modele.
+
+
+\subsection{Analiza wyników autorskich rozwiązań w zależności od architektury}
+Analizując wyniki poszczególnych modeli, widzimy wyraźne różnice w ich
+skuteczności i wydajności, co wynika z zastosowanych architektur i metod
+trenowania. \textbf{Metoda17} opiera się na sieci neuronowej z dynamicznym
+ważeniem próbek. Dzięki temu model skupia się na trudniejszych
+przykładach, co pozwala osiągnąć perfekcyjne wyniki w metrykach takich
+jak dokładność, precyzja, recall czy MCC. Mechanizm ważenia próbek
+zapewnia efektywne dopasowanie, zwłaszcza w przypadku zróżnicowanych
+danych. Jednak czas wykonania wynoszący 74 sekundy jest stosunkowo
+długi, a brak wyników walidacji krzyżowej uniemożliwia pełną ocenę
+zdolności modelu do generalizacji na nowych danych.
+
+\textbf{Metoda18} wykorzystuje Gradient Boosting i CatBoost, które są
+jednymi z najbardziej zaawansowanych modeli opartych na drzewach
+decyzyjnych, połączonych meta-modelem w postaci regresji logistycznej.
+Taka kombinacja pozwala na perfekcyjne dopasowanie i uzyskanie idealnych
+wyników we wszystkich metrykach, w tym w walidacji krzyżowej. To
+pokazuje, jak skuteczna jest synergia silnych modeli bazowych
+wspieranych meta-modelem. Jednak czas wykonania, wynoszący ponad 543
+sekundy, jest największą wadą tego rozwiązania, co czyni je
+niepraktycznym w sytuacjach wymagających szybkiego działania.
+
+\textbf{Metoda19} łączy Random Forest i Extra Trees, również z
+wykorzystaniem meta-modelu. Ta architektura, podobnie jak w przypadku
+\textbf{Metoda18}, osiąga idealne wyniki we wszystkich metrykach i zapewnia
+stabilność dzięki zastosowaniu walidacji krzyżowej. Random Forest i
+Extra Trees są znane z efektywnego radzenia sobie z nieregularnymi
+danymi, co przyczynia się do ich wysokiej skuteczności. Czas wykonania
+wynoszący 162 sekundy jest jednak znacznie lepszy niż w \textbf{Metoda18},
+choć wciąż ustępuje \textbf{Metoda20} pod względem wydajności.
+
+\textbf{Metoda20} prezentuje podejście, które łączy LightGBM i CatBoost
+jako modele bazowe. Chociaż te algorytmy są znane z wysokiej wydajności
+i elastyczności, ich wyniki są nieco gorsze w takich metrykach jak
+recall (0.8) i F1-score (0.89) w porównaniu z innymi modelami. Przyczyną
+tej różnicy może być specyfika działania obu algorytmów w kontekście
+zastosowanego zbioru danych oraz ich interakcji w ramach meta-modelu.
+
+LightGBM, choć wyjątkowo szybki i wydajny, stosuje agresywną strategię
+dzielenia danych (leaf-wise growth), co może prowadzić do nadmiernego
+dopasowania na pewnych podzbiorach, a jednocześnie trudności w pełnym
+uchwyceniu bardziej subtelnych wzorców w danych. Ten problem może być
+szczególnie widoczny, gdy dane są bardzo zróżnicowane lub zawierają
+niewielką liczbę trudnych przypadków, co bezpośrednio wpływa na niższą
+wartość recall -- model mógł "przegapić" część rzeczywistych przypadków
+pozytywnych.
+
+Z kolei CatBoost, choć bardzo dobrze radzi sobie z danymi kategorycznymi
+i ma wbudowane mechanizmy minimalizujące nadmierne dopasowanie, wymaga
+większej liczby iteracji, aby w pełni wykorzystać swój potencjał w
+trudniejszych zadaniach klasyfikacyjnych. W przypadku \textbf{Metoda20}
+liczba iteracji mogła być zbyt niska, co ograniczyło zdolność modelu do
+pełnego dopasowania do danych. W efekcie oba modele bazowe mogły nie w
+pełni uzupełniać swoje braki, co przełożyło się na niższe wyniki w
+metrykach wymagających większej równowagi między precyzją a recall.
+
+Dodatkowo, meta-model regresji logistycznej, choć skuteczny w łączeniu
+predykcji z obu algorytmów, mógł nie w pełni skorygować rozbieżności
+wyników między LightGBM a CatBoost. W rezultacie, choć predykcje te były
+dobrze dopasowane w aspekcie ogólnych prawdopodobieństw (co widać w
+idealnym wyniku ROC-AUC), ich zastosowanie w bardziej szczegółowych
+miarach, takich jak F1-score, wykazało pewne ograniczenia.

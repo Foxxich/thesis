@@ -1,0 +1,106 @@
+% !TEX encoding = UTF-8 Unicode 
+%
+% Use:
+% magister / inzynier - for master thesis or engineering thesis
+% druk / archiwum - for print version or archive version
+% en - to translate template into english
+% examples:
+%\documentclass[inzynier,druk,en] - master thesis, print version, english
+%\documentclass[magister,druk,en]{dyplom}
+%\documentclass[magister,druk]{dyplom}
+
+\documentclass[magister,druk,pl]{dyplom}
+\usepackage[utf8]{inputenc}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{listings}
+\usepackage{graphicx} % Dla wczytywania obrazów
+\usepackage{float}    % Dla opcji [H]
+\usepackage{caption}
+
+\lstset
+{ %Formatting for code in appendix
+    language=Python,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    captionpos=b
+}
+
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{graphicx,wrapfig,lipsum}
+
+% Maximum section's depth.
+\setcounter{secnumdepth}{2}
+% 0 - chapter only
+% 1 - chapter + section
+% 2 - chapter + section + subsection
+% 3 - chapter + section + subsection + subsubsection
+% 4 - -||- + paragraph
+
+% Listings settings
+%\setminted{breaklines, 
+%frame=lines,           
+%framesep=3mm,          
+%baselinestretch=1.1,   
+%fontsize=\small,       
+%% linenos              % line numbering
+%}
+
+\usepackage{lipsum}
+\raggedbottom
+\newcommand{\vl}[1]{{\color{blue} {\bf VL}: \small{#1}}}
+\newcommand{\kg}[1]{{\color{magenta} {\bf KG}: \small{#1}}}
+
+% \faculty{Faculty of \dots}                   % Uncomment if applicable
+\fieldofstudy{Informatyka Stosowana (IST)} 
+\author{Vadym Liss}
+\title{Wykrywanie Fake News przy użyciu metod zespołowego uczenia maszynowego}
+\supervisor{Dr inż. Bernadetta Maleszka}
+% \consultant{Consultant's name}               % Uncomment if applicable
+\specialisation{Zastosowania Specjalistycznych Technologii Informatycznych (ZSTI)}                         
+\keywords{uczenie maszynowe, Fake News, sztuczna inteligencja}	% 3-5 keywords  
+
+\begin{document}
+
+\maketitle
+
+\input{chapters/abstract}
+
+\tableofcontents
+
+\input{chapters/chapter1_Introduction.tex}
+
+\input{chapters/chapter2_Literature}
+
+\input{chapters/chapter3_Our_Methods}
+
+\input{chapters/chapter4_Implementation}
+
+
+\input{chapters/chapter5_Tests_Results}
+
+\input{chapters/summary}
+
+% Bibliography
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+% Lists of figures, listings, tables
+\listoffigures
+%\listoflistings
+%\listoftables
+
+% Appendices - comment out if not applicable
+\appendixpage
+\appendix
+\input{chapters/appendix1}
+
+\end{document}

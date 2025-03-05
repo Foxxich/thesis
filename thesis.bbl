@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{metoda12}
+Adedoyin~S. Adeyemi, Sunday~O. Asakpa, Kehinde~H. Bello, Olajide~N. Saliu,
+  Olabisi~M. Olaoye, and Nike~T. Toye.
+\newblock Fake news detection using ensemble methods: an empirical evaluation
+  of bagging and boosting algorithms.
+\newblock {\em International Journal of Advances in Engineering and Management
+  (IJAEM)}, 6(06):317--325, 2024.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{Aimeur2023}
+Esma Aïmeur, Sabrine Amri, and Gilles Brassard.
+\newblock Fake news, disinformation and misinformation in social media: a
+  review.
+\newblock {\em Social Network Analysis and Mining}, 13(1):30, 2023.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda7}
+Sourya~Dipta Das, Ayan Basak, and Saikat Dutta.
+\newblock A heuristic-driven uncertainty based ensemble framework for fake news
+  detection in tweets and news articles.
+\newblock {\em Neurocomputing}, 491:607--620, 2022.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{articleUnified}
+Shafin Rahman, Salman Khan, and Fatih Porikli.
+\newblock A unified approach for conventional zero-shot, generalized zero-shot,
+  and few-shot learning.
+\newblock {\em IEEE Transactions on Image Processing}, PP, 06 2017.
+
+\bibitem{DBLP_Gurevych}
+Nils Reimers and Iryna Gurevych.
+\newblock Sentence-bert: Sentence embeddings using siamese bert-networks.
+\newblock {\em CoRR}, abs/1908.10084, 2019.
+
+\end{thebibliography}

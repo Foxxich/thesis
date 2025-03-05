@@ -1,0 +1,52 @@
+\section{Korzyści zastosowania metod zespołowego uczenia maszynowego}
+Jak wspomniano w podanym artykule \cite{KHAN2024122778},
+\textbf{ensemble learning} to metoda uczenia maszynowego, która polega
+na łączeniu wyników wielu modeli w celu poprawy dokładności predykcji. Główne klasy metod ensemble learning obejmują
+\textbf{bagging, boosting}, \textbf{stacking} oraz inne. Każda z
+tych technik znajduje zastosowanie w rozwiązaniu problemów nierównowagi
+klas (class imbalance), gdzie liczba próbek jednej klasy jest znacznie
+większa od liczby próbek drugiej klasy. Takie sytuacje mogą prowadzić do
+stronniczości modeli maszynowych na korzyść klasy większościowej, co
+prowadzi do błędnej klasyfikacji próbek klasy mniejszościowej. Bardziej
+szczegółowy opis wspominanych powyżej metod zostanie omówiony w
+następnym podrozdziale.
+
+W artykule wykazano, że metody ensemble są szczególnie skuteczne w
+przypadku danych nierównoważnych, takich jak:
+
+\begin{itemize}
+\item
+  Wykrywanie oszustw (fraud detection),
+\item
+  Analiza sentymentu,
+\item
+  Diagnostyka medyczna,
+\item
+  Prognozowanie awarii urządzeń.
+\end{itemize}
+
+W porównaniu do pojedynczych modeli, metody zespołowe osiągają lepsze
+wyniki zarówno w metrykach klasyfikacyjnych, jak i ogólnej dokładności.
+Ponadto, odpowiednio zaprojektowane metody ensemble mogą redukować
+problem nadmiernego dopasowania (overfitting). Chcielibyśmy wyróżnić
+następujące \textbf{zalety} stosowania metod zespołowego
+uczenia maszynowego:
+
+\begin{itemize}
+\item
+  \textbf{Zwiększona odporność na błędy}: Ensemble learning zmniejsza
+  ryzyko błędów spowodowanych nadmierną wariancją lub stronniczością
+  pojedynczych modeli, co zapewnia bardziej stabilne i wiarygodne
+  wyniki.
+\item
+  \textbf{Integracja różnorodnych modeli}: Możliwość łączenia różnych
+  typów modeli pozwala na wykorzystanie ich indywidualnych mocnych
+  stron, co zwiększa skuteczność w zadaniach
+  klasyfikacyjnych i regresyjnych.
+\item
+  \textbf{Skuteczność w rozwiązywaniu problemów nierównowagi klas}:
+  Ensemble learning wykazuje lepsze wyniki w zadaniach z nierównomiernym
+  rozkładem klas, zwłaszcza gdy jest stosowany w połączeniu z metodami
+  wzbogacania danych, takimi jak SMOTE czy generatywne sieci
+  przeciwstawne (GANs).
+\end{itemize}
