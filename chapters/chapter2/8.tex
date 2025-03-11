@@ -1,0 +1,50 @@
+\section{Implementacja analizy wyników}
+
+W podanym rozdziale opisujemy końcowy etap implementacji, wspólny dla wszystkich implementowanych rozwiązań metod uczenia zespołowego, obejmujący ewaluację modeli oraz analizę i wizualizację uzyskanych wyników. Ten proces został zaimplementowany w dwóch głównych etapach i koncentruje się na porównaniu skuteczności klasyfikacji dla metod naukowych zarówno jak autorskich.
+
+Dane wejściowe do analizy wyników są generowane przez każdą z 20 metod (\texttt{metoda1} do \texttt{metoda20}), które zwracają wytrenowany model oraz dane testowe w następującej postaci:
+\begin{itemize}
+    \item \textbf{model} – wytrenowany klasyfikator, reprezentujący implementację danej metody, gotowy do generowania predykcji.
+    \item \textbf{X\_test} – tablica \texttt{ndarray} zawierająca cechy zbioru testowego, które mogą być wektorami TF-IDF lub osadzeniami kontekstowymi z BERT, RoBERTa czy Sentence Transformers, wykorzystywanymi do oceny modelu.
+    \item \textbf{y\_test} – lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru testowego: 0 dla fałszywych wiadomości, 1 dla prawdziwych; służące jako punkt odniesienia dla predykcji.
+\end{itemize}
+Te dane są przekazywane do dalszej ewaluacji i analizy, a ich struktura jest spójna dla wszystkich metod, co umożliwia standaryzowane porównanie wyników.
+
+
+Pierwszym krokiem jest ewaluacja modeli przy użyciu funkcji \texttt{evaluate\_model}, wywoływanej dla każdej metody po jej uruchomieniu. Poniżej znajduje się szczegółowy opis parametrów przekazywanych do funkcji \texttt{evaluate\_model}:
+\begin{itemize}
+    \item \textbf{model} – zwrócony parametr wyniku metody, szczegółowo opisaliśmy poprzednio.
+    \item \textbf{X\_test} – zwrócony parametr wyniku metody, szczegółowo opisaliśmy poprzednio.
+    \item \textbf{y\_test} – zwrócony parametr wyniku metody, szczegółowo opisaliśmy poprzednio.
+    \item \textbf{run\_type} – identyfikator typu uruchomienia, używany do oznaczania wyników w plikach wyjściowych.
+    \item \textbf{output\_path} – ścieżka do katalogu, w którym zapisywane są wyniki, umożliwiająca organizację danych wyjściowych.
+    \item \textbf{start\_time} – znacznik czasu rozpoczęcia uruchomienia, służący do obliczania całkowitego czasu wykonania.
+\end{itemize}
+
+Wspominając o szczegółach tego kroku, funkcja rozpoczyna od przeprowadzenia walidacji krzyżowej (\texttt{StratifiedKFold}, 5 podziałów, \texttt{random\_state=42}), obliczając średnią dokładność (\texttt{cv\_accuracy\_mean}) oraz odchylenie standardowe (\texttt{cv\_accuracy\_std}). Następnie model generuje predykcje prawdopodobieństw (\texttt{predict\_proba} dla modeli scikit-learn lub \texttt{predict} dla modeli Keras), które są konwertowane na etykiety binarne przy progu 0.5. Obliczane są metryki oceny, w tym: 
+\begin{itemize}
+    \item \textbf{Accuracy}
+    \item \textbf{Precision}
+    \item \textbf{Recall}
+    \item \textbf{F1-Score}
+    \item \textbf{ROC-AUC}
+    \item \textbf{MCC} 
+    \item \textbf{Log Loss}
+    \item \textbf{Cohen's Kappa} 
+\end{itemize}
+Dodatkowo mierzony jest czas wykonania (\texttt{Execution Time}), a wyniki walidacji krzyżowej są dołączane do metryk. Wszystkie wartości są zapisywane do pliku CSV w formacie \texttt{runX\_results.csv}, a krzywa Precision-Recall (\texttt{precision\_recall\_curve}) jest generowana i zapisywana jako \texttt{runX\_pr\_curve.csv}. Na koniec metryki są wyświetlane w konsoli, co pozwala na szybką weryfikację skuteczności modelu. W tym procesie \texttt{model} jest używany do generowania predykcji, \texttt{X\_test} i \texttt{y\_test} służą do obliczania metryk oceny i walidacji krzyżowej, \texttt{run\_type} oraz \texttt{output\_path} określają format i lokalizację zapisu wyników, a \texttt{start\_time} pozwala zmierzyć czas wykonania. Kluczowe parametry wykorzystane w procesie ewaluacji modeli obejmują:
+\begin{itemize}
+    \item \textbf{n\_splits=5} – liczba podziałów w walidacji krzyżowej, określająca, ile razy dane są dzielone na zestawy treningowe i testowe w celu obliczenia średniej dokładności.
+    \item \textbf{random\_state=42} – ziarno losowości, zapewniające odtwarzalność podziałów danych w walidacji krzyżowej i podziale treningowym/testowym.
+    \item \textbf{threshold=0.5} – próg prawdopodobieństwa, powyżej którego predykcje są klasyfikowane jako klasa pozytywna (1), stosowany w konwersji prawdopodobieństw na etykiety binarne.
+    \item \textbf{zero\_division=0} – wartość domyślna dla obsługi dzielenia przez zero w metrykach precyzji i czułości, zapobiegająca błędom przy braku predykcji jednej z klas.
+    \item \textbf{flatten=True} – parametr określający, czy predykcje z modeli Keras powinny być spłaszczone do jednowymiarowej tablicy, ułatwiając dalsze przetwarzanie.
+\end{itemize}
+
+Drugim krokiem jest analiza i wizualizacja wyników, realizowana przez skrypt generujący wykresy porównawcze. Skrypt ten przetwarza wyniki z różnych folderów \newline \texttt{results\_1\_classic}, \texttt{results\_2\_few\_shot} oraz \texttt{results\_3\_no\_shot}, obejmujących uruchomienia metod od 1 do 20 oraz dodatkowe pliki porównawcze. Wyniki ze wszystkich plików są łączone w jedną tabelę danych z dodaną kolumną \texttt{Metoda} wskazującą numer metody, których posiadamy 20. Dla metryki \texttt{Execution Time (s)} usuwane są wartości odstające. Następnie generowane są wykresy słupkowe dla wybranych metryk (\texttt{Accuracy}, \texttt{Execution Time (s)}, \texttt{Log Loss}), z różnym kolorem dla danych metod autorskich oznaczonych na czerwono i naukowych na niebiesko. Dodatkowo, dla wszystkich uruchomień generowany jest wykres krzywych Precision-Recall na podstawie danych z plików \texttt{runX\_pr\_curve.csv}, z legendą wskazującą metodę i kolorem odróżniającym źródła danych. Poniżej są opisane parametry wykorzystane w procesie analizy i wizualizacji wyników:
+\begin{itemize}
+    \item \textbf{IQR=1.5} – mnożnik zakresu międzykwartylowego, określający granice usuwania wartości odstających dla metryki \texttt{Execution Time (s)}.
+    \item \textbf{figsize=(10, 6)} – rozmiar wykresów słupkowych w calach: szerokość 10, wysokość 6; zapewniający czytelność wizualizacji.
+    \item \textbf{figsize=(12, 8)} – rozmiar wykresu krzywych Precision-Recall w calach: szerokość 12, wysokość 8; dostosowany do większej liczby linii.
+    \item \textbf{color=['red', 'skyblue']} – kolory słupków na wykresach, gdzie czerwony oznacza dane autorskich metod, a niebieski dane naukowych implementacji.
+\end{itemize}

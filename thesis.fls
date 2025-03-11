@@ -484,31 +484,27 @@ INPUT chapters\chapter2\5.tex
 INPUT .\chapters\chapter2\6.tex
 INPUT .\chapters\chapter2\6.tex
 INPUT chapters\chapter2\6.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
 INPUT .\chapters\chapter2\7.tex
 INPUT .\chapters\chapter2\7.tex
 INPUT chapters\chapter2\7.tex
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Modele oparte na drzewach.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram Aktywności metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
-INPUT .\img\diagrams\Diagram blokowy metoda 7.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda12.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\img\diagrams\metoda1.drawio.png
+INPUT .\chapters\chapter2\8.tex
+INPUT .\chapters\chapter2\8.tex
+INPUT chapters\chapter2\8.tex
 INPUT .\chapters\chapter3_Our_Methods.tex
 INPUT .\chapters\chapter3_Our_Methods.tex
 INPUT .\chapters\chapter3_Our_Methods.tex

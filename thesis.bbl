@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{metoda12}
 Adedoyin~S. Adeyemi, Sunday~O. Asakpa, Kehinde~H. Bello, Olajide~N. Saliu,
@@ -7,6 +7,14 @@ Adedoyin~S. Adeyemi, Sunday~O. Asakpa, Kehinde~H. Bello, Olajide~N. Saliu,
   of bagging and boosting algorithms.
 \newblock {\em International Journal of Advances in Engineering and Management
   (IJAEM)}, 6(06):317--325, 2024.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda1}
+Abdullah~Marish Ali, Fuad~A. Ghaleb, Bander Ali~Saleh Al-Rimy, Fawaz~Jaber
+  Alsolami, and Asif~Irshad Khan.
+\newblock Deep ensemble fake news detection model using sequential deep
+  learning technique.
+\newblock {\em Sensors}, 22(18), 2022.
 \newblock Uzyskano dostęp: 23 January 2024.
 
 \bibitem{Aimeur2023}
@@ -23,15 +31,72 @@ Sourya~Dipta Das, Ayan Basak, and Saikat Dutta.
 \newblock {\em Neurocomputing}, 491:607--620, 2022.
 \newblock Uzyskano dostęp: 23 January 2024.
 
+\bibitem{metoda8}
+M.A. Ganaie, Minghui Hu, A.K. Malik, M.~Tanveer, and P.N. Suganthan.
+\newblock Ensemble deep learning: A review.
+\newblock {\em Engineering Applications of Artificial Intelligence},
+  115:105151, 2022.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda6}
+Alireza Ghorbanali, Mohammad~Karim Sohrabi, and Farzin Yaghmaee.
+\newblock Ensemble transfer learning-based multimodal sentiment analysis using
+  weighted convolutional neural networks.
+\newblock {\em Information Processing \& Management}, 59(3):102929, 2022.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda5}
+Saqib Hakak, Mamoun Alazab, Suleman Khan, Thippa~Reddy Gadekallu, Praveen
+  Kumar~Reddy Maddikunta, and Wazir~Zada Khan.
+\newblock An ensemble machine learning approach through effective feature
+  extraction to classify fake news.
+\newblock {\em Future Generation Computer Systems}, 117:47--58, 2021.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda13}
+Azal~Ahmad Khan, Omkar Chaudhari, and Rohitash Chandra.
+\newblock A review of ensemble learning and data augmentation models for class
+  imbalanced problems: Combination, implementation and evaluation.
+\newblock {\em Expert Systems with Applications}, 244:122778, 2024.
+\newblock Uzyskano dostęp: 23 January 2024.
+
 \bibitem{articleUnified}
 Shafin Rahman, Salman Khan, and Fatih Porikli.
 \newblock A unified approach for conventional zero-shot, generalized zero-shot,
   and few-shot learning.
 \newblock {\em IEEE Transactions on Image Processing}, PP, 06 2017.
 
+\bibitem{metoda2}
+Amit~Neil Ramkissoon and Wayne Goodridge.
+\newblock Enhancing the predictive performance of credibility-based fake news
+  detection using ensemble learning.
+\newblock {\em The Review of Socionetwork Strategies}, 16(2):259--289, 2022.
+\newblock Uzyskano dostęp: 23 January 2024.
+
 \bibitem{DBLP_Gurevych}
 Nils Reimers and Iryna Gurevych.
 \newblock Sentence-bert: Sentence embeddings using siamese bert-networks.
 \newblock {\em CoRR}, abs/1908.10084, 2019.
+
+\bibitem{metoda4}
+Arjun Roy, Kingshuk Basak, Asif Ekbal, and Pushpak Bhattacharyya.
+\newblock A deep ensemble framework for fake news detection and classification,
+  2018.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda15}
+K~V, B~B Al-onazi, V~Simic, E~B Tirkolaee, and C~Jana.
+\newblock Deepfnd: An ensemble-based deep learning approach for the
+  optimization and improvement of fake news detection in digital platform.
+\newblock {\em PeerJ Computer Science}, 9:e1666, 2023.
+\newblock Uzyskano dostęp: 23 January 2024.
+
+\bibitem{metoda3}
+Pawan Verma, Prateek Agrawal, Ivone Amorim, and Radu Prodan.
+\newblock Welfake: Word embedding over linguistic features for fake news
+  detection.
+\newblock {\em IEEE Transactions on Computational Social Systems}, PP:1--13, 04
+  2021.
+\newblock Uzyskano dostęp: 23 January 2024.
 
 \end{thebibliography}
