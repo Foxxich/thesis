@@ -1,219 +1,226 @@
 \section{Implementacja wybranych naukowych metod}
-Celem niniejszego przeglądu jest analiza wybranych implementacji stosowanych w wykrywaniu fake newsów. Podzielono je na pięć głównych kategorii: \textbf{modele oparte na drzewach} (Tree-Based Models), \textbf{modele liniowe i statystyczne} (Linear and Statistical Models), \textbf{sieci neuronowe} (Neural Networks), \textbf{zespoły klasyfikatorów} (Ensemble Classifiers) oraz \textbf{modele z ulepszeniami} (Enhanced Models). W każdej z tych kategorii omówiono charakterystyczne cechy oraz innowacyjne modyfikacje w implementacjach, które przyczyniają się do poprawy skuteczności klasyfikacji.
+Celem niniejszego przeglądu jest analiza wybranych implementacji stosowanych w wykrywaniu fake newsów. Podzielono je na pięć głównych kategorii: \textbf{modele oparte na drzewach} (Tree-Based Models), \textbf{modele liniowe i statystyczne} (Linear and Statistical Models), \textbf{sieci neuronowe} (Neural Networks), \textbf{zespoły klasyfikatorów} (Ensemble Classifiers) oraz \textbf{modele zoptymalizowane} (Optimized Models). W każdej z tych kategorii omówiono charakterystyczne cechy oraz innowacyjne modyfikacje w implementacjach, które przyczyniają się do poprawy skuteczności klasyfikacji.
 Pragniemy podkreślić, że wszystkie 16 omawianych podejść i implementacji bazują na 16 różnych metodach naukowych, stanowiących fundament analizy. Wybór tych konkretnych metod został podyktowany ich udokumentowaną skutecznością w literaturze naukowej, ze szczególnym uwzględnieniem publikacji z ostatnich lat, które koncentrują się na analizie danych tekstowych i detekcji dezinformacji. Metody te zostały wyselekcjonowane na podstawie ich zdolności do adresowania kluczowych wyzwań w tym obszarze, takich jak przetwarzanie danych, modelowanie złożonych zależności semantycznych oraz radzenie sobie z niezrównoważonymi zbiorami danych, charakterystycznymi dla problematyki fake newsów. Dodatkowo, istotnym czynnikiem wyboru była łatwość implementacji, dostępność propozycji kodu źródłowego w popularnych bibliotekach, gotowych implementacji, oraz programistyczna wygoda, ułatwiająca adaptację i testowanie tych metod w praktyce.
 
 Dodatkowo, proponujemy traktować każde podejście, opisane w jednym z 16 artykułów naukowych, jako odrębną metodę, co ułatwi ich prezentację i wyjaśnienie. Jednocześnie podkreślamy, że autorskie metody, będą omówione w kolejnych rozdziałach, zostaną przedstawione jako metody numer 17, 18, 19 i 20, uzupełniając cel badania. Autorskie metody zostały opracowane na podstawie analizy 16 wspominanych wyżej podejść naukowych, co pozwoliło na stworzenie skutecznych rozwiązań.
 
 \subsection{Modele oparte na drzewach}
 \subsubsection{metoda12}
-\texttt{metoda12} – Random Forest i CatBoost: dane treningowe i testowe są przyjmowane, sprawdzana jest ich poprawność wymiarów, następnie oba modele są trenowane równolegle. Random Forest jest trenowany na danych treningowych, CatBoost z monitorowaniem danych testowych, a wyniki dla obu modeli są zapisywane w słowniku i zwracane jako struktura zawierająca wytrenowane klasyfikatory Random Forest i CatBoost wraz z danymi testowymi \texttt{X\_test}, czyli tablicą cech testowych, oraz etykietami \texttt{y\_test} w formie tablicy z wartościami 0 i 1 oznaczającymi fałsz lub prawdę, w celu późniejszego wyboru najlepszych w kroku analizy. Różnica pomiędzy naszą implementacją a artykułem polega na tym, że implementacja z artykułu podaje dodatkowe hiperparametry Random Forest w następującej formie:
-\begin{itemize}
-	\item \textbf{criterion}: \texttt{"gini"},
-	\item \textbf{min\_samples\_split}: \texttt{2},
-	\item \textbf{min\_samples\_leaf}: \texttt{1},
-	\item \textbf{bootstrap}: \texttt{True},
-\end{itemize}
-które nie są jawnie zdefiniowane w kodzie. Opis się bazuje na artykule \cite{metoda12}, który nas zainteresował swoją równoległością oraz podejściem do integracji różnych modeli. Szczegóły implementacji są pokazane na podanym diagramie \ref{fig:diagram_metoda12}.
+\texttt{metoda12} – Random Forest i CatBoost: dane treningowe i testowe są przyjmowane, sprawdzana jest ich poprawność wymiarów, następnie oba modele są trenowane równolegle. Random Forest jest trenowany na danych treningowych, CatBoost z monitorowaniem danych testowych, a wyniki dla obu modeli są zapisywane w słowniku i zwracane jako struktura zawierająca wytrenowane klasyfikatory Random Forest i CatBoost wraz z danymi testowymi \texttt{X\_test}, czyli tablicą cech testowych, oraz etykietami \texttt{y\_test} w formie tablicy z wartościami 0 i 1 oznaczającymi fałsz lub prawdę, w celu późniejszego wyboru najlepszych w kroku analizy. 
+
+Pomysł na implementację \texttt{metoda12} się bazuje na artykule \cite{metoda12}, który nas zainteresował swoją równoległością oraz podejściem do integracji różnych modeli. Różnica pomiędzy naszą implementacją a podejściem opisanym w artykule polega na tym, że implementacja z artykułu uwzględnia dodatkowe ustawienia dla modelu Random Forest, które nie są obecne w naszej wersji. W artykule określono, jak model powinien oceniać jakość podziału (używając miary o nazwie Gini), minimalną liczbę próbek potrzebną do podzielenia węzła na mniejsze części (ustaloną na dwie próbki), minimalną liczbę próbek wymaganych w liściach drzewa (ustaloną na jedną próbkę) oraz sposób losowego wyboru próbek do trenowania każdego drzewa. Nasza implementacja nie uwzględnia tych szczegółowych ustawień, skupiając się jedynie na ogólnej liczbie drzew. Szczegóły implementacji są pokazane na podanym diagramie \ref{fig:diagram_metoda12}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{img/diagrams/metoda12.drawio.png}
+	\includegraphics[width=0.4\textwidth]{img/diagrams/metoda12.drawio.png}
 	\caption{Schemat metody 12.}
 	\label{fig:diagram_metoda12}
 \end{figure}
 
 \subsection{Sieci neuronowe}
 \subsubsection{metoda1}
-\texttt{metoda1} – Ensemble modeli MLP: trenuje się pięć modeli sieci neuronowych, z których każdy ma losowo wybrane parametry, takie jak liczba neuronów w warstwach, tempo uczenia czy poziom odrzucania (dropout), aby zwiększyć różnorodność. Każdy model jest budowany sekwencyjnie, warstwa po warstwie, z trzema warstwami ukrytymi, które zawierają normalizację danych, funkcję aktywacji LeakyReLU i odrzucanie części neuronów, co zapobiega przeuczeniu. Na końcu jest warstwa wyjściowa z funkcją sigmoidalną, która daje wynik między 0 a 1. Modele są trenowane przez 20 cykli, z partiami po 64 próbki, na danych treningowych, a ich skuteczność jest sprawdzana na danych testowych. Szybkość uczenia jest automatycznie zmniejszana, jeśli wyniki na danych testowych przestają się poprawiać, co pomaga w lepszym dopasowaniu modelu. Po wytrenowaniu każdego modelu jego predykcje na danych testowych są zapisywane, a następnie uśredniane, aby uzyskać ostateczny wynik. Wyniki zwracają listę wytrenowanych modeli oraz cechy zbioru walidacyjnego \texttt{X\_test} w formie tablicy danych testowych i etykiety \texttt{y\_test} jako tablicę z wartościami 0 lub 1 oznaczającymi fałsz lub prawdę.
+\texttt{metoda1} – Ensemble modeli MLP: trenuje się pięć modeli sieci neuronowych, z których każdy ma losowo wybrane parametry, takie jak liczba neuronów w warstwach, tempo uczenia czy poziom odrzucania (dropout), aby zwiększyć różnorodność. Każdy model jest budowany sekwencyjnie, warstwa po warstwie, z trzema warstwami ukrytymi, które zawierają normalizację danych, funkcję aktywacji LeakyReLU i odrzucanie części neuronów, co zapobiega przeuczeniu. Na końcu jest warstwa wyjściowa z funkcją sigmoidalną, która daje wynik między 0 a 1. Modele są trenowane przez 20 cykli, z partiami po 64 próbki, na danych treningowych, a ich skuteczność jest sprawdzana na danych testowych. Szybkość uczenia jest automatycznie zmniejszana, jeśli wyniki na danych testowych przestają się poprawiać, co pomaga w lepszym dopasowaniu modelu. 
 
+Po wytrenowaniu każdego modelu jego predykcje na danych testowych są zapisywane, a następnie uśredniane, aby uzyskać ostateczny wynik. Wyniki zwracają listę wytrenowanych modeli oraz cechy zbioru walidacyjnego \texttt{X\_test} w formie tablicy danych testowych i etykiety \texttt{y\_test} jako tablicę z wartościami 0 lub 1 oznaczającymi fałsz lub prawdę.
 
 Predykcje są uśredniane dla 5 modeli, obliczając średnią arytmetyczną danych wyjściowych. Różnica pomiędzy naszą implementacją a artykułem polega na tym, że artykuł opisuje sekwencyjne uczenie zespołowe z MLP w dwóch etapach (wielokrotne klasyfikatory binarne i MLP dla decyzji finalnej), podczas gdy kod naszej implementuje równoległe trenowanie wielu modeli MLP z uśrednianiem predykcji bez podziału na etapy.
 
-
-Pomysł wynika z artykułu \cite{metoda1}, w którym implementacja opiera się na trzyetapowym procesie:
-\begin{itemize}
-	\item ekstrakcja i reprezentacja cech za pomocą TF-IDF oraz n-gramów,
-	\item sekwencyjne trenowanie ensemble klasyfikatorów binarnych z gęstymi sieciami neuronowymi,
-	\item finalna klasyfikacja za pomocą MLP na podstawie ukrytych cech,
-\end{itemize}
-Chcąc zaprezentować nasz pomysł, szczegóły implementacji są pokazane na podanym diagramie \ref{fig:diagram_metoda1}.
+Nasza implementacja \texttt{metoda1} czerpie inspirację z artykułu \cite{metoda1}. Wspólnym elementem jest wykorzystanie zespołu klasyfikatorów binarnych opartych na sieciach neuronowych do klasyfikacji 0 i 1, a także zastosowanie wielowarstwowego perceptronu (MLP) w procesie decyzyjnym. Obie metody opierają się na danych tekstowych, które są przekształcane w liczby przed klasyfikacją. Różnica polega na tym, że artykuł opisuje sekwencyjne uczenie zespołowe w dwóch etapach – najpierw trenowanie wielokrotnych klasyfikatorów binarnych, a następnie użycie MLP do finalnej decyzji na podstawie ukrytych cech, podczas gdy nasza implementacja trenuje wiele modeli MLP równolegle i łączy ich wyniki przez uśrednianie predykcji, bez podziału na etapy. Szczegóły naszej koncepcji przedstawia diagram \ref{fig:diagram_metoda1}.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{img/diagrams/metoda1.drawio.png}
+	\includegraphics[width=0.8\textwidth]{img/diagrams/metoda1.drawio.png}
 	\caption{Schemat metody 1.}
 	\label{fig:diagram_metoda1}
 \end{figure}
 
 \subsubsection{metoda4}
-\texttt{metoda4} – Bi-LSTM, CNN i sieć MLP: połączenie sieci neuronowych z klasyfikacją sigmoidalną. Dane wejściowe są najpierw przekształcane, aby były dwuwymiarowe, potem ujednolicane pod względem wartości, a ich długość jest sprawdzana, by pasowała do wymagań sieci. Następnie tworzona jest warstwa wejściowa, przez którą dane przechodzą do trzech części: dwukierunkowej warstwy LSTM (Bi-LSTM), warstwy analizującej wzorce (CNN) z redukcją wymiarów, oraz prostej warstwy MLP. Wyniki z tych części są spłaszczane, łączone i przetwarzane przez dodatkową warstwę MLP, a na końcu klasyfikowane za pomocą funkcji sigmoidalnej. Model jest trenowany przez 3 cykle z partiami po 256 próbek, z danymi testowymi używanymi do walidacji. Wyniki są zwracane jako wytrenowany model oraz przygotowane dane testowe. Wytrenowany model to gotowa sieć neuronowa, która może przewidywać, czy dana wiadomość jest prawdziwa (oznaczona 1) czy fałszywa (oznaczona 0). Przygotowane dane testowe obejmują zmodyfikowaną tablicę cech (\texttt{X\_test\_reshaped}), która jest dostosowana do wymiarów sieci dla zgodności z modelem, oraz tablicę etykiet (\texttt{y\_test}) zawierającą wartości 0 lub 1, służące do sprawdzenia poprawności predykcji.
+\texttt{metoda4} – Bi-LSTM, CNN i sieć MLP: połączenie sieci neuronowych z klasyfikacją sigmoidalną. 
 
+Dane wejściowe są najpierw przekształcane, aby były dwuwymiarowe, potem ujednolicane pod względem wartości, a ich długość jest sprawdzana, by pasowała do wymagań sieci. Następnie tworzona jest warstwa wejściowa, przez którą dane przechodzą do trzech części: dwukierunkowej warstwy LSTM (Bi-LSTM), warstwy analizującej wzorce (CNN) z redukcją wymiarów, oraz prostej warstwy MLP. Wyniki z tych części są spłaszczane, łączone i przetwarzane przez dodatkową warstwę MLP, a na końcu klasyfikowane za pomocą funkcji sigmoidalnej. Model jest trenowany przez 3 cykle z partiami po 256 próbek, z danymi testowymi używanymi do walidacji. 
+
+Wyniki są zwracane jako wytrenowany model oraz przygotowane dane testowe. Wytrenowany model to gotowa sieć neuronowa, która może przewidywać, czy dana wiadomość jest prawdziwa (oznaczona 1) czy fałszywa (oznaczona 0). Przygotowane dane testowe obejmują zmodyfikowaną tablicę cech (\texttt{X\_test\_reshaped}), która jest dostosowana do wymiarów sieci dla zgodności z modelem, oraz tablicę etykiet (\texttt{y\_test}) zawierającą wartości 0 lub 1, służące do sprawdzenia poprawności predykcji.
 
 Pomysł wynika z artykułu \cite{metoda4}, w którym różnica pomiędzy naszą implementacją a oryginałem polega na tym, że artykuł opisuje ensemble oparty na CNN i Bi-LSTM z klasyfikacją wieloklasową za pomocą Softmax, podczas gdy nasza implementacja skupia się na klasyfikacji binarnej, łącząc Bi-LSTM, CNN i MLP w jednej sieci bez oddzielnych etapów analizy cech. Chcąc zaprezentować nasz pomysł, szczegóły implementacji są pokazane na podanym diagramie \ref{fig:diagram_metoda4}.
 \begin{figure}[H]
 	\centering
-	%   \includegraphics[width=\textwidth]{img/diagrams/metoda4.drawio.png}
+	\includegraphics[width=0.4\textwidth]{img/diagrams/metoda4.drawio.png}
 	\caption{Schemat metody 4.}
 	\label{fig:diagram_metoda4}
 \end{figure}
 
 \subsubsection{metoda15}
-\texttt{metoda15} – Ensemble modeli Bi-LSTM: modeli zespołowe oparte na dwukierunkowej warstwie LSTM z tokenizacją i wyrównaniem długości sekwencji tekstowych. 
+\texttt{metoda15} – Ensemble modeli Bi-LSTM: modeli zespołowe oparte na dwukierunkowej warstwie LSTM z tokenizacją i wyrównaniem długości sekwencji tekstowych.
 
-Dane wejściowe są najpierw dzielone na pojedyncze słowa (tokenizacja), a ich długości są wyrównywane do wspólnej wartości, aby pasowały do wymagań sieci. Następnie tworzona jest warstwa wejściowa, przez którą dane przechodzą do trzech modeli Bi-LSTM, które analizują tekst w obu kierunkach aby lepiej zrozumieć kontekst. Każdy model jest kompilowany z optymalizatorem Adam, używając funkcji straty \texttt{binary\_crossentropy} do klasyfikacji binarnej. Wyniki z tych modeli są łączone i przetwarzane, a na końcu klasyfikowane za pomocą funkcji sigmoidalnej, która określa, czy wiadomość jest prawdziwa (1) czy fałszywa (0). 
+Dane wejściowe są najpierw dzielone na pojedyncze słowa (tokenizacja), a ich długości są wyrównywane do wspólnej wartości, aby pasowały do wymagań sieci. Następnie tworzona jest warstwa wejściowa, przez którą dane przechodzą do trzech modeli Bi-LSTM, które analizują tekst w obu kierunkach aby lepiej zrozumieć kontekst. Każdy model jest kompilowany z optymalizatorem Adam, używając funkcji straty \texttt{binary\_crossentropy} do klasyfikacji binarnej. Wyniki z tych modeli są łączone i przetwarzane, a na końcu klasyfikowane za pomocą funkcji sigmoidalnej, która określa, czy wiadomość jest prawdziwa (1) czy fałszywa (0).
 
-Modele są trenowane przez maksymalnie 20 cykli z partiami po 64 próbki, z danymi testowymi używanymi do sprawdzenia postępów. W trakcie trenowania stosowany jest mechanizm wczesnego zatrzymania (EarlyStopping), który monitoruje stratę na danych walidacyjnych i przywraca najlepsze wagi, jeśli wyniki przestają się poprawiać przez 2 cykle, co zapobiega przeuczeniu. Na koniec tworzona jest lista trzech wytrenowanych modeli Bi-LSTM. Wyniki są zwracane jako lista wytrenowanych modeli oraz przygotowane dane testowe. 
+Modele są trenowane przez maksymalnie 20 cykli z partiami po 64 próbki, z danymi testowymi używanymi do sprawdzenia postępów. W trakcie trenowania stosowany jest mechanizm wczesnego zatrzymania (EarlyStopping), który monitoruje stratę na danych walidacyjnych i przywraca najlepsze wagi, jeśli wyniki przestają się poprawiać przez 2 cykle, co zapobiega przeuczeniu. Na koniec tworzona jest lista trzech wytrenowanych modeli Bi-LSTM. Wyniki są zwracane jako lista wytrenowanych modeli oraz przygotowane dane testowe.
 
 Lista wytrenowanych modeli to trzy gotowe sieci neuronowe zdolne do przewidywania, czy wiadomość jest prawdziwa (1) czy fałszywa (0). Przygotowane dane testowe obejmują tablicę cech (\texttt{X\_test}), która zawiera przetworzone teksty po tokenizacji i wyrównaniu, oraz tablicę etykiet (\texttt{y\_test}) z wartościami 0 lub 1, służącymi do weryfikacji predykcji.
 
-Pomysł wynika z artykułu \cite{metoda15}, w którym różnica pomiędzy naszą implementacją a oryginałem polega na tym, że artykuł opisuje ensemble Bi-LSTM z VGG-19 i mechanizmem uwagi do klasyfikacji multimodalnej (tekst i obrazy) z niestandardową funkcją straty, podczas gdy nasza implementacja skupia się na klasyfikacji binarnej tekstu za pomocą Bi-LSTM bez dodatkowej warstwy wizualnej. Chcąc zaprezentować nasz pomysł, szczegóły implementacji są pokazane na podanym diagramie \ref{fig:diagram_metoda15}.
+Dzięki analizie artykułu \cite{metoda15}, powstała implementacja \texttt{metoda15}. Różnica pomiędzy naszą implementacją a oryginałem polega na tym, że artykuł opisuje ensemble Bi-LSTM z VGG-19 i mechanizmem uwagi do klasyfikacji multimodalnej (tekst i obrazy) z niestandardową funkcją straty, podczas gdy nasza implementacja skupia się na klasyfikacji binarnej tekstu za pomocą Bi-LSTM bez dodatkowej warstwy wizualnej. Chcąc zaprezentować nasz pomysł, szczegóły implementacji są pokazane na podanym diagramie \ref{fig:diagram_metoda15}.
 \begin{figure}[H]
 
 	\centering
-	% \includegraphics[width=\textwidth]{img/diagrams/metoda15.drawio.png}
+	\includegraphics[width=0.6\textwidth]{img/diagrams/metoda15.drawio.png}
 	\caption{Schemat metody 15.}
 	\label{fig:diagram_metoda15}
 \end{figure}
 
 \subsection{Zespoły klasyfikatorów}
 \subsubsection{metoda2}
-\texttt{metoda2} – Stacking GradientBoosting i MLP z Logistic Regression: łączenie modeli na podzbiorach cech. To rozwiązanie opiera się na technice stacking, gdzie GradientBoostingClassifier jest trenowany na cechach zachowań społecznych, a MLPClassifier na cechach demograficznych, a następnie predykcje tych modeli są łączone za pomocą Regresji Logistycznej jako meta-modelu. 
+\texttt{metoda2} – Stacking GradientBoosting i MLP z Logistic Regression: łączenie modeli na podzbiorach cech. To rozwiązanie opiera się na technice stacking, gdzie GradientBoostingClassifier jest trenowany na cechach zachowań społecznych, a MLPClassifier na cechach demograficznych, a następnie predykcje tych modeli są łączone za pomocą Regresji Logistycznej jako meta-modelu.
 
-W przypadku dostarczenia danych wejściowych z co najmniej 6 cechami, zbiór cech jest dzielony na podzbiór demograficzny (pierwsze 5 cech) oraz podzbiór zachowań społecznych (pozostałe cechy). GradientBoostingClassifier z 100 estymatorami, szybkością uczenia 0.1 i maksymalną głębokością 3 jest trenowany na podzbiorze zachowań społecznych, generując prawdopodobieństwa predykcji. Jednocześnie MLPClassifier z jedną warstwą ukrytą o 100 neuronach i maksymalnie 500 iteracjami jest trenowany na podzbiorze demograficznym, również generując prawdopodobieństwa predykcji. Połączone predykcje z obu modeli są następnie używane do treningu Regresji Logistycznej, która integruje wyniki w celu uzyskania ostatecznej klasyfikacji. Dane są przekazywane w formacie DataFrame, a podział na podzbiory jest automatyczny, pod warunkiem wystarczającej liczby cech. 
+W przypadku dostarczenia danych wejściowych z co najmniej 6 cechami, zbiór cech jest dzielony na podzbiór demograficzny (pierwsze 5 cech) oraz podzbiór zachowań społecznych (pozostałe cechy). GradientBoostingClassifier z 100 estymatorami, szybkością uczenia 0.1 i maksymalną głębokością 3 jest trenowany na podzbiorze zachowań społecznych, generując prawdopodobieństwa predykcji. Jednocześnie MLPClassifier z jedną warstwą ukrytą o 100 neuronach i maksymalnie 500 iteracjami jest trenowany na podzbiorze demograficznym, również generując prawdopodobieństwa predykcji. Połączone predykcje z obu modeli są następnie używane do treningu Regresji Logistycznej, która integruje wyniki w celu uzyskania ostatecznej klasyfikacji. Dane są przekazywane w formacie DataFrame, a podział na podzbiory jest automatyczny, pod warunkiem wystarczającej liczby cech.
 
-Wyniki są zwracane jako wytrenowany model Regresji Logistycznej, połączone predykcje testowe (\texttt{combined\_preds\_test}) oraz etykiety testowe (\texttt{y\_test}) z wartościami 0 lub 1, służącymi do weryfikacji predykcji. Takie podejście pozwala na wykorzystanie wszystkich stron obu bazowych modeli, co jest wzorowane artykułem \cite{metoda2}, gdzie różnica polega na zastąpieniu Two-Class Boosted Decision Tree i Two-Class Neural Network odpowiednio GradientBoosting i MLP, przy zachowaniu Regresji Logistycznej jako modelu łączącego. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda2}.
+Wyniki są zwracane jako wytrenowany model Regresji Logistycznej, połączone predykcje testowe (\texttt{combined\_preds\_test}) oraz etykiety testowe (\texttt{y\_test}) z wartościami 0 lub 1, służącymi do weryfikacji predykcji. 
+
+Takie podejście w \texttt{metoda2} pozwala na wykorzystanie wszystkich stron obu bazowych modeli, co jest wzorowane artykułem \cite{metoda2}, gdzie różnica polega na zastąpieniu Two-Class Boosted Decision Tree i Two-Class Neural Network odpowiednio GradientBoosting i MLP, przy zachowaniu Regresji Logistycznej jako modelu łączącego. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda2}.
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda2.drawio.png}
-    \caption{Schemat metody 2.}
-    \label{fig:diagram_metoda2}
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/diagrams/metoda2.drawio.png}
+	\caption{Schemat metody 2.}
+	\label{fig:diagram_metoda2}
 \end{figure}
 
 \subsubsection{metoda3}
-\texttt{metoda3} – Dwupoziomowy Voting Classifier: zespół SVM, Naive Bayes, Decision Tree i Bagging/AdaBoost. W pierwszym etapie łączy się trzy różne sposoby klasyfikacji: SVM, metodę naiwnego Bayesa i drzewo decyzyjne, które działają na dostarczonych danych po ich uproszczeniu (zamiana ujemnych wartości na dodatnie i dostosowanie formatu danych). Każdy z tych sposobów generuje swoje przewidywania, które są następnie dodawane do oryginalnych danych, tworząc nowe, rozszerzone dane. W drugim etapie te rozszerzone dane są analizowane przez kolejny sposób łączenia, wykorzystujący metodę bagging (łączenie wielu drzew decyzyjnych) i metodę adaboost (ulepszanie przewidywania przez kolejne kroki), aby uzyskać ostateczną decyzję. To podejście pozwala na lepsze wykorzystanie różnych punktów widzenia, co poprawia dokładność, podobnie jak w oryginalnym opisie \cite{metoda3}, gdzie różne zestawy cech tekstowych były łączone w celu wykrywania fałszywych wiadomości. 
+\texttt{metoda3} – Dwupoziomowy Voting Classifier: SVM, Naive Bayes, Decision Tree i Bagging/AdaBoost. W pierwszym etapie łączy się trzy różne sposoby klasyfikacji: SVM, metodę naiwnego Bayesa i drzewo decyzyjne, które działają na dostarczonych danych po ich uproszczeniu (zamiana ujemnych wartości na dodatnie i dostosowanie formatu danych). Każdy z tych sposobów generuje swoje przewidywania, które są następnie dodawane do oryginalnych danych, tworząc nowe, rozszerzone dane. W drugim etapie te rozszerzone dane są analizowane przez kolejny sposób łączenia, wykorzystujący metodę bagging (łączenie wielu drzew decyzyjnych) i metodę adaboost (ulepszanie przewidywania przez kolejne kroki), aby uzyskać ostateczną decyzję. To podejście pozwala na lepsze wykorzystanie różnych punktów widzenia, co poprawia dokładność, podobnie jak w oryginalnym opisie \cite{metoda3}, gdzie różne zestawy cech tekstowych były łączone w celu wykrywania fałszywych wiadomości.
 
 Wyniki są zwracane jako gotowy model drugiego etapu (\texttt{voting\_clf\_2}), który zawiera ustawienia i wyniki uczenia, rozszerzone dane testowe (\texttt{X\_test\_meta}), będące zbiorem, który łączy oryginalne informacje z przewidywaniami pierwszego etapu, pozwalającym na analizę procesu oraz oryginalne oznaczenia testowe (\texttt{y\_test}), czyli znane odpowiedzi dla danych testowych, służące do oceny skuteczności modelu: z wartościami 0 lub 1.
 
 \texttt{metoda3} różni się od podejścia oryginalnego, ale ma z nim kilka podobieństw. W artykule autorzy wyodrębnili cechy tekstowe, takie jak styl pisania czy liczba słów, a następnie zastosowali specjalne sposoby przekształcania tekstu na liczby (word embedding) i głosowanie, aby rozróżnić prawdziwe od fałszywych wiadomości. Nasza implementacja nie skupia się na takiej analizie tekstach, ale działa na ogólnych danych, łącząc różne sposoby przewidywania w dwóch etapach bez potrzeby specjalnego przetwarzania tekstu. W obu przypadkach używa się głosowania, aby połączyć wyniki różnych metod, co zwiększa pewność decyzji, ale nasza implementacja jest prostsza i bardziej uniwersalna, działając na dowolnych danych. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda3}.
 
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda3.drawio.png}
-    \caption{Schemat metody 3.}
-    \label{fig:diagram_metoda3}
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/diagrams/metoda3.drawio.png}
+	\caption{Schemat metody 3.}
+	\label{fig:diagram_metoda3}
 \end{figure}
 
 \subsubsection{metoda5}
-\texttt{metoda5} – Dwuwarstwowy Stacking Classifier: Random Forest, XGBoost i regresja logistyczna. Metoda5 stosuje wieloetapowe łączenie przewidywań, podobne do technik ensemble learningu opisanych w artykule \cite{metoda5}, gdzie różne sposoby analizy są łączone, aby poprawić dokładność wykrywania fałszywych wiadomości. 
+\texttt{metoda5} – Dwuwarstwowy Stacking Classifier: Random Forest, XGBoost i regresja logistyczna. Metoda5 stosuje wieloetapowe łączenie przewidywań, podobne do technik ensemble learningu opisanych w artykule \cite{metoda5}, gdzie różne sposoby analizy są łączone, aby poprawić dokładność wykrywania fałszywych wiadomości.
 
-W pierwszym etapie przygotowuje się dwa różne sposoby klasyfikacji: Random Forest i XGBoost, które działają na dostarczonych danych treningowych. Każdy z tych sposobów generuje swoje przewidywania, które są następnie dodawane do oryginalnych danych, tworząc nowe, rozszerzone dane. W drugim etapie te rozszerzone dane są analizowane przez kolejny sposób łączenia, wykorzystujący regresję logistyczną, aby uzyskać ostateczną decyzję. To podejście pozwala na lepsze wykorzystanie różnych punktów widzenia, co poprawia dokładność, podobnie jak w artykule, gdzie różne zestawy cech tekstowych były łączone w celu wykrywania fałszywych wiadomości. 
+W pierwszym etapie przygotowuje się dwa różne sposoby klasyfikacji: Random Forest i XGBoost, które działają na dostarczonych danych treningowych. Każdy z tych sposobów generuje swoje przewidywania, które są następnie dodawane do oryginalnych danych, tworząc nowe, rozszerzone dane. W drugim etapie te rozszerzone dane są analizowane przez kolejny sposób łączenia, wykorzystujący regresję logistyczną, aby uzyskać ostateczną decyzję. To podejście pozwala na lepsze wykorzystanie różnych punktów widzenia, co poprawia dokładność, podobnie jak w artykule, gdzie różne zestawy cech tekstowych były łączone w celu wykrywania fałszywych wiadomości.
 
 Wyniki są zwracane jako: gotowy model drugiego etapu (\texttt{meta\_model}), który zawiera ustawienia i wyniki uczenia, rozszerzone dane testowe (\texttt{meta\_features\_test}), będące zbiorem, który łączy oryginalne informacje z przewidywaniami pierwszego etapu, pozwalającym na analizę procesu oraz oryginalne oznaczenia testowe (\texttt{y\_test}), czyli znane odpowiedzi dla danych testowych, służące do oceny skuteczności modelu: z wartościami 0 lub 1.
 
 \texttt{metoda5} różni się od podejścia opisanego w artykule. W artykule autorzy wyodrębnili cechy tekstowe, takie jak liczba słów czy nazwy miejsc, a następnie połączyli wyniki różnych metod, takich jak Decision Tree i Random Forest. Nasza implementacja nie skupia się na analizie tekstów, ale działa na ogólnych danych, łącząc różne sposoby przewidywania w dwóch etapach bez potrzeby specjalnego przygotowania danych tekstowych. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda5}.
 
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda5.drawio.png}
-    \caption{Schemat metody 5.}
-    \label{fig:diagram_metoda5}
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/diagrams/metoda5.drawio.png}
+	\caption{Schemat metody 5.}
+	\label{fig:diagram_metoda5}
 \end{figure}
 
 \subsubsection{metoda6}
-\texttt{metoda6} – Voting Classifier z AdaBoost i Logistic Regression: opcjonalnie z BERT. Metoda6 stosuje łączenie różnych sposobów klasyfikacji, gdzie różne modele są łączone, aby poprawić dokładność analizy sentymentów. W pierwszym etapie przygotowuje się dwa różne sposoby klasyfikacji: AdaBoost i Logistic Regression, które działają na dostarczonych danych treningowych. Każdy z tych sposobów generuje swoje przewidywania, które są następnie łączone za pomocą miękkiego głosowania, tworząc nowe, ulepszone wyniki. Jeśli wybrana jest opcja z osadzeniami BERT, dane tekstowe są najpierw przekształcane na osadzenia za pomocą modelu BERT, co pozwala lepiej zrozumieć treść przed klasyfikacją. To podejście pozwala na lepsze wykorzystanie różnych punktów widzenia, co poprawia dokładność, a osadzenia BERT i sieci konwolucyjne będą łączone w celu analizy sentymentów multimodalnych. 
+\texttt{metoda6} – Voting Classifier z AdaBoost i Logistic Regression: opcjonalnie z BERT. Nasza implementacja stosuje łączenie różnych sposobów klasyfikacji, gdzie różne modele są łączone, aby poprawić dokładność analizy sentymentów.
 
-Wyniki są zwracane jako: gotowy model klasyfikatora zespołowego (\texttt{model}), który zawiera ustawienia i wyniki uczenia, przekształcone dane testowe (\texttt{X\_test}), będące osadzeniami, pozwalającymi na analizę procesu oraz oryginalne oznaczenia testowe (\texttt{y\_test}), z wartościami 0 lub 1, które będą określały jakość wyników. 
+W pierwszym etapie przygotowuje się dwa różne sposoby klasyfikacji: AdaBoost i Logistic Regression, które działają na dostarczonych danych treningowych. Każdy z tych sposobów generuje swoje przewidywania, które są następnie łączone za pomocą probabilistycznego głosowania, tworząc nowe, ulepszone wyniki. Jeśli wybrana jest opcją z BERT, dane tekstowe są najpierw przekształcane na osadzenia za pomocą modelu BERT, co pozwala lepiej zrozumieć treść przed klasyfikacją. To podejście pozwala na lepsze wykorzystanie różnych punktów widzenia, co poprawia dokładność, a BERT i sieci konwolucyjne będą łączone w celu analizy sentymentów multimodalnych.
 
-\texttt{metoda6} znacząco różni się od podejścia opisanego w artykule \cite{metoda6}, choć można dostrzec pewne podobieństwa. Autorzy wykorzystali ensemble learning z pretrenowanym modelem BERT, osiągając wysoką dokładność na zbiorze MVSA dzięki fuzji tekstu i obrazów z użyciem teorii Dempster-Shafer. W przeciwieństwie do tego, \texttt{metoda6} koncentruje się wyłącznie na danych tekstowych lub ich osadzeniach i stosuje prostsze podejście, łącząc AdaBoost oraz Logistic Regression bez dodatkowych etapów przetwarzania. Chociaż oba podejścia bazują na ensemble learningu, nasza metoda jest znacznie mniej złożona, nie wymagając zaawansowanej integracji różnych modalności. Szczegóły implementacji przedstawia diagram \ref{fig:diagram_metoda6}.
+Wyniki są zwracane w następujący sposób: gotowy model klasyfikatora zespołowego (\texttt{model}), który zawiera ustawienia i wyniki uczenia, przekształcone dane testowe (\texttt{X\_test}), będące osadzeniami, pozwalającymi na analizę procesu oraz oryginalne oznaczenia testowe (\texttt{y\_test}), z wartościami 0 lub 1, które będą określały jakość wyników.
+
+\texttt{metoda6} znacząco różni się od podejścia opisanego w artykule \cite{metoda6}, choć można dostrzec pewne podobieństwa. Autorzy wykorzystali ensemble learning z pretrenowanym modelem BERT, osiągając wysoką dokładność dzięki fuzji tekstu i obrazów z użyciem teorii Dempster-Shafer. W przeciwieństwie do tego, \texttt{metoda6} koncentruje się wyłącznie na danych tekstowych lub ich osadzeniach i stosuje prostsze podejście, łącząc AdaBoost oraz Logistic Regression bez dodatkowych etapów przetwarzania. Chociaż oba podejścia bazują na ensemble learningu, nasza metoda jest znacznie mniej złożona, nie wymagając zaawansowanej integracji różnych modalności. Szczegóły implementacji przedstawia diagram \ref{fig:diagram_metoda6}.
 
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda6.drawio.png}
-    \caption{Schemat metody 6.}
-    \label{fig:diagram_metoda6}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/diagrams/metoda6.drawio.png}
+	\caption{Schemat metody 6.}
+	\label{fig:diagram_metoda6}
 \end{figure}
 
 \subsubsection{metoda8}
-\texttt{metoda8} – Voting Classifier z Random Forest i XGBoost: miękkie głosowanie predykcji.
+\texttt{metoda8} – Voting Classifier z Random Forest i XGBoost: probabilistyczne głosowanie predykcji. W podanej metodzie wykorzystuje się podejście zespołowe do klasyfikacji, łącząc dwa różne klasyfikatory – Random Forest i XGBoost – w celu uzyskania lepszej skuteczności predykcji.
+
+W pierwszym etapie dane treningowe (\texttt{X\_train}, \texttt{y\_train}) są przygotowywane do treningu: jeśli są w formacie macierzy o dużej liczbie zer, konwertowane są na macierz gęstą, aby klasyfikatory mogły je poprawnie przetworzyć. Następnie definiuje się dwa klasyfikatory bazowe: \texttt{RandomForestClassifier} z 100 estymatorami oraz \texttt{XGBClassifier} również z 100 estymatorami, z ustawieniem \texttt{eval\_metric='logloss'} dla poprawy skuteczności. Oba klasyfikatory są łączone w klasyfikator zespołowy \texttt{VotingClassifier} z miękkim głosowaniem (\texttt{voting='soft'}), co oznacza, że predykcje są uśredniane na podstawie prawdopodobieństw przewidywanych przez każdy klasyfikator.
+
+Po wytrenowaniu modelu na danych treningowych, metoda zwraca trzy elementy. Pierwszym jest wytrenowany model zespołowy (\texttt{ensemble\_model}), gotowy do predykcji. Drugim są dane testowe (\texttt{X\_test}) w formie macierzy, a trzecim etykiety testowe (\texttt{y\_test}) jako wektor, posiadający tylko 0 i 1, które służą do oceny modelu.
+
+\texttt{metoda8} ma podobieństwa i różnice w stosunku do podejścia opisanego w artykule \cite{metoda8}. W artykule autorzy omawiają różne strategie ensemble learningu, w tym bagging (używany w Random Forest) i boosting (używany w XGBoost), które są kluczowymi elementami naszej metody. Nasza implementacja łączy te dwie strategie w ramach probabilistycznego głosowania, co jest prostym, ale skutecznym sposobem predykcji, choć nie wykorzystuje zaawansowanych technik głębokiego uczenia, takich jak te omówione w artykule, przykładowo głębokie sieci neuronowe. W artykule podano przykład, że Random Forest i inne tradycyjne metody mogą być rozszerzane na architektury głębokiego uczenia, co sugeruje możliwość dalszego rozwoju naszej metody w kierunku głębokich modeli zespołowych. Nasza implementacja jest jednak bardziej uniwersalna i prostsza, skupiając się na danych bez potrzeby dodatkowych etapów, takich jak ekstrakcja cech za pomocą głębokich sieci. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda8}.
 
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda8.drawio.png}
-    \caption{Schemat metody 8.}
-    \label{fig:diagram_metoda8}
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/diagrams/metoda8.drawio.png}
+	\caption{Schemat metody 8.}
+	\label{fig:diagram_metoda8}
 \end{figure}
 
 \subsubsection{metoda9}
-\texttt{metoda9} – Voting Classifier z Logistic Regression, Random Forest i SVC: porównanie i wybór najlepszego.
+\texttt{metoda9} – Voting Classifier z Logistic Regression, Random Forest i SVC: porównanie i wybór najlepszego modelu.
 
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda9.drawio.png}
-    \caption{Schemat metody 9.}
-    \label{fig:diagram_metoda9}
-\end{figure}
+Są trenowane różne modele – (\texttt{LogisticRegression}), (\texttt{RandomForestClassifier}), oraz (\texttt{SVC}) – a następnie łączy je w klasyfikator zespołowy \texttt{VotingClassifier} z głosowaniem probalistycznym. Dodatkowo \texttt{BaggingClassifier} wraz z \texttt{AdaBoostClassifier} trenują modele, oceniając ich skuteczność za pomocą metryk takich jak (\texttt{accuracy\_score}), (\texttt{roc\_auc\_score}) oraz (\texttt{classification\_report}).
+
+Po wytrenowaniu modeli na danych treningowych, metoda zwraca najlepszy model zespołowy (\texttt{model}), dane testowe (\texttt{X\_test}) w formie macierzy, oraz etykiety testowe (\texttt{y\_test}) jako wektor, z wartościami 0 lub 1, które będą określały jakość wyników.
+
+\texttt{metoda9} bazuje się na podejściu opisanym w artykule \cite{metoda9}. W artykule autorzy również stosują ensemble learning, trenując różne klasyfikatory i oceniając je za pomocą metryk takich jak dokładność, precyzja, recall i F1-score, co jest zgodne z naszą implementacją, która używa podobnych metryk do oceny modeli.
 
 \subsubsection{metoda10}
-\texttt{metoda10} – Voting Classifier z MLP, Logistic Regression i XGBoost: miękkie głosowanie.
+\texttt{metoda10} – Voting Classifier z MLP, Logistic Regression i XGBoost: głosowanie oparte na prawdopodobieństwach.
 
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda10.drawio.png}
-    \caption{Schemat metody 10.}
-    \label{fig:diagram_metoda10}
-\end{figure}
+Metoda ta wykorzystuje podejście zespołowe do klasyfikacji, integrując trzy różne modele: (\texttt{MLPClassifier}), (\texttt{LogisticRegression}) oraz XGBoost, które są trenowane na danych treningowych (\texttt{X\_train}, \texttt{y\_train}). Po treningu indywidualnych modeli, ich predykcje są łączone w klasyfikatorze zespołowym \texttt{VotingClassifier} z głosowaniem opartym na prawdopodobieństwach (\texttt{voting='soft'}), co pozwala na uśrednienie wyników w oparciu o przewidywane prawdopodobieństwa, zwiększając ogólną skuteczność. To podejście umożliwia efektywne wykorzystanie różnorodnych strategii uczenia, co poprawia dokładność klasyfikacji.
+
+Wyniki są zwracane w następujący sposób: wytrenowany model klasyfikatora zespołowego (\texttt{voting\_clf}), który zawiera ustawienia i wyniki uczenia, dane testowe (\texttt{X\_test}) w formie macierzy, umożliwiające dalszą analizę oraz oryginalne etykiety testowe (\texttt{y\_test}) jako wektor zawierający etykiety 0 i 1, służący do oceny jakości modelu.
+
+\texttt{metoda10} nie posiada żadnych różnic od podejścia opisanego w artykule \cite{metoda10}. W artykule autor również stosuje Voting Classifier z trzema najlepszymi klasyfikatorami, w tym MLP, Logistic Regression i XGBoost. W artykule również sie wspomina wstępne przetwarzanie danych tekstowych, podczas gdy nasza implementacja używa danych przy podobnym poziomie przygotowania, ale nie posiada osobnego takiego kroku w \texttt{metoda10}. To sprawia, że nasza implementacja jest bardziej uniwersalna. 
 
 \subsubsection{metoda11}
-\texttt{metoda11} – Voting Classifier z Random Forest, Logistic Regression i AdaBoost: po selekcji cech.
+\texttt{metoda11} – Voting Classifier z Random Forest, Logistic Regression i AdaBoost: po selekcji cech. Nasza implementacja integruje trzy modele:(\texttt{RandomForestClassifier}), (\texttt{LogisticRegression}) oraz (\texttt{AdaBoostClassifier}), które są trenowane na danych treningowych (\texttt{X\_train}, \texttt{y\_train}).
 
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda11.drawio.png}
-    \caption{Schemat metody 11.}
-    \label{fig:diagram_metoda11}
-\end{figure}
+Najpierw dane są normalizowane za pomocą \texttt{MinMaxScaler}, który skaluje wartości do zakresu od 0 do 1, zapewniając nieujemne wartości odpowiednie dla testu Chi-kwadrat. Następnie przeprowadzana jest selekcja cech za pomocą \texttt{SelectKBest} z testem Chi-kwadrat, co redukuje wymiarowość danych. Wybrane cechy są wykorzystywane do treningu indywidualnych klasyfikatorów, a ich predykcje są łączone w \texttt{VotingClassifier} z głosowaniem opartym na prawdopodobieństwach (\texttt{voting='soft'}), co pozwala na uśrednienie wyników i zwiększenie skuteczności klasyfikacji.
+
+Wyniki są zwracane w następujący sposób: wytrenowany model klasyfikatora zespołowego (\texttt{voting\_clf}), który zawiera ustawienia i wyniki uczenia, przetworzone dane testowe (\texttt{X\_test\_selected}) w formie macierzy, oraz etykiety testowe (\texttt{y\_test}) jako wektor zawierający wartości 0 i 1, służący do oceny jakości modelu.
+
+\texttt{metoda11} całkiem implementacyjnie się opiera na artykule \cite{metoda11}. W publikacji również wykorzystują Voting Classifier z Random Forest, Logistic Regression i AdaBoost.
 
 \subsubsection{metoda13}
-\texttt{metoda13} – Stacking z SMOTETomek: Random Forest, Gradient Boosting, XGBoost z Logistic Regression.
+\texttt{metoda13} – Stacking z SMOTETomek: Random Forest, Gradient Boosting, XGBoost z Logistic Regression. Proces rozpoczyna się od zastosowania techniki SMOTETomek, która równoważy klasy poprzez syntetyczne próbki generowane metodą SMOTE, aby zrównoważyć zbiór danych treningowych (\texttt{X\_train}, \texttt{y\_train}). Następnie trenowane są trzy klasyfikatory bazowe: (\texttt{RandomForestClassifier}), (\texttt{GradientBoostingClassifier}) oraz XGBoost (\texttt{XGBClassifier}). Ich predykcje są łączone za pomocą meta-klasyfikatora opartego na (\texttt{LogisticRegression}), wykorzystującego 5-krotną walidację krzyżową do optymalizacji.
 
+Metoda zwraca wytrenowany model stackingowy (\texttt{stacking\_model}), macierz cech testowych (\texttt{X\_test}) oraz wektor etykiet testowych (\texttt{y\_test}), z wartościami 0 lub 1, służącymi do weryfikacji predykcji.
+
+Implementacja \texttt{metoda13} znajduje wsparcie w literaturze \cite{metoda13}, który podkreśla skuteczność łączenia metod augmentacji danych przez SMOTE z uczeniem zespołowym w rozwiązywaniu problemów niezrównoważonych klas. W porównaniu z prostszymi metodami, takimi jak pojedyncze drzewa decyzyjne, \texttt{metoda13} oferuje wyższą elastyczność i dokładność dzięki integracji wielu modeli i równowadze klas. Szczegóły implementacji przedstawia diagram \ref{fig:diagram_metoda13}.
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda13.drawio.png}
-    \caption{Schemat metody 13.}
-    \label{fig:diagram_metoda13}
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/diagrams/metoda13.drawio.png}
+	\caption{Schemat metody 13.}
+	\label{fig:diagram_metoda13}
 \end{figure}
 
 \subsubsection{metoda14}
-\texttt{metoda14} – Stacking Random Forest, AdaBoost z Logistic Regression: meta-model na predykcjach.
+\texttt{metoda14} - ensemble learning w formie stackingu, wykorzystując trzy klasyfikatory: Random Forest, AdaBoost oraz Logistic Regression jako meta-model.
+
+W pierwszym etapie dane treningowe (\texttt{X\_train}, \texttt{y\_train}) są przygotowywane do treningu, a jeśli zawierają wartości brakujące lub mają niewłaściwy format, są odpowiednio przetwarzane. Następnie definiuje się dwa modele bazowe: \texttt{RandomForestClassifier} oraz \texttt{AdaBoostClassifier}, działające równolegle. Predykcje tych modeli są następnie przekazywane do modelu meta, którym jest \texttt{Logistic Regression} z maksymalną liczbą iteracji ustawioną na 200, aby zapewnić poprawną konwergencję. Finalna predykcja jest wykonywana na podstawie wyników obu bazowych klasyfikatorów, co pozwala uzyskać lepszą ogólną dokładność modelu.
+
+Po zakończeniu treningu metoda zwraca trzy elementy. Pierwszym jest wytrenowany model zespołowy (\texttt{stack\_model}), gotowy do użycia w dalszych predykcjach. Drugim są dane testowe (\texttt{X\_test}) w formie macierzy, a trzecim etykiety testowe (\texttt{y\_test}) jako wektor binarny (0 lub 1), które umożliwiają ocenę skuteczności klasyfikacji.
+
+\texttt{metoda14} się znalazła na tej liście dzięki podejściu omawianemu w literaturze \cite{metoda14}. Jednak różnica między naszą implementacją a omawianym podejściem w artykule polega na tym, że w artykule analizowano bardziej złożone architektury, modele neuronowe w roli klasyfikatorów bazowych, co pozwalało na bardziej zaawansowaną analizę tekstu. W przeciwieństwie do tego, nasza metoda koncentruje się na klasycznych algorytmach uczenia zespołowego, co czyni ją bardziej przejrzystą i mniej wymagającą obliczeniowo. Szczegóły implementacji przedstawiono na diagramie \ref{fig:diagram_metoda14}.
 
 \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda14.drawio.png}
-    \caption{Schemat metody 14.}
-    \label{fig:diagram_metoda14}
+	\centering
+	\includegraphics[width=0.4\textwidth]{img/diagrams/metoda14.drawio.png}
+	\caption{Schemat metody 14.}
+	\label{fig:diagram_metoda14}
 \end{figure}
 
 \subsubsection{metoda16}
-\texttt{metoda16} – Stacking z meta-cechami: Random Forest, Gradient Boosting, SVC z Logistic Regression.
+\texttt{metoda16} – Stacking z meta-cechami: Random Forest, Gradient Boosting, SVC z Logistic Regression. Proces rozpoczyna się od inicjacji trzech modeli bazowych: \texttt{Random Forest}, \texttt{Gradient Boosting} i \texttt{SVC} z liniowym jądrem. Następnie generowane są \newline meta-cechy dla danych treningowych poprzez wykorzystanie 5-krotnej walidacji krzyżowej z rozwarstwieniem, gdzie każdy model bazowy przewiduje prawdopodobieństwa klas dla podzbiorów danych treningowych. Te predykcje są łączone w macierz meta-cech. W kolejnym kroku trenuje się meta-klasyfikator oparty na regresji logistycznej, który uczy się na podstawie wygenerowanych meta-cech i etykiet treningowych. Po tym etapie modele bazowe są trenowane na pełnym zbiorze treningowym. Następnie generowane są meta-cechy dla danych testowych na podstawie predykcji modeli bazowych na tych danych. Na koniec meta-klasyfikator dokonuje predykcji na meta-cechach testowych, a wyniki są oceniane za pomocą raportu klasyfikacji i miary dokładności. 
 
-\begin{figure}[H]
-    \centering
-    % \includegraphics[width=\textwidth]{img/diagrams/metoda16.drawio.png}
-    \caption{Schemat metody 16.}
-    \label{fig:diagram_metoda16}
-\end{figure}
+Metoda zwraca trzy elementy: \texttt{meta\_model}, \texttt{meta\_features\_test} oraz \newline\texttt{y\_test}. \texttt{meta\_model} to wytrenowany meta-klasyfikator, który może być użyty do dalszych predykcji na nowych danych. \texttt{meta\_features\_test} to macierz meta-cech dla zbioru testowego, gdzie każda kolumna zawiera przewidywane prawdopodobieństwa przynależności do klasy 1 wygenerowane przez jeden z modeli bazowych, a każda wiersz odpowiada jednej próbce testowej. \texttt{y\_test} to wektor etykiet testowych, zawierający wartości 0 i 1, reprezentujące prawdziwe klasy próbek testowych, co umożliwia ocenę modelu.
 
-\subsection{Modele z ulepszeniami}
+W naszej implementacji \texttt{metoda16} zastosowano podejście zbliżone do opisanego w artykule \cite{metoda16}, w którym również wykorzystuje się ensemble learning do klasyfikacji binarnej. W obu przypadkach bazowymi modelami są Random Forest i SVM, a ich predykcje są integrowane za pomocą meta-klasyfikatora. Dodatkowo, metody te korzystają z preprocessingu tekstu z użyciem biblioteki NLTK, obejmującego usuwanie stop-słów oraz stemming, co pozwala na efektywniejsze przygotowanie danych przed klasyfikacją. 
+
+\subsection{Modele zoptymalizowane}
 \subsubsection{metoda7}
-\texttt{metoda7} – Random Forest z Monte Carlo Dropout i heurystyczną obróbką \newline post-procesową. Metoda7 opiera się na Random Forest jako bazowym klasyfikatorze. W przypadku dostarczenia wcześniej przygotowanych reprezentacji wektorowych są one wykorzystywane do treningu, natomiast w ich braku dane tekstowe są przetwarzane za pomocą wektoryzacji TF-IDF. Dane są dzielone na zbiory treningowy i testowy w proporcji 80/20.
+\texttt{metoda7} – Random Forest z Monte Carlo Dropout i heurystyczną obróbką \newline post-procesową. Metoda7 opiera się na Random Forest jako bazowym klasyfikatorze. Po dostarczeniu wcześniej przygotowanych reprezentacji wektorowych są one wykorzystywane do treningu.
 
-Model Random Forest z 100 estymatorami jest trenowany na danych treningowych, a następnie stosowana jest technika Monte Carlo Dropout, która polega na wykonaniu 50 wielokrotnych predykcji, aby oszacować średnie prawdopodobieństwa klas oraz niepewność predykcji (wariancję). Średnie predykcje są używane do wygenerowania początkowych etykiet, a niepewność pozwala ocenić niezawodność klasyfikacji. \par
+Model Random Forest jest trenowany na danych treningowych, a następnie stosowana jest technika Monte Carlo Dropout, która polega na wykonaniu 50 wielokrotnych predykcji, aby oszacować średnie prawdopodobieństwa klas oraz wariancję predykcji. Agregowane wyniki są używane do wygenerowania początkowych etykiet, a rozrzut wyników pozwala ocenić niezawodność klasyfikacji.
 
 Następnie wprowadzane są meta-atrybuty, źródło wiadomości, domyślnie "unknown", dla których obliczane są prawdopodobieństwa wskazujące, czy dany atrybut jest związany z wiadomościami prawdziwymi (1) czy fałszywymi (0), na podstawie analizy danych treningowych. Heurystyczna obróbka post-procesowa koryguje predykcje, przypisując etykietę "prawdziwa" (1), jeśli prawdopodobieństwo atrybutu dla klasy "real" przekracza próg 0.9 i jest większe niż dla "fake", lub etykietę "fałszywa" (0) w przeciwnym przypadku przy podobnym warunku. Jeśli żaden warunek nie jest spełniony, zachowywana jest oryginalna predykcja.
 
-Wyniki są zwracane jako wytrenowany model Random Forest, tablica cech testowych (\texttt{X\_test}) oraz tablica etykiet testowych (\texttt{y\_test}). Nasza implementacja pozwala na ulepszenie klasyfikacji poprzez integrację niepewności i heurystycznych reguł, co jest inspirowane podejściem z artykułu \cite{metoda7}, gdzie różnica polega na tym, że oryginalny model wykorzystuje ensemble pre-trenowanych transformerów (NewsBERT) z Bayesian approximation, podczas gdy nasza implementacja opiera się na Random Forest z Monte Carlo Dropout i prostszą heurystyką opartą na meta-atrybutach. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda7}.
+Wyniki są zwracane jako wytrenowany model Random Forest, tablica cech testowych (\texttt{X\_test}) oraz tablica etykiet testowych (\texttt{y\_test}). 
+
+Nasza implementacja \texttt{metoda7} pozwala na ulepszenie klasyfikacji poprzez integrację niepewności i heurystycznych reguł, co jest inspirowane podejściem z artykułu \cite{metoda7}, gdzie różnica polega na tym, że oryginalny model wykorzystuje ensemble pre-trenowanych transformerów (NewsBERT) z przybliżeniem Bayesowskim, podczas gdy nasza implementacja opiera się na Random Forest z Monte Carlo Dropout i prostszą heurystyką opartą na meta-atrybutach. Szczegóły implementacji są pokazane na diagramie \ref{fig:diagram_metoda7}.
 \begin{figure}[H]
 	\centering
-	% \includegraphics[width=\textwidth]{img/diagrams/metoda7.drawio.png}
+	\includegraphics[width=0.5\textwidth]{img/diagrams/metoda7.drawio.png}
 	\caption{Schemat metody 7.}
 	\label{fig:diagram_metoda7}
 \end{figure}
