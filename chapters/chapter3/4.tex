@@ -1,0 +1,221 @@
+\section{Czwarta metoda (Metoda20)}
+\subsection{Pomysł na metodę}
+Metoda ta powstała na bazie Metoda13 oraz Metoda6, które dostarczyły
+inspiracji w zakresie stosowania zaawansowanych algorytmów boostingu i
+integracji wyników za pomocą meta-modeli. W Metoda13 Gradient Boosting i
+XGBoost były kluczowymi elementami w ramach stacking, co wykazało, że
+boostingi są wyjątkowo skuteczne w integracji wyników. Z kolei Metoda6
+skupił się na integracji osadzeń BERT z klasycznymi algorytmami, takimi
+jak AdaBoost i regresja logistyczna, co uwypukliło znaczenie
+zaawansowanego przetwarzania cech.
+
+W Metoda20 połączono LightGBM i CatBoost, dwa potężne algorytmy boostingu,
+które wyróżniają się swoją szybkością i wydajnością. LightGBM został
+wybrany ze względu na szybkość trenowania i efektywność w pracy z dużymi
+zbiorami danych, natomiast CatBoost zapewnił wysoką dokładność i
+odporność na brakujące wartości. Regresja logistyczna, tak jak w Metoda13,
+służy jako meta-model, integrując wyniki obu modeli bazowych. Metoda20
+rozwija te koncepcje, koncentrując się na szybkości i precyzji
+predykcji, co czyni go jednym z najbardziej zaawansowanych podejść w
+całym zestawie metod.
+
+\subsection{Wejściowe dane}
+Metoda train\_run20 przyjmuje następujące parametry wejściowe:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz to
+  jedna próbka, a kolumny to cechy. Rozmiar: \textbf{n × m}, gdzie
+  \textbf{n} to liczba próbek, a \textbf{m} to liczba cech.
+\item
+  \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar:
+  \textbf{n}, gdzie \textbf{n} to liczba próbek w danych treningowych.
+\item
+  \textbf{X\_test}: Macierz danych testowych, analogiczna do
+  \textbf{X\_train}, używana do oceny modelu.
+\item
+  \textbf{y\_test}: Wektor etykiet testowych, odpowiadający danym
+  testowym.
+\end{enumerate}
+
+\subsection{Wyjściowe dane}
+Metoda zwraca następujące elementy:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{meta\_model}: Meta-model wytrenowany na danych pochodzących z
+  predykcji modeli \textbf{LightGBM} i \textbf{CatBoost}.
+\item
+  \textbf{meta\_features\_test}: Macierz meta-cech, zbudowana na
+  podstawie predykcji modeli bazowych dla danych testowych.
+\item
+  \textbf{y\_test}: Wektor etykiet testowych, identyczny z wejściowym
+  \textbf{y\_test}.
+\end{enumerate}
+
+\subsection{Algorytm}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Trenowanie modeli bazowych:
+
+  \begin{itemize}
+  \item
+    \textbf{LightGBM}:
+
+    \begin{itemize}
+    \item
+      Model \textbf{LGBMClassifier} jest inicjalizowany z 100
+      estymatorami i \textbf{stanem losowości (random\_state) 42}.
+    \item
+      Model jest trenowany na danych treningowych \textbf{X\_train} i
+      \textbf{y\_train}.
+    \end{itemize}
+  \item
+    \textbf{CatBoost}:
+
+    \begin{itemize}
+    \item
+      Model \textbf{CatBoostClassifier} jest inicjalizowany z
+      \textbf{100 iteracjami}, \textbf{stanem losowości (random\_state)}
+      42 i z wyłączonym trybem szczegółowych logów \textbf{verbose}.
+    \item
+      Model jest trenowany na tych samych danych treningowych.
+    \end{itemize}
+  \end{itemize}
+\item
+  Generowanie predykcji dla danych treningowych:
+
+  \begin{itemize}
+  \item
+    Obliczane są prawdopodobieństwa klasy pozytywnej \textbf{\( P(y=1 \mid x) \)} dla obu modeli bazowych:
+
+    \begin{itemize}
+    \item
+      \textbf{lgb\_preds\_train: Predykcje LightGBM}.
+    \item
+      \textbf{cat\_preds\_train: Predykcje CatBoost}.
+    \end{itemize}
+  \item
+    Predykcje są używane do stworzenia macierzy meta-cech, gdzie kolumny to \textbf{lgb\_\allowbreak preds} i \textbf{cat\_\allowbreak preds}.
+  \end{itemize}
+\item
+  Trenowanie meta-modelu:
+
+  \begin{itemize}
+  \item
+    Wytrenowany na \textbf{danych meta-cech, meta\_features\_train},
+    oraz rzeczywistych etykietach y\_train.
+  \item
+    Meta-modelem jest \textbf{regresja logistyczna, LogisticRegression,}
+    która łączy predykcje obu modeli bazowych.
+  \end{itemize}
+\item
+  Generowanie predykcji dla danych testowych:
+
+  \begin{itemize}
+  \item
+    Obliczane są prawdopodobieństwa klasy pozytywnej dla
+    \textbf{LightGBM} i \textbf{CatBoost}:
+
+    \begin{itemize}
+    \item
+      \textbf{lgb\_preds\_test: Predykcje LightGBM}.
+    \item
+      \textbf{cat\_preds\_test: Predykcje CatBoost}.
+    \end{itemize}
+  \item
+    Tworzona jest macierz meta-cech dla danych testowych, analogiczna
+    struktura jak dla danych treningowych.
+  \end{itemize}
+\item
+  Zwracanie wyników: meta-model, macierz meta-cech dla testu oraz
+  etykiety testowe są zwracane.
+\end{enumerate}
+
+\subsection{Kod}
+\begin{lstlisting}[caption={Kod do 20 metody}, label={20Metoda}]
+lgb_clf = LGBMClassifier(
+    n_estimators=100,
+    random_state=42
+)  # LightGBM
+cat_clf = CatBoostClassifier(
+    iterations=100, 
+    verbose=0, 
+    random_state=42
+)  # CatBoost
+lgb_clf.fit(X_train, y_train)
+cat_clf.fit(X_train, y_train)
+lgb_preds_train = lgb_clf.predict_proba(X_train)[:, 1]  
+cat_preds_train = cat_clf.predict_proba(X_train)[:, 1] 
+meta_features_train = pd.DataFrame({  # Tworzenie meta-cech
+    'lgb_preds': lgb_preds_train,
+    'cat_preds': cat_preds_train
+})
+meta_model = LogisticRegression()  
+meta_model.fit(meta_features_train, y_train)
+lgb_preds_test = lgb_clf.predict_proba(X_test)[:, 1] 
+cat_preds_test = cat_clf.predict_proba(X_test)[:, 1] 
+meta_features_test = pd.DataFrame({ 
+    'lgb_preds': lgb_preds_test,
+    'cat_preds': cat_preds_test
+})
+return meta_model, meta_features_test, y_test
+\end{lstlisting}
+
+\subsection{Schemat blokowy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/diagrams/metoda20.drawio.png}
+	\caption{Schemat metody 20.}
+	\label{fig:diagram_metoda20}
+\end{figure}
+
+\subsection{Właściwości analityczne}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Efektywność}:
+
+  \begin{itemize}
+  \item
+    \textbf{LightGBM} jest zoptymalizowany do szybkiego przetwarzania
+    danych i dobrze radzi sobie z dużymi zbiorami o wysokiej liczbie
+    cech.
+  \item
+    \textbf{CatBoost} doskonale działa na danych z kategoriami,
+    minimalizując konieczność ich wcześniejszego przetwarzania.
+  \end{itemize}
+\item
+  \textbf{Elastyczność}: metoda jest łatwo dostosowywalna do różnych
+  problemów klasyfikacyjnych dzięki zastosowaniu zaawansowanych modeli
+  bazowych i uniwersalnego meta-modelu.
+\item
+  \textbf{Stabilność}:
+
+  \begin{itemize}
+  \item
+    Oba modele bazowe charakteryzują się stabilnością wyników dzięki
+    zaawansowanym mechanizmom redukcji przeuczenia.
+  \item
+    Meta-model dodatkowo zmniejsza wariancję wyników, zwiększając
+    spójność predykcji.
+  \end{itemize}
+\item
+  \textbf{Złożoność obliczeniowa}:
+
+  \begin{itemize}
+  \item
+    \textbf{LightGBM} i \textbf{CatBoost} są wydajne obliczeniowo, a ich
+    złożoność zależy liniowo od liczby próbek i estymatorów.
+  \item
+    Regresja logistyczna jako meta-model jest szybka i wydajna, co
+    umożliwia efektywną konsolidację predykcji.
+  \end{itemize}
+\item
+  \textbf{Wydajność}: \textbf{LightGBM} działa szczególnie dobrze na
+  dużych zbiorach danych, podczas gdy \textbf{CatBoost} optymalizuje
+  działanie na bardziej złożonych danych z różnorodnymi cechami.
+\end{enumerate}

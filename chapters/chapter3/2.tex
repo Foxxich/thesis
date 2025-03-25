@@ -1,0 +1,221 @@
+\section{Druga metoda (Metoda18)}
+\subsection{Pomysł na metodę}
+W Metoda18 integracja Gradient Boosting i CatBoost została wzbogacona o
+meta-model w postaci regresji logistycznej. Metoda ta jest wynikiem
+kombinacji idei pochodzących z Metoda10 oraz Metoda13. W Metoda10 kluczowym
+aspektem było miękkie głosowanie, które pozwalało uwzględniać
+probabilistyczne wyniki modeli bazowych w końcowych predykcjach. Z kolei
+Metoda13 skupił się na użyciu stacking, gdzie Gradient Boosting, XGBoost i
+Random Forest były łączone przy użyciu regresji logistycznej jako
+meta-modelu.
+
+Metoda18 czerpie z Metoda13 mechanizm stacking, jednak zamiast wielu modeli
+bazowych opiera się na dwóch potężnych algorytmach boostingu -- Gradient
+Boosting i CatBoost. Wybór tych modeli wynika z ich zdolności do
+radzenia sobie z różnymi typami danych i ich nierównowagą. Regresja
+logistyczna jako meta-model umożliwia skuteczną integrację wyników, co
+zostało wcześniej zademonstrowane w Metoda13. W porównaniu do Metoda10, Metoda18
+idzie krok dalej, stawiając na większą precyzję w meta-modelu poprzez
+wykorzystanie pełnych rozkładów prawdopodobieństw z boostingu.
+
+\subsection{Wejściowe parametry}
+Metoda train\_run18 przyjmuje następujące parametry wejściowe:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz to
+  jedna próbka, a kolumny to cechy. Rozmiar: \textbf{n × m}, gdzie
+  \textbf{m} to liczba próbek, a \textbf{n} to liczba cech.
+\item
+  \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar:
+  \textbf{n}, gdzie \textbf{n} to liczba próbek w danych treningowych.
+\item
+  \textbf{X\_test}: Macierz danych testowych, analogiczna do
+  \textbf{X\_train}, używana do oceny modelu.
+\item
+  \textbf{y\_test}: Wektor etykiet testowych, odpowiadający danym
+  testowym.
+\end{enumerate}
+
+\subsection{Wyjściowe parametry}
+Metoda zwraca następujące elementy:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{meta\_model}: Meta-model wytrenowany na danych pochodzących z
+  predykcji modeli \textbf{Gradient Boosting} i \textbf{CatBoost}.
+\item
+  \textbf{meta\_features\_test}: Macierz meta-cech, zbudowana na
+  podstawie predykcji modeli bazowych dla danych testowych.
+\item
+  \textbf{y\_test}: Wektor etykiet testowych, identyczny z wejściowym
+  \textbf{y\_test}.
+\end{enumerate}
+
+\subsection{Algorytm}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Trenowanie modeli bazowych:
+
+  \begin{itemize}
+  \item
+    \textbf{Gradient Boosting}:
+
+    \begin{itemize}
+    \item
+      Model \textbf{GradientBoostingClassifier} jest inicjalizowany z
+      \textbf{100} \textbf{estymatorami} i \textbf{stanem losowości
+      (random\_state) 42}.
+    \item
+      Model jest trenowany na danych treningowych \textbf{X\_train} i
+      \textbf{y\_train}.
+    \end{itemize}
+  \item
+    \textbf{CatBoost}:
+
+    \begin{itemize}
+    \item
+      Model \textbf{CatBoostClassifier} jest inicjalizowany z
+      \textbf{100 iteracjami} i \textbf{stanem losowości (random\_state)
+      42}, a tryb \textbf{verbose} jest wyłączony.
+    \item
+      Model jest trenowany na tych samych danych treningowych.
+    \end{itemize}
+  \end{itemize}
+\item
+  Generowanie predykcji dla danych treningowych:
+
+  \begin{itemize}
+  \item
+    Obliczane są prawdopodobieństwa klasy pozytywnej \textbf{\( P(y=1 \mid x) \)} dla obu modeli bazowych:
+
+    \begin{itemize}
+    \item
+      \textbf{gb\_preds\_train}: Predykcje Gradient Boosting.
+    \item
+      \textbf{cat\_preds\_train}: Predykcje CatBoost.
+    \end{itemize}
+  \item
+    Predykcje są używane do stworzenia macierzy meta-cech:
+
+    \begin{itemize}
+    \item
+      Kolumny to gb\_preds i cat\_preds.
+    \end{itemize}
+  \end{itemize}
+\item
+  Trenowanie meta-modelu:
+
+  \begin{itemize}
+  \item
+    Wytrenowany na danych \textbf{meta-cech, meta\_features\_train,}
+    oraz rzeczywistych etykietach \textbf{y\_train}.
+  \item
+    Meta-modelem jest \textbf{regresja logistyczna},
+    \textbf{LogisticRegression}, która łączy predykcje obu modeli
+    bazowych.
+  \end{itemize}
+\item
+  \textbf{Generowanie predykcji dla danych testowych}:
+
+  \begin{itemize}
+  \item
+    Obliczane są prawdopodobieństwa klasy pozytywnej dla Gradient
+    Boosting i CatBoost:
+
+    \begin{itemize}
+    \item
+      gb\_preds\_test: Predykcje Gradient Boosting.
+    \item
+      cat\_preds\_test: Predykcje CatBoost.
+    \end{itemize}
+  \item
+    Tworzona jest macierz meta-cech dla danych testowych o analogicznej
+    strukturze jak dla danych treningowych.
+  \end{itemize}
+\item
+  Zwracanie wyników: meta-model, macierz meta-cech dla testu oraz
+  etykiety testowe są zwracane.
+\end{enumerate}
+
+\subsection{Kod}
+\begin{lstlisting}[caption={Kod do 18 metody}, label={18Metoda}]
+gb_clf = GradientBoostingClassifier(
+    n_estimators=100, 
+    random_state=42
+)  # Gradient Boosting
+cat_clf = CatBoostClassifier(
+    iterations=100, 
+    verbose=0, 
+    random_state=42
+)  # CatBoost
+gb_clf.fit(X_train, y_train)
+cat_clf.fit(X_train, y_train)
+gb_preds_train = gb_clf.predict_proba(X_train)[:, 1]  
+cat_preds_train = cat_clf.predict_proba(X_train)[:, 1]
+meta_features_train = pd.DataFrame({
+    'gb_preds': gb_preds_train,
+    'cat_preds': cat_preds_train
+})
+meta_model = LogisticRegression()
+meta_model.fit(meta_features_train, y_train)
+gb_preds_test = gb_clf.predict_proba(X_test)[:, 1]
+cat_preds_test = cat_clf.predict_proba(X_test)[:, 1]  
+meta_features_test = pd.DataFrame({
+    'gb_preds': gb_preds_test,
+    'cat_preds': cat_preds_test
+})
+return meta_model, meta_features_test, y_test
+\end{lstlisting}
+
+\subsection{Schemat blokowy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/diagrams/metoda18.drawio.png}
+	\caption{Schemat metody 18.}
+	\label{fig:diagram_metoda18}
+\end{figure}
+
+\subsection{Właściwości analityczne}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Efektywność}:
+
+  \begin{itemize}
+  \item
+    Kombinacja \textbf{Gradient Boosting} i \textbf{CatBoost} pozwala na
+    efektywne uchwycenie zarówno liniowych, jak i nieliniowych
+    zależności w danych.
+  \item
+    Meta-model optymalizuje końcowe wyniki poprzez fuzję predykcji z
+    modeli bazowych.
+  \end{itemize}
+\item
+  \textbf{Elastyczność}: metoda może być zastosowana w różnych
+  problemach klasyfikacyjnych, szczególnie w przypadkach, gdzie różne
+  modele bazowe wykazują różne mocne strony.
+\item
+  \textbf{Stabilność}: meta-model działa jako mechanizm konsolidujący,
+  zmniejszając wariancję predykcji i poprawiając stabilność wyników.
+\item
+  \textbf{Złożoność obliczeniowa}:
+
+  \begin{itemize}
+  \item
+    \textbf{Gradient Boosting} i \textbf{CatBoost} mają złożoność
+    liniową względem liczby próbek i estymatorów, co pozwala na
+    efektywne przetwarzanie dużych zbiorów danych.
+  \item
+    Dodanie meta-modelu zwiększa nieznacznie złożoność, ale poprawia
+    jakość wyników.
+  \end{itemize}
+\item
+  \textbf{Wydajność}: CatBoost jest zoptymalizowany pod kątem szybkiego
+  trenowania, a Gradient Boosting zapewnia interpretowalność wyników.
+  Kombinacja tych dwóch modeli z meta-modelem znacząco poprawia
+  skuteczność klasyfikacji.
+\end{enumerate}

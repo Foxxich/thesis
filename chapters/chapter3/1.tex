@@ -1,0 +1,237 @@
+\chapter{Własne metody}
+Autorskie metody zostały opracowane na bazie wyników badań, które
+szczegółowo przeanalizowały i określiły najlepsze podejścia pod względem
+\textbf{Accuracy, Log Loss} oraz \textbf{Execution Time}. Bazując na
+zaobserwowanych wzorcach oraz kluczowych wnioskach płynących z tych
+analiz, stworzyliśmy unikalne rozwiązania, które łączą skuteczność i
+wydajność, dostosowując je do specyficznych wymagań i wyzwań
+problematyki wykrywania \textbf{fake news}.
+
+\section{Pierwsza metoda (Metoda17)}
+\subsection{Pomysł na metodę}
+Metoda Metoda17 została zainspirowana wcześniejszym podejściem z Metoda10,
+które wykorzystuje VotingClassifier łączący różne modele, takie jak
+MLPClassifier, Logistic Regression i XGBoost. W Metoda10 szczególną uwagę
+poświęcono synergii modeli liniowych i nieliniowych, co pozwoliło
+uzyskać wysoką stabilność wyników dzięki miękkiemu głosowaniu.
+Jednocześnie Metoda6 dostarczył inspiracji w postaci użycia elastycznych
+sieci neuronowych jako narzędzi do analizy tekstu, szczególnie w pracy z
+osadzeniami BERT.
+
+W Metoda17 skoncentrowano się na dynamicznym dostosowywaniu wag próbek, co
+pozwala modelowi skupić się na trudniejszych przykładach. Wykorzystano
+tu architekturę Sequential, która dzięki regularizacji L2 i Dropout
+radzi sobie z problemem przeuczenia. Warstwy BatchNormalization i
+LeakyReLU zapewniają stabilność i efektywność trenowania. Podobnie jak w
+Metoda10, waga danych i ich trudność odgrywają kluczową rolę, jednak Metoda17
+idzie krok dalej, umożliwiając iteracyjne dostosowanie wag na podstawie
+błędów popełnianych w każdej iteracji. Ta iteracyjność była inspirowana
+sukcesem VotingClassifier w Metoda10, który również uczył się z różnych
+perspektyw dzięki modelom bazowym.
+
+\subsection{Wejściowe parametry}
+Metoda train\_run17 przyjmuje następujące parametry wejściowe:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz
+  reprezentuje jedną próbkę, a kolumny odpowiadają cechom. Rozmiar: n×mn
+  \textbackslash times mn×m, gdzie nnn to liczba próbek, a mmm to liczba
+  cech.
+\item
+  \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar:
+  nnn, gdzie nnn to liczba próbek w danych treningowych.
+\item
+  \textbf{X\_test}: Macierz danych testowych, analogiczna do X\_train,
+  ale używana do oceny modelu.
+\item
+  \textbf{y\_test}: Wektor etykiet dla danych testowych.
+\item
+  \textbf{n\_models}: Liczba iteracji, czyli modeli, które będą
+  trenowane w celu zwiększenia skuteczności klasyfikacji dzięki
+  dynamicznemu ważeniu próbek.
+\end{enumerate}
+
+\subsection{Wyjściowe parametry}
+Metoda zwraca następujące elementy:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{model}: Ostateczny model wytrenowany po n\_models iteracjach.
+\item
+  \textbf{X\_test}: Macierz danych testowych, identyczna z wejściowym
+  X\_test.
+\item
+  \textbf{y\_test}: Wektor etykiet testowych, identyczny z wejściowym
+  y\_test.
+\end{enumerate}
+
+\subsection{Algorytm}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Dla wszystkich próbek w danych treningowych wagi są inicjalizowane
+  jako 1. Każda próbka na początku ma równą wagę, co zapewnia równoważne
+  traktowanie wszystkich przykładów w początkowym etapie treningu. Wagi
+  te są przechowywane w wektorze \textbf{sample\_weights} o długości
+  równej liczbie próbek w zbiorze treningowym.
+\item
+  Iteracje modeli:
+
+  \begin{itemize}
+  \item
+    W każdej iteracji tworzony jest model sieci neuronowej typu
+    \textbf{Sequential}.
+  \item
+    Architektura modelu składa się z następujących warstw:
+
+    \begin{itemize}
+    \item
+      \textbf{Pierwsza warstwa ukryta}:
+
+      \begin{itemize}
+      \item
+        Warstwa \textbf{Dense} z 128 neuronami, regularizacją \textbf{L2
+        ($\lambda$ = 0.01)} i bez funkcji aktywacji.
+      \item
+        Warstwa \textbf{BatchNormalization}.
+      \item
+        Funkcja aktywacji \textbf{LeakyReLU ($\alpha$ = 0.1)}.
+      \item
+        Warstwa \textbf{Dropout} \textbf{(p = 0.2)}.
+      \end{itemize}
+    \item
+      \textbf{Druga warstwa ukryta}:
+
+      \begin{itemize}
+      \item
+        Warstwa \textbf{Dense} z 64 neuronami, regularizacją \textbf{L2
+        ($\lambda$=0.01)} i bez funkcji aktywacji.
+      \item
+        Warstwa \textbf{BatchNormalization}.
+      \item
+        Funkcja aktywacji \textbf{LeakyReLU} \textbf{($\alpha$=0.1)}.
+      \item
+        Warstwa \textbf{Dropout (p=0.2)}.
+      \end{itemize}
+    \item
+      \textbf{Warstwa wyjściowa}:
+
+      \begin{itemize}
+      \item
+        Warstwa \textbf{Dense} z 1 neuronem i funkcją aktywacji
+        \textbf{sigmoid}, która polega na dostosowaniu do problemów
+        binarnej klasyfikacji.
+      \end{itemize}
+    \end{itemize}
+  \item
+    Model jest kompilowany z następującymi ustawieniami:
+
+    \begin{itemize}
+    \item
+      Optymalizator: \textbf{Adam} \textbf{(learning~rate=0.001)}.
+    \item
+      Funkcja kosztu: \textbf{binary\_crossentropy}.
+    \item
+      Metryka: \textbf{Accuracy}.
+    \end{itemize}
+  \end{itemize}
+\item
+  Model jest trenowany przez 10 epok z użyciem rozmiaru batcha równego
+  64. Wagi próbek \textbf{sample\_weight} są wykorzystywane do
+  uwzględnienia trudności klasyfikacji poszczególnych przykładów.
+\item
+  Aktualizacja wag próbek
+
+  \begin{itemize}
+  \item
+    Po każdej iteracji modelu obliczane są predykcje na danych
+    treningowych.
+  \item
+    Różnica absolutna między rzeczywistymi etykietami \textbf{y\_train},
+    a przewidywaniami modelu \textbf{y\_pred} jest dodawana do wag
+    próbek, zwiększając wagi trudnych przykładów.
+  \end{itemize}
+\item
+  Po zakończeniu \textbf{n\_models} iteracji, ostateczny model oraz dane
+  testowe \textbf{X\_test, y\_test} są zwracane.
+\end{enumerate}
+
+\subsection{Kod}
+\begin{lstlisting}[caption={Kod do 17 metody}, label={17Metoda}]
+sample_weights = np.ones(len(y_train))
+for _ in range(n_models):
+    model = Sequential([
+        Dense(
+            128, 
+            input_dim=X_train.shape[1], 
+            activation=None, 
+            kernel_regularizer=l2(0.01)
+        ),
+        BatchNormalization(),
+        LeakyReLU(alpha=0.1),
+        Dropout(0.2),
+        Dense(64, activation=None, kernel_regularizer=l2(0.01)), 
+        BatchNormalization(),
+        LeakyReLU(alpha=0.1),
+        Dropout(0.2),
+        Dense(1, activation='sigmoid')
+    ])
+    model.compile(
+        optimizer=Adam(learning_rate=0.001), 
+        loss='binary_crossentropy', 
+        metrics=['accuracy']
+    )
+    model.fit(
+        X_train, 
+        y_train, 
+        epochs=10, 
+        batch_size=64, 
+        sample_weight=sample_weights, 
+        verbose=0
+    )
+    y_pred = model.predict(X_train)
+    sample_weights += np.abs(y_train - y_pred.squeeze())
+return model, X_test, y_test
+\end{lstlisting}
+
+\subsection{Schemat blokowy}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/diagrams/metoda17.drawio.png}
+	\caption{Schemat metody 17.}
+	\label{fig:diagram_metoda17}
+\end{figure}
+
+\subsection{Właściwości analityczne}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Efektywność}:
+
+  \begin{itemize}
+  \item
+    Metoda umożliwia poprawę jakości klasyfikacji poprzez iteracyjne
+    skupianie się na trudniejszych przykładach.
+  \item
+    \textbf{Regularizacja L2} oraz mechanizmy
+    \textbf{BatchNormalization} i \textbf{Dropout} zmniejszają ryzyko
+    przeuczenia.
+  \end{itemize}
+\item
+  \textbf{Elastyczność}: architektura modelu i sposób ważenia próbek
+  pozwalają na zastosowanie metody w różnych problemach
+  klasyfikacyjnych, szczególnie w przypadkach nierównomiernych danych.
+\item
+  \textbf{Stabilność}: iteracyjne uczenie z dynamicznym ważeniem próbek
+  poprawia spójność wyników i zmniejsza wpływ szumu w danych.
+\item
+  \textbf{Złożoność obliczeniowa}: złożoność trenowania wzrasta liniowo
+  wraz z liczbą iteracji (n\_models), co pozwala na łatwe dostosowanie
+  metody do dostępnych zasobów obliczeniowych.
+\item
+  \textbf{Wydajność}: optymalizator Adam zapewnia szybkie i stabilne
+  uczenie, szczególnie w połączeniu z BatchNormalization.
+\end{enumerate}
