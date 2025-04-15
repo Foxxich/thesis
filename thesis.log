@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  25 MAR 2025 23:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  16 APR 2025 00:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1190,7 +1190,7 @@ Package pdftex.def Info: img/diagrams/metoda2.drawio.png  used on input line 80.
 <img/diagrams/metoda3.drawio.png, id=690, 446.66875pt x 633.36626pt>
 File: img/diagrams/metoda3.drawio.png Graphic file (type png)
 <use img/diagrams/metoda3.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda3.drawio.png  used on input line 94.
+Package pdftex.def Info: img/diagrams/metoda3.drawio.png  used on input line 98.
 (pdftex.def)             Requested size: 256.07741pt x 363.11969pt.
 
 
@@ -1198,357 +1198,353 @@ Package pdftex.def Info: img/diagrams/metoda3.drawio.png  used on input line 94.
 <img/diagrams/metoda5.drawio.png, id=701, 387.4475pt x 522.95375pt>
 File: img/diagrams/metoda5.drawio.png Graphic file (type png)
 <use img/diagrams/metoda5.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda5.drawio.png  used on input line 110.
+Package pdftex.def Info: img/diagrams/metoda5.drawio.png  used on input line 116.
 (pdftex.def)             Requested size: 256.07741pt x 345.64528pt.
 
 
 [26]
 
 [27 <./img/diagrams/metoda5.drawio.png>]
-<img/diagrams/metoda6.drawio.png, id=716, 317.185pt x 603.25375pt>
-File: img/diagrams/metoda6.drawio.png Graphic file (type png)
-<use img/diagrams/metoda6.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda6.drawio.png  used on input line 126.
-(pdftex.def)             Requested size: 213.39568pt x 405.87161pt.
 
-
-[28 <./img/diagrams/metoda6.drawio.png>]
-<img/diagrams/metoda8.drawio.png, id=727, 272.01625pt x 482.80376pt>
-File: img/diagrams/metoda8.drawio.png Graphic file (type png)
-<use img/diagrams/metoda8.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda8.drawio.png  used on input line 142.
-(pdftex.def)             Requested size: 213.39568pt x 378.7734pt.
-
+[28]
 
 [29]
 
-[30 <./img/diagrams/metoda8.drawio.png>]
-<img/diagrams/metoda13.drawio.png, id=747, 502.87875pt x 593.21625pt>
+[30]
+
+[31]
+
+[32]
+Overfull \hbox (2.17744pt too wide) in paragraph at lines 187--188
+[]\T1/qtm/m/n/12 (-20) Trening \T1/cmtt/m/n/12 stacking_model \T1/qtm/m/n/12 (-20) od-by-wa si¦ na \T1/cmtt/m/n/12 X_train_resampled \T1/qtm/m/n/12 (-20) i \T1/cmtt/m/n/12 y_train_resampled
+ []
+
+<img/diagrams/metoda13.drawio.png, id=761, 502.87875pt x 593.21625pt>
 File: img/diagrams/metoda13.drawio.png Graphic file (type png)
 <use img/diagrams/metoda13.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda13.drawio.png  used on input line 177.
+Package pdftex.def Info: img/diagrams/metoda13.drawio.png  used on input line 193.
 (pdftex.def)             Requested size: 256.07741pt x 302.07465pt.
 
 
-[31]
-<img/diagrams/metoda14.drawio.png, id=759, 406.51875pt x 603.25375pt>
+[33 <./img/diagrams/metoda13.drawio.png>]
+<img/diagrams/metoda14.drawio.png, id=771, 406.51875pt x 603.25375pt>
 File: img/diagrams/metoda14.drawio.png Graphic file (type png)
 <use img/diagrams/metoda14.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda14.drawio.png  used on input line 191.
+Package pdftex.def Info: img/diagrams/metoda14.drawio.png  used on input line 211.
 (pdftex.def)             Requested size: 213.39568pt x 316.66693pt.
 
 
-[32 <./img/diagrams/metoda13.drawio.png>]
+[34]
 
-[33 <./img/diagrams/metoda14.drawio.png>]
-<img/diagrams/metoda7.drawio.png, id=783, 300.12125pt x 783.92876pt>
+[35 <./img/diagrams/metoda14.drawio.png>]
+
+[36]
+<img/diagrams/metoda7.drawio.png, id=796, 300.12125pt x 783.92876pt>
 File: img/diagrams/metoda7.drawio.png Graphic file (type png)
 <use img/diagrams/metoda7.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda7.drawio.png  used on input line 214.
+Package pdftex.def Info: img/diagrams/metoda7.drawio.png  used on input line 243.
 (pdftex.def)             Requested size: 213.39568pt x 557.41869pt.
-
-
-[34]) (chapters/chapter2/8.tex
-
-[35]
-
-[36 <./img/diagrams/metoda7.drawio.png>]
+) (chapters/chapter2/8.tex
 
 [37]
 
-[38])) (chapters/chapter3_Our_Methods.tex (chapters/chapter3/1.tex
+[38 <./img/diagrams/metoda7.drawio.png>]
 
 [39]
+
+[40])) (chapters/chapter3_Our_Methods.tex (chapters/chapter3/1.tex
+
+[41]
 Rozdzia\PlPrIeC {\l } 3.
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 39.
 (C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qtm.fd
 File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
 )
 
-[40
+[42
 
 {C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 
-[41]
+[43]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 163.
 
 
-[42]
-<img/diagrams/metoda17.drawio.png, id=869, 713.66624pt x 884.30376pt>
+[44]
+<img/diagrams/metoda17.drawio.png, id=877, 713.66624pt x 884.30376pt>
 File: img/diagrams/metoda17.drawio.png Graphic file (type png)
 <use img/diagrams/metoda17.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda17.drawio.png  used on input line 203.
 (pdftex.def)             Requested size: 298.75264pt x 370.17715pt.
 
 
-[43 <./img/diagrams/metoda17.drawio.png>]) (chapters/chapter3/2.tex
+[45 <./img/diagrams/metoda17.drawio.png>]) (chapters/chapter3/2.tex
 
-[44]
+[46]
 
-[45]
-<img/diagrams/metoda18.drawio.png, id=910, 392.46625pt x 924.45375pt>
+[47]
+<img/diagrams/metoda18.drawio.png, id=917, 392.46625pt x 924.45375pt>
 File: img/diagrams/metoda18.drawio.png Graphic file (type png)
 <use img/diagrams/metoda18.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda18.drawio.png  used on input line 177.
 (pdftex.def)             Requested size: 213.39568pt x 502.66766pt.
 
 
-[46]
-
-[47 <./img/diagrams/metoda18.drawio.png>]) (chapters/chapter3/3.tex
-
 [48]
 
-[49]
-<img/diagrams/metoda19.drawio.png, id=973, 392.46625pt x 924.45375pt>
+[49 <./img/diagrams/metoda18.drawio.png>]) (chapters/chapter3/3.tex
+
+[50]
+
+[51]
+<img/diagrams/metoda19.drawio.png, id=981, 392.46625pt x 924.45375pt>
 File: img/diagrams/metoda19.drawio.png Graphic file (type png)
 <use img/diagrams/metoda19.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda19.drawio.png  used on input line 171.
 (pdftex.def)             Requested size: 213.39568pt x 502.66766pt.
 
 
-[50]
-
-[51 <./img/diagrams/metoda19.drawio.png>]) (chapters/chapter3/4.tex
-
 [52]
 
-[53]
-<img/diagrams/metoda20.drawio.png, id=1035, 392.46625pt x 924.45375pt>
+[53 <./img/diagrams/metoda19.drawio.png>]) (chapters/chapter3/4.tex
+
+[54]
+
+[55]
+<img/diagrams/metoda20.drawio.png, id=1042, 392.46625pt x 924.45375pt>
 File: img/diagrams/metoda20.drawio.png Graphic file (type png)
 <use img/diagrams/metoda20.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda20.drawio.png  used on input line 171.
 (pdftex.def)             Requested size: 213.39568pt x 502.66766pt.
 
 
-[54]
-
-[55 <./img/diagrams/metoda20.drawio.png>])) (chapters/chapter4_Implementation.tex
-
 [56]
+
+[57 <./img/diagrams/metoda20.drawio.png>])) (chapters/chapter4_Implementation.tex
+
+[58]
 Rozdzia\PlPrIeC {\l } 4.
 
 
-[57
+[59
 
 ]
 
-[58]
+[60]
 
-[59]
-<img/app/app_metoda.png, id=1099, 587.19376pt x 344.03531pt>
+[61]
+<img/app/app_metoda.png, id=1106, 587.19376pt x 344.03531pt>
 File: img/app/app_metoda.png Graphic file (type png)
 <use img/app/app_metoda.png>
 Package pdftex.def Info: img/app/app_metoda.png  used on input line 101.
 (pdftex.def)             Requested size: 293.59616pt x 172.01723pt.
 ) (chapters/chapter5_Tests_Results.tex
 
-[60 <./img/app/app_metoda.png>]
+[62 <./img/app/app_metoda.png>]
 Rozdzia\PlPrIeC {\l } 5.
 
 
-[61
+[63
 
 ]
 
-[62]
+[64]
 Overfull \hbox (25.19997pt too wide) in paragraph at lines 114--120
  [][] 
  []
 
 
 
-[63]
+[65]
 
-[64]
-<img/stats/results_1_classic_Log Loss_comparison.png, id=1131, 722.7pt x 433.62pt>
+[66]
+<img/stats/results_1_classic_Log Loss_comparison.png, id=1138, 722.7pt x 433.62pt>
 File: img/stats/results_1_classic_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_1_classic_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_1_classic_Log Loss_comparison.png  used on input line 245.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[65]
-<img/stats/results_1_few_shot_Log Loss_comparison.png, id=1136, 722.7pt x 433.62pt>
+[67]
+<img/stats/results_1_few_shot_Log Loss_comparison.png, id=1143, 722.7pt x 433.62pt>
 File: img/stats/results_1_few_shot_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_1_few_shot_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_1_few_shot_Log Loss_comparison.png  used on input line 252.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_1_one_shot_Log Loss_comparison.png, id=1137, 722.7pt x 433.62pt>
+<img/stats/results_1_one_shot_Log Loss_comparison.png, id=1144, 722.7pt x 433.62pt>
 File: img/stats/results_1_one_shot_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_1_one_shot_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_1_one_shot_Log Loss_comparison.png  used on input line 259.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[66 <./img/stats/results_1_classic_Log Loss_comparison.png> <./img/stats/results_1_few_shot_Log Loss_comparison.png>]
+[68 <./img/stats/results_1_classic_Log Loss_comparison.png> <./img/stats/results_1_few_shot_Log Loss_comparison.png>]
 
-[67 <./img/stats/results_1_one_shot_Log Loss_comparison.png>]
-<img/stats/results_1_classic_Accuracy_comparison.png, id=1155, 722.7pt x 433.62pt>
+[69 <./img/stats/results_1_one_shot_Log Loss_comparison.png>]
+<img/stats/results_1_classic_Accuracy_comparison.png, id=1163, 722.7pt x 433.62pt>
 File: img/stats/results_1_classic_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_1_classic_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_1_classic_Accuracy_comparison.png  used on input line 306.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_1_few_shot_Accuracy_comparison.png, id=1156, 722.7pt x 433.62pt>
+<img/stats/results_1_few_shot_Accuracy_comparison.png, id=1164, 722.7pt x 433.62pt>
 File: img/stats/results_1_few_shot_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_1_few_shot_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_1_few_shot_Accuracy_comparison.png  used on input line 313.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_1_one_shot_Accuracy_comparison.png, id=1157, 722.7pt x 433.62pt>
+<img/stats/results_1_one_shot_Accuracy_comparison.png, id=1165, 722.7pt x 433.62pt>
 File: img/stats/results_1_one_shot_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_1_one_shot_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_1_one_shot_Accuracy_comparison.png  used on input line 320.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[68 <./img/stats/results_1_classic_Accuracy_comparison.png> <./img/stats/results_1_few_shot_Accuracy_comparison.png>]
+[70 <./img/stats/results_1_classic_Accuracy_comparison.png> <./img/stats/results_1_few_shot_Accuracy_comparison.png>]
 
-[69 <./img/stats/results_1_one_shot_Accuracy_comparison.png>]
-<img/stats/results_1_classic_Execution Time (s)_comparison.png, id=1176, 722.7pt x 433.62pt>
+[71 <./img/stats/results_1_one_shot_Accuracy_comparison.png>]
+<img/stats/results_1_classic_Execution Time (s)_comparison.png, id=1183, 722.7pt x 433.62pt>
 File: img/stats/results_1_classic_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_1_classic_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_1_classic_Execution Time (s)_comparison.png  used on input line 376.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_1_few_shot_Execution Time (s)_comparison.png, id=1177, 722.7pt x 433.62pt>
+<img/stats/results_1_few_shot_Execution Time (s)_comparison.png, id=1184, 722.7pt x 433.62pt>
 File: img/stats/results_1_few_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_1_few_shot_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_1_few_shot_Execution Time (s)_comparison.png  used on input line 383.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[70 <./img/stats/results_1_classic_Execution Time (s)_comparison.png>]
-<img/stats/results_1_one_shot_Execution Time (s)_comparison.png, id=1184, 722.7pt x 433.62pt>
+[72 <./img/stats/results_1_classic_Execution Time (s)_comparison.png>]
+<img/stats/results_1_one_shot_Execution Time (s)_comparison.png, id=1191, 722.7pt x 433.62pt>
 File: img/stats/results_1_one_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_1_one_shot_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_1_one_shot_Execution Time (s)_comparison.png  used on input line 390.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[71 <./img/stats/results_1_few_shot_Execution Time (s)_comparison.png> <./img/stats/results_1_one_shot_Execution Time (s)_comparison.png>]
-<img/stats/results_2_classic_Log Loss_comparison.png, id=1194, 722.7pt x 433.62pt>
+[73 <./img/stats/results_1_few_shot_Execution Time (s)_comparison.png> <./img/stats/results_1_one_shot_Execution Time (s)_comparison.png>]
+<img/stats/results_2_classic_Log Loss_comparison.png, id=1201, 722.7pt x 433.62pt>
 File: img/stats/results_2_classic_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_2_classic_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_2_classic_Log Loss_comparison.png  used on input line 447.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[72]
-<img/stats/results_2_few_shot_Log Loss_comparison.png, id=1201, 722.7pt x 433.62pt>
+[74]
+<img/stats/results_2_few_shot_Log Loss_comparison.png, id=1209, 722.7pt x 433.62pt>
 File: img/stats/results_2_few_shot_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_2_few_shot_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_2_few_shot_Log Loss_comparison.png  used on input line 454.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_2_one_shot_Log Loss_comparison.png, id=1202, 722.7pt x 433.62pt>
+<img/stats/results_2_one_shot_Log Loss_comparison.png, id=1210, 722.7pt x 433.62pt>
 File: img/stats/results_2_one_shot_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_2_one_shot_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_2_one_shot_Log Loss_comparison.png  used on input line 461.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[73 <./img/stats/results_2_classic_Log Loss_comparison.png> <./img/stats/results_2_few_shot_Log Loss_comparison.png>]
+[75 <./img/stats/results_2_classic_Log Loss_comparison.png> <./img/stats/results_2_few_shot_Log Loss_comparison.png>]
 
-[74 <./img/stats/results_2_one_shot_Log Loss_comparison.png>]
-<img/stats/results_2_classic_Accuracy_comparison.png, id=1221, 722.7pt x 433.62pt>
+[76 <./img/stats/results_2_one_shot_Log Loss_comparison.png>]
+<img/stats/results_2_classic_Accuracy_comparison.png, id=1228, 722.7pt x 433.62pt>
 File: img/stats/results_2_classic_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_2_classic_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_2_classic_Accuracy_comparison.png  used on input line 505.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_2_few_shot_Accuracy_comparison.png, id=1222, 722.7pt x 433.62pt>
+<img/stats/results_2_few_shot_Accuracy_comparison.png, id=1229, 722.7pt x 433.62pt>
 File: img/stats/results_2_few_shot_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_2_few_shot_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_2_few_shot_Accuracy_comparison.png  used on input line 512.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_2_one_shot_Accuracy_comparison.png, id=1223, 722.7pt x 433.62pt>
+<img/stats/results_2_one_shot_Accuracy_comparison.png, id=1230, 722.7pt x 433.62pt>
 File: img/stats/results_2_one_shot_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_2_one_shot_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_2_one_shot_Accuracy_comparison.png  used on input line 519.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[75 <./img/stats/results_2_classic_Accuracy_comparison.png> <./img/stats/results_2_few_shot_Accuracy_comparison.png>]
+[77 <./img/stats/results_2_classic_Accuracy_comparison.png> <./img/stats/results_2_few_shot_Accuracy_comparison.png>]
 
-[76 <./img/stats/results_2_one_shot_Accuracy_comparison.png>]
-<img/stats/results_2_classic_Execution Time (s)_comparison.png, id=1241, 722.7pt x 433.62pt>
+[78 <./img/stats/results_2_one_shot_Accuracy_comparison.png>]
+<img/stats/results_2_classic_Execution Time (s)_comparison.png, id=1248, 722.7pt x 433.62pt>
 File: img/stats/results_2_classic_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_2_classic_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_2_classic_Execution Time (s)_comparison.png  used on input line 566.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_2_few_shot_Execution Time (s)_comparison.png, id=1242, 722.7pt x 433.62pt>
+<img/stats/results_2_few_shot_Execution Time (s)_comparison.png, id=1249, 722.7pt x 433.62pt>
 File: img/stats/results_2_few_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_2_few_shot_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_2_few_shot_Execution Time (s)_comparison.png  used on input line 573.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_2_one_shot_Execution Time (s)_comparison.png, id=1243, 722.7pt x 433.62pt>
+<img/stats/results_2_one_shot_Execution Time (s)_comparison.png, id=1250, 722.7pt x 433.62pt>
 File: img/stats/results_2_one_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_2_one_shot_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_2_one_shot_Execution Time (s)_comparison.png  used on input line 580.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[77 <./img/stats/results_2_classic_Execution Time (s)_comparison.png> <./img/stats/results_2_few_shot_Execution Time (s)_comparison.png>]
+[79 <./img/stats/results_2_classic_Execution Time (s)_comparison.png> <./img/stats/results_2_few_shot_Execution Time (s)_comparison.png>]
 
-[78 <./img/stats/results_2_one_shot_Execution Time (s)_comparison.png>]
-<img/stats/results_3_classic_Log Loss_comparison.png, id=1261, 722.7pt x 433.62pt>
+[80 <./img/stats/results_2_one_shot_Execution Time (s)_comparison.png>]
+<img/stats/results_3_classic_Log Loss_comparison.png, id=1269, 722.7pt x 433.62pt>
 File: img/stats/results_3_classic_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_3_classic_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_3_classic_Log Loss_comparison.png  used on input line 626.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_3_few_shot_Log Loss_comparison.png, id=1262, 722.7pt x 433.62pt>
+<img/stats/results_3_few_shot_Log Loss_comparison.png, id=1270, 722.7pt x 433.62pt>
 File: img/stats/results_3_few_shot_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_3_few_shot_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_3_few_shot_Log Loss_comparison.png  used on input line 633.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_3_one_shot_Log Loss_comparison.png, id=1263, 722.7pt x 433.62pt>
+<img/stats/results_3_one_shot_Log Loss_comparison.png, id=1271, 722.7pt x 433.62pt>
 File: img/stats/results_3_one_shot_Log Loss_comparison.png Graphic file (type png)
 <use img/stats/results_3_one_shot_Log Loss_comparison.png>
 Package pdftex.def Info: img/stats/results_3_one_shot_Log Loss_comparison.png  used on input line 640.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[79 <./img/stats/results_3_classic_Log Loss_comparison.png> <./img/stats/results_3_few_shot_Log Loss_comparison.png>]
-<img/stats/results_3_classic_Accuracy_comparison.png, id=1272, 722.7pt x 433.62pt>
+[81 <./img/stats/results_3_classic_Log Loss_comparison.png> <./img/stats/results_3_few_shot_Log Loss_comparison.png>]
+<img/stats/results_3_classic_Accuracy_comparison.png, id=1280, 722.7pt x 433.62pt>
 File: img/stats/results_3_classic_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_3_classic_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_3_classic_Accuracy_comparison.png  used on input line 683.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[80 <./img/stats/results_3_one_shot_Log Loss_comparison.png>]
-<img/stats/results_3_few_shot_Accuracy_comparison.png, id=1283, 722.7pt x 433.62pt>
+[82 <./img/stats/results_3_one_shot_Log Loss_comparison.png>]
+<img/stats/results_3_few_shot_Accuracy_comparison.png, id=1290, 722.7pt x 433.62pt>
 File: img/stats/results_3_few_shot_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_3_few_shot_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_3_few_shot_Accuracy_comparison.png  used on input line 690.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_3_one_shot_Accuracy_comparison.png, id=1284, 722.7pt x 433.62pt>
+<img/stats/results_3_one_shot_Accuracy_comparison.png, id=1291, 722.7pt x 433.62pt>
 File: img/stats/results_3_one_shot_Accuracy_comparison.png Graphic file (type png)
 <use img/stats/results_3_one_shot_Accuracy_comparison.png>
 Package pdftex.def Info: img/stats/results_3_one_shot_Accuracy_comparison.png  used on input line 697.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[81 <./img/stats/results_3_classic_Accuracy_comparison.png> <./img/stats/results_3_few_shot_Accuracy_comparison.png>]
+[83 <./img/stats/results_3_classic_Accuracy_comparison.png> <./img/stats/results_3_few_shot_Accuracy_comparison.png>]
 
-[82 <./img/stats/results_3_one_shot_Accuracy_comparison.png>]
-<img/stats/results_3_classic_Execution Time (s)_comparison.png, id=1302, 722.7pt x 433.62pt>
+[84 <./img/stats/results_3_one_shot_Accuracy_comparison.png>]
+<img/stats/results_3_classic_Execution Time (s)_comparison.png, id=1309, 722.7pt x 433.62pt>
 File: img/stats/results_3_classic_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_3_classic_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_3_classic_Execution Time (s)_comparison.png  used on input line 745.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_3_few_shot_Execution Time (s)_comparison.png, id=1303, 722.7pt x 433.62pt>
+<img/stats/results_3_few_shot_Execution Time (s)_comparison.png, id=1310, 722.7pt x 433.62pt>
 File: img/stats/results_3_few_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_3_few_shot_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_3_few_shot_Execution Time (s)_comparison.png  used on input line 752.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
-<img/stats/results_3_one_shot_Execution Time (s)_comparison.png, id=1304, 722.7pt x 433.62pt>
+<img/stats/results_3_one_shot_Execution Time (s)_comparison.png, id=1311, 722.7pt x 433.62pt>
 File: img/stats/results_3_one_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/results_3_one_shot_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/stats/results_3_one_shot_Execution Time (s)_comparison.png  used on input line 759.
 (pdftex.def)             Requested size: 361.3491pt x 216.80946pt.
 
 
-[83 <./img/stats/results_3_classic_Execution Time (s)_comparison.png> <./img/stats/results_3_few_shot_Execution Time (s)_comparison.png>]
+[85 <./img/stats/results_3_classic_Execution Time (s)_comparison.png> <./img/stats/results_3_few_shot_Execution Time (s)_comparison.png>]
 
-[84 <./img/stats/results_3_one_shot_Execution Time (s)_comparison.png>]
+[86 <./img/stats/results_3_one_shot_Execution Time (s)_comparison.png>]
 Overfull \hbox (50.58458pt too wide) in paragraph at lines 858--863
  [][] 
  []
@@ -1558,39 +1554,39 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[85]
+[87]
 
-[86]
+[88]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[87]
-
-[88]
-
 [89]
 
 [90]
 
-[91])
+[91]
 
-[92] (chapters/summary.tex
+[92]
 
-[93]) (thesis.bbl
+[93])
 
-[94
+[94] (chapters/summary.tex
+
+[95]) (thesis.bbl
+
+[96
 
 ]
 
-[95
+[97
 
 ])
 
-[96] (thesis.lof
+[98] (thesis.lof
 
-[97
+[99
 
 ])
 \tf@lof=\write7
@@ -1598,12 +1594,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[98]
+[100]
 
-[99
+[101
 
 ] (chapters/appendix1.tex)
-runsystem(latexminted cleantemp  --timestamp 20250325234820 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20250416002704 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -1611,20 +1607,20 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 6F9766BAB223350AFA6888088F164B31;19388.
+(rerunfilecheck)             Checksum: 09D0B752D9F26ED22FD693F48C4BC04B;19388.
  ) 
 Here is how much of TeX's memory you used:
- 35160 strings out of 473529
- 685933 string characters out of 5714773
- 1433542 words of memory out of 5000000
- 56905 multiletter control sequences out of 15000+600000
+ 35146 strings out of 473529
+ 685362 string characters out of 5714773
+ 1433540 words of memory out of 5000000
+ 56890 multiletter control sequences out of 15000+600000
  663847 words of font info for 247 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 123i,12n,121p,1447b,2135s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,12n,121p,1594b,2135s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmbi.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (104 pages, 1606460 bytes).
+Output written on thesis.pdf (106 pages, 1595054 bytes).
 PDF statistics:
- 1707 PDF objects out of 1728 (max. 8388607)
- 539 named destinations out of 1000 (max. 500000)
- 42497 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 1717 PDF objects out of 1728 (max. 8388607)
+ 540 named destinations out of 1000 (max. 500000)
+ 42487 words of extra memory for PDF output out of 42996 (max. 10000000)
 

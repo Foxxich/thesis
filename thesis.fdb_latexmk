@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1742942899.57468 "thesis.aux" "thesis.bbl" "thesis" 1742942905.07766 0
+["bibtex thesis"] 1744755877.60384 "thesis.aux" "thesis.bbl" "thesis" 1744756029.26561 0
   "./bibliography.bib" 1742938146 23377 eedb7b0c17c63004f9a1a5058ff30e25 ""
   "C:/Users/Vadym/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "thesis.aux" 1742942904 37599 78f903a68723af75cb6a5c1856cbad8f "pdflatex"
+  "thesis.aux" 1744756028 37267 3b286f84f32e2a8e3f5014961bad579a "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1742942899.85245 "c:/Users/Vadym/Downloads/MasterProject/thesis/thesis.tex" "thesis.pdf" "thesis" 1742942905.0787 0
+["pdflatex"] 1744756023.79568 "c:/Users/Vadym/Downloads/MasterProject/thesis/thesis.tex" "thesis.pdf" "thesis" 1744756029.26624 0
   "C:/Users/Vadym/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740909070 151038 b96f1a7c23ae90df166da2f3444ae62a ""
   "C:/Users/Vadym/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1200.pk" 1739821940 24152 718651f2a23f2bf4caee733f6b881e98 ""
   "C:/Users/Vadym/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1739820971 12017836 63e59ca2b871be971a9c8fbe4fc5e8a0 ""
@@ -253,7 +253,7 @@
   "chapters/chapter2/4.tex" 1740843992 5101 f0719a2eb28613402295ec7cd8342b67 ""
   "chapters/chapter2/5.tex" 1740843859 2053 a1fb625acac92b9635070b2d8113cd86 ""
   "chapters/chapter2/6.tex" 1741299300 4348 daf241737f5845f1decf8e0f6ff4bb56 ""
-  "chapters/chapter2/7.tex" 1742942886 36192 128fa75965212672f9ea447fae581a08 ""
+  "chapters/chapter2/7.tex" 1744756023 51042 b1c6ae6d4596903630e8c47732693623 ""
   "chapters/chapter2/8.tex" 1741541811 6792 4bad7ff964cacb104d5ce562ae3f065f ""
   "chapters/chapter2_Literature.tex" 1742335390 286 027f130cbdd2c5d90f5915369a23db6c ""
   "chapters/chapter3/1.tex" 1742891918 8568 23dddaee97a5e9643dc25f51ae4b0ea8 ""
@@ -279,9 +279,7 @@
   "img/diagrams/metoda3.drawio.png" 1741885217 63042 c97c9d290e36954fd6d46a6138ca90ac ""
   "img/diagrams/metoda4.drawio.png" 1742891052 51086 08175004f687bf0f403fc0ec47b8d4b0 ""
   "img/diagrams/metoda5.drawio.png" 1742220715 50309 31b2381d4bd60d2951de09350bef382b ""
-  "img/diagrams/metoda6.drawio.png" 1742895718 53197 87593bdf52b5105c7325a1846d153dce ""
   "img/diagrams/metoda7.drawio.png" 1742935837 54722 5bcf5e3f7382daa0a3c085fe6b210a7b ""
-  "img/diagrams/metoda8.drawio.png" 1741903723 39343 5e39623275f9966a5cd3b6b3de75f6e7 ""
   "img/stats/results_1_classic_Accuracy_comparison.png" 1739820907 29100 7e1a399a11e62a7177031379779f58c3 ""
   "img/stats/results_1_classic_Execution Time (s)_comparison.png" 1739820907 31305 0d587e19204d06c5ab3ea60482ec5713 ""
   "img/stats/results_1_classic_Log Loss_comparison.png" 1739820907 29352 7827e0b09aebd794f882b8a648ce9505 ""
@@ -309,12 +307,12 @@
   "img/stats/results_3_one_shot_Accuracy_comparison.png" 1739820907 29175 3bd84509ed876c523019532f6fd14f40 ""
   "img/stats/results_3_one_shot_Execution Time (s)_comparison.png" 1739820907 33202 c5df727a722b0bbdc44ea6a1065b5f9e ""
   "img/stats/results_3_one_shot_Log Loss_comparison.png" 1739820907 29792 e40266c359041fd896823a396d58a941 ""
-  "thesis.aux" 1742942904 37599 78f903a68723af75cb6a5c1856cbad8f "pdflatex"
-  "thesis.bbl" 1742942899 5752 e09eac697225dbc004598d79753d563d "bibtex thesis"
-  "thesis.lof" 1742942904 6685 a08800206775ce58af73290589ba3a8b "pdflatex"
-  "thesis.out" 1742942904 19388 6f9766bab223350afa6888088f164b31 "pdflatex"
+  "thesis.aux" 1744756028 37267 3b286f84f32e2a8e3f5014961bad579a "pdflatex"
+  "thesis.bbl" 1744755877 6017 eee3c7730f5b9f1f78425bef9d7c51f5 "bibtex thesis"
+  "thesis.lof" 1744756028 6484 638b8dfea2f587944c09bf773db3628e "pdflatex"
+  "thesis.out" 1744756028 19388 09d0b752d9f26ed22fd693f48c4bc04b "pdflatex"
   "thesis.tex" 1741283434 2651 573347e4c0cbaa7655d1cc672839901f ""
-  "thesis.toc" 1742942904 10811 63a9d8137bcc00e991d282d11106c1f5 "pdflatex"
+  "thesis.toc" 1744756028 10812 59819f931ceaa8efd62c418da8c35c34 "pdflatex"
   "ugmm8a.pfb" 1739820906 72456 9602ecd7c01388f9218cbdffc3cc9502 ""
   "ugmr8a.pfb" 1739820906 70277 9a929eecdce3adc73595f64fc38d85ed ""
   (generated)
