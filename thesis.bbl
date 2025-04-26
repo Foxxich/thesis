@@ -74,6 +74,14 @@ Atik Mahabub.
 \newblock {\em SN Applied Sciences}, 2(4):525, 2020.
 \newblock Uzyskano dostęp: 23 Stycznia 2025.
 
+\bibitem{ISOT}
+Shubha Mishra, Piyush Shukla, and Ratish Agarwal.
+\newblock Analyzing machine learning enabled fake news detection techniques for
+  diversified datasets.
+\newblock {\em Wireless Communications and Mobile Computing}, 2022(1):1575365,
+  2022.
+\newblock Uzyskano dostęp: 23 Kwietnia 2025.
+
 \bibitem{metoda16}
 Parth Patel, Shubham Patel, and Yashkumar Patel.
 \newblock Ensemble based approach for fake news detection.
@@ -113,6 +121,14 @@ Arjun Roy, Kingshuk Basak, Asif Ekbal, and Pushpak Bhattacharyya.
   2018.
 \newblock Uzyskano dostęp: 23 Stycznia 2025.
 
+\bibitem{BuzzFace}
+Giovanni Santia and Jake Williams.
+\newblock Buzzface: A news veracity dataset with facebook user commentary and
+  egos.
+\newblock {\em Proceedings of the International AAAI Conference on Web and
+  Social Media}, 12(1):531--540, Jun. 2018.
+\newblock Uzyskano dostęp: 23 Kwietnia 2025.
+
 \bibitem{metoda15}
 K~V, B~B Al-onazi, V~Simic, E~B Tirkolaee, and C~Jana.
 \newblock Deepfnd: An ensemble-based deep learning approach for the
@@ -127,5 +143,13 @@ Pawan Verma, Prateek Agrawal, Ivone Amorim, and Radu Prodan.
 \newblock {\em IEEE Transactions on Computational Social Systems}, PP:1--13, 04
   2021.
 \newblock Uzyskano dostęp: 23 Stycznia 2025.
+
+\bibitem{WELFake}
+Pawan~Kumar Verma, Prateek Agrawal, Ivone Amorim, and Radu Prodan.
+\newblock Welfake: Word embedding over linguistic features for fake news
+  detection.
+\newblock {\em IEEE Transactions on Computational Social Systems},
+  8(4):881--893, 2021.
+\newblock Uzyskano dostęp: 23 Kwietnia 2025.
 
 \end{thebibliography}

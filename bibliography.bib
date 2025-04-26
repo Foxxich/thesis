@@ -276,7 +276,7 @@
   journal    = {CoRR},
   volume     = {abs/1908.10084},
   year       = {2019},
-  note    = {Uzyskano dostęp: 23 Marca 2025},
+  note       = {Uzyskano dostęp: 23 Marca 2025},
   url        = {http://arxiv.org/abs/1908.10084},
   eprinttype = {arXiv},
   eprint     = {1908.10084},
@@ -285,18 +285,61 @@
   bibsource  = {dblp computer science bibliography, https://dblp.org}
 }
 
-% rodzaj teksta
+% rodzaj tekstu
 @article{snowballstemmer,
-title = {Text categorization with WEKA: A survey},
-journal = {Machine Learning with Applications},
-volume = {4},
-pages = {100033},
-year = {2021},
-note    = {Uzyskano dostęp: 23 Marca 2025},
-issn = {2666-8270},
-doi = {https://doi.org/10.1016/j.mlwa.2021.100033},
-url = {https://www.sciencedirect.com/science/article/pii/S2666827021000141},
-author = {Donatella Merlini and Martina Rossini},
-keywords = {Classification, Clustering, Text categorization, Text Mining, },
-abstract = {This work shows the use of WEKA, a tool that implements the most common machine learning algorithms, to perform a Text Mining analysis on a set of documents. Applying these methods requires initial steps where the text is converted into a structured format. Both the processing phase and the analysis of the transformed dataset, using classification and clustering algorithms, can be carried out entirely with this tool, in a rigorous and simple way. The work describes the construction of two classification models starting from two different sets of documents. These models are not meant to be good or realistic, but just illustrate how WEKA can be used for a Text Mining analysis.}
+  title    = {Text categorization with WEKA: A survey},
+  journal  = {Machine Learning with Applications},
+  volume   = {4},
+  pages    = {100033},
+  year     = {2021},
+  note     = {Uzyskano dostęp: 23 Marca 2025},
+  issn     = {2666-8270},
+  doi      = {https://doi.org/10.1016/j.mlwa.2021.100033},
+  url      = {https://www.sciencedirect.com/science/article/pii/S2666827021000141},
+  author   = {Donatella Merlini and Martina Rossini},
+  keywords = {Classification, Clustering, Text categorization, Text Mining, },
+  abstract = {This work shows the use of WEKA, a tool that implements the most common machine learning algorithms, to perform a Text Mining analysis on a set of documents. Applying these methods requires initial steps where the text is converted into a structured format. Both the processing phase and the analysis of the transformed dataset, using classification and clustering algorithms, can be carried out entirely with this tool, in a rigorous and simple way. The work describes the construction of two classification models starting from two different sets of documents. These models are not meant to be good or realistic, but just illustrate how WEKA can be used for a Text Mining analysis.}
+}
+
+@article{WELFake,
+  author   = {Verma, Pawan Kumar and Agrawal, Prateek and Amorim, Ivone and Prodan, Radu},
+  journal  = {IEEE Transactions on Computational Social Systems},
+  title    = {WELFake: Word Embedding Over Linguistic Features for Fake News Detection},
+  year     = {2021},
+  note     = {Uzyskano dostęp: 23 Kwietnia 2025},
+  volume   = {8},
+  number   = {4},
+  pages    = {881-893},
+  keywords = {Social networking (online);Linguistics;Data models;Bit error rate;Feature extraction;Training;Vegetation;Bidirectional encoder representations from transformer (BERT);convolutional neural network (CNN);fake news;linguistic feature;machine learning (ML);text classification;voting classifier;word embedding (WE)},
+  doi      = {10.1109/TCSS.2021.3068519}
+}
+
+@article{ISOT,
+  author   = {Mishra, Shubha and Shukla, Piyush and Agarwal, Ratish},
+  title    = {Analyzing Machine Learning Enabled Fake News Detection Techniques for Diversified Datasets},
+  journal  = {Wireless Communications and Mobile Computing},
+  volume   = {2022},
+  number   = {1},
+  note     = {Uzyskano dostęp: 23 Kwietnia 2025},
+  pages    = {1575365},
+  doi      = {https://doi.org/10.1155/2022/1575365},
+  url      = {https://onlinelibrary.wiley.com/doi/abs/10.1155/2022/1575365},
+  eprint   = {https://onlinelibrary.wiley.com/doi/pdf/10.1155/2022/1575365},
+  abstract = {Fake news, or fabric which appeared to be untrue with point of deceiving the open, has developed in ubiquity in current a long time. Spreading this kind of data undermines societal cohesiveness and well by cultivating political division and doubt in government. Since of the sheer volume of news being disseminated through social media, human confirmation has ended up incomprehensible, driving to the improvement and arrangement of robotized strategies for the recognizable proof of wrong news. Fake news publishers use a variety of stylistic techniques to boost the popularity of their works, one of which is to arouse the readers’ emotions. Due to this, text analytics’ sentiment analysis, which determines the polarity and intensity of feelings conveyed in a text, is now being utilized in false news detection methods, as either the system’s foundation or as a supplementary component. This assessment analyzes the full explanation of false news identification. The study also emphasizes characteristics, features, taxonomy, different sorts of data in the news, categories of false news, and detection approaches for spotting fake news. This research recognized fake news using the probabilistic latent semantic analysis approach. In particular, the research describes the fundamental theory of the related work to provide a deep comparative analysis of various literature works that has contributed to this topic. Besides this, a comparison of different machine learning and deep learning techniques is done to assess the performance for fake news detection. For this purpose, three datasets have been used.},
+  year     = {2022}
+}
+
+@article{BuzzFace,
+  title        = {BuzzFace: A News Veracity Dataset with Facebook User Commentary and Egos},
+  volume       = {12},
+  url          = {https://ojs.aaai.org/index.php/ICWSM/article/view/14985},
+  doi          = {10.1609/icwsm.v12i1.14985},
+  abstractnote = { &lt;p&gt; Veracity assessment of news and social bot detection have become two of the most pressing issues for social media platforms, yet current gold-standard data are limited. This paper presents a leap forward in the development of a sizeable and feature rich gold-standard dataset. The dataset was built by using a collection of news items posted to Facebook by nine news outlets during September 2016, which were annotated for veracity by BuzzFeed. These articles were refined beyond binary annotation to the four categories: mostly true, mostly false, mixture of true and false, and no factual content. Our contribution integrates data on Facebook comments and reactions publicly available on the platform’s Graph API, and provides tailored tools for accessing news article web content. The features of the accessed articles include body text, images, links, Facebook plugin comments, Disqus plugin comments, and embedded tweets. Embedded tweets provide a potent possible avenue for expansion across social media platforms. Upon development, this utility yielded over 1.6 million text items, making it over 400 times larger than the current gold-standard. The resulting dataset—BuzzFace—is presently the most extensive created, and allows for more robust machine learning applications to news veracity assessment and social bot detection than ever before. &lt;/p&gt; },
+  number       = {1},
+  note         = {Uzyskano dostęp: 23 Kwietnia 2025},
+  journal      = {Proceedings of the International AAAI Conference on Web and Social Media},
+  author       = {Santia, Giovanni and Williams, Jake},
+  year         = {2018},
+  month        = {Jun.},
+  pages        = {531-540}
 }
