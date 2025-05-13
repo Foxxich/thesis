@@ -1,237 +1,112 @@
 \chapter{Własne metody}
-Autorskie metody zostały opracowane na bazie wyników badań, które
-szczegółowo przeanalizowały i określiły najlepsze podejścia pod względem
-\textbf{Accuracy, Log Loss} oraz \textbf{Execution Time}. Bazując na
-zaobserwowanych wzorcach oraz kluczowych wnioskach płynących z tych
-analiz, stworzyliśmy unikalne rozwiązania, które łączą skuteczność i
-wydajność, dostosowując je do specyficznych wymagań i wyzwań
-problematyki wykrywania \textbf{fake news}.
+Autorskie metody powstały w oparciu o szkielet oraz koncepcje metod, które w badaniach wykazały najlepsze rezultaty. Krótko się przejrzaliśmy wynikom w \ref{text:results}. Wykorzystując wnioski płynące z analizy ich wzorców, opracowaliśmy nowatorskie podejścia, które skutecznie łączą precyzję z wydajnością. Rozwiązania te zostały starannie dostosowane do wymagań i złożoności problematyki wykrywania \textbf{fake news}, gwarantując wysoką jakość i efektywność.
 
-\section{Pierwsza metoda (Metoda17)}
+\section{Pierwsza metoda (\textbf{Metoda17})}
+
 \subsection{Pomysł na metodę}
-Metoda Metoda17 została zainspirowana wcześniejszym podejściem z Metoda10,
-które wykorzystuje VotingClassifier łączący różne modele, takie jak
-MLPClassifier, Logistic Regression i XGBoost. W Metoda10 szczególną uwagę
-poświęcono synergii modeli liniowych i nieliniowych, co pozwoliło
-uzyskać wysoką stabilność wyników dzięki miękkiemu głosowaniu.
-Jednocześnie Metoda6 dostarczył inspiracji w postaci użycia elastycznych
-sieci neuronowych jako narzędzi do analizy tekstu, szczególnie w pracy z
-osadzeniami BERT.
-
-W Metoda17 skoncentrowano się na dynamicznym dostosowywaniu wag próbek, co
-pozwala modelowi skupić się na trudniejszych przykładach. Wykorzystano
-tu architekturę Sequential, która dzięki regularizacji L2 i Dropout
-radzi sobie z problemem przeuczenia. Warstwy BatchNormalization i
-LeakyReLU zapewniają stabilność i efektywność trenowania. Podobnie jak w
-Metoda10, waga danych i ich trudność odgrywają kluczową rolę, jednak Metoda17
-idzie krok dalej, umożliwiając iteracyjne dostosowanie wag na podstawie
-błędów popełnianych w każdej iteracji. Ta iteracyjność była inspirowana
-sukcesem VotingClassifier w Metoda10, który również uczył się z różnych
-perspektyw dzięki modelom bazowym.
+\textbf{Metoda17} jest modelem zespołowym, który łączy predykcje trzech różnych klasyfikatorów: wielowarstwowego perceptronu (\texttt{MLPClassifier}), regresji logistycznej \newline(\texttt{LogisticRegression}) i XGBoosta (\texttt{XGBClassifier}) za pomocą miękkiego głosowania. Inspiracją dla tej metody jest \textbf{Metoda10}, która również wykorzystuje \texttt{VotingClassifier} do łączenia różnych modeli. Kluczowym ulepszeniem w \textbf{Metoda17} jest zastosowanie optymalizacji hiperparametrów (przynajmniej dla regresji logistycznej) oraz skalowania cech dla każdego z bazowych klasyfikatorów przed ich połączeniem. Celem jest wykorzystanie komplementarnych mocnych stron różnych algorytmów i poprawa ogólnej wydajności predykcyjnej poprzez dostrojenie parametrów i ujednolicenie skali danych wejściowych.
 
 \subsection{Wejściowe parametry}
-Metoda train\_run17 przyjmuje następujące parametry wejściowe:
+Metoda \texttt{metoda17} przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz
-  reprezentuje jedną próbkę, a kolumny odpowiadają cechom. Rozmiar: n×mn
-  \textbackslash times mn×m, gdzie nnn to liczba próbek, a mmm to liczba
-  cech.
-\item
-  \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar:
-  nnn, gdzie nnn to liczba próbek w danych treningowych.
-\item
-  \textbf{X\_test}: Macierz danych testowych, analogiczna do X\_train,
-  ale używana do oceny modelu.
-\item
-  \textbf{y\_test}: Wektor etykiet dla danych testowych.
-\item
-  \textbf{n\_models}: Liczba iteracji, czyli modeli, które będą
-  trenowane w celu zwiększenia skuteczności klasyfikacji dzięki
-  dynamicznemu ważeniu próbek.
+    \def\labelenumi{\arabic{enumi}.}
+    \item \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
+    \item \textbf{y\_train}: Wektor etykiet dla danych treningowych n próbek. Każdy element odpowiada próbce w \textbf{X\_train} i zawiera jej prawdziwą klasę, zazwyczaj 0 i 1 dla klasyfikacji binarnej, liczby całkowite dla wieloklasowej.
+    \item \textbf{X\_test}: Macierz danych testowych. Struktura podobna do \textbf{X\_train}, używana do oceny modelu po treningu.
+    \item \textbf{y\_test}: Wektor etykiet dla danych testowych. Prawdziwe klasy dla próbek w \textbf{X\_test}, używane do oceny wyników modelu.
 \end{enumerate}
 
 \subsection{Wyjściowe parametry}
 Metoda zwraca następujące elementy:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{model}: Ostateczny model wytrenowany po n\_models iteracjach.
-\item
-  \textbf{X\_test}: Macierz danych testowych, identyczna z wejściowym
-  X\_test.
-\item
-  \textbf{y\_test}: Wektor etykiet testowych, identyczny z wejściowym
-  y\_test.
+    \def\labelenumi{\arabic{enumi}.}
+    \item \textbf{voting\_clf\_final}: Wytrenowany model \texttt{VotingClassifier} po optymalizacji.
+    \item \textbf{X\_test\_scaled}: Przeskalowane cechy zbioru testowego.
+    \item \textbf{y\_test}: Wektor etykiet testowych.
 \end{enumerate}
 
 \subsection{Algorytm}
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Dla wszystkich próbek w danych treningowych wagi są inicjalizowane
-  jako 1. Każda próbka na początku ma równą wagę, co zapewnia równoważne
-  traktowanie wszystkich przykładów w początkowym etapie treningu. Wagi
-  te są przechowywane w wektorze \textbf{sample\_weights} o długości
-  równej liczbie próbek w zbiorze treningowym.
-\item
-  Iteracje modeli:
-
-  \begin{itemize}
-  \item
-    W każdej iteracji tworzony jest model sieci neuronowej typu
-    \textbf{Sequential}.
-  \item
-    Architektura modelu składa się z następujących warstw:
-
-    \begin{itemize}
-    \item
-      \textbf{Pierwsza warstwa ukryta}:
-
-      \begin{itemize}
-      \item
-        Warstwa \textbf{Dense} z 128 neuronami, regularizacją \textbf{L2
-        ($\lambda$ = 0.01)} i bez funkcji aktywacji.
-      \item
-        Warstwa \textbf{BatchNormalization}.
-      \item
-        Funkcja aktywacji \textbf{LeakyReLU ($\alpha$ = 0.1)}.
-      \item
-        Warstwa \textbf{Dropout} \textbf{(p = 0.2)}.
-      \end{itemize}
-    \item
-      \textbf{Druga warstwa ukryta}:
-
-      \begin{itemize}
-      \item
-        Warstwa \textbf{Dense} z 64 neuronami, regularizacją \textbf{L2
-        ($\lambda$=0.01)} i bez funkcji aktywacji.
-      \item
-        Warstwa \textbf{BatchNormalization}.
-      \item
-        Funkcja aktywacji \textbf{LeakyReLU} \textbf{($\alpha$=0.1)}.
-      \item
-        Warstwa \textbf{Dropout (p=0.2)}.
-      \end{itemize}
-    \item
-      \textbf{Warstwa wyjściowa}:
-
-      \begin{itemize}
-      \item
-        Warstwa \textbf{Dense} z 1 neuronem i funkcją aktywacji
-        \textbf{sigmoid}, która polega na dostosowaniu do problemów
-        binarnej klasyfikacji.
-      \end{itemize}
-    \end{itemize}
-  \item
-    Model jest kompilowany z następującymi ustawieniami:
-
-    \begin{itemize}
-    \item
-      Optymalizator: \textbf{Adam} \textbf{(learning~rate=0.001)}.
-    \item
-      Funkcja kosztu: \textbf{binary\_crossentropy}.
-    \item
-      Metryka: \textbf{Accuracy}.
-    \end{itemize}
-  \end{itemize}
-\item
-  Model jest trenowany przez 10 epok z użyciem rozmiaru batcha równego
-  64. Wagi próbek \textbf{sample\_weight} są wykorzystywane do
-  uwzględnienia trudności klasyfikacji poszczególnych przykładów.
-\item
-  Aktualizacja wag próbek
-
-  \begin{itemize}
-  \item
-    Po każdej iteracji modelu obliczane są predykcje na danych
-    treningowych.
-  \item
-    Różnica absolutna między rzeczywistymi etykietami \textbf{y\_train},
-    a przewidywaniami modelu \textbf{y\_pred} jest dodawana do wag
-    próbek, zwiększając wagi trudnych przykładów.
-  \end{itemize}
-\item
-  Po zakończeniu \textbf{n\_models} iteracji, ostateczny model oraz dane
-  testowe \textbf{X\_test, y\_test} są zwracane.
+    \def\labelenumi{\arabic{enumi}.}
+    \item **Przygotuj modele bazowe:**
+        \begin{itemize}
+            \item Utwórz model wielowarstwowy (\texttt{MLPClassifier}).
+            \item Utwórz (\texttt{Pipeline}) dla regresji logistycznej (\texttt{LogisticRegression}) zawierający:
+                \begin{itemize}
+                    \item Skalowanie cech (\texttt{StandardScaler}).
+                    \item Automatyczne wyszukiwanie najlepszych hiperparametrów (\texttt{GridSearchCV}).
+                \end{itemize}
+            \item Utwórz model XGBoost (\texttt{XGBClassifier}).
+        \end{itemize}
+    \item **Trenuj modele bazowe:**
+        \begin{itemize}
+            \item Wytrenuj (\texttt{Pipeline}) regresji logistycznej na (\textbf{X\_train}, \textbf{y\_train}), znajdując optymalne hiperparametry.
+            \item Wytrenuj \texttt{MLPClassifier} na przeskalowanych \textbf{X\_train}.
+            \item Wytrenuj \texttt{XGBClassifier} na przeskalowanych \textbf{X\_train}.
+        \end{itemize}
+    \item **Stwórz model głosujący:** Połącz wytrenowane modele bazowe w \newline\texttt{VotingClassifier} z miękkim głosowaniem.
+    \item **Wytrenuj model głosujący:** Wytrenuj \texttt{VotingClassifier} na (\textbf{X\_train}, \textbf{y\_train}).
+    \item **Przeskaluj dane testowe:** Użyj tego samego skalowania, które było stosowane dla \textbf{X\_train}, aby przeskalować \textbf{X\_test}.
+    \item **Zwróć wyniki:** Zwróć wytrenowany model głosujący, przeskalowane \textbf{X\_test} i oryginalne \textbf{y\_test}.
 \end{enumerate}
 
 \subsection{Kod}
-\begin{lstlisting}[caption={Kod do 17 metody}, label={17Metoda}]
-sample_weights = np.ones(len(y_train))
-for _ in range(n_models):
-    model = Sequential([
-        Dense(
-            128, 
-            input_dim=X_train.shape[1], 
-            activation=None, 
-            kernel_regularizer=l2(0.01)
-        ),
-        BatchNormalization(),
-        LeakyReLU(alpha=0.1),
-        Dropout(0.2),
-        Dense(64, activation=None, kernel_regularizer=l2(0.01)), 
-        BatchNormalization(),
-        LeakyReLU(alpha=0.1),
-        Dropout(0.2),
-        Dense(1, activation='sigmoid')
-    ])
-    model.compile(
-        optimizer=Adam(learning_rate=0.001), 
-        loss='binary_crossentropy', 
-        metrics=['accuracy']
-    )
-    model.fit(
-        X_train, 
-        y_train, 
-        epochs=10, 
-        batch_size=64, 
-        sample_weight=sample_weights, 
-        verbose=0
-    )
-    y_pred = model.predict(X_train)
-    sample_weights += np.abs(y_train - y_pred.squeeze())
-return model, X_test, y_test
-\end{lstlisting}
+\begin{verbatim}
+# Inicjalizacja modeli: MLP, XGBoost, regresja logistyczna 
+# w potoku ze skalowaniem i optymalizacją hiperparametrów.
+mlp = MLPClassifier(...)
+xgb = XGBClassifier(...)
+pipeline_logreg = Pipeline(
+  [('scaler', StandardScaler()), 
+  ('log_reg', LogisticRegression(...))
+  ])
 
-\subsection{Schemat blokowy}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{img/diagrams/metoda17.drawio.png}
-	\caption{Schemat metody 17.}
-	\label{fig:diagram_metoda17}
-\end{figure}
+# Definiowanie przestrzeni hiperparametrów do 
+# przeszukania dla regresji logistycznej.
+param_grid_logreg = {...}
+
+# Wyszukiwanie najlepszych hiperparametrów dla regresji logistycznej.
+grid_search_logreg = GridSearchCV(pipeline_logreg, param_grid_logreg, ...)
+grid_search_logreg.fit(X_train, y_train)
+log_reg_optimized = grid_search_logreg.best_estimator_.named_steps['log_reg']
+scaler_logreg = grid_search_logreg.best_estimator_.named_steps['scaler']
+X_test_scaled_logreg = scaler_logreg.transform(X_test)
+
+# Potok dla MLP ze skalowaniem.
+pipeline_mlp = Pipeline([('scaler', StandardScaler()), ('mlp', mlp)])
+pipeline_mlp.fit(X_train, y_train)
+X_test_scaled_mlp = pipeline_mlp.named_steps['scaler'].transform(X_test)
+mlp_optimized = pipeline_mlp.named_steps['mlp']
+
+# Potok dla XGBoost ze skalowaniem.
+pipeline_xgb = Pipeline([('scaler', StandardScaler()), ('xgb', xgb)])
+pipeline_xgb.fit(X_train, y_train)
+X_test_scaled_xgb = pipeline_xgb.named_steps['scaler'].transform(X_test)
+xgb_optimized = pipeline_xgb.named_steps['xgb']
+
+# Stworzenie modelu zespołowego (VotingClassifier) z miękkim głosowaniem.
+voting_clf = VotingClassifier(estimators=[
+  ('mlp', mlp_optimized), 
+  ('log_reg', log_reg_optimized), 
+  ('xgb', xgb_optimized)], voting='soft')
+
+# Trenowanie modelu zespołowego.
+voting_clf.fit(X_train, y_train)
+
+# Przeskalowanie danych testowych.
+X_test_scaled = StandardScaler().fit_transform(X_test)
+
+return voting_clf, X_test_scaled, y_test
+\end{verbatim}
 
 \subsection{Właściwości analityczne}
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{Efektywność}:
-
-  \begin{itemize}
-  \item
-    Metoda umożliwia poprawę jakości klasyfikacji poprzez iteracyjne
-    skupianie się na trudniejszych przykładach.
-  \item
-    \textbf{Regularizacja L2} oraz mechanizmy
-    \textbf{BatchNormalization} i \textbf{Dropout} zmniejszają ryzyko
-    przeuczenia.
-  \end{itemize}
-\item
-  \textbf{Elastyczność}: architektura modelu i sposób ważenia próbek
-  pozwalają na zastosowanie metody w różnych problemach
-  klasyfikacyjnych, szczególnie w przypadkach nierównomiernych danych.
-\item
-  \textbf{Stabilność}: iteracyjne uczenie z dynamicznym ważeniem próbek
-  poprawia spójność wyników i zmniejsza wpływ szumu w danych.
-\item
-  \textbf{Złożoność obliczeniowa}: złożoność trenowania wzrasta liniowo
-  wraz z liczbą iteracji (n\_models), co pozwala na łatwe dostosowanie
-  metody do dostępnych zasobów obliczeniowych.
-\item
-  \textbf{Wydajność}: optymalizator Adam zapewnia szybkie i stabilne
-  uczenie, szczególnie w połączeniu z BatchNormalization.
+    \def\labelenumi{\arabic{enumi}.}
+    \item \textbf{Efektywność}: Łączenie różnych modeli i optymalizacja hiperparametrów regresji logistycznej ma na celu poprawę dokładności predykcji. Skalowanie cech zapewnia, że wszystkie algorytmy bazowe operują na danych o podobnej skali.
+    \item \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów modeli (liniowy, nieliniowy oparty na sieci neuronowej, oparty na drzewach decyzyjnych) pozwala na uwzględnienie różnych wzorców w danych.
+    \item \textbf{Optymalizacja}: Optymalizacja hiperparametrów regresji logistycznej za pomocą \texttt{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
+    \item \textbf{Skalowalność}: Metoda może być stosowana do problemów z wieloma cechami i próbkami, jednak czas treningu może być znaczący ze względu na optymalizację hiperparametrów i trening wielu modeli.
+    \item \textbf{Złożoność}: Złożoność obliczeniowa zależy od złożoności każdego z bazowych modeli oraz od procesu optymalizacji hiperparametrów: liczby przeszukiwanych kombinacji parametrów i liczby foldów walidacji krzyżowej.
 \end{enumerate}
