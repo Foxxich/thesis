@@ -1,5 +1,137 @@
 \section{Wstępna analiza wyników}
 
-W niniejszym podrozdziale dokonujemy szczegółowego przeglądu uzyskanych wyników, co stanowi kluczowy etap naszej pracy magisterskiej. Analiza tych rezultatów pozwala nie tylko na ocenę skuteczności zastosowanych metod, ale także na identyfikację ich mocnych i słabych stron, co jest niezbędne do opracowania nowych, innowacyjnych podejść. W szczególności, dogłębne zrozumienie wyników umożliwia nam wskazanie obszarów wymagających udoskonaleń oraz inspiruje do tworzenia autorskich rozwiązań, które mogą wnieść znaczący wkład w rozwój badanej dziedziny. Dalsza implementacja tych oryginalnych metod jest niezwykle istotna, ponieważ otwiera drogę do osiągnięcia przełomowych rezultatów, które mogą znaleźć praktyczne zastosowanie i przyczynić się do postępu naukowego.
+W niniejszym podrozdziale przeprowadzamy wstępną analizę wyników, koncentrując się wyłącznie na zbiorze danych ISOT Fake News Dataset, który posłuży jako baza do przykładów inspirujących nasze autorskie metody. Szczegółowe omówienie wyników na tych danych umożliwi nam wypracowanie i implementację innowacyjnych podejść, otwierając drogę do przełomowych rozwiązań. Skupiamy się na dokładnym opisie wyników z wykorzystaniem paradygmatów few-shot learning oraz Sentence-BERT (SBERT). Wybór few-shot wynika z jego zdolności do efektywnego uczenia się na małej liczbie przykładów, co jest kluczowe w dynamicznie zmieniającym się środowisku dezinformacji, w przeciwieństwie do no-shot czy one-shot, które nie zapewniają odpowiedniej elastyczności. Z kolei SBERT został wybrany ze względu na jego zaawansowane możliwości semantycznego modelowania tekstu, przewyższające tradycyjne modele jak BERT czy RoBERTa, szczególnie w zadaniach wymagających analizy kontekstowej i porównawczej.
 
-\subsection{Najlepsze czasowe wyniki}
+\subsection{Dokładność (Accuracy)}
+W tej analizie oceniamy dokładność (Accuracy), której proponujemy się przejrzeć na rysunku \ref{fig:accuracy_isot}. Najwyższe wyniki, osiągające wartość 1.0, zanotowały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16}, \textbf{metoda12\_catboost}, co dowodzi ich wyjątkowej skuteczności w zadaniu klasyfikacji. Z kolei najgorzej wypadła \textbf{metoda4}, uzyskując wyniki w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i konieczność dalszej poprawy. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wnioski motywują nas do projektowania nowatorskich podejść, które będą czerpały z metod osiągających najlepszą dokładność.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/best_results/best_Accuracy_comparison.png}
+\caption{Porównanie Accuracy dla ISOT Fake News Dataset dla różnych uruchomień metod.}
+\label{fig:accuracy_isot}
+\end{figure}
+
+\subsection{Precyzja (Precision)}
+W tym podrozdziale przyglądamy się precyzji (Precision), co zobrazowano na rysunku \ref{fig:precision_isot}. Najsłabiej wypadła \textbf{metoda4}, z wynikiem w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i potrzebę dalszego doskonalenia. \textbf{metoda3} oraz \textbf{metoda9} prezentują umiarkowaną wydajność. Natomiast najwyższe wyniki osiągnęły pozostałe metody, co świadczy o ich wyjątkowej skuteczności w identyfikacji prawdziwych przypadków. Te obserwacje motywują do bardziej rozbudowanego opracowania wyników według kolejnych kryteriów, ponieważ nie udało nam się ograniczyć liczby potencjalnych metod, które pozwolą nam zaprezentować autorskie rozwiązania.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/best_results/best_Precision_comparison.png}
+\caption{Porównanie Precision dla ISOT dla różnych uruchomień metod.}
+\label{fig:precision_isot}
+\end{figure}
+
+\subsection{Recall}
+W tej części badamy Recall, co ukazano na rysunku \ref{fig:recall_isot}. Najwyższe rezultaty, sięgające wartości 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co podkreśla ich wybitną skuteczność w wykrywaniu istotnych przypadków. Pozostałe podejścia osiągają przeciętne rezultaty. Warto podkreślić, że wyniki danych metod dla Recall pokrywają się z rezultatami w porównaniu dokładności (Accuracy), co ułatwia dalszy wybór inspiracji oraz modeli dla autorskich metod.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/best_results/best_Recall_comparison.png}
+\caption{Porównanie Recall dla ISOT dla różnych uruchomień metod.}
+\label{fig:recall_isot}
+\end{figure}
+
+\subsection{Wynik F1 (F1-Score)}
+W tej sekcji przyglądamy się wynikowi F1 (F1-Score), któremu proponujemy się przejrzeć na rysunku \ref{fig:f1score_isot}. Najlepsze rezultaty, osiągające wartość 1.0, uzyskały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda7}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co po raz kolejny potwierdza ich wybitną skuteczność. Pozostałe podejścia osiągają średni poziom wydajności, co już pozwala nam ich ograniczyć, patrząc na zachowanie podobnej tendencji dla wyników.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/best_results/best_F1-Score_comparison.png}
+\caption{Porównanie F1-Score dla ISOT dla różnych uruchomień metod.}
+\label{fig:f1score_isot}
+\end{figure}
+
+\subsection{Logarytmiczna strata (Log-Loss)}
+W tej części oceniamy logarytmiczną stratę (Log-Loss), co zobrazowano na rysunku \ref{fig:logloss_isot}. W przypadku tej metryki najlepsze wyniki, czyli najniższe wartości bliskie 0.0, osiągnęły metody \textbf{metoda5}, \textbf{metoda10}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co świadczy o ich wysokiej skuteczności w minimalizowaniu błędu predykcji. Pozostałe podejścia prezentują się na przeciętnym poziomie. Te obserwacje inspirują do zwrócenia uwagi oraz szczególnego porównania dla metod o najlepszych wynikach, ponieważ dokładnie one się wybijaja na tle innych.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/best_results/best_Log Loss_comparison.png}
+\caption{Porównanie Log-Loss dla ISOT dla różnych uruchomień metod.}
+\label{fig:logloss_isot}
+\end{figure}
+
+\subsection{Współczynnik korelacji Matthewsa (MCC)}
+W tej części przyglądamy się współczynnikowi korelacji Matthewsa (MCC), co przedstawiono na rysunku \ref{fig:mcc_isot}. Najlepsze wyniki, sięgające wartości 1.0, osiągnęły metody \textbf{metoda5}, \textbf{metoda10}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}. Pozostałe podejścia osiągają zróżnicowane wyniki, co nie wpływa na nasze wnioski, ponieważ skupiliśmy się na porównaniu faworytów według poprzednich kryteriów. Te wyniki wskazują na użyteczność tego kryterium w ocenie metod, co motywuje nas do skupienia się na najlepszych rozwiązaniach w dalszej analizie.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/best_results/best_MCC_comparison.png}
+\caption{Porównanie MCC dla ISOT dla różnych uruchomień metod.}
+\label{fig:mcc_isot}
+\end{figure}
+
+\subsection{Pole pod krzywą ROC-AUC (ROC-AUC)}
+W tej sekcji analizujemy pole pod krzywą ROC-AUC (ROC-AUC), co zilustrowano na rysunku \ref{fig:rocauc_isot}. Najwyższe wartości, osiągające 1.0, zanotowały praktycznie wszystkie metody, oprócz \textbf{metoda3}, \textbf{metoda4} oraz \textbf{metoda1-2}. Ciężko tutaj wyróżnić faworytów lub metody, które szczegółowo się wybijają, dlatego warto będzie ich porównać również pod innymi względami.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/best_results/best_ROC-AUC_comparison.png}
+    \caption{Porównanie ROC-AUC dla ISOT dla różnych uruchomień metod.}
+    \label{fig:rocauc_isot}
+\end{figure}
+
+\subsection{Współczynnik Kappa Cohena (Cohen's Kappa)}
+W tej części oceniamy współczynnik Kappa Cohena (Cohen's Kappa), co przedstawiono na rysunku \ref{fig:cohenskappa_isot}. Najwyższe wartości, zbliżone do 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co świadczy o ich doskonałej zgodności przewidywań z rzeczywistymi wynikami. Natomiast inne metody wypadły z wynikiem poniżej 0.9, co wskazuje na ich umiarkowane rezultaty.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/best_results/best_Cohen's Kappa_comparison.png}
+    \caption{Porównanie Cohen's Kappa dla ISOT dla różnych uruchomień metod.}
+    \label{fig:cohenskappa_isot}
+\end{figure}
+
+
+\subsection{Średnia (Mean)}
+W niniejszym podrozdziale przyglądamy się średniej (Mean), co ukazano na rysunku \ref{fig:mean_isot}. Najwyższe wartości, oscylujące wokół 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda15} oraz \textbf{metoda16}. Najsłabiej wypadła \textbf{metoda11}, z wynikiem poniżej 0.3, co wskazuje na jej ograniczoną efektywność oraz sugeruje, że wspomniana metoda nie nadaje się do czerpania inspiracji ani pomysłów na tworzenie autorskich rozwiązań. Inne metody osiągnęły średnie wyniki, dlatego proponuję nie skupiać się na nich zbytnio na obecnym etapie.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/best_results/best_CV Accuracy (Mean)_comparison.png}
+    \caption{Porównanie Mean dla ISOT dla różnych uruchomień metod.}
+    \label{fig:mean_isot}
+\end{figure}
+
+\subsection{Czas wykonania (Execution Time)}
+W tej sekcji analizujemy czas wykonania (Execution Time), któremu proponujemy się przejrzeć na rysunku \ref{fig:executiontime_isot}. Najlepsze wyniki, czyli najkrótszy czas wykonania wynoszący około 0.1--0.2 sekundy, osiągnęły metody \textbf{metoda5}, \textbf{metoda7}, \textbf{metoda10} oraz \textbf{metoda12\_catboost}, co świadczy o ich wysokiej efektywności obliczeniowej. Najsłabsze wyniki osiągnęły \textbf{metoda4}, \textbf{metoda14} oraz \textbf{metoda16}, z czasem wykonania przekraczającym 1200 sekund. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wyniki podkreślają znaczenie tego kryterium w doborze efektywnych rozwiązań, co pozwala na tworzenie autorskich metod o lepszej wydajności obliczeniowej i krótszym czasie wykonania.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/best_results/best_Execution Time (s)_comparison.png}
+    \caption{Porównanie Execution Time dla ISOT dla różnych uruchomień metod.}
+    \label{fig:executiontime_isot}
+\end{figure}
+
+\subsection{Podsumowanie wstępnej analizy wyników metod }
+W tej części wywnioskujemy, czym warto się inspirować tworząć rozwiązania autorskie, dzięki wynikom dla różnych metod na zbiorze danych ISOT Fake News Dataset, patrząć do tabeli \ref{tab:method_comparison}. Tabela ukazuje, że metody takie jak \textbf{metoda5}, \textbf{metoda10} oraz \textbf{metoda12\_catboost} osiągają najlepsze wyniki w większości kryteriów, w tym w Dokładności, F1-Score, MCC oraz Cohen's Kappa, uzyskując wartości bliskie 1.0. Szczególną uwagę zwraca \textbf{metoda5}, która wyróżnia się również w Log-Loss i Czasie wykonania, co czyni ją potencjalnym kandydatem do dalszego rozwoju. Z kolei metody takie jak \textbf{metoda3} i \textbf{metoda4} wykazują najsłabsze rezultaty, szczególnie w Precyzji i Średniej, co sugeruje ich ograniczoną użyteczność w tym kontekście.
+
+\begin{table}[h!]
+    \centering
+    \scriptsize % Jeszcze mniejsza czcionka niż \small
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        Metoda & \rotatebox{90}{Dokładność} & \rotatebox{90}{Precyzja} & \rotatebox{90}{Recall} & \rotatebox{90}{F1-Score} & \rotatebox{90}{Log-Loss} & \rotatebox{90}{MCC} & \rotatebox{90}{ROC-AUC} & \rotatebox{90}{Cohen's Kappa} & \rotatebox{90}{Średnia} & \rotatebox{90}{Czas wykonania} & \rotatebox{90}{Najlepsze dopasowanie} \\
+        \hline
+        metoda2        & x          &          & x      & x        &          &     & x       & x             & x       &               & \\
+        metoda3        &            &          & x      &          &          &     &         &               &         &               & \\
+        metoda4        &            &          & x      &          &          &     &         &               &         &               & \\
+        metoda5        & x          & x        & x      & x        & x        & x   & x       & x             & x       & x             & x \\
+        metoda6        & x          &          & x      & x        &          &     & x       & x             & x       &               & \\
+        metoda7        &            &          & x      & x        &          &     & x       &               &         & x             & \\
+        metoda8        & x          & x        & x      & x        &          &     & x       & x             & x       &               & \\
+        metoda9        & x          & x        & x      & x        &          &     & x       & x             &         &               & \\
+        metoda10       & x          &          & x      & x        & x        & x   & x       & x             &         & x             & x \\
+        metoda11       & x          &          & x      & x        &          &     & x       & x             &         &               & \\
+        metoda12\_rf    &            &          & x      & x        &          &     & x       & x             &         &               & \\
+        metoda12\_catboost & x       &          & x      & x        & x        & x   & x       & x             &         & x             & x \\
+        metoda1-1      &            &          &        &          &          &     & x       &               &         &               & \\
+        metoda1-2      &            &          &        &          &          &     &         &               &         &               & \\
+        metoda1-3      &            &          &        &          &          &     & x       &               &         &               & \\
+        metoda1-4      &            &          &        &          &          &     & x       &               &         &               & \\
+        metoda1-5      &            &          &        &          &          &     & x       &               &         &               & \\
+        \hline
+    \end{tabular}
+    \caption{Porównanie metod według kryteriów i najlepsze dopasowanie.}
+    \label{tab:method_comparison}
+\end{table}

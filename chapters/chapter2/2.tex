@@ -58,7 +58,7 @@ prognozy modeli bazowych, korzystając z ich wyników jako danych
 wejściowych.
 
 Jak podano w artykule, stacking pozwala na łączenie różnych typów modeli
-(np. drzewa decyzyjne, sieci neuronowe, SVM), co czyni go bardziej
+(drzewa decyzyjne, sieci neuronowe, SVM), co czyni go bardziej
 elastycznym i zdolnym do generalizacji. W literaturze metoda ta jest
 również stosowana w złożonych problemach, takich jak klasyfikacja
 obrazów czy przewidywanie trendów.
@@ -77,11 +77,11 @@ których różnorodność modeli poprawia ogólną wydajność zespołu.
 \begin{itemize}
 \item
   \textbf{Homogeniczne zespoły}: Wykorzystują jeden typ klasyfikatorów
-  (np. drzewa decyzyjne w Random Forest). Kluczowym wyzwaniem jest
-  wprowadzenie różnorodności, np. poprzez losowe próbkowanie danych
+  ( drzewa decyzyjne w Random Forest). Kluczowym wyzwaniem jest
+  wprowadzenie różnorodności,  poprzez losowe próbkowanie danych
   treningowych lub cech.
 \item
-  \textbf{Heterogeniczne zespoły}: Łączą różne typy modeli (np. sieci
+  \textbf{Heterogeniczne zespoły}: Łączą różne typy modeli ( sieci
   neuronowe, SVM, regresję logistyczną). Są bardziej elastyczne i zdolne
   do uchwycenia różnych cech danych, co czyni je użytecznymi w złożonych
   problemach, takich jak analiza tekstu czy przewidywanie awarii.
@@ -100,7 +100,7 @@ klasyfikowanie nawet w przypadku danych zawierających subtelne różnice.
 Boosting koncentruje się na trudno klasyfikowalnych przykładach, które
 są częste w zbiorach danych dotyczących fake news. Fałszywe informacje
 często charakteryzują się subtelnymi manipulacjami w języku, co wymaga
-modeli zdolnych do uchwycenia takich szczegółów. Boosting, np. w formie
+modeli zdolnych do uchwycenia takich szczegółów. Boosting, w formie
 Gradient Boostingu lub XGBoost, jest w stanie modelować złożone
 zależności między cechami, co prowadzi do wyższej dokładności w
 identyfikowaniu fałszywych wiadomości.
@@ -110,7 +110,7 @@ Stacking umożliwia łączenie różnych metod analizy tekstu, takich jak
 modele oparte na n-gramach, TF-IDF, czy głębokie sieci neuronowe. Dzięki
 temu można wykorzystać mocne strony każdego z tych podejść, jednocześnie
 minimalizując ich słabości. W zadaniach wykrywania fake news stacking
-pozwala połączyć modele bazujące na różnych źródłach danych (np. tekst,
+pozwala połączyć modele bazujące na różnych źródłach danych (tekst,
 metadane, analiza kontekstu), co daje bardziej kompleksowy obraz
 problemu.
 
@@ -130,10 +130,8 @@ emocjonalne w tekstach.
 
 \subsection{Ważne pojęcia}
 
-\textbf{Binary Cross-Entropy} to sposób mierzenia, jak dobrze coś jest klasyfikowane na dwie grupy, na przykład czy wiadomość jest prawdziwa, czy fałszywa. W praktyce pomaga sprawdzić, czy nasze przewidywania są bliskie rzeczywistości – im mniejszy błąd, tym lepiej rozróżniamy te dwie kategorie, co jest kluczowe w analizie wiarygodności treści.
+\textbf{Binarną entropia krzyżowa} (Binary Cross-Entropy) to sposób mierzenia, jak dobrze coś jest klasyfikowane na dwie grupy, na przykład czy wiadomość jest prawdziwa, czy fałszywa. W praktyce pomaga sprawdzić, czy nasze przewidywania są bliskie rzeczywistości – im mniejszy błąd, tym lepiej rozróżniamy te dwie kategorie, co jest kluczowe w analizie wiarygodności treści.
 
-\textbf{Early Stopping Rounds} to technika, która pozwala zatrzymać proces uczenia, gdy dalsze próby nie przynoszą poprawy. Wyobraźmy sobie, że uczymy się rozpoznawać fałszywe wiadomości: jeśli po kilku rundach nie robimy postępów, przerywamy, aby nie tracić czasu i nie skupiać się za bardzo na szczegółach, które mogą być mylące w nowych sytuacjach.
+\textbf{Metoda wczesnego zatrzymania} (Early Stopping Rounds) to technika, która pozwala zatrzymać proces uczenia, gdy dalsze próby nie przynoszą poprawy. Wyobraźmy sobie, że uczymy się rozpoznawać fałszywe wiadomości: jeśli po kilku rundach nie robimy postępów, przerywamy, aby nie tracić czasu i nie skupiać się za bardzo na szczegółach, które mogą być mylące w nowych sytuacjach.
 
-\textbf{Random State} zapewnia, że losowe wybory, na przykład podział danych na grupy do analizy, są zawsze takie same. Dzięki temu wyniki badań są powtarzalne – jeśli analizujemy wiadomości, możemy być pewni, że za każdym razem pracujemy na tych samych zestawach, co ułatwia porównanie i zapewnia spójność.
-
-\end{document}
+\textbf{Losowy wybór} (Random State) zapewnia, że losowe wybory, na przykład podział danych na grupy do analizy, są zawsze takie same. Dzięki temu wyniki badań są powtarzalne – jeśli analizujemy wiadomości, możemy być pewni, że za każdym razem pracujemy na tych samych zestawach, co ułatwia porównanie i zapewnia spójność.
