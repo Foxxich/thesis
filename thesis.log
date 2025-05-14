@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  14 MAY 2025 20:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  14 MAY 2025 20:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1802,7 +1802,7 @@ Overfull \hbox (50.58458pt too wide) in paragraph at lines 794--799
 [106
 
 ] (chapters/appendix1.tex)
-runsystem(latexminted cleantemp  --timestamp 20250514204527 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20250514205706 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -1815,13 +1815,13 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  35123 strings out of 473529
  686722 string characters out of 5714773
- 1420494 words of memory out of 5000000
+ 1421494 words of memory out of 5000000
  56913 multiletter control sequences out of 15000+600000
  667830 words of font info for 254 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,11n,121p,1641b,2135s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1200.pk> <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmbi.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (111 pages, 1706000 bytes).
+Output written on thesis.pdf (111 pages, 1705206 bytes).
 PDF statistics:
  1739 PDF objects out of 2073 (max. 8388607)
  477 named destinations out of 1000 (max. 500000)

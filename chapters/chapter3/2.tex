@@ -100,24 +100,24 @@ Metoda zwraca następujące elementy:
 \begin{verbatim}
 # Inicjalizacja i trening klasyfikatorow bazowych
 gb_clf = GradientBoostingClassifier(
-	n_estimators=100, 
-	random_state=42
-	)  # Gradient Boosting
+n_estimators=100,
+random_state=42
+) # Gradient Boosting
 
 cat_clf = CatBoostClassifier(
-	iterations=100, 
-	verbose=0, 
-	random_state=42
-	)  # CatBoost
+iterations=100,
+verbose=0,
+random_state=42
+) # CatBoost
 gb_clf.fit(X_train, y_train)
 cat_clf.fit(X_train, y_train)
 
 # Generowanie predykcji dla danych treningowych
 gb_preds_train = gb_clf.predict_proba(X_train)[:, 1]
 cat_preds_train = cat_clf.predict_proba(X_train)[:, 1]
-meta_features_train = pd.DataFrame({  # Tworzenie meta-cech
-	'gb_preds': gb_preds_train,
-	'cat_preds': cat_preds_train
+meta_features_train = pd.DataFrame({ # Tworzenie meta-cech
+'gb_preds': gb_preds_train,
+'cat_preds': cat_preds_train
 })
 
 # Trenowanie meta-modelu
@@ -127,9 +127,9 @@ meta_model.fit(meta_features_train, y_train)
 # Generowanie predykcji dla danych testowych
 gb_preds_test = gb_clf.predict_proba(X_test)[:, 1]
 cat_preds_test = cat_clf.predict_proba(X_test)[:, 1]
-meta_features_test = pd.DataFrame({  # Meta-cechy dla testu
-	'gb_preds': gb_preds_test,
-	'cat_preds': cat_preds_test
+meta_features_test = pd.DataFrame({ # Meta-cechy dla testu
+'gb_preds': gb_preds_test,
+'cat_preds': cat_preds_test
 })
 
 return meta_model, meta_features_test, y_test

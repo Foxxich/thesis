@@ -10,60 +10,60 @@ Autorskie metody powstały w oparciu o szkielet oraz koncepcje metod, które w b
 Metoda \texttt{metoda17} przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
-    \def\labelenumi{\arabic{enumi}.}
-    \item \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
-    \item \textbf{y\_train}: Wektor etykiet dla danych treningowych \textbf{n} próbek. Każdy element odpowiada próbce w \textbf{X\_train} i zawiera jej prawdziwą klasę, zazwyczaj 0 i 1 dla klasyfikacji binarnej, liczby całkowite dla wieloklasowej.
-    \item \textbf{X\_test}: Macierz danych testowych. Struktura podobna do \textbf{X\_train}, używana do oceny modelu po treningu.
-    \item \textbf{y\_test}: Wektor etykiet dla danych testowych. Prawdziwe klasy dla próbek w \textbf{X\_test}, używane do oceny wyników modelu.
+	\def\labelenumi{\arabic{enumi}.}
+	\item \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
+	\item \textbf{y\_train}: Wektor etykiet dla danych treningowych \textbf{n} próbek. Każdy element odpowiada próbce w \textbf{X\_train} i zawiera jej prawdziwą klasę, zazwyczaj 0 i 1 dla klasyfikacji binarnej, liczby całkowite dla wieloklasowej.
+	\item \textbf{X\_test}: Macierz danych testowych. Struktura podobna do \textbf{X\_train}, używana do oceny modelu po treningu.
+	\item \textbf{y\_test}: Wektor etykiet dla danych testowych. Prawdziwe klasy dla próbek w \textbf{X\_test}, używane do oceny wyników modelu.
 \end{enumerate}
 
 \subsection{Wyjściowe parametry}
 Metoda zwraca następujące elementy:
 
 \begin{enumerate}
-    \def\labelenumi{\arabic{enumi}.}
-    \item \textbf{voting\_clf\_final}: Wytrenowany model \texttt{VotingClassifier} po optymalizacji.
-    \item \textbf{X\_test\_scaled}: Przeskalowane cechy zbioru testowego.
-    \item \textbf{y\_test}: Wektor etykiet testowych.
+	\def\labelenumi{\arabic{enumi}.}
+	\item \textbf{voting\_clf\_final}: Wytrenowany model \texttt{VotingClassifier} po optymalizacji.
+	\item \textbf{X\_test\_scaled}: Przeskalowane cechy zbioru testowego.
+	\item \textbf{y\_test}: Wektor etykiet testowych.
 \end{enumerate}
 
 \subsection{Algorytm}
 \begin{enumerate}
-    \def\labelenumi{\arabic{enumi}.}
-    \item **Przygotuj modele bazowe:**
-        \begin{itemize}
-            \item Utwórz model wielowarstwowy (\texttt{MLPClassifier}).
-            \item Utwórz (\texttt{Pipeline}) dla regresji logistycznej (\texttt{LogisticRegression}) zawierający:
-                \begin{itemize}
-                    \item Skalowanie cech (\texttt{StandardScaler}).
-                    \item Automatyczne wyszukiwanie najlepszych hiperparametrów (\texttt{GridSearchCV}).
-                \end{itemize}
-            \item Utwórz model XGBoost (\texttt{XGBClassifier}).
-        \end{itemize}
-    \item **Trenuj modele bazowe:**
-        \begin{itemize}
-            \item Wytrenuj (\texttt{Pipeline}) regresji logistycznej na (\textbf{X\_train}, \textbf{y\_train}), znajdując optymalne hiperparametry.
-            \item Wytrenuj \texttt{MLPClassifier} na przeskalowanych \textbf{X\_train}.
-            \item Wytrenuj \texttt{XGBClassifier} na przeskalowanych \textbf{X\_train}.
-        \end{itemize}
-    \item **Stwórz model głosujący:** Połącz wytrenowane modele bazowe w \newline\texttt{VotingClassifier} z miękkim głosowaniem.
-    \item **Wytrenuj model głosujący:** Wytrenuj \texttt{VotingClassifier} na (\textbf{X\_train}, \textbf{y\_train}).
-    \item **Przeskaluj dane testowe:** Użyj tego samego skalowania, które było stosowane dla \textbf{X\_train}, aby przeskalować \textbf{X\_test}.
-    \item **Zwróć wyniki:** Zwróć wytrenowany model głosujący, przeskalowane \textbf{X\_test} i oryginalne \textbf{y\_test}.
+	\def\labelenumi{\arabic{enumi}.}
+	\item Przygotuj modele bazowe:
+	      \begin{itemize}
+		      \item Utwórz model wielowarstwowy (\texttt{MLPClassifier}).
+		      \item Utwórz (\texttt{Pipeline}) dla regresji logistycznej (\texttt{LogisticRegression}) zawierający:
+		            \begin{itemize}
+			            \item Skalowanie cech (\texttt{StandardScaler}).
+			            \item Automatyczne wyszukiwanie najlepszych hiperparametrów (\texttt{GridSearchCV}).
+		            \end{itemize}
+		      \item Utwórz model XGBoost (\texttt{XGBClassifier}).
+	      \end{itemize}
+	\item Trenuj modele bazowe:
+	      \begin{itemize}
+		      \item Wytrenuj (\texttt{Pipeline}) regresji logistycznej na (\textbf{X\_train}, \textbf{y\_train}), znajdując optymalne hiperparametry.
+		      \item Wytrenuj \texttt{MLPClassifier} na przeskalowanych \textbf{X\_train}.
+		      \item Wytrenuj \texttt{XGBClassifier} na przeskalowanych \textbf{X\_train}.
+	      \end{itemize}
+	\item Stwórz model głosujący: Połącz wytrenowane modele bazowe w \newline\texttt{VotingClassifier} z miękkim głosowaniem.
+	\item Wytrenuj model głosujący: Wytrenuj \texttt{VotingClassifier} na (\textbf{X\_train}, \textbf{y\_train}).
+	\item Przeskaluj dane testowe: Użyj tego samego skalowania, które było stosowane dla \textbf{X\_train}, aby przeskalować \textbf{X\_test}.
+	\item Zwróć wyniki: Zwróć wytrenowany model głosujący, przeskalowane \textbf{X\_test} i oryginalne \textbf{y\_test}.
 \end{enumerate}
 
 \subsection{Kod}
 \begin{verbatim}
-# Inicjalizacja modeli: MLP, XGBoost, regresja logistyczna 
+# Inicjalizacja modeli: MLP, XGBoost, regresja logistyczna
 # w potoku ze skalowaniem i optymalizacją hiperparametrów.
 mlp = MLPClassifier(...)
 xgb = XGBClassifier(...)
 pipeline_logreg = Pipeline(
-  [('scaler', StandardScaler()), 
-  ('log_reg', LogisticRegression(...))
-  ])
+[('scaler', StandardScaler()),
+('log_reg', LogisticRegression(...))
+])
 
-# Definiowanie przestrzeni hiperparametrów do 
+# Definiowanie przestrzeni hiperparametrów do
 # przeszukania dla regresji logistycznej.
 param_grid_logreg = {...}
 
@@ -88,9 +88,9 @@ xgb_optimized = pipeline_xgb.named_steps['xgb']
 
 # Stworzenie modelu zespołowego (VotingClassifier) z miękkim głosowaniem.
 voting_clf = VotingClassifier(estimators=[
-  ('mlp', mlp_optimized), 
-  ('log_reg', log_reg_optimized), 
-  ('xgb', xgb_optimized)], voting='soft')
+('mlp', mlp_optimized),
+('log_reg', log_reg_optimized),
+('xgb', xgb_optimized)], voting='soft')
 
 # Trenowanie modelu zespołowego.
 voting_clf.fit(X_train, y_train)
@@ -103,10 +103,10 @@ return voting_clf, X_test_scaled, y_test
 
 \subsection{Właściwości analityczne}
 \begin{enumerate}
-    \def\labelenumi{\arabic{enumi}.}
-    \item \textbf{Efektywność}: Łączenie różnych modeli i optymalizacja hiperparametrów regresji logistycznej ma na celu poprawę dokładności predykcji. Skalowanie cech zapewnia, że wszystkie algorytmy bazowe operują na danych o podobnej skali.
-    \item \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów modeli (liniowy, nieliniowy oparty na sieci neuronowej, oparty na drzewach decyzyjnych) pozwala na uwzględnienie różnych wzorców w danych.
-    \item \textbf{Optymalizacja}: Optymalizacja hiperparametrów regresji logistycznej za pomocą \texttt{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
-    \item \textbf{Skalowalność}: Metoda może być stosowana do problemów z wieloma cechami i próbkami, jednak czas treningu może być znaczący ze względu na optymalizację hiperparametrów i trening wielu modeli.
-    \item \textbf{Złożoność}: Złożoność obliczeniowa zależy od złożoności każdego z bazowych modeli oraz od procesu optymalizacji hiperparametrów: liczby przeszukiwanych kombinacji parametrów i liczby foldów walidacji krzyżowej.
+	\def\labelenumi{\arabic{enumi}.}
+	\item \textbf{Efektywność}: Łączenie różnych modeli i optymalizacja hiperparametrów regresji logistycznej ma na celu poprawę dokładności predykcji. Skalowanie cech zapewnia, że wszystkie algorytmy bazowe operują na danych o podobnej skali.
+	\item \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów modeli (liniowy, nieliniowy oparty na sieci neuronowej, oparty na drzewach decyzyjnych) pozwala na uwzględnienie różnych wzorców w danych.
+	\item \textbf{Optymalizacja}: Optymalizacja hiperparametrów regresji logistycznej za pomocą \texttt{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
+	\item \textbf{Skalowalność}: Metoda może być stosowana do problemów z wieloma cechami i próbkami, jednak czas treningu może być znaczący ze względu na optymalizację hiperparametrów i trening wielu modeli.
+	\item \textbf{Złożoność}: Złożoność obliczeniowa zależy od złożoności każdego z bazowych modeli oraz od procesu optymalizacji hiperparametrów: liczby przeszukiwanych kombinacji parametrów i liczby foldów walidacji krzyżowej.
 \end{enumerate}

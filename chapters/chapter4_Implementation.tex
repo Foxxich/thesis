@@ -68,40 +68,40 @@ System został zaprojektowany do analizy i klasyfikacji tekstów wiadomości jak
 \subsection{Warstwa Przygotowania Danych}
 Dane wejściowe są wczytywane z plików CSV: \texttt{Fake.csv}, oznaczonych etykietą \texttt{0} oraz \texttt{True.csv}, oznaczonych etykietą \texttt{1}, przechowywanych w podfolderach datasetów: \texttt{ISOT\_dataset}, \texttt{BuzzFeed\_dataset}, \texttt{WELFake\_dataset}. Moduł \texttt{common.py} zawiera funkcje takie jak \texttt{load\_and\_preprocess\_data}, które integrują dane i przygotowują je do dalszej obróbki. Podział na zbiory treningowe i testowe realizowany jest za pomocą funkcji \texttt{split\_data}, \texttt{split\_data\_one\_shot} oraz \texttt{split\_data\_few\_shot}, umożliwiając różne strategie podziału danych. Ekstrakcja cech obejmuje:
 \begin{itemize}
-    \item \textbf{TF-IDF}: przekształca tekst na reprezentacje numeryczne za pomocą wektorów ważonych częstotliwością terminów.
-    \item \textbf{BERT/RoBERTa/Sentence Transformers}: generuje zaawansowane osadzenia kontekstowe tekstu.
+	\item \textbf{TF-IDF}: przekształca tekst na reprezentacje numeryczne za pomocą wektorów ważonych częstotliwością terminów.
+	\item \textbf{BERT/RoBERTa/Sentence Transformers}: generuje zaawansowane osadzenia kontekstowe tekstu.
 \end{itemize}
 
 \subsection{Warstwa Trenowania Modeli}
-Proces uruchamiany jest poprzez skrypt \texttt{main.py} w konsoli. Użytkownik wybiera reprezentację kontekstową: 1 - BERT, 2 - RoBERTa, 3 - Sentence Transformers; lub tryb "all" dla wszystkich opcji. Następnie określa numer metody: od 1 do 20; lub zakres metod, tryb podziału danych: klasyczny, one-shot, few-shot; oraz dataset: ISOT, BuzzFeed, WELFake. Każda implementacja standardowa, od \texttt{metoda1} do \texttt{metoda16}, znajduje się w osobnym folderze \texttt{articleX}, gdzie \texttt{X} to numer metody, co pozwala na ich niezależne rozwijanie. 
+Proces uruchamiany jest poprzez skrypt \texttt{main.py} w konsoli. Użytkownik wybiera reprezentację kontekstową: 1 - BERT, 2 - RoBERTa, 3 - Sentence Transformers; lub tryb "all" dla wszystkich opcji. Następnie określa numer metody: od 1 do 20; lub zakres metod, tryb podziału danych: klasyczny, one-shot, few-shot; oraz dataset: ISOT, BuzzFeed, WELFake. Każda implementacja standardowa, od \texttt{metoda1} do \texttt{metoda16}, znajduje się w osobnym folderze \texttt{articleX}, gdzie \texttt{X} to numer metody, co pozwala na ich niezależne rozwijanie.
 
 Autorskie metody (\texttt{metoda17} do \texttt{metoda20}) są zaimplementowane w pliku \texttt{my\_run.py} i dostępne bezpośrednio w głównym katalogu projektu. Modele obejmują:
 \begin{itemize}
-    \item Algorytmy uczenia maszynowego, takie jak Gradient Boosting, Random Forest, LightGBM czy CatBoost.
-    \item Sieci neuronowe oparte na TensorFlow z dynamicznym ważeniem próbek.
-    \item Połączenia predykcji za pomocą meta-modeli, regresji logistycznej.
+	\item Algorytmy uczenia maszynowego, takie jak Gradient Boosting, Random Forest, LightGBM czy CatBoost.
+	\item Sieci neuronowe oparte na TensorFlow z dynamicznym ważeniem próbek.
+	\item Połączenia predykcji za pomocą meta-modeli, regresji logistycznej.
 \end{itemize}
 
 Przykładowe uruchomienie pokazano na rysunku \ref{fig:app_start_window}.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{img/app/console.png}
-    \caption{Przykładowe uruchomienie aplikacji.}
-    \label{fig:app_start_window}
+	\centering
+	\includegraphics[scale=0.5]{img/app/console.png}
+	\caption{Przykładowe uruchomienie aplikacji.}
+	\label{fig:app_start_window}
 \end{figure}
 
 \subsection{Warstwa Oceny Wyników}
 Ocena skuteczności modeli przeprowadzana jest za pomocą funkcji \texttt{evaluate\_model} z modułu \texttt{common.py}. Funkcja ta oblicza kluczowe metryki, w tym:
 \begin{itemize}
-    \item Dokładność (Accuracy),
-    \item Precyzję (Precision),
-    \item Recall,
-    \item F1-Score,
-    \item ROC-AUC,
-    \item MCC,
-    \item Log Loss,
-    \item Cohen's Kappa.
+	\item Dokładność (Accuracy),
+	\item Precyzję (Precision),
+	\item Recall,
+	\item F1-Score,
+	\item ROC-AUC,
+	\item MCC,
+	\item Log Loss,
+	\item Cohen's Kappa.
 \end{itemize}
 Dodatkowo obliczane są metryki walidacji krzyżowej (CV Accuracy). Wyniki zapisywane są w osobnych plikach \texttt{runX\_dataset\_results.csv} i \texttt{runX\_dataset\_pr\_curve.csv} w folderach \texttt{results\_X\_Y}, gdzie \texttt{X} określa typ reprezentacji, a \texttt{Y} tryb podziału danych, przykładowo \texttt{results\_3\_few\_shot}. Każdy folder przechowuje wyniki specyficzne dla danego eksperymentu.
 
@@ -109,7 +109,7 @@ Dodatkowo obliczane są metryki walidacji krzyżowej (CV Accuracy). Wyniki zapis
 
 Analiza graficzna wyników realizowana jest przez skrypt \texttt{all\_plots.py}, który przetwarza dane z plików CSV zapisanych w folderach \texttt{results\_X\_Y}. Generowane są:
 \begin{itemize}
-    \item Wykresy słupkowe porównujące metryki, takie jak Dokładność, Czas wykonania czy Log Loss oraz inne, dla różnych metod i zbiorów danych (BuzzFeed, ISOT, WELFake).
-    \item Krzywe Precision-Recall dla każdej metody i zbioru danych.
+	\item Wykresy słupkowe porównujące metryki, takie jak Dokładność, Czas wykonania czy Log Loss oraz inne, dla różnych metod i zbiorów danych (BuzzFeed, ISOT, WELFake).
+	\item Krzywe Precision-Recall dla każdej metody i zbioru danych.
 \end{itemize}
 Wykresy są zapisywane w folderze \texttt{plots}, zorganizowanym w podfoldery według datasetów i typów eksperymentów, co ułatwia ich przeglądanie.

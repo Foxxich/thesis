@@ -36,10 +36,10 @@ Ostatnim krokiem jest podział danych na zbiory treningowe i testowe, realizowan
 	      wybiera dokładnie jeden przykład na klasę do zbioru testowego, a resztę danych przypisuje do zbioru treningowego, co jest przydatne w scenariuszach z ograniczoną liczbą danych.
 	\item \textbf{split\_data\_few\_shot}: wybiera kilka przykładów na klasę (\texttt{few\_shot\_examples=5}),\newline co pozwala na symulację scenariuszy z małą liczbą przykładów treningowych.
 \end{itemize}
-Wszystkie te kroki przygotowują dane do dalszego etapu przetwarzania klasyfikacyjnego, opisanego w kolejnych sekcjach, gdzie są wykorzystywane przez każdą metodę jako: 
+Wszystkie te kroki przygotowują dane do dalszego etapu przetwarzania klasyfikacyjnego, opisanego w kolejnych sekcjach, gdzie są wykorzystywane przez każdą metodę jako:
 \begin{itemize}
-    \item \textbf{X\_train} – tablica \texttt{ndarray} przechowująca cechy zbioru treningowego, takie jak wektory TF-IDF lub osadzenia kontekstowe z BERT, RoBERTa czy Sentence Transformers, wykorzystywane do trenowania modelu klasyfikacyjnego.
-    \item \textbf{y\_train} – lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru treningowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe.
-    \item \textbf{X\_test} – tablica \texttt{ndarray} przechowująca cechy zbioru testowego, w formacie analogicznym do \texttt{X\_train}, używane do ewaluacji skuteczności modelu.
-    \item \textbf{y\_test} – lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru testowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe, służące jako punkt odniesienia dla predykcji modelu.
+	\item \textbf{X\_train} - tablica \texttt{ndarray} przechowująca cechy zbioru treningowego, takie jak wektory TF-IDF lub osadzenia kontekstowe z BERT, RoBERTa czy Sentence Transformers, wykorzystywane do trenowania modelu klasyfikacyjnego.
+	\item \textbf{y\_train} - lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru treningowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe.
+	\item \textbf{X\_test} - tablica \texttt{ndarray} przechowująca cechy zbioru testowego, w formacie analogicznym do \texttt{X\_train}, używane do ewaluacji skuteczności modelu.
+	\item \textbf{y\_test} - lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru testowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe, służące jako punkt odniesienia dla predykcji modelu.
 \end{itemize}
