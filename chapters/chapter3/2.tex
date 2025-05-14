@@ -1,6 +1,6 @@
 \section{Druga metoda (\textbf{Metoda18})}
 \subsection{Pomysł na metodę}
-W \textbf{Metoda18} integracja \textbf{Gradient Boosting} i \textbf{CatBoost} została wzbogacona o meta-model w postaci regresji logistycznej. Metoda ta jest wynikiem kombinacji idei pochodzących z \textbf{Metoda10} oraz \textbf{Metoda13}. W \textbf{Metoda10} kluczowym aspektem było miękkie głosowanie, które pozwalało uwzględniać probabilistyczne wyniki modeli bazowych w końcowych predykcjach. Z kolei \textbf{Metoda13} została zaimplementowana przy użyciu stacking, gdzie \textbf{Gradient Boosting}, XGBoost i Random Forest były łączone przy użyciu regresji logistycznej jako meta-modelu.
+W \textbf{Metoda18} integracja \textbf{Gradient Boosting} i \textbf{CatBoost} została wzbogacona o meta\-model w postaci regresji logistycznej. Metoda ta jest wynikiem kombinacji idei pochodzących z \textbf{Metoda10} oraz \textbf{Metoda13}. W \textbf{Metoda10} kluczowym aspektem było miękkie głosowanie, które pozwalało uwzględniać probabilistyczne wyniki modeli bazowych w końcowych predykcjach. Z kolei \textbf{Metoda13} została zaimplementowana przy użyciu stacking, gdzie \newline\textbf{Gradient Boosting}, XGBoost i Random Forest były łączone przy użyciu regresji logistycznej jako meta-modelu.
 
 \textbf{Metoda18} czerpie z \textbf{Metoda13} mechanizm stacking, jednak zamiast wielu modeli bazowych opiera się na dwóch potężnych algorytmach boostingu -- \textbf{Gradient Boosting} i \textbf{CatBoost}. Wybór tych modeli wynika z ich zdolności do radzenia sobie z różnymi typami danych i ich nierównowagą. Regresja logistyczna jako meta-model umożliwia skuteczną integrację wyników, co zostało wcześniej zademonstrowane w \textbf{Metoda13}. W porównaniu do \textbf{Metoda10}, \textbf{Metoda18} idzie krok dalej, stawiając na większą precyzję w meta-modelu poprzez wykorzystanie pełnych rozkładów prawdopodobieństw z boostingu.
 
@@ -10,9 +10,9 @@ Metoda \texttt{train\_run18} przyjmuje następujące parametry wejściowe:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz to jedna próbka, a kolumny to cechy. Rozmiar: \textbf{n × m} (n - liczba próbek, m - liczba cech).
+	      \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz to jedna próbka, a kolumny to cechy. Rozmiar n - liczba próbek, m - liczba cech.
 	\item
-	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: \textbf{n} (n - liczba próbek w danych treningowych).
+	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: \textbf{n}, gdzie n - liczba próbek w danych treningowych.
 	\item
 	      \textbf{X\_test}: Macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
 	\item
@@ -43,7 +43,7 @@ Metoda zwraca następujące elementy:
 		            \textbf{Gradient Boosting}:
 		            \begin{itemize}
 			            \item
-			                  Inicjalizacja \textbf{GradientBoostingClassifier} z \textbf{100 estymatorami} i \textbf{random\_state=42}.
+			                  Inicjalizacja \textbf{GradientBoostingClassifier} z \textbf{100 estymatorami} \newline i \textbf{random\_state=42}.
 			            \item
 			                  Trenowanie na \textbf{X\_train} i \textbf{y\_train}.
 		            \end{itemize}
@@ -97,36 +97,43 @@ Metoda zwraca następujące elementy:
 \end{enumerate}
 
 \subsection{Kod}
-\begin{lstlisting}[caption={Kod do 18 metody}, label={18Metoda}]
-def train_run18(X_train, y_train, X_test, y_test):
-    # Inicjalizacja i trening klasyfikatorow bazowych
-    gb_clf = GradientBoostingClassifier(n_estimators=100, random_state=42)  # Gradient Boosting
-    cat_clf = CatBoostClassifier(iterations=100, verbose=0, random_state=42)  # CatBoost
-    gb_clf.fit(X_train, y_train)
-    cat_clf.fit(X_train, y_train)
+\begin{verbatim}
+# Inicjalizacja i trening klasyfikatorow bazowych
+gb_clf = GradientBoostingClassifier(
+	n_estimators=100, 
+	random_state=42
+	)  # Gradient Boosting
 
-    # Generowanie predykcji dla danych treningowych
-    gb_preds_train = gb_clf.predict_proba(X_train)[:, 1]
-    cat_preds_train = cat_clf.predict_proba(X_train)[:, 1]
-    meta_features_train = pd.DataFrame({  # Tworzenie meta-cech
-        'gb_preds': gb_preds_train,
-        'cat_preds': cat_preds_train
-    })
+cat_clf = CatBoostClassifier(
+	iterations=100, 
+	verbose=0, 
+	random_state=42
+	)  # CatBoost
+gb_clf.fit(X_train, y_train)
+cat_clf.fit(X_train, y_train)
 
-    # Trenowanie meta-modelu
-    meta_model = LogisticRegression()  # Meta-model: regresja logistyczna
-    meta_model.fit(meta_features_train, y_train)
+# Generowanie predykcji dla danych treningowych
+gb_preds_train = gb_clf.predict_proba(X_train)[:, 1]
+cat_preds_train = cat_clf.predict_proba(X_train)[:, 1]
+meta_features_train = pd.DataFrame({  # Tworzenie meta-cech
+	'gb_preds': gb_preds_train,
+	'cat_preds': cat_preds_train
+})
 
-    # Generowanie predykcji dla danych testowych
-    gb_preds_test = gb_clf.predict_proba(X_test)[:, 1]
-    cat_preds_test = cat_clf.predict_proba(X_test)[:, 1]
-    meta_features_test = pd.DataFrame({  # Meta-cechy dla testu
-        'gb_preds': gb_preds_test,
-        'cat_preds': cat_preds_test
-    })
+# Trenowanie meta-modelu
+meta_model = LogisticRegression() # Meta-model
+meta_model.fit(meta_features_train, y_train)
 
-    return meta_model, meta_features_test, y_test
-\end{lstlisting}
+# Generowanie predykcji dla danych testowych
+gb_preds_test = gb_clf.predict_proba(X_test)[:, 1]
+cat_preds_test = cat_clf.predict_proba(X_test)[:, 1]
+meta_features_test = pd.DataFrame({  # Meta-cechy dla testu
+	'gb_preds': gb_preds_test,
+	'cat_preds': cat_preds_test
+})
+
+return meta_model, meta_features_test, y_test
+\end{verbatim}
 
 \subsection{Właściwości analityczne}
 \begin{enumerate}
