@@ -56,7 +56,14 @@ Poniżej wymieniono minimalne wymagania dotyczące oprogramowania, niezbędne do
 \end{itemize}
 
 \section{Architektura Systemu}
-System został zaprojektowany do analizy i klasyfikacji tekstów wiadomości jako fałszywe lub prawdziwe, wykorzystując różnorodne algorytmy uczenia maszynowego oraz techniki ensemble. Składa się z czterech głównych warstw, które odpowiadają za przetwarzanie danych, trenowanie modeli, ocenę ich skuteczności oraz wizualizację wyników. Poniżej przedstawiono szczegóły każdej warstwy.
+System został zaprojektowany do analizy i klasyfikacji tekstów wiadomości jako fałszywe lub prawdziwe, wykorzystując różnorodne algorytmy uczenia maszynowego oraz techniki ensemble. Składa się z czterech głównych warstw, które odpowiadają za przetwarzanie danych, trenowanie modeli, ocenę ich skuteczności oraz wizualizację wyników. Poniżej przedstawiono szczegóły każdej warstwy. Całośc jest pokazana na rysunku \ref{fig:diagram_architekture}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/app/SystemArchitecture.png}
+	\caption{Diagram architektury systemu.}
+	\label{fig:diagram_architekture}
+\end{figure}
 
 \subsection{Warstwa Przygotowania Danych}
 Dane wejściowe są wczytywane z plików CSV: \texttt{Fake.csv}, oznaczonych etykietą \texttt{0} oraz \texttt{True.csv}, oznaczonych etykietą \texttt{1}, przechowywanych w podfolderach datasetów: \texttt{ISOT\_dataset}, \texttt{BuzzFeed\_dataset}, \texttt{WELFake\_dataset}. Moduł \texttt{common.py} zawiera funkcje takie jak \texttt{load\_and\_preprocess\_data}, które integrują dane i przygotowują je do dalszej obróbki. Podział na zbiory treningowe i testowe realizowany jest za pomocą funkcji \texttt{split\_data}, \texttt{split\_data\_one\_shot} oraz \texttt{split\_data\_few\_shot}, umożliwiając różne strategie podziału danych. Ekstrakcja cech obejmuje:
@@ -102,7 +109,7 @@ Dodatkowo obliczane są metryki walidacji krzyżowej (CV Accuracy). Wyniki zapis
 
 Analiza graficzna wyników realizowana jest przez skrypt \texttt{all\_plots.py}, który przetwarza dane z plików CSV zapisanych w folderach \texttt{results\_X\_Y}. Generowane są:
 \begin{itemize}
-    \item Wykresy słupkowe porównujące metryki, takie jak Dokładność, Czas wykonania czy Log Loss, dla różnych metod i zbiorów danych (BuzzFeed, ISOT, WELFake).
+    \item Wykresy słupkowe porównujące metryki, takie jak Dokładność, Czas wykonania czy Log Loss oraz inne, dla różnych metod i zbiorów danych (BuzzFeed, ISOT, WELFake).
     \item Krzywe Precision-Recall dla każdej metody i zbioru danych.
 \end{itemize}
 Wykresy są zapisywane w folderze \texttt{plots}, zorganizowanym w podfoldery według datasetów i typów eksperymentów, co ułatwia ich przeglądanie.

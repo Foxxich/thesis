@@ -2,114 +2,113 @@
 \contentsline {chapter}{Streszczenie }{}{chapter*.1}%
 \contentsline {chapter}{Abstract }{}{chapter*.2}%
 \setcounter {tocdepth}{2}
-\contentsline {chapter}{\numberline {1\relax .\enspace }Wstęp}{5}{chapter.1}%
-\contentsline {chapter}{\numberline {2\relax .\enspace }Przegląd literatury}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1\relax .\enspace }Korzyści zastosowania metod zespołowego uczenia maszynowego}{7}{section.2.1}%
-\contentsline {section}{\numberline {2.2\relax .\enspace }Wprowadzenie do metod zespołowych}{8}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1\relax .\enspace }Wyjaśnienie idei za tymi technikami}{8}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2\relax .\enspace }Dlaczego są skuteczne w wykrywaniu fake newsów?}{9}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3\relax .\enspace }Ważne pojęcia}{10}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3\relax .\enspace }Kluczowe modele w analizie i detekcji dezinformacji}{11}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1\relax .\enspace }Regresja logistyczna}{11}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2\relax .\enspace }Random Forest}{11}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3\relax .\enspace }Boosting: AdaBoost i Gradient Boosting}{12}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4\relax .\enspace }XGBoost i LightGBM}{12}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5\relax .\enspace }Stacking}{13}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6\relax .\enspace }Sieci neuronowe}{13}{subsection.2.3.6}%
-\contentsline {subsection}{\numberline {2.3.7\relax .\enspace }Voting Classifier}{13}{subsection.2.3.7}%
-\contentsline {subsection}{\numberline {2.3.8\relax .\enspace }Modele z post-processingiem}{14}{subsection.2.3.8}%
-\contentsline {subsection}{\numberline {2.3.9\relax .\enspace }CatBoost}{14}{subsection.2.3.9}%
-\contentsline {section}{\numberline {2.4\relax .\enspace }Reprezentacje semantyczne tekstu}{14}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1\relax .\enspace }BERT (Bidirectional Encoder Representations from Transformers)}{14}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2\relax .\enspace }RoBERTa (Robustly Optimized BERT Approach)}{15}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3\relax .\enspace }Sentence-BERT (SBERT)}{15}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4\relax .\enspace }Porównanie wspomnianych reprezentacji}{16}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5\relax .\enspace }Techniki uczenia w różnych kontekstach danych}{16}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1\relax .\enspace }One-Shot Learning (OSL)}{16}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2\relax .\enspace }Few-Shot Learning (FSL)}{16}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3\relax .\enspace }Porównanie technik uczenia w różnych kontekstach danych}{17}{subsection.2.5.3}%
-\contentsline {section}{\numberline {2.6\relax .\enspace }Implementacja przygotowania danych}{17}{section.2.6}%
-\contentsline {section}{\numberline {2.7\relax .\enspace }Implementacja wybranych naukowych metod}{18}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1\relax .\enspace }Modele oparte na drzewach}{19}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2\relax .\enspace }Sieci neuronowe}{20}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3\relax .\enspace }Zespoły klasyfikatorów}{22}{subsection.2.7.3}%
-\contentsline {subsection}{\numberline {2.7.4\relax .\enspace }Modele zoptymalizowane}{34}{subsection.2.7.4}%
-\contentsline {section}{\numberline {2.8\relax .\enspace }Opis zestawów danych użytych w eksperymentach}{35}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1\relax .\enspace }ISOT Fake News Dataset}{35}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2\relax .\enspace }WELFake Dataset}{37}{subsection.2.8.2}%
-\contentsline {subsection}{\numberline {2.8.3\relax .\enspace }BuzzFeed News Dataset}{38}{subsection.2.8.3}%
-\contentsline {subsection}{\numberline {2.8.4\relax .\enspace }Porównanie zbiorów danych}{39}{subsection.2.8.4}%
-\contentsline {section}{\numberline {2.9\relax .\enspace }Implementacja analizy wyników}{40}{section.2.9}%
-\contentsline {section}{\numberline {2.10\relax .\enspace }Wstępna analiza wyników}{42}{section.2.10}%
-\contentsline {subsection}{\numberline {2.10.1\relax .\enspace }Dokładność (Accuracy)}{43}{subsection.2.10.1}%
-\contentsline {subsection}{\numberline {2.10.2\relax .\enspace }Precyzja (Precision)}{43}{subsection.2.10.2}%
-\contentsline {subsection}{\numberline {2.10.3\relax .\enspace }Recall}{44}{subsection.2.10.3}%
-\contentsline {subsection}{\numberline {2.10.4\relax .\enspace }Wynik F1 (F1-Score)}{45}{subsection.2.10.4}%
-\contentsline {subsection}{\numberline {2.10.5\relax .\enspace }Logarytmiczna strata (Log-Loss)}{46}{subsection.2.10.5}%
-\contentsline {subsection}{\numberline {2.10.6\relax .\enspace }Współczynnik korelacji Matthewsa (MCC)}{46}{subsection.2.10.6}%
-\contentsline {subsection}{\numberline {2.10.7\relax .\enspace }Pole pod krzywą ROC-AUC (ROC-AUC)}{47}{subsection.2.10.7}%
-\contentsline {subsection}{\numberline {2.10.8\relax .\enspace }Współczynnik Kappa Cohena (Cohen's Kappa)}{48}{subsection.2.10.8}%
-\contentsline {subsection}{\numberline {2.10.9\relax .\enspace }Średnia (Mean)}{48}{subsection.2.10.9}%
-\contentsline {subsection}{\numberline {2.10.10\relax .\enspace }Czas wykonania (Execution Time)}{49}{subsection.2.10.10}%
-\contentsline {subsection}{\numberline {2.10.11\relax .\enspace }Podsumowanie wstępnej analizy wyników metod }{50}{subsection.2.10.11}%
-\contentsline {chapter}{\numberline {3\relax .\enspace }Własne metody}{52}{chapter.3}%
-\contentsline {section}{\numberline {3.1\relax .\enspace }Pierwsza metoda (\textbf {Metoda17})}{52}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1\relax .\enspace }Pomysł na metodę}{52}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Wejściowe parametry}{52}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3\relax .\enspace }Wyjściowe parametry}{53}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4\relax .\enspace }Algorytm}{53}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5\relax .\enspace }Kod}{53}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6\relax .\enspace }Właściwości analityczne}{54}{subsection.3.1.6}%
-\contentsline {section}{\numberline {3.2\relax .\enspace }Druga metoda (\textbf {Metoda18})}{55}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Pomysł na metodę}{55}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2\relax .\enspace }Wejściowe parametry}{55}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3\relax .\enspace }Wyjściowe parametry}{56}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4\relax .\enspace }Algorytm}{56}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5\relax .\enspace }Kod}{56}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6\relax .\enspace }Schemat blokowy}{58}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7\relax .\enspace }Właściwości analityczne}{58}{subsection.3.2.7}%
-\contentsline {section}{\numberline {3.3\relax .\enspace }Trzecia metoda (Metoda19)}{59}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1\relax .\enspace }Pomysł na metodę}{59}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2\relax .\enspace }Wejściowe dane}{59}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3\relax .\enspace }Wyjściowe dane}{60}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4\relax .\enspace }Algorytm}{60}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5\relax .\enspace }Kod}{61}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6\relax .\enspace }Schemat blokowy}{62}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7\relax .\enspace }Właściwości analityczne}{62}{subsection.3.3.7}%
-\contentsline {section}{\numberline {3.4\relax .\enspace }Czwarta metoda (Metoda20)}{63}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1\relax .\enspace }Pomysł na metodę}{63}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2\relax .\enspace }Wejściowe dane}{63}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3\relax .\enspace }Wyjściowe dane}{64}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4\relax .\enspace }Algorytm}{64}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5\relax .\enspace }Kod}{65}{subsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.4.6\relax .\enspace }Schemat blokowy}{66}{subsection.3.4.6}%
-\contentsline {subsection}{\numberline {3.4.7\relax .\enspace }Właściwości analityczne}{66}{subsection.3.4.7}%
-\contentsline {chapter}{\numberline {4\relax .\enspace }Szczegóły implementacyjne}{68}{chapter.4}%
-\contentsline {section}{\numberline {4.1\relax .\enspace }Technologie}{68}{section.4.1}%
-\contentsline {section}{\numberline {4.2\relax .\enspace }Wymagania systemowe}{69}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1\relax .\enspace }Sprzęt}{69}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2\relax .\enspace }Oprogramowanie}{69}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3\relax .\enspace }Architektura Systemu}{70}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1\relax .\enspace }Warstwa Przygotowania Danych}{70}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2\relax .\enspace }Warstwa Trenowania Modeli}{70}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3\relax .\enspace }Warstwa Oceny Wyników}{71}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4\relax .\enspace }Warstwa Wizualizacji}{71}{subsection.4.3.4}%
-\contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{72}{chapter.5}%
-\contentsline {section}{\numberline {5.1\relax .\enspace }Wprowadzenie do badań}{72}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Cel przeprowadzonych eksperymentów}{72}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Uzasadnienie zastosowania wybranych metryk}{72}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2\relax .\enspace }Metodologia}{73}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1\relax .\enspace }Szczegóły dotyczące analizy PR Curve}{73}{subsection.5.2.1}%
-\contentsline {section}{\numberline {5.3\relax .\enspace }Wyniki eksperymentalne dla bazowych metod}{73}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1\relax .\enspace }Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie BERT}{74}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2\relax .\enspace }Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie RoBERTa}{81}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3\relax .\enspace }Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie Sentence-BERT (SBERT)}{88}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4\relax .\enspace }Porównanie wyników najlepszych bazowych rozwiązań}{94}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1\relax .\enspace }Proponowane testy statystyczne}{94}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2\relax .\enspace }Wybrane najlepsze bazowe metody}{94}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3\relax .\enspace }Reprezentacja wszystkich danych statystycznych}{95}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4\relax .\enspace }Analiza wyników autorskich rozwiązań w zależności od architektury}{101}{subsection.5.4.4}%
-\contentsline {chapter}{Podsumowanie}{103}{chapter*.123}%
-\contentsline {chapter}{Bibliografia}{104}{chapter*.124}%
-\contentsline {chapter}{Spis rysunk\'ow}{106}{chapter*.125}%
-\contentsline {chapter}{Dodatki}{108}{section*.126}%
+\contentsline {chapter}{\numberline {1\relax .\enspace }Wstęp}{4}{chapter.1}%
+\contentsline {chapter}{\numberline {2\relax .\enspace }Przegląd literatury}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1\relax .\enspace }Korzyści zastosowania metod zespołowego uczenia maszynowego}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2\relax .\enspace }Wprowadzenie do metod zespołowych}{7}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1\relax .\enspace }Wyjaśnienie idei za tymi technikami}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2\relax .\enspace }Dlaczego są skuteczne w wykrywaniu fake newsów?}{8}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3\relax .\enspace }Ważne pojęcia}{9}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3\relax .\enspace }Kluczowe modele w analizie i detekcji dezinformacji}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1\relax .\enspace }Regresja logistyczna}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2\relax .\enspace }Random Forest}{10}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3\relax .\enspace }Boosting: AdaBoost i Gradient Boosting}{11}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4\relax .\enspace }XGBoost i LightGBM}{11}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5\relax .\enspace }Stacking}{12}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6\relax .\enspace }Sieci neuronowe}{12}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7\relax .\enspace }Voting Classifier}{12}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8\relax .\enspace }Modele z post-processingiem}{13}{subsection.2.3.8}%
+\contentsline {subsection}{\numberline {2.3.9\relax .\enspace }CatBoost}{13}{subsection.2.3.9}%
+\contentsline {section}{\numberline {2.4\relax .\enspace }Reprezentacje semantyczne tekstu}{13}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1\relax .\enspace }BERT (Bidirectional Encoder Representations from Transformers)}{13}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2\relax .\enspace }RoBERTa (Robustly Optimized BERT Approach)}{14}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3\relax .\enspace }Sentence-BERT (SBERT)}{14}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4\relax .\enspace }Porównanie wspomnianych reprezentacji}{15}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5\relax .\enspace }Techniki uczenia w różnych kontekstach danych}{15}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1\relax .\enspace }One-Shot Learning (OSL)}{15}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2\relax .\enspace }Few-Shot Learning (FSL)}{15}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.3\relax .\enspace }Porównanie technik uczenia w różnych kontekstach danych}{16}{subsection.2.5.3}%
+\contentsline {section}{\numberline {2.6\relax .\enspace }Implementacja przygotowania danych}{16}{section.2.6}%
+\contentsline {section}{\numberline {2.7\relax .\enspace }Implementacja wybranych naukowych metod}{17}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1\relax .\enspace }Modele oparte na drzewach}{18}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2\relax .\enspace }Sieci neuronowe}{19}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3\relax .\enspace }Zespoły klasyfikatorów}{21}{subsection.2.7.3}%
+\contentsline {subsection}{\numberline {2.7.4\relax .\enspace }Modele zoptymalizowane}{33}{subsection.2.7.4}%
+\contentsline {section}{\numberline {2.8\relax .\enspace }Opis zestawów danych użytych w eksperymentach}{34}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1\relax .\enspace }ISOT Fake News Dataset}{34}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2\relax .\enspace }WELFake Dataset}{36}{subsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.8.3\relax .\enspace }BuzzFeed News Dataset}{37}{subsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.8.4\relax .\enspace }Porównanie zbiorów danych}{38}{subsection.2.8.4}%
+\contentsline {section}{\numberline {2.9\relax .\enspace }Implementacja analizy wyników}{39}{section.2.9}%
+\contentsline {section}{\numberline {2.10\relax .\enspace }Wstępna analiza wyników}{41}{section.2.10}%
+\contentsline {subsection}{\numberline {2.10.1\relax .\enspace }Dokładność (Accuracy)}{42}{subsection.2.10.1}%
+\contentsline {subsection}{\numberline {2.10.2\relax .\enspace }Precyzja (Precision)}{42}{subsection.2.10.2}%
+\contentsline {subsection}{\numberline {2.10.3\relax .\enspace }Recall}{43}{subsection.2.10.3}%
+\contentsline {subsection}{\numberline {2.10.4\relax .\enspace }Wynik F1 (F1-Score)}{44}{subsection.2.10.4}%
+\contentsline {subsection}{\numberline {2.10.5\relax .\enspace }Logarytmiczna strata (Log-Loss)}{45}{subsection.2.10.5}%
+\contentsline {subsection}{\numberline {2.10.6\relax .\enspace }Współczynnik korelacji Matthewsa (MCC)}{45}{subsection.2.10.6}%
+\contentsline {subsection}{\numberline {2.10.7\relax .\enspace }Pole pod krzywą ROC-AUC (ROC-AUC)}{46}{subsection.2.10.7}%
+\contentsline {subsection}{\numberline {2.10.8\relax .\enspace }Współczynnik Kappa Cohena (Cohen's Kappa)}{47}{subsection.2.10.8}%
+\contentsline {subsection}{\numberline {2.10.9\relax .\enspace }Średnia (Mean)}{47}{subsection.2.10.9}%
+\contentsline {subsection}{\numberline {2.10.10\relax .\enspace }Czas wykonania (Execution Time)}{48}{subsection.2.10.10}%
+\contentsline {subsection}{\numberline {2.10.11\relax .\enspace }Podsumowanie wstępnej analizy wyników metod }{49}{subsection.2.10.11}%
+\contentsline {chapter}{\numberline {3\relax .\enspace }Własne metody}{51}{chapter.3}%
+\contentsline {section}{\numberline {3.1\relax .\enspace }Pierwsza metoda (\textbf {Metoda17})}{51}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1\relax .\enspace }Pomysł na metodę}{51}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Wejściowe parametry}{51}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3\relax .\enspace }Wyjściowe parametry}{52}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4\relax .\enspace }Algorytm}{52}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5\relax .\enspace }Kod}{52}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6\relax .\enspace }Właściwości analityczne}{53}{subsection.3.1.6}%
+\contentsline {section}{\numberline {3.2\relax .\enspace }Druga metoda (\textbf {Metoda18})}{54}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Pomysł na metodę}{54}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2\relax .\enspace }Wejściowe parametry}{54}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3\relax .\enspace }Wyjściowe parametry}{55}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4\relax .\enspace }Algorytm}{55}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5\relax .\enspace }Kod}{55}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6\relax .\enspace }Właściwości analityczne}{56}{subsection.3.2.6}%
+\contentsline {section}{\numberline {3.3\relax .\enspace }Trzecia metoda (Metoda19)}{57}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1\relax .\enspace }Pomysł na metodę}{57}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2\relax .\enspace }Wejściowe dane}{57}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3\relax .\enspace }Wyjściowe dane}{57}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4\relax .\enspace }Algorytm}{58}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5\relax .\enspace }Kod}{58}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6\relax .\enspace }Schemat blokowy}{60}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7\relax .\enspace }Właściwości analityczne}{60}{subsection.3.3.7}%
+\contentsline {section}{\numberline {3.4\relax .\enspace }Czwarta metoda (Metoda20)}{61}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1\relax .\enspace }Pomysł na metodę}{61}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2\relax .\enspace }Wejściowe dane}{61}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3\relax .\enspace }Wyjściowe dane}{62}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4\relax .\enspace }Algorytm}{62}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5\relax .\enspace }Kod}{63}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6\relax .\enspace }Schemat blokowy}{64}{subsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.4.7\relax .\enspace }Właściwości analityczne}{64}{subsection.3.4.7}%
+\contentsline {chapter}{\numberline {4\relax .\enspace }Szczegóły implementacyjne}{66}{chapter.4}%
+\contentsline {section}{\numberline {4.1\relax .\enspace }Technologie}{66}{section.4.1}%
+\contentsline {section}{\numberline {4.2\relax .\enspace }Wymagania systemowe}{67}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1\relax .\enspace }Sprzęt}{67}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2\relax .\enspace }Oprogramowanie}{67}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3\relax .\enspace }Architektura Systemu}{68}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1\relax .\enspace }Warstwa Przygotowania Danych}{69}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2\relax .\enspace }Warstwa Trenowania Modeli}{69}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3\relax .\enspace }Warstwa Oceny Wyników}{70}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4\relax .\enspace }Warstwa Wizualizacji}{70}{subsection.4.3.4}%
+\contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{71}{chapter.5}%
+\contentsline {section}{\numberline {5.1\relax .\enspace }Wprowadzenie do badań}{71}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Cel przeprowadzonych eksperymentów}{71}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Uzasadnienie zastosowania wybranych metryk}{71}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2\relax .\enspace }Metodologia}{72}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1\relax .\enspace }Szczegóły dotyczące analizy PR Curve}{72}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3\relax .\enspace }Wyniki eksperymentalne dla bazowych metod}{72}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1\relax .\enspace }Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie BERT}{73}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2\relax .\enspace }Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie RoBERTa}{80}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3\relax .\enspace }Porównanie wyników bazowych rozwiązań według reprezentacji semantycznej tekstu, a mianowicie Sentence-BERT (SBERT)}{87}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4\relax .\enspace }Porównanie wyników najlepszych bazowych rozwiązań}{93}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1\relax .\enspace }Proponowane testy statystyczne}{93}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2\relax .\enspace }Wybrane najlepsze bazowe metody}{93}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3\relax .\enspace }Reprezentacja wszystkich danych statystycznych}{94}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4\relax .\enspace }Analiza wyników autorskich rozwiązań w zależności od architektury}{100}{subsection.5.4.4}%
+\contentsline {chapter}{Podsumowanie}{102}{chapter*.123}%
+\contentsline {chapter}{Bibliografia}{103}{chapter*.124}%
+\contentsline {chapter}{Spis rysunk\'ow}{105}{chapter*.125}%
+\contentsline {chapter}{Dodatki}{107}{section*.126}%

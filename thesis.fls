@@ -622,13 +622,6 @@ INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmri.tfm
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmri.tfm
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
-INPUT .\img\diagrams\metoda18.drawio.png
-INPUT .\img\diagrams\metoda18.drawio.png
-INPUT .\img\diagrams\metoda18.drawio.png
-INPUT .\img\diagrams\metoda18.drawio.png
-INPUT .\img\diagrams\metoda18.drawio.png
-INPUT .\img\diagrams\metoda18.drawio.png
-INPUT .\img\diagrams\metoda18.drawio.png
 INPUT .\chapters\chapter3\3.tex
 INPUT .\chapters\chapter3\3.tex
 INPUT chapters\chapter3\3.tex
@@ -655,6 +648,13 @@ INPUT .\chapters\chapter4_Implementation.tex
 INPUT .\chapters\chapter4_Implementation.tex
 INPUT chapters\chapter4_Implementation.tex
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
 INPUT .\img\app\console.png
 INPUT .\img\app\console.png
 INPUT .\img\app\console.png
