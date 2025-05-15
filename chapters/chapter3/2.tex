@@ -37,63 +37,36 @@ Metoda zwraca następujące elementy:
 	\def\labelenumi{\arabic{enumi}.}
 	\item
 	      Trenowanie modeli bazowych:
-
 	      \begin{itemize}
 		      \item
-		            \textbf{Gradient Boosting}:
-		            \begin{itemize}
-			            \item
-			                  Inicjalizacja \textbf{GradientBoostingClassifier} z \textbf{100 estymatorami} \newline i \textbf{random\_state=42}.
-			            \item
-			                  Trenowanie na \textbf{X\_train} i \textbf{y\_train}.
-		            \end{itemize}
+		            \textbf{Gradient Boosting}: Inicjalizuje się \textbf{GradientBoostingClassifier} z \textbf{100 estymatorami} i \textbf{random\_state=42}. Następnie przeprowadza się trenowanie na \textbf{X\_train} i \textbf{y\_train}.
 		      \item
-		            \textbf{CatBoost}:
-		            \begin{itemize}
-			            \item
-			                  Inicjalizacja \textbf{CatBoostClassifier} z \textbf{iterations=100}, \textbf{random\_state=42} i \textbf{verbose=0}.
-			            \item
-			                  Trenowanie na \textbf{X\_train} i \textbf{y\_train}.
-		            \end{itemize}
+		            \textbf{CatBoost}: Inicjalizuje się \textbf{CatBoostClassifier} z \textbf{iterations=100}, \textbf{random\_state=42} i \textbf{verbose=0}. Następnie przeprowadza się trenowanie na \textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Generowanie predykcji dla danych treningowych:
 	      \begin{itemize}
 		      \item
-		            Obliczenie prawdopodobieństw klasy pozytywnej \textbf{\( P(y=1 \mid x) \)}:
-		            \begin{itemize}
-			            \item
-			                  \textbf{gb\_preds\_train}: Predykcje \textbf{Gradient Boosting}.
-			            \item
-			                  \textbf{cat\_preds\_train}: Predykcje \textbf{CatBoost}.
-		            \end{itemize}
+		            Oblicza się prawdopodobieństwa klasy pozytywnej \textbf{\( P(y=1 \mid x) \)}: \textbf{gb\_preds\_train} (predykcje \textbf{Gradient Boosting}) oraz \textbf{cat\_preds\_train} (predykcje \textbf{CatBoost}).
 		      \item
-		            Stworzenie macierzy meta-cech z \textbf{gb\_preds} i \textbf{cat\_preds} jako kolumnami.
+		            Tworzy się macierz meta-cech z \textbf{gb\_preds} i \textbf{cat\_preds} jako kolumnami.
 	      \end{itemize}
 	\item
 	      Trenowanie meta-modelu:
 	      \begin{itemize}
 		      \item
-		            Trenowanie \textbf{LogisticRegression} na \textbf{meta\_features\_train} i \textbf{y\_train}.
-		      \item
-		            \textbf{LogisticRegression} łączy predykcje modeli bazowych.
+		            Przeprowadza się trenowanie \textbf{LogisticRegression} na \textbf{meta\_features\_train} i \newline\textbf{y\_train}. \textbf{LogisticRegression} łączy predykcje modeli bazowych.
 	      \end{itemize}
 	\item
 	      Generowanie predykcji dla danych testowych:
 	      \begin{itemize}
 		      \item
-		            Obliczenie prawdopodobieństw klasy pozytywnej:
-		            \begin{itemize}
-			            \item
-			                  \textbf{gb\_preds\_test}: Predykcje \textbf{Gradient Boosting}.
-			            \item
-			                  \textbf{cat\_preds\_test}: Predykcje \textbf{CatBoost}.
-		            \end{itemize}
+		            Oblicza się prawdopodobieństwa klasy pozytywnej: \textbf{gb\_preds\_test} (predykcje \textbf{Gradient Boosting}) oraz \textbf{cat\_preds\_test} (predykcje \textbf{CatBoost}).
 		      \item
-		            Stworzenie macierzy meta-cech dla danych testowych (analogicznie do treningowych).
+		            Tworzy się macierz meta-cech dla danych testowych (analogicznie do treningowych).
 	      \end{itemize}
 	\item
-	      Zwracanie: wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
+	      Zwracanie: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
 \end{enumerate}
 
 \subsection{Kod}

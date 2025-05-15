@@ -36,36 +36,36 @@ Metoda zwraca następujące elementy:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      Skalowanie danych: Przeskaluj \textbf{X\_train} i \textbf{X\_test} za pomocą \texttt{StandardScaler}.
+	      Skalowanie danych: Przeprowadza się przeskalowanie \textbf{X\_train} i \textbf{X\_test} za pomocą \texttt{StandardScaler}.
 	\item
 	      Inicjalizacja i optymalizacja modeli bazowych:
 	      \begin{itemize}
-		      \item Inicjalizuj \textbf{RandomForestClassifier} z \textbf{n\_estimators=200}, \textbf{max\_depth=10} i \textbf{random\_state=42}.
-		      \item Inicjalizuj \textbf{XGBClassifier} z \textbf{n\_estimators=200}, \textbf{use\_label\_encoder=False},
+		      \item Inicjalizuje się \textbf{RandomForestClassifier} z \textbf{n\_estimators=200}, \textbf{max\_depth=10} i \textbf{random\_state=42}.
+		      \item Inicjalizuje się \textbf{XGBClassifier} z \textbf{n\_estimators=200}, \textbf{use\_label\_encoder=False},
 		            \newline\textbf{eval\_metric='logloss'},\textbf{learning\_rate=0.05}, \textbf{max\_depth=5} i \textbf{random\_state=42}.
-		      \item Inicjalizuj \textbf{GradientBoostingClassifier} z \textbf{n\_estimators=100}, \textbf{learning\_rate=0.1}, \textbf{max\_depth=3} i \textbf{random\_state=42}.
+		      \item Inicjalizuje się \textbf{GradientBoostingClassifier} z \textbf{n\_estimators=100}, \newline\textbf{learning\_rate=0.1}, \textbf{max\_depth=3} i \textbf{random\_state=42}.
 	      \end{itemize}
 	\item
 	      Generowanie meta-cech za pomocą walidacji krzyżowej (StratifiedKFold z 5 podziałami):
 	      \begin{itemize}
-		      \item Uzyskaj probabilistyczne predykcje dla klasy pozytywnej z każdego modelu bazowego na \textbf{X\_train\_scaled} za pomocą \texttt{cross\_val\_predict}.
-		      \item Stwórz macierz meta-cech \textbf{meta\_features\_train} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting}.
+		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego modelu bazowego na \textbf{X\_train\_scaled} za pomocą \texttt{cross\_val\_predict}.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_train} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting}.
 	      \end{itemize}
 	\item
 	      Trenowanie meta-modelu:
 	      \begin{itemize}
-		      \item Inicjalizuj \textbf{LogisticRegression} z \textbf{solver='liblinear'} i \textbf{random\_state=42}.
-		      \item Wytrenuj meta-model na \textbf{meta\_features\_train} i \textbf{y\_train}.
+		      \item Inicjalizuje się \textbf{LogisticRegression} z \textbf{solver='liblinear'} i \textbf{random\_state=42}.
+		      \item Przeprowadza się trening meta-modelu na \textbf{meta\_features\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Generowanie predykcji na zbiorze testowym:
 	      \begin{itemize}
-		      \item Wytrenuj każdy model bazowy na całym \textbf{X\_train\_scaled}.
-		      \item Uzyskaj probabilistyczne predykcje dla klasy pozytywnej z każdego wytrenowanego modelu bazowego na \textbf{X\_test\_scaled}.
-		      \item Stwórz macierz meta-cech \textbf{meta\_features\_test} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting} dla zbioru testowego.
+		      \item Przeprowadza się trening każdego modelu bazowego na całym \textbf{X\_train\_scaled}.
+		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego wytrenowanego modelu bazowego na \textbf{X\_test\_scaled}.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting} dla zbioru testowego.
 	      \end{itemize}
 	\item
-	      Zwracanie wyników: Wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
+	      Zwracanie wyników: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
 \end{enumerate}
 
 \subsection{Kod}

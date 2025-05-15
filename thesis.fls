@@ -619,15 +619,13 @@ INPUT chapters\chapter3\3.tex
 INPUT .\chapters\chapter3\4.tex
 INPUT .\chapters\chapter3\4.tex
 INPUT chapters\chapter3\4.tex
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmb.tfm
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ts1.enc
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmr.tfm
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmri.tfm
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmri.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ts1.enc
 INPUT .\chapters\chapter4_Implementation.tex
 INPUT .\chapters\chapter4_Implementation.tex
 INPUT .\chapters\chapter4_Implementation.tex
@@ -648,206 +646,6 @@ INPUT .\img\app\console.png
 INPUT .\img\app\console.png
 INPUT .\img\app\console.png
 INPUT .\img\app\console.png
-INPUT .\chapters\chapter5_Tests_Results.tex
-INPUT .\chapters\chapter5_Tests_Results.tex
-INPUT .\chapters\chapter5_Tests_Results.tex
-INPUT .\chapters\chapter5_Tests_Results.tex
-INPUT chapters\chapter5_Tests_Results.tex
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmbi.tfm
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_1_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_2_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_few_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_one_shot_Log Loss_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_few_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_one_shot_Accuracy_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\results_3_one_shot_Execution Time (s)_comparison.png
-INPUT .\chapters\summary.tex
-INPUT .\chapters\summary.tex
-INPUT .\chapters\summary.tex
-INPUT .\chapters\summary.tex
-INPUT chapters\summary.tex
 INPUT .\thesis.bbl
 INPUT .\thesis.bbl
 INPUT thesis.bbl
@@ -878,8 +676,6 @@ INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmbi.pfb
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmbi.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmri.pfb

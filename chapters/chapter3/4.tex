@@ -1,213 +1,134 @@
-\section{Czwarta metoda (Metoda20)}
+\section{Czwarta metoda (\textbf{Metoda20})}
 \subsection{Pomysł na metodę}
-Metoda ta powstała na bazie Metoda13 oraz Metoda6, które dostarczyły
-inspiracji w zakresie stosowania zaawansowanych algorytmów boostingu i
-integracji wyników za pomocą meta-modeli. W Metoda13 Gradient Boosting i
-XGBoost były kluczowymi elementami w ramach stacking, co wykazało, że
-boostingi są wyjątkowo skuteczne w integracji wyników. Z kolei Metoda6
-skupił się na integracji osadzeń BERT z klasycznymi algorytmami, takimi
-jak AdaBoost i regresja logistyczna, co uwypukliło znaczenie
-zaawansowanego przetwarzania cech.
+Metoda ta powstała na bazie idei integracji wielu modeli, podobnie jak w \textbf{Metoda17} i \textbf{Metoda18}, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były również metody stacking, takie jak \textbf{Metoda18}, gdzie predykcje modeli bazowych służyły jako cechy dla meta-modelu.
 
-W Metoda20 połączono LightGBM i CatBoost, dwa potężne algorytmy boostingu,
-które wyróżniają się swoją szybkością i wydajnością. LightGBM został
-wybrany ze względu na szybkość trenowania i efektywność w pracy z dużymi
-zbiorami danych, natomiast CatBoost zapewnił wysoką dokładność i
-odporność na brakujące wartości. Regresja logistyczna, tak jak w Metoda13,
-służy jako meta-model, integrując wyniki obu modeli bazowych. Metoda20
-rozwija te koncepcje, koncentrując się na szybkości i precyzji
-predykcji, co czyni go jednym z najbardziej zaawansowanych podejść w
-całym zestawie metod.
+W \textbf{Metoda20} połączono LightGBM, CatBoost, Random Forest i Gradient Boosting. LightGBM i CatBoost to zaawansowane algorytmy boostingowe znane ze swojej szybkości i efektywności. Random Forest jest modelem opartym na zespołach losowo tworzonych predyktorów, a Gradient Boosting sekwencyjnie buduje modele korygujące błędy poprzedników. Podobnie jak w \textbf{Metoda18}, regresja logistyczna służy tutaj jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie unikalnych mocnych stron każdego z tych algorytmów, aby osiągnąć wyższą dokładność i bardziej stabilne predykcje.
 
 \subsection{Wejściowe dane}
-Metoda train\_run20 przyjmuje następujące parametry wejściowe:
+Metoda \texttt{train\_run20} przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz to
-  jedna próbka, a kolumny to cechy. Rozmiar: \textbf{n × m}, gdzie
-  \textbf{n} to liczba próbek, a \textbf{m} to liczba cech.
-\item
-  \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar:
-  \textbf{n}, gdzie \textbf{n} to liczba próbek w danych treningowych.
-\item
-  \textbf{X\_test}: Macierz danych testowych, analogiczna do
-  \textbf{X\_train}, używana do oceny modelu.
-\item
-  \textbf{y\_test}: Wektor etykiet testowych, odpowiadający danym
-  testowym.
+	\def\labelenumi{\arabic{enumi}.}
+	\item
+	      \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
+	\item
+	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: \textbf{n}, gdzie n - liczba próbek w danych treningowych.
+	\item
+	      \textbf{X\_test}: Macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
+	\item
+	      \textbf{y\_test}: Wektor etykiet testowych, odpowiadający danym testowym.
 \end{enumerate}
 
 \subsection{Wyjściowe dane}
 Metoda zwraca następujące elementy:
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{meta\_model}: Meta-model wytrenowany na danych pochodzących z
-  predykcji modeli \textbf{LightGBM} i \textbf{CatBoost}.
-\item
-  \textbf{meta\_features\_test}: Macierz meta-cech, zbudowana na
-  podstawie predykcji modeli bazowych dla danych testowych.
-\item
-  \textbf{y\_test}: Wektor etykiet testowych, identyczny z wejściowym
-  \textbf{y\_test}.
+	\def\labelenumi{\arabic{enumi}.}
+	\item
+	      \textbf{meta\_model}: Meta-model (regresja logistyczna) wytrenowany na predykcjach \textbf{LightGBM}, \textbf{CatBoost}, \textbf{Random Forest} i \textbf{Gradient Boosting}.
+	\item
+	      \textbf{meta\_features\_test}: Macierz meta-cech (predykcje modeli bazowych) dla danych testowych.
+	\item
+	      \textbf{y\_test}: Wektor etykiet testowych.
 \end{enumerate}
 
 \subsection{Algorytm}
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Trenowanie modeli bazowych:
-
-  \begin{itemize}
-  \item
-    \textbf{LightGBM}:
-
-    \begin{itemize}
-    \item
-      Model \textbf{LGBMClassifier} jest inicjalizowany z 100
-      estymatorami i \textbf{stanem losowości (random\_state) 42}.
-    \item
-      Model jest trenowany na danych treningowych \textbf{X\_train} i
-      \textbf{y\_train}.
-    \end{itemize}
-  \item
-    \textbf{CatBoost}:
-
-    \begin{itemize}
-    \item
-      Model \textbf{CatBoostClassifier} jest inicjalizowany z
-      \textbf{100 iteracjami}, \textbf{stanem losowości (random\_state)}
-      42 i z wyłączonym trybem szczegółowych logów \textbf{verbose}.
-    \item
-      Model jest trenowany na tych samych danych treningowych.
-    \end{itemize}
-  \end{itemize}
-\item
-  Generowanie predykcji dla danych treningowych:
-
-  \begin{itemize}
-  \item
-    Obliczane są prawdopodobieństwa klasy pozytywnej \textbf{\( P(y=1 \mid x) \)} dla obu modeli bazowych:
-
-    \begin{itemize}
-    \item
-      \textbf{lgb\_preds\_train: Predykcje LightGBM}.
-    \item
-      \textbf{cat\_preds\_train: Predykcje CatBoost}.
-    \end{itemize}
-  \item
-    Predykcje są używane do stworzenia macierzy meta-cech, gdzie kolumny to \textbf{lgb\_\allowbreak preds} i \textbf{cat\_\allowbreak preds}.
-  \end{itemize}
-\item
-  Trenowanie meta-modelu:
-
-  \begin{itemize}
-  \item
-    Wytrenowany na \textbf{danych meta-cech, meta\_features\_train},
-    oraz rzeczywistych etykietach y\_train.
-  \item
-    Meta-modelem jest \textbf{regresja logistyczna, LogisticRegression,}
-    która łączy predykcje obu modeli bazowych.
-  \end{itemize}
-\item
-  Generowanie predykcji dla danych testowych:
-
-  \begin{itemize}
-  \item
-    Obliczane są prawdopodobieństwa klasy pozytywnej dla
-    \textbf{LightGBM} i \textbf{CatBoost}:
-
-    \begin{itemize}
-    \item
-      \textbf{lgb\_preds\_test: Predykcje LightGBM}.
-    \item
-      \textbf{cat\_preds\_test: Predykcje CatBoost}.
-    \end{itemize}
-  \item
-    Tworzona jest macierz meta-cech dla danych testowych, analogiczna
-    struktura jak dla danych treningowych.
-  \end{itemize}
-\item
-  Zwracanie wyników: meta-model, macierz meta-cech dla testu oraz
-  etykiety testowe są zwracane.
+	\def\labelenumi{\arabic{enumi}.}
+	\item
+	      Trenowanie modeli bazowych:
+	      \begin{itemize}
+		      \item Przeprowadza się trening \textbf{LGBMClassifier} na \textbf{X\_train} i \textbf{y\_train}.
+		      \item Przeprowadza się trening \textbf{CatBoostClassifier} na \textbf{X\_train} i \textbf{y\_train}.
+		      \item Przeprowadza się trening \textbf{RandomForestClassifier} na \textbf{X\_train} i \textbf{y\_train}.
+		      \item Przeprowadza się trening \textbf{GradientBoostingClassifier} na \textbf{X\_train} i \textbf{y\_train}.
+	      \end{itemize}
+	\item
+	      Generowanie predykcji dla danych treningowych:
+	      \begin{itemize}
+		      \item Uzyskuje się probabilistyczne predykcje klasy pozytywnej z każdego modelu bazowego na \textbf{X\_train}.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_train}, gdzie każda kolumna zawiera predykcje jednego z modeli bazowych.
+	      \end{itemize}
+	\item
+	      Trenowanie meta-modelu:
+	      \begin{itemize}
+		      \item Przeprowadza się trening \textbf{LogisticRegression} na \textbf{meta\_features\_train} i \textbf{y\_train}.
+	      \end{itemize}
+	\item
+	      Generowanie predykcji dla danych testowych:
+	      \begin{itemize}
+		      \item Uzyskuje się probabilistyczne predykcje klasy pozytywnej z każdego wytrenowanego modelu bazowego na \textbf{X\_test}.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test}, analogicznie do treningowej.
+	      \end{itemize}
+	\item
+	      Zwracanie wyników: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
 \end{enumerate}
 
 \subsection{Kod}
 \begin{lstlisting}[caption={Kod do 20 metody}, label={20Metoda}]
 lgb_clf = LGBMClassifier(
-    n_estimators=100,
-    random_state=42
-)  # LightGBM
+n_estimators=100,
+random_state=42
+) # LightGBM
 cat_clf = CatBoostClassifier(
-    iterations=100, 
-    verbose=0, 
-    random_state=42
-)  # CatBoost
+iterations=100,
+verbose=0,
+random_state=42
+) # CatBoost
+rf_clf = RandomForestClassifier(
+n_estimators=100,
+random_state=42
+) # Random Forest
+gb_clf = GradientBoostingClassifier(
+n_estimators=100,
+random_state=42
+) # Gradient Boosting
+
 lgb_clf.fit(X_train, y_train)
 cat_clf.fit(X_train, y_train)
-lgb_preds_train = lgb_clf.predict_proba(X_train)[:, 1]  
-cat_preds_train = cat_clf.predict_proba(X_train)[:, 1] 
-meta_features_train = pd.DataFrame({  # Tworzenie meta-cech
-    'lgb_preds': lgb_preds_train,
-    'cat_preds': cat_preds_train
+rf_clf.fit(X_train, y_train)
+gb_clf.fit(X_train, y_train)
+
+lgb_preds_train = lgb_clf.predict_proba(X_train)[:, 1]
+cat_preds_train = cat_clf.predict_proba(X_train)[:, 1]
+rf_preds_train = rf_clf.predict_proba(X_train)[:, 1]
+gb_preds_train = gb_clf.predict_proba(X_train)[:, 1]
+
+meta_features_train = pd.DataFrame({
+'lgb_preds': lgb_preds_train,
+'cat_preds': cat_preds_train,
+'rf_preds': rf_preds_train,
+'gb_preds': gb_preds_train
 })
-meta_model = LogisticRegression()  
+
+meta_model = LogisticRegression()
 meta_model.fit(meta_features_train, y_train)
-lgb_preds_test = lgb_clf.predict_proba(X_test)[:, 1] 
-cat_preds_test = cat_clf.predict_proba(X_test)[:, 1] 
-meta_features_test = pd.DataFrame({ 
-    'lgb_preds': lgb_preds_test,
-    'cat_preds': cat_preds_test
+
+lgb_preds_test = lgb_clf.predict_proba(X_test)[:, 1]
+cat_preds_test = cat_clf.predict_proba(X_test)[:, 1]
+rf_preds_test = rf_clf.predict_proba(X_test)[:, 1]
+gb_preds_test = gb_clf.predict_proba(X_test)[:, 1]
+
+meta_features_test = pd.DataFrame({
+'lgb_preds': lgb_preds_test,
+'cat_preds': cat_preds_test,
+'rf_preds': rf_preds_test,
+'gb_preds': gb_preds_test
 })
 return meta_model, meta_features_test, y_test
 \end{lstlisting}
 
 \subsection{Właściwości analityczne}
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{Efektywność}:
-
-  \begin{itemize}
-  \item
-    \textbf{LightGBM} jest zoptymalizowany do szybkiego przetwarzania
-    danych i dobrze radzi sobie z dużymi zbiorami o wysokiej liczbie
-    cech.
-  \item
-    \textbf{CatBoost} doskonale działa na danych z kategoriami,
-    minimalizując konieczność ich wcześniejszego przetwarzania.
-  \end{itemize}
-\item
-  \textbf{Elastyczność}: metoda jest łatwo dostosowywalna do różnych
-  problemów klasyfikacyjnych dzięki zastosowaniu zaawansowanych modeli
-  bazowych i uniwersalnego meta-modelu.
-\item
-  \textbf{Stabilność}:
-
-  \begin{itemize}
-  \item
-    Oba modele bazowe charakteryzują się stabilnością wyników dzięki
-    zaawansowanym mechanizmom redukcji przeuczenia.
-  \item
-    Meta-model dodatkowo zmniejsza wariancję wyników, zwiększając
-    spójność predykcji.
-  \end{itemize}
-\item
-  \textbf{Złożoność obliczeniowa}:
-
-  \begin{itemize}
-  \item
-    \textbf{LightGBM} i \textbf{CatBoost} są wydajne obliczeniowo, a ich
-    złożoność zależy liniowo od liczby próbek i estymatorów.
-  \item
-    Regresja logistyczna jako meta-model jest szybka i wydajna, co
-    umożliwia efektywną konsolidację predykcji.
-  \end{itemize}
-\item
-  \textbf{Wydajność}: \textbf{LightGBM} działa szczególnie dobrze na
-  dużych zbiorach danych, podczas gdy \textbf{CatBoost} optymalizuje
-  działanie na bardziej złożonych danych z różnorodnymi cechami.
+	\def\labelenumi{\arabic{enumi}.}
+	\item
+	      \textbf{Efektywność}: Łączenie predykcji wielu modeli (boostingowych i opartych na zespołach predyktorów) ma na celu zwiększenie dokładności i robustności predykcji.
+	\item
+	      \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów algorytmów pozwala na uwzględnienie różnych aspektów danych i wzorców.
+	\item
+	      \textbf{Meta-model}: Regresja logistyczna skutecznie integruje predykcje modeli bazowych, ucząc się, jak najlepiej je łączyć.
+	\item
+	      \textbf{Złożoność obliczeniowa}: Trening wielu złożonych modeli bazowych może być kosztowny obliczeniowo, ale predykcja jest stosunkowo szybka.
+	\item
+	      \textbf{Wydajność}: Oczekuje się, że kombinacja tych technik modelowania zapewni wysoką wydajność w zadaniu klasyfikacji.
 \end{enumerate}

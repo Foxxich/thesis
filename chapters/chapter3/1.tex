@@ -30,26 +30,30 @@ Metoda zwraca następujące elementy:
 \subsection{Algorytm}
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item Przygotuj modele bazowe:
+	\item
+	      Przygotowanie i trenowanie modeli bazowych:
 	      \begin{itemize}
-		      \item Utwórz model wielowarstwowy (\texttt{MLPClassifier}).
-		      \item Utwórz (\texttt{Pipeline}) dla regresji logistycznej (\texttt{LogisticRegression}) zawierający:
-		            \begin{itemize}
-			            \item Skalowanie cech (\texttt{StandardScaler}).
-			            \item Automatyczne wyszukiwanie najlepszych hiperparametrów (\texttt{GridSearchCV}).
-		            \end{itemize}
-		      \item Utwórz model XGBoost (\texttt{XGBClassifier}).
+		      \item
+		            \textbf{Wielowarstwowy Perceptron (MLPClassifier)}: Inicjalizuje się model MLP. Tworzy się potok (\texttt{Pipeline}) ze skalowaniem cech (\texttt{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
+		      \item
+		            \textbf{Regresja Logistyczna (LogisticRegression)}: Tworzy się potok (\texttt{Pipeline}) ze skalowaniem cech (\texttt{StandardScaler}) i regresją logistyczną. Definiuje się przestrzeń hiperparametrów i przeprowadza optymalizację za pomocą \texttt{GridSearchCV} na \textbf{X\_train} i \textbf{y\_train}. Wybiera się najlepszy model.
+		      \item
+		            \textbf{XGBoost (XGBClassifier)}: Inicjalizuje się model XGBoost. Tworzy się potok (\texttt{Pipeline}) ze skalowaniem cech (\texttt{StandardScaler}) i trenuje na \newline\textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
-	\item Trenuj modele bazowe:
+	\item
+	      Stworzenie i trenowanie modelu głosującego:
 	      \begin{itemize}
-		      \item Wytrenuj (\texttt{Pipeline}) regresji logistycznej na (\textbf{X\_train}, \textbf{y\_train}), znajdując optymalne hiperparametry.
-		      \item Wytrenuj \texttt{MLPClassifier} na przeskalowanych \textbf{X\_train}.
-		      \item Wytrenuj \texttt{XGBClassifier} na przeskalowanych \textbf{X\_train}.
+		      \item Łączy się wytrenowane modele bazowe (MLP, zoptymalizowana regresja logistyczna, XGBoost) w model zespołowy (\texttt{VotingClassifier}) z miękkim głosowaniem.
+		      \item Trenuje się model głosujący na \textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
-	\item Stwórz model głosujący: Połącz wytrenowane modele bazowe w \newline\texttt{VotingClassifier} z miękkim głosowaniem.
-	\item Wytrenuj model głosujący: Wytrenuj \texttt{VotingClassifier} na (\textbf{X\_train}, \textbf{y\_train}).
-	\item Przeskaluj dane testowe: Użyj tego samego skalowania, które było stosowane dla \textbf{X\_train}, aby przeskalować \textbf{X\_test}.
-	\item Zwróć wyniki: Zwróć wytrenowany model głosujący, przeskalowane \textbf{X\_test} i oryginalne \textbf{y\_test}.
+	\item
+	      Przeskalowanie danych testowych:
+	      \begin{itemize}
+		      \item Używa się skalerów wytrenowanych na \textbf{X\_train} do przeskalowania \textbf{X\_test} dla każdego z modeli bazowych (osobno dla regresji logistycznej, MLP i XGBoost, jeśli były w potokach).
+		      \item Ostatecznie, może zostać użyte jedno skalowanie dla całego \textbf{X\_test} do oceny modelu głosującego.
+	      \end{itemize}
+	\item
+	      Zwracanie wyników: Zwraca się wytrenowany model głosujący (\textbf{voting\_clf\_final}), przeskalowane cechy zbioru testowego (\textbf{X\_test\_scaled}) oraz oryginalne etykiety testowe (\textbf{y\_test}).
 \end{enumerate}
 
 \subsection{Kod}

@@ -21,33 +21,4 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram architektury systemu.}}{67}{figure.caption.57}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Przykładowe uruchomienie aplikacji.}}{69}{figure.caption.58}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Log Loss Bert z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{73}{figure.caption.61}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Log Loss Bert z few shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{74}{figure.caption.62}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Log Loss Bert z one shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{74}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Accuracy Bert z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{75}{figure.caption.67}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Accuracy Bert z few shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{76}{figure.caption.68}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Accuracy Bert z one shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{76}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Execution Time Bert z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{78}{figure.caption.73}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Execution Time Bert z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{78}{figure.caption.74}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Execution Time Bert z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{79}{figure.caption.75}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Log Loss RoBERTa z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{80}{figure.caption.79}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Log Loss RoBERTa z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{81}{figure.caption.80}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Log Loss RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{81}{figure.caption.81}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Accuracy RoBERTa z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{82}{figure.caption.85}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Accuracy RoBERTa z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{83}{figure.caption.86}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Accuracy RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{83}{figure.caption.87}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Execution Time RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{84}{figure.caption.91}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Execution Time RoBERTa z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{85}{figure.caption.92}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Execution Time RoBERTa z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{85}{figure.caption.93}%
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Log Loss SBERT z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{86}{figure.caption.97}%
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Log Loss SBERT z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{87}{figure.caption.98}%
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Log Loss SBERT z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{87}{figure.caption.99}%
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Accuracy SBERT z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{88}{figure.caption.103}%
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Accuracy SBERT z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{89}{figure.caption.104}%
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Accuracy SBERT z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{89}{figure.caption.105}%
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Execution Time SBERT z no shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{90}{figure.caption.109}%
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Execution Time SBERT z few-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{91}{figure.caption.110}%
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Execution Time SBERT z one-shot wraz z autorskimi metodami, które zostały zaznaczone na czerwono}}{91}{figure.caption.111}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
 \addvspace {10\p@ }
