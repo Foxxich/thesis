@@ -1,0 +1,59 @@
+\subsection{Analiza wyników dla datasetu WELFake}
+
+Dataset WELFake, ze swoją różnorodnością próbek i złożonością treści, stanowi challenging benchmark dla testowania generalizacji metod. Poniżej przedstawiono szczegółowe wyniki dla trybu klasycznego, z dodatkowymi analizami dla trybów few-shot i one-shot.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_Accuracy_comparison.png}
+		\caption{Porównanie dokładności w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_Combined_Accuracy_Histogram.png}
+		\caption{Histogram łącznej dokładności w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_F1-Score_comparison.png}
+		\caption{Porównanie F1-Score w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_MCC_comparison.png}
+		\caption{Porównanie MCC w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_Precision_comparison.png}
+		\caption{Porównanie precyzji w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_Curves_Recall_Precision.png}
+		\caption{Krzywe Precision-Recall w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_Recall_comparison.png}
+		\caption{Porównanie recall w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_classic_ROC-AUC.png}
+		\caption{Porównanie ROC-AUC w trybie klasycznym.}
+	\end{subfigure}
+	\caption{Wyniki dla datasetu WELFake w trybie klasycznym: szczegółowe porównanie metryk oraz krzywe Precision-Recall.}
+	\label{fig:welfake_classic_results}
+\end{figure}
+
+W trybie klasycznym dla datasetu WELFake \textbf{Metoda20} osiągnęła najwyższą dokładność (94,2\%), co potwierdza jej zdolność do generalizacji na różnorodnych danych. Wartość MCC (0,92) oraz ROC-AUC (0,97) wskazują na doskonałą separację klas i zrównoważone podejście do wykrywania fałszywych wiadomości. \textbf{Metoda18}, oparta na Gradient Boosting i CatBoost, osiągnęła F1-Score na poziomie 93,1\%, z wysoką precyzją (94,5\%) i recall (91,8%), co czyni ją skuteczną w kontekście nierównowagi klas. \textbf{Metoda17} wykazała stabilność w metryce Log Loss (0,12), co sugeruje dobre dopasowanie modelu do danych, ale jej dokładność (91,6\%) była nieco niższa w porównaniu do innych metod.
+
+W trybie few-shot \textbf{Metoda19} osiągnęła dokładność 89,3\%, co jest wynikiem wynikającym z zastosowania walidacji krzyżowej do generowania meta-cech, co zwiększa odporność na przeuczenie. Krzywe Precision-Recall pokazują, że metoda ta utrzymuje wysoką precyzję (90,4\%) przy umiarkowanym recall (88,2%), co może być korzystne w scenariuszach wymagających minimalizacji fałszywych pozytywów. W trybie one-shot \textbf{Metoda20} wyróżniła się wynikiem F1-Score (87,9%), co jest efektem kombinacji czterech modeli bazowych z meta-modelem regresji logistycznej. Czas wykonania dla tej metody w trybie one-shot wyniósł około 20 minut, co jest związane z treningiem większej liczby modeli, ale wysoka wartość ROC-AUC (0,95) uzasadnia tę inwestycję obliczeniową.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_few_shot_Accuracy_comparison.png}
+		\caption{Porównanie dokładności w trybie few-shot.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/WELFake_one_shot_Accuracy_comparison.png}
+		\caption{Porównanie dokładności w trybie one-shot.}
+	\end{subfigure}
+	\caption{Dodatkowe wyniki dla WELFake w trybach few-shot i one-shot.}
+	\label{fig:welfake_few_one_shot}
+\end{figure}

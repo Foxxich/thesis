@@ -1,0 +1,59 @@
+\subsection{Analiza wyników dla datasetu ISOT}
+
+Dataset ISOT wyróżnia się większą liczbą próbek oraz większą różnorodnością treści, co pozwala na bardziej szczegółowe przetestowanie generalizacji metod. Poniżej przedstawiono wyniki dla trybu klasycznego, z dodatkowymi analizami dla trybów few-shot i one-shot.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Accuracy_comparison.png}
+		\caption{Porównanie dokładności w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Combined_Accuracy_Histogram.png}
+		\caption{Histogram łącznej dokładności w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_F1-Score_comparison.png}
+		\caption{Porównanie F1-Score w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_MCC_comparison.png}
+		\caption{Porównanie MCC w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Precision_comparison.png}
+		\caption{Porównanie precyzji w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Curves_Recall_Precision.png}
+		\caption{Krzywe Precision-Recall w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Recall_comparison.png}
+		\caption{Porównanie recall w trybie klasycznym.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_ROC-AUC.png}
+		\caption{Porównanie ROC-AUC w trybie klasycznym.}
+	\end{subfigure}
+	\caption{Wyniki dla datasetu ISOT w trybie klasycznym: szczegółowe porównanie metryk oraz krzywe Precision-Recall.}
+	\label{fig:isot_classic_results}
+\end{figure}
+
+W trybie klasycznym dla datasetu ISOT \textbf{Metoda20} osiągnęła najwyższą wartość MCC (0,91), co potwierdza jej zdolność do zrównoważonego wykrywania klas w większym zbiorze danych. Dokładność tej metody wyniosła 93,8\%, a wynik ROC-AUC (0,96) wskazuje na doskonałą separację klas fałszywych i prawdziwych wiadomości. \textbf{Metoda19}, wykorzystująca stacking z trzema modelami bazowymi, osiągnęła F1-Score na poziomie 92,5\%, co jest wynikiem kompromisowym między precyzją (93,2\%) a recall (91,8\%), co czyni ją atrakcyjną w zadaniach wymagających równowagi między tymi metrykami. \textbf{Metoda17} wykazała stabilność w metryce Cohen's Kappa (0,89), co sugeruje dobrą zgodność predykcji z rzeczywistymi etykietami, ale jej dokładność (90,4\%) była nieco niższa w porównaniu do innych metod.
+
+W trybie few-shot \textbf{Metoda18} osiągnęła dokładność 88,9\%, co jest wynikiem wynikającym z jej zdolności do efektywnego radzenia sobie z nierównowagą klas dzięki kombinacji Gradient Boosting i CatBoost. Krzywe Precision-Recall pokazują, że metoda ta utrzymuje wysoką precyzję (90,1\%) przy umiarkowanym recall (87,6\%), co może być korzystne w scenariuszach, gdzie fałszywe pozytywy są kosztowne. W trybie one-shot \textbf{Metoda19} wyróżniła się wynikiem F1-Score (86,7\%), co jest efektem zastosowania walidacji krzyżowej, która minimalizuje ryzyko przeuczenia przy ograniczonej liczbie danych. Czas wykonania dla \textbf{Metoda20} w tym trybie wyniósł około 18 minut, co jest związane z treningiem czterech modeli bazowych, ale wysoka wartość ROC-AUC (0,94) uzasadnia tę inwestycję obliczeniową.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_few_shot_Accuracy_comparison.png}
+		\caption{Porównanie dokładności w trybie few-shot.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.99\textwidth}
+		\includegraphics[width=\textwidth]{img/stats/ISOT_one_shot_Accuracy_comparison.png}
+		\caption{Porównanie dokładności w trybie one-shot.}
+	\end{subfigure}
+	\caption{Dodatkowe wyniki dla ISOT w trybach few-shot i one-shot.}
+	\label{fig:isot_few_one_shot}
+\end{figure}
