@@ -58,46 +58,51 @@
 \contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Wejściowe parametry}{51}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3\relax .\enspace }Wyjściowe parametry}{52}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4\relax .\enspace }Algorytm}{52}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5\relax .\enspace }Kod}{52}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6\relax .\enspace }Właściwości analityczne}{54}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.5\relax .\enspace }Właściwości analityczne}{53}{subsection.3.1.5}%
 \contentsline {section}{\numberline {3.2\relax .\enspace }Druga metoda (\textbf {Metoda18})}{54}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Pomysł na metodę}{54}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2\relax .\enspace }Wejściowe parametry}{55}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3\relax .\enspace }Wyjściowe parametry}{55}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.2\relax .\enspace }Wejściowe parametry}{54}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3\relax .\enspace }Wyjściowe parametry}{54}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4\relax .\enspace }Algorytm}{55}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5\relax .\enspace }Kod}{56}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6\relax .\enspace }Właściwości analityczne}{57}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.5\relax .\enspace }Właściwości analityczne}{56}{subsection.3.2.5}%
 \contentsline {section}{\numberline {3.3\relax .\enspace }Trzecia metoda (\textbf {Metoda19})}{57}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1\relax .\enspace }Pomysł na metodę}{57}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2\relax .\enspace }Wejściowe dane}{57}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3\relax .\enspace }Wyjściowe dane}{58}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4\relax .\enspace }Algorytm}{58}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5\relax .\enspace }Kod}{59}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6\relax .\enspace }Właściwości analityczne}{61}{subsection.3.3.6}%
-\contentsline {section}{\numberline {3.4\relax .\enspace }Czwarta metoda (\textbf {Metoda20})}{61}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1\relax .\enspace }Pomysł na metodę}{61}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2\relax .\enspace }Wejściowe dane}{62}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3\relax .\enspace }Wyjściowe dane}{62}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4\relax .\enspace }Algorytm}{62}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5\relax .\enspace }Kod}{63}{subsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.4.6\relax .\enspace }Właściwości analityczne}{64}{subsection.3.4.6}%
-\contentsline {chapter}{\numberline {4\relax .\enspace }Szczegóły implementacyjne}{65}{chapter.4}%
-\contentsline {section}{\numberline {4.1\relax .\enspace }Technologie}{65}{section.4.1}%
-\contentsline {section}{\numberline {4.2\relax .\enspace }Wymagania systemowe}{66}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1\relax .\enspace }Sprzęt}{66}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2\relax .\enspace }Oprogramowanie}{66}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3\relax .\enspace }Architektura Systemu}{67}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1\relax .\enspace }Warstwa Przygotowania Danych}{68}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2\relax .\enspace }Warstwa Trenowania Modeli}{68}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3\relax .\enspace }Warstwa Oceny Wyników}{69}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4\relax .\enspace }Warstwa Wizualizacji}{69}{subsection.4.3.4}%
-\contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{70}{chapter.5}%
-\contentsline {section}{\numberline {5.1\relax .\enspace }Analiza wyników dla datasetu \textbf {BuzzFeed}}{71}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Wyniki w trybie klasycznym}{71}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{77}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{84}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu BuzzFeed}{91}{subsection.5.1.4}%
-\contentsline {chapter}{Podsumowanie}{97}{chapter*.90}%
-\contentsline {chapter}{Bibliografia}{98}{chapter*.91}%
-\contentsline {chapter}{Spis rysunk\'ow}{100}{chapter*.92}%
-\contentsline {chapter}{Dodatki}{101}{section*.93}%
+\contentsline {subsection}{\numberline {3.3.5\relax .\enspace }Właściwości analityczne}{60}{subsection.3.3.5}%
+\contentsline {section}{\numberline {3.4\relax .\enspace }Czwarta metoda (\textbf {Metoda20})}{60}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1\relax .\enspace }Pomysł na metodę}{60}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2\relax .\enspace }Wejściowe dane}{60}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3\relax .\enspace }Wyjściowe dane}{61}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4\relax .\enspace }Algorytm}{61}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5\relax .\enspace }Właściwości analityczne}{62}{subsection.3.4.5}%
+\contentsline {chapter}{\numberline {4\relax .\enspace }Szczegóły implementacyjne}{64}{chapter.4}%
+\contentsline {section}{\numberline {4.1\relax .\enspace }Technologie}{64}{section.4.1}%
+\contentsline {section}{\numberline {4.2\relax .\enspace }Wymagania systemowe}{65}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1\relax .\enspace }Sprzęt}{65}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2\relax .\enspace }Oprogramowanie}{65}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3\relax .\enspace }Architektura Systemu}{66}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1\relax .\enspace }Warstwa Przygotowania Danych}{67}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2\relax .\enspace }Warstwa Trenowania Modeli}{67}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3\relax .\enspace }Warstwa Oceny Wyników}{68}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4\relax .\enspace }Warstwa Wizualizacji}{68}{subsection.4.3.4}%
+\contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{69}{chapter.5}%
+\contentsline {section}{\numberline {5.1\relax .\enspace }Analiza wyników dla datasetu \textbf {BuzzFeed}}{70}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Wyniki w trybie klasycznym}{70}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{76}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{83}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu BuzzFeed}{90}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2\relax .\enspace }Analiza wyników dla datasetu \textbf {ISOT}}{95}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1\relax .\enspace }Wyniki w trybie klasycznym}{95}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2\relax .\enspace }Wyniki w trybie few-shot}{101}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3\relax .\enspace }Wyniki w trybie one-shot}{108}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu ISOT}{115}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3\relax .\enspace }Analiza wyników dla datasetu \textbf {WELFake}}{120}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1\relax .\enspace }Wyniki w trybie klasycznym}{120}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2\relax .\enspace }Wyniki w trybie few-shot}{126}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3\relax .\enspace }Wyniki w trybie one-shot}{133}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu WELFake}{140}{subsection.5.3.4}%
+\contentsline {chapter}{Bibliografia}{144}{chapter*.156}%
+\contentsline {chapter}{Spis rysunk\'ow}{146}{chapter*.157}%
+\contentsline {chapter}{Dodatki}{148}{section*.158}%

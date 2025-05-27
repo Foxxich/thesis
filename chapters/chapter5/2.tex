@@ -1,59 +1,526 @@
-\subsection{Analiza wyników dla datasetu ISOT}
+\section{Analiza wyników dla datasetu \textbf{ISOT}}
+\label{subsec:isot_analysis}
 
-Dataset ISOT wyróżnia się większą liczbą próbek oraz większą różnorodnością treści, co pozwala na bardziej szczegółowe przetestowanie generalizacji metod. Poniżej przedstawiono wyniki dla trybu klasycznego, z dodatkowymi analizami dla trybów few-shot i one-shot.
+W tej sekcji przedstawiono analizę wyników uzyskanych dla datasetu \textbf{ISOT} po przetestowaniu w trzech trybach podziału danych: \textbf{klasycznym}, \textbf{few\-shot} oraz \textbf{one\-shot}. Wyniki podzielono na podrozdziały według trybów uczenia, co ułatwia ich analizę i porównanie.
 
+\subsection{Wyniki w trybie klasycznym}
+W trybie \textbf{klasycznym} dla datasetu \textbf{ISOT}. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów, które ilustrują rozkłady kluczowych metryk, oraz wykresu liniowego czasu wykonania eksperymentów.
+
+\subsubsection{Accuracy}
+Histogram \textbf{Dokładności (Accuracy)} \ref{fig:isot_classic_accuracy} pokazuje rozkład wartości dokładności dla wszystkich metod. Analizując podany histogram można zauważyć następujące rozkłady wyników:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda12\-rf} oraz \texttt{Metoda19}.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda18}, \texttt{Metoda10} oraz \texttt{Metoda9}.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki uzyskały metody z grupy \texttt{Metoda10} oraz \texttt{Metoda12-catboost}.
+		      \item Najgorsze wyniki wystąpiły dla \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda17} oraz \texttt{Metoda19}.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki to między innymi \texttt{Metoda13} i \texttt{Metoda12\-catboost}.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda1\-3}, \texttt{Metoda3} oraz \texttt{Metoda4}.
+	      \end{itemize}
+\end{itemize}
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Accuracy_comparison.png}
-		\caption{Porównanie dokładności w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Combined_Accuracy_Histogram.png}
-		\caption{Histogram łącznej dokładności w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_F1-Score_comparison.png}
-		\caption{Porównanie F1-Score w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_MCC_comparison.png}
-		\caption{Porównanie MCC w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Precision_comparison.png}
-		\caption{Porównanie precyzji w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Curves_Recall_Precision.png}
-		\caption{Krzywe Precision-Recall w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_Recall_comparison.png}
-		\caption{Porównanie recall w trybie klasycznym.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_classic_ROC-AUC.png}
-		\caption{Porównanie ROC-AUC w trybie klasycznym.}
-	\end{subfigure}
-	\caption{Wyniki dla datasetu ISOT w trybie klasycznym: szczegółowe porównanie metryk oraz krzywe Precision-Recall.}
-	\label{fig:isot_classic_results}
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_Histogram.png}
+	\caption{Histogram rozkładu \textbf{Dokładności (Accuracy)}.}
+	\label{fig:isot_classic_accuracy}
 \end{figure}
 
-W trybie klasycznym dla datasetu ISOT \textbf{Metoda20} osiągnęła najwyższą wartość MCC (0,91), co potwierdza jej zdolność do zrównoważonego wykrywania klas w większym zbiorze danych. Dokładność tej metody wyniosła 93,8\%, a wynik ROC-AUC (0,96) wskazuje na doskonałą separację klas fałszywych i prawdziwych wiadomości. \textbf{Metoda19}, wykorzystująca stacking z trzema modelami bazowymi, osiągnęła F1-Score na poziomie 92,5\%, co jest wynikiem kompromisowym między precyzją (93,2\%) a recall (91,8\%), co czyni ją atrakcyjną w zadaniach wymagających równowagi między tymi metrykami. \textbf{Metoda17} wykazała stabilność w metryce Cohen's Kappa (0,89), co sugeruje dobrą zgodność predykcji z rzeczywistymi etykietami, ale jej dokładność (90,4\%) była nieco niższa w porównaniu do innych metod.
+% Subsubsection for F1-Score
+\subsubsection{F1-Score}
+% Presenting F1-Score histogram
+Histogram \textbf{Wyniku F1 (F1-Score)} \ref{fig:isot_classic_f1} przedstawia rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
 
-W trybie few-shot \textbf{Metoda18} osiągnęła dokładność 88,9\%, co jest wynikiem wynikającym z jej zdolności do efektywnego radzenia sobie z nierównowagą klas dzięki kombinacji Gradient Boosting i CatBoost. Krzywe Precision-Recall pokazują, że metoda ta utrzymuje wysoką precyzję (90,1\%) przy umiarkowanym recall (87,6\%), co może być korzystne w scenariuszach, gdzie fałszywe pozytywy są kosztowne. W trybie one-shot \textbf{Metoda19} wyróżniła się wynikiem F1-Score (86,7\%), co jest efektem zastosowania walidacji krzyżowej, która minimalizuje ryzyko przeuczenia przy ograniczonej liczbie danych. Czas wykonania dla \textbf{Metoda20} w tym trybie wyniósł około 18 minut, co jest związane z treningiem czterech modeli bazowych, ale wysoka wartość ROC-AUC (0,94) uzasadnia tę inwestycję obliczeniową.
-
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda19}, \texttt{Metoda17}, \texttt{Metoda12\-catboost} oraz \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda1\-4}.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda1\-2}, \texttt{Metoda1\-5}.
+	      \end{itemize}
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze rezultaty uzyskały metody z grupy \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda10}, \texttt{Metoda17} oraz \texttt{Metoda12\-catboost}.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda1\-1}, \texttt{Metoda1\-4} oraz \texttt{Metoda1\-5}.
+	      \end{itemize}
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wartości F1-Score osiągnęły metody \texttt{Metoda13}, \texttt{Metoda12-catboost}, \texttt{Metoda18} oraz \texttt{Metoda19}.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda1\-2}, \texttt{Metoda1\-2}.
+	      \end{itemize}
+\end{itemize}
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_few_shot_Accuracy_comparison.png}
-		\caption{Porównanie dokładności w trybie few-shot.}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.99\textwidth}
-		\includegraphics[width=\textwidth]{img/stats/ISOT_one_shot_Accuracy_comparison.png}
-		\caption{Porównanie dokładności w trybie one-shot.}
-	\end{subfigure}
-	\caption{Dodatkowe wyniki dla ISOT w trybach few-shot i one-shot.}
-	\label{fig:isot_few_one_shot}
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png}
+	\caption{Histogram rozkładu \textbf{Wyniku F1 (F1-Score)}.}
+	\label{fig:isot_classic_f1}
 \end{figure}
+
+% Subsubsection for ROC-AUC
+\subsubsection{ROC-AUC}
+% Presenting ROC-AUC histogram
+Histogram \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:isot_classic_roc} przedstawia rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwyższe wartości ROC-AUC osiągnęła metoda \texttt{Metoda19}.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda17}, \texttt{Metoda1\-4}.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze rezultaty uzyskały metody \texttt{Metoda1\-2}, \texttt{Metoda1\-3} oraz \texttt{Metoda17}.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda14}, \texttt{Metoda16} \texttt{Metoda12\-rf}, \texttt{Metoda19} oraz \texttt{Metoda5}.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wartości ROC-AUC osiągnęła metoda \texttt{Metoda1\-4}.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda4}.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png}
+	\caption{Histogram rozkładu \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)}.}
+	\label{fig:isot_classic_roc}
+\end{figure}
+
+% Subsubsection for Execution Time
+\subsubsection{Czas wykonania}
+% Presenting Execution Time line plot
+Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:isot_classic_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody. Na jego podstawie można wyróżnić następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwięcej czasu zajęły metody rzędu \texttt{Metoda1} oraz \texttt{metoda9} – powyżej 8 sekund.
+		      \item Najkrótszy czas wykonania miały autorskie metody \texttt{Metoda17}, \texttt{Metoda18} – mniej niż jedną sekundę.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najwięcej czasu zajęły metody rzędu \texttt{Metoda1} oraz \texttt{metoda17} – powyżej 8 sekund.
+		      \item Najkrótszy czas wykonania miały autorskie metody, podobnie jak w poprzednim rzędzie, \texttt{Metoda17}, \texttt{Metoda18} – mniej niż jedną sekundę.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najdłuższy czas działania osiągnęła metoda \texttt{Metoda13} – około 15 sekund.
+		      \item Najkrótszy czas uzyskano dla \texttt{Metoda19} oraz \texttt{Metoda5} – około 0.3 sekundy.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png}
+	\caption{\textbf{Czas wykonania (Execution Time)} w sekundach.}
+	\label{fig:isot_classic_prcurve}
+\end{figure}
+
+% Subsection for few-shot mode results
+\subsection{Wyniki w trybie few-shot}
+% Describing results for few-shot mode
+W trybie \textbf{few-shot} dla datasetu \textbf{ISOT}. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów, które ilustrują rozkłady kluczowych metryk, oraz wykresu liniowego czasu wykonania eksperymentów.
+
+% Subsubsection for Accuracy
+\subsubsection{Accuracy}
+% Presenting Accuracy histogram
+Histogram \textbf{Dokładności (Accuracy)} \ref{fig:isot_few_shot_accuracy} pokazuje rozkład wartości dokładności dla wszystkich metod. Analizując podany histogram można zauważyć następujące rozkłady wyników:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda13}, \texttt{Metoda14} oraz \texttt{Metoda19}.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda12\-rf}.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki należą do \texttt{Metoda18}.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda15}, \texttt{Metoda20}, \texttt{Metoda2},\texttt{Metoda3}, \texttt{Metoda4}, \texttt{Metoda5}, \texttt{Metoda6}, \texttt{Metoda8} oraz \texttt{Metoda9}.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki należą do \texttt{Metoda19}, \texttt{Metoda5}, \texttt{13} oraz \texttt{Metoda1\-1}, \texttt{Metoda1\-3} i \texttt{Metoda1\-5}.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda12\-rf}.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_Histogram.png}
+	\caption{Histogram rozkładu \textbf{Dokładności (Accuracy)}.}
+	\label{fig:isot_few_shot_accuracy}
+\end{figure}
+
+% Subsubsection for F1-Score
+\subsubsection{F1-Score}
+% Presenting F1-Score histogram
+Histogram \textbf{Wyniku F1 (F1-Score)} \ref{fig:isot_few_shot_f1} przedstawia rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda19}, \texttt{Metoda14} oraz \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda1\-4}.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda1\-1}, \texttt{Metoda1\-5} oraz \texttt{Metoda17}.
+	      \end{itemize}
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze rezultaty uzyskała autorska metoda \texttt{Metoda18}.
+		      \item Najsłabsze wyniki wykazały autorskie metody \texttt{Metoda20}, \texttt{Metoda17} oraz spora część metod z artykułów.
+	      \end{itemize}
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wartości F1-Score osiągnęły metody \texttt{Metoda13}, \texttt{Metoda1\-3}, \texttt{Metoda5} oraz \texttt{Metoda19}.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda3}.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png}
+	\caption{Histogram rozkładu \textbf{Wyniku F1 (F1-Score)}.}
+	\label{fig:isot_few_shot_f1}
+\end{figure}
+
+% Subsubsection for ROC-AUC
+\subsubsection{ROC-AUC}
+% Presenting ROC-AUC histogram
+Histogram \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:isot_few_shot_roc} przedstawia rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwyższe wartości ROC-AUC osiągnęły metody \texttt{Metoda14} oraz \texttt{Metoda1\-4}.
+		      \item Najniższe wyniki odnotowano dla autorskich metod \texttt{Metoda16}, \texttt{Metoda20} oraz 7 gotowych metod.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze rezultaty uzyskała metoda \texttt{Metoda17} oraz na dość wysokim poziomie są wyniki dla \texttt{Metoda18}, \texttt{14}.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda14}, \texttt{Metoda16} \texttt{Metoda12\-rf}, \texttt{Metoda19} oraz \texttt{Metoda5}.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wartości ROC-AUC osiągnęły metody \texttt{Metoda19}, \texttt{Metoda5} oraz kilka metod z zakresu \texttt{Metoda1}.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda14}.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png}
+	\caption{Histogram rozkładu \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)}.}
+	\label{fig:isot_few_shot_roc}
+\end{figure}
+
+% Subsubsection for Execution Time
+\subsubsection{Czas wykonania}
+% Presenting Execution Time line plot
+Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:isot_few_shot_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody. Na jego podstawie można wyróżnić następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwięcej czasu zajęły metody rzędu \texttt{Metoda1} oraz \texttt{metoda9} – powyżej 60 sekund. \texttt{Metoda17} również posiada długi czas wykonania.
+		      \item Najkrótszy czas wykonania miały autorskie metody \texttt{Metoda19}, \texttt{Metoda18} – mniej niż jedną sekundę.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najwięcej czasu zajęły metody rzędu \texttt{Metoda1} oraz \texttt{metoda13} – od 40 i aż do 60 sekund. \texttt{Metoda17} podobnie jak poprzednio, potrzebuje sporo czasu na wykonanie.
+		      \item Najkrótszy czas wykonania miały również autorskie metody \texttt{Metoda19}, \texttt{Metoda18} – mniej niż jedną sekundę.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najdłuższy czas działania osiągnęła metoda \texttt{Metoda4} – około 17.5 sekund.
+		      \item Najkrótszy czas uzyskano dla \texttt{Metoda19} – około 0.2 sekundy.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png}
+	\caption{\textbf{Czas wykonania (Execution Time)} w sekundach.}
+	\label{fig:isot_few_shot_prcurve}
+\end{figure}
+
+% Subsection for one-shot mode results
+\subsection{Wyniki w trybie one-shot}
+% Describing results for one-shot mode
+W trybie \textbf{one-shot} dla datasetu \textbf{ISOT}. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów, które ilustrują rozkłady kluczowych metryk, oraz wykresu liniowego czasu wykonania eksperymentów.
+
+% Subsubsection for Accuracy
+\subsubsection{Accuracy}
+% Presenting Accuracy histogram
+Histogram \textbf{Dokładności (Accuracy)} \ref{fig:isot_one_shot_accuracy} pokazuje rozkład wartości dokładności dla wszystkich metod. Analizując podany histogram można zauważyć następujące rozkłady wyników:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najlepsze i tak naprawdę idealne wyniki, w okolicach 100\% dokładności, osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda11}, \texttt{13}, \texttt{15}, \texttt{2}, \texttt{3}, \texttt{4}, \texttt{6}, \texttt{8}, \texttt{9} oraz autorska \texttt{Metoda20}.
+		      \item Najgorsze wyniki, na poziomie 50\% dokładności, odnotowano dla wszystkich pozostałych metod bez wyjątku.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki, w okolicach 100\% dokładności poprzednio, osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda11}, \texttt{13}, \texttt{10}, \texttt{14}, \texttt{5}, \texttt{7} oraz autorska \texttt{Metoda19}.
+		      \item Najgorsze wyniki, na poziomie 50\% dokładności, odnotowano dla wszystkich pozostałych metod bez wyjątku.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda1\-1}, \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda6}, \texttt{Metoda5}, \texttt{Metoda15}, \texttt{Metoda10} oraz autorska \texttt{Metoda20}.
+		      \item Najgorsze wyniki, na tym samym poziomie co zauważyliśmy w poprzednich przypadkach, odnotowano dla wszystkich pozostałych metod bez wyjątku.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png}
+	\caption{Histogram rozkładu \textbf{Dokładności (Accuracy)}.}
+	\label{fig:isot_one_shot_accuracy}
+\end{figure}
+
+% Subsubsection for F1-Score
+\subsubsection{F1-Score}
+% Presenting F1-Score histogram
+Histogram \textbf{Wyniku F1 (F1-Score)} \ref{fig:isot_one_shot_f1} przedstawia rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda11}, \texttt{Metoda13}, \texttt{Metoda12\-catboost}, \texttt{Metoda15}, \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda4}, \texttt{Metoda6}, \texttt{Metoda9} oraz autorska \texttt{Metoda20}. Wynik dla podanych metod jest w okolicach dokładności 100\%. Metody rzędu \texttt{Metoda1} oraz autorskie \texttt{Metoda17}, \texttt{Metoda18} osiągnęły wyniki w skali od 60\% do 70\% dokładności.
+		      \item Najniższe wyniki niestety odnotowano dla metod autorskich \texttt{Metoda19}, \texttt{Metoda16}.
+	      \end{itemize}
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze rezultaty, na poziomie 100\%, uzyskały metody z grupy \texttt{Metoda12}, \texttt{Metoda10}, \texttt{Metoda11}, \texttt{Metoda5} oraz autorska \texttt{Metoda19}.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda1\-4}, \texttt{Metoda16}, \texttt{Metoda3}, \texttt{9} oraz autorska implementacja \texttt{Metoda17}.
+	      \end{itemize}
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wartości wyników, w wysokości 100\% F1-Score, osiągnęły metody \texttt{Metoda1\-1}, \texttt{Metoda10}, \texttt{Metoda15}, \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda8} oraz autorska \texttt{Metoda20}. Średni wynik osiągnęła \texttt{Metoda17}, dając 70\%.
+		      \item Najgorsze rezultaty zaobserwowano dla większości artykułowych implementacji oraz autorskich \texttt{Metoda18}, \texttt{Metoda19}.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png}
+	\caption{Histogram rozkładu \textbf{Wyniku F1 (F1-Score)}.}
+	\label{fig:isot_one_shot_f1}
+\end{figure}
+
+% Subsubsection for ROC-AUC
+\subsubsection{ROC-AUC}
+% Presenting ROC-AUC histogram
+Histogram \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:isot_one_shot_roc} przedstawia rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwyższe wartości ROC-AUC osiągnęły autorskie metody \texttt{Metoda20}, \texttt{Metoda17} oraz większość z artykułów naukowych.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda10}, \texttt{Metoda1\-4} oraz autorskich \texttt{Metoda18}, \texttt{Metoda19}.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najlepsze rezultaty uzyskały metody rzędu \texttt{Metoda12}, większość metod naukowych oraz autorskie \texttt{Metoda17}, \texttt{Metoda18} i \texttt{19}.
+		      \item Najsłabsze wyniki wykazały metody rzędu \texttt{Metoda1}.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najlepsze wartości ROC-AUC osiągnęła metoda autorska \texttt{Metoda20} oraz \texttt{Metoda10}, \texttt{Metoda11}, \texttt{Metoda15}, inne.
+		      \item Najgorsze rezultaty zaobserwowano dla autorskich \texttt{Metoda17}, \texttt{Metoda18}, \texttt{Metoda19}, metod rzędu \texttt{Metoda12} i pozostałych innych.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png}
+	\caption{Histogram rozkładu \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)}.}
+	\label{fig:isot_one_shot_roc}
+\end{figure}
+
+% Subsubsection for Execution Time
+\subsubsection{Czas wykonania}
+% Presenting Execution Time line plot
+Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:isot_one_shot_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody. Na jego podstawie można wyróżnić następujące obserwacje:
+
+\begin{itemize}
+	\item \textbf{Wykres górny (BERT):}
+	      \begin{itemize}
+		      \item Najwięcej czasu zajęły metody rzędu \texttt{Metoda1} oraz \texttt{metoda19}, co jest podobnym jak na poprzednich wykresach. Warto wspomnieć o wyższym czasie wykonania dla \texttt{Metoda17}.
+		      \item Najkrótszy czas wykonania miały metody \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda10}, \texttt{Metoda5} oraz autorskie \texttt{Metoda18}, \texttt{Metoda19} i \texttt{Metoda20}.
+	      \end{itemize}
+
+	\item \textbf{Wykres środkowy (RoBERTa):}
+	      \begin{itemize}
+		      \item Najwięcej czasu zajęły metody rzędu \texttt{Metoda1} oraz \texttt{metoda19}, \texttt{Metoda17}, od 10 i do 14 sekund.
+		      \item Najkrótszy czas wykonania miały metody \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda10}, \texttt{Metoda5} oraz autorskie \texttt{Metoda18}, \texttt{Metoda19}.
+	      \end{itemize}
+
+	\item \textbf{Wykres dolny (SBERT):}
+	      \begin{itemize}
+		      \item Najdłuższy czas działania osiągnęły metody rzędu \texttt{Metoda1}, \texttt{Metoda4}, \texttt{Metoda9}, od 12 i do 15 sekund.
+		      \item Najkrótszy czas uzyskano dla \texttt{Metoda19} – około 0.2 sekundy.
+	      \end{itemize}
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png}
+	\caption{\textbf{Czas wykonania (Execution Time)} w sekundach.}
+	\label{fig:isot_one_shot_prcurve}
+\end{figure}
+
+% Subsection for additional analysis
+\subsection{Dodatkowa analiza wyników dla datasetu ISOT}
+\label{subsec:isot_additional_analysis}
+
+% Introducing additional analysis
+W tej podsekcji przedstawiono dodatkową analizę wyników dla datasetu \textbf{ISOT}, obejmującą wyniki AUC-PR, testy normalności rozkładów, macierze korelacji Pearsona i Spearmana oraz testy statystyczne Kruskal-Wallis. Analiza dostarcza wniosków na temat wydajności metod i zależności między metrykami.
+
+% Subsubsection for AUC-PR results
+\subsubsection{Wyniki AUC-PR}
+% Presenting AUC-PR table
+Poniższa tabela przedstawia wyniki AUC-PR dla różnych metod zastosowanych na datasecie \textbf{ISOT}. Wartości wahają się od 0,5513 do 0,7634, przy czym metoda \texttt{metoda1\-2} osiągnęła najwyższy wynik (0,7634), a wśród metod autorskich najlepszy rezultat uzyskano dla \texttt{metoda17} z wartością 0,7041.
+\begin{table}[H]
+	\centering
+	\caption{Wyniki AUC-PR dla metod na datasecie ISOT}
+	\label{tab:isot_auc_pr}
+	\begin{tabular}{l r}
+		\toprule
+		Metoda & AUC-PR \\
+		\midrule
+		metoda1-1         & 0.7527 \\
+		metoda1-2         & 0.7634 \\
+		metoda1-3         & 0.6267 \\
+		metoda1-4         & 0.6516 \\
+		metoda1-5         & 0.5820 \\
+		metoda2           & 0.6671 \\
+		metoda3           & 0.6782 \\
+		metoda4           & 0.6445 \\
+		metoda5           & 0.6463 \\
+		metoda6           & 0.6671 \\
+		metoda7           & 0.6566 \\
+		metoda8           & 0.6671 \\
+		metoda9           & 0.6391 \\
+		metoda10          & 0.6785 \\
+		metoda11          & 0.7266 \\
+		metoda12-catboost & 0.6762 \\
+		metoda12-rf       & 0.6234 \\
+		metoda13          & 0.6743 \\
+		metoda14          & 0.6324 \\
+		metoda15          & 0.6671 \\
+		metoda16          & 0.6138 \\
+		metoda17          & 0.7041 \\
+		metoda18          & 0.5893 \\
+		metoda19          & 0.6182 \\
+		metoda20          & 0.6671 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+% Subsubsection for normality and statistical tests
+\subsubsection{Testy normalności i analizy statystyczne}
+% Describing normality and statistical tests
+Testy Shapiro-Wilka przeprowadzone dla każdej metryki wskazują, że większość z nich (\textbf{Accuracy}, \textbf{Precision}, \textbf{Recall}, \textbf{F1-Score}, \textbf{MCC}, \textbf{Cohen’s Kappa}) nie wykazuje rozkładu normalnego (p-value < 0,05) dla wielu metod. Na przykład, dla metryki \textbf{Accuracy}, tylko metody \texttt{metoda1-5}, \texttt{metoda10}, \texttt{metoda12-catboost}, \texttt{metoda12-rf}, \texttt{metoda13}, \texttt{metoda15}, \texttt{metoda16}, \texttt{metoda18}, \texttt{metoda19}, \texttt{metoda20}, \texttt{metoda2}, \texttt{metoda5}, \texttt{metoda6}, \texttt{metoda8}, \texttt{metoda9} mają p-value > 0,05, co sugeruje możliwość rozkładu normalnego. W przypadku \textbf{ROC-AUC}, wszystkie metody wykazują p-value > 0,05, co wskazuje na rozkład normalny dla tej metryki (najwyższe p-value = 0,8526 dla \texttt{metoda16}). Testy Kruskal-Wallis nie wykazały istotnych statystycznie różnic między metodami dla żadnej metryki (p-value > 0,05), przy czym najwyższe p-value uzyskano dla \textbf{ROC-AUC} (0,9931), co potwierdza brak znaczących różnic w wydajności metod dla tej metryki.
+
+% Subsubsection for correlation analysis
+\subsubsection{Analiza korelacji}
+% Presenting correlation analysis
+Macierze korelacji Pearsona i Spearmana ujawniły zależności między metrykami. Najsilniejsze korelacje dodatnie w macierzy Pearsona zaobserwowano między \textbf{Accuracy} a \textbf{Cohen’s Kappa} (0,9996), \textbf{Accuracy} a \textbf{MCC} (0,9974) oraz \textbf{MCC} a \textbf{Cohen’s Kappa} (0,9977). W macierzy Spearmana analogiczne korelacje są nieco słabsze, ale nadal bardzo silne, np. \textbf{Accuracy} a \textbf{Cohen’s Kappa} (0,9992) oraz \textbf{Accuracy} a \textbf{MCC} (0,9907). Silne korelacje dodatnie występują także między \textbf{Precision} a \textbf{F1-Score} (0,8777 w Pearsonie, 0,8147 w Spearmanie) oraz \textbf{Recall} a \textbf{F1-Score} (0,7355 w Pearsonie, 0,7760 w Spearmanie). Zauważono również silną dodatnią korelację między \textbf{ROC-AUC} a \textbf{AUC-PR} (0,9376 w Pearsonie, 0,9101 w Spearmanie), co wskazuje na zgodność tych metryk w ocenie wydajności klasyfikatorów.
+
+\begin{table}[H]
+	\centering
+	\caption{Kluczowe współczynniki korelacji Pearsona}
+	\label{tab:isot_pearson_correlations}
+	\begin{tabular}{l r l}
+		\toprule
+		Para metryk             & Współczynnik Pearsona & Interpretacja       \\
+		\midrule
+		Accuracy -- Cohen’s Kappa & 0.9996 & Bardzo silna dodatnia \\
+		Accuracy -- MCC           & 0.9974 & Bardzo silna dodatnia \\
+		MCC -- Cohen’s Kappa      & 0.9977 & Bardzo silna dodatnia \\
+		Precision -- F1-Score     & 0.8777 & Silna dodatnia        \\
+		Recall -- F1-Score        & 0.7355 & Silna dodatnia        \\
+		ROC-AUC -- AUC-PR         & 0.9376 & Bardzo silna dodatnia \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Kluczowe współczynniki korelacji Spearmana}
+	\label{tab:isot_spearman_correlations}
+	\begin{tabular}{l r l}
+		\toprule
+		Para metryk             & Współczynnik Spearmana & Interpretacja       \\
+		\midrule
+		Accuracy -- Cohen’s Kappa & 0.9992 & Bardzo silna dodatnia \\
+		Accuracy -- MCC           & 0.9907 & Bardzo silna dodatnia \\
+		MCC -- Cohen’s Kappa      & 0.9868 & Bardzo silna dodatnia \\
+		Precision -- F1-Score     & 0.8147 & Silna dodatnia        \\
+		Recall -- F1-Score        & 0.7760 & Silna dodatnia        \\
+		ROC-AUC -- AUC-PR         & 0.9101 & Bardzo silna dodatnia \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+% Noting the absence of negative correlations
+Warto zauważyć, że brak silnych ujemnych korelacji w obu macierzach sugeruje, że nie ma wyraźnych kompromisów między metrykami w tym datasecie. Wysokie korelacje między \textbf{Accuracy}, \textbf{MCC} i \textbf{Cohen’s Kappa} wskazują, że te metryki są wzajemnie zgodne w ocenie wydajności modeli, co może być przydatne przy wyborze odpowiednich miar do oceny klasyfikatorów.
+
+% Subsection for conclusions
+\subsubsection{Wnioski}
+% Summarizing key findings
+Analiza wyników dla datasetu \textbf{ISOT} w różnych trybach uczenia (\textbf{klasycznym}, \textbf{few-shot} i \textbf{one-shot}) dostarczyła wiele cennych obserwacji w wydajności różnych metod, w tym szczególnie autorskich metod \texttt{Metoda17}, \texttt{Metoda18}, \texttt{Metoda19} i \texttt{Metoda20}. Poniżej przedstawiono kluczowe wnioski z przeprowadzonej analizy.
+
+% Conclusions for one-shot mode
+W trybie \textbf{one-shot}, gdzie ilość danych treningowych jest minimalna, wiele metod osiągnęło doskonałe wyniki, a autorskie metody wyróżniły się szczególnie:
+\begin{itemize}
+	\item \textbf{\texttt{Metoda20}} dla modeli \textbf{BERT} i \textbf{SBERT} osiągnęła wyniki bliskie 100\% pod względem dokładności i F1-score, co świadczy o jej wyjątkowej skuteczności w warunkach ekstremalnie ograniczonej ilości danych.
+	\item \textbf{\texttt{Metoda19}} dla modelu \textbf{RoBERTa} również osiągnęła wyniki na poziomie 100\% dla dokładności i F1-score, potwierdzając jej potencjał w tym trybie.
+	\item \textbf{\texttt{Metoda17}} dla \textbf{BERT} osiągnęła wyniki w zakresie 60--70\% dla F1-score, co jest średnim wynikiem, ale dla \textbf{SBERT} dała 70\%, co jest akceptowalne. Jednak dla \textbf{RoBERTa} była wśród najsłabszych, co wskazuje na zmienność wydajności w zależności od modelu.
+	\item \textbf{\texttt{Metoda18}} miała mieszane wyniki, z dobrymi rezultatami dla \textbf{RoBERTa} w ROC-AUC, ale słabszymi dla \textbf{SBERT} w F1-score.
+\end{itemize}
+
+% Observations for one-shot mode
+Tryb \textbf{one-shot} okazał się najbardziej korzystny dla metod autorskich, co sugeruje, że są one dobrze dostosowane do scenariuszy z bardzo ograniczonymi danymi treningowymi. W trybach \textbf{few-shot} i \textbf{klasycznym}, wydajność była bardziej zróżnicowana, ale autorskie metody pokazały się z dobrej strony w wielu aspektach:
+\begin{itemize}
+	\item \textbf{\texttt{Metoda19}} wyróżniła się dobrą wydajnością w trybie \textbf{few-shot} dla modeli \textbf{BERT} i \textbf{SBERT}, osiągając wysokie wyniki w dokładności, F1-score i ROC-AUC. W trybie \textbf{klasycznym} również pokazała dobre rezultaty pod względem dokładności dla \textbf{BERT} i F1-score dla \textbf{SBERT}.
+	\item \textbf{\texttt{Metoda18}} osiągnęła wysokie wyniki w trybie \textbf{few-shot} dla modelu \textbf{RoBERTa}, szczególnie w F1-score i ROC-AUC, a w trybie \textbf{klasycznym} była wśród najlepszych w F1-score dla \textbf{SBERT}.
+	\item \textbf{\texttt{Metoda17}} miała mieszane wyniki: dla \textbf{RoBERTa} w trybie \textbf{few-shot} była wśród najlepszych w ROC-AUC, ale dla \textbf{BERT} i \textbf{SBERT} często znajdowała się wśród najgorszych, zwłaszcza w dokładności i F1-score. W trybie \textbf{klasycznym} osiągnęła dobre wyniki w F1-score dla \textbf{BERT} i \textbf{RoBERTa}, ale była słabsza w dokładności dla \textbf{RoBERTa}.
+	\item \textbf{\texttt{Metoda20}} miała słabsze wyniki w trybie \textbf{few-shot}, szczególnie dla \textbf{RoBERTa}, gdzie była wśród najgorszych w dokładności, oraz nie była wyraźnie wyróżniona w trybie \textbf{klasycznym}.
+\end{itemize}
+
+% Execution time analysis
+Pod względem czasu wykonania, autorskie metody wykazały się dużą efektywnością:
+\begin{itemize}
+	\item \textbf{\texttt{Metoda18}} i \textbf{\texttt{Metoda19}} często miały bardzo krótki czas wykonania, poniżej 1 sekundy, szczególnie w trybach \textbf{few-shot} i \textbf{one-shot} dla modeli \textbf{BERT} i \textbf{RoBERTa}, co czyni je atrakcyjnymi dla zastosowań, gdzie szybkość jest kluczowa.
+	\item \textbf{\texttt{Metoda20}} również charakteryzowała się krótkim czasem wykonania w niektórych konfiguracjach, np. dla \textbf{BERT} w trybie \textbf{one-shot}.
+	\item \textbf{\texttt{Metoda17}} miała mieszane wyniki: krótki czas dla \textbf{BERT} w trybie \textbf{klasycznym} (<1s), ale długi czas (>60s) dla \textbf{BERT} w \textbf{few-shot} i (>8s) dla \textbf{RoBERTa} w \textbf{klasycznym}, co wskazuje na niekonsekwencję.
+\end{itemize}
+
+% AUC-PR performance
+W analizie datasetu ISOT, metoda autorska \texttt{metoda17} osiągnęła wysoki wynik AUC-PR na poziomie 0,7041, co plasuje ją na 4. miejscu spośród wszystkich testowanych metod. Również \texttt{metoda20} z AUC-PR 0,6671 należy do bardzo dobrych wyników, w przeciwieństwie do \texttt{metoda19} oraz \texttt{metoda18}.
+
+% Statistical analysis summary
+Analiza statystyczna, oparta na testach Shapiro-Wilka, macierzach korelacji Pearsona i Spearmana oraz testach Kruskal-Wallis, dostarczyła dodatkowe informacje:
+\begin{itemize}
+    \item Testy normalności wykazały, że rozkłady wielu metryk nie są normalne w przypadku niektórych metod, co uzasadnia stosowanie testów \textbf{nieparametrycznych}.
+    \item Zaobserwowano silne dodatnie korelacje między \textbf{dokładnością}, \textbf{MCC} a \textbf{Cohen's Kappa}, z współczynnikami Pearsona powyżej 0{,}99 oraz Spearmana powyżej 0{,}98, co potwierdza spójność tych metryk w ocenie wydajności.
+    \item Testy \textbf{Kruskala-Wallisa} nie wykazały istotnych statystycznie różnic między metodami (p > 0{,}05), co może sugerować ich zbliżoną ogólną wydajność lub wpływ specyfiki zbioru danych \texttt{ISOT}.
+    \item Silna korelacja między \textbf{ROC-AUC} a \textbf{AUC-PR} (Pearson: 0{,}9376; Spearman: 0{,}9101) sugeruje, że metryki te można stosować zamiennie w analizach porównawczych.
+    \item Brak silnych ujemnych korelacji między metrykami wskazuje, że poprawa jednej nie skutkuje pogorszeniem innej, co świadczy o stabilności modeli w różnych aspektach oceny.
+    \item Niska zmienność wartości \textbf{AUC-PR} wśród najlepszych metod (różnica ~0{,}01 między czołowymi wynikami) sugeruje zbliżony poziom wydajności klasyfikatorów w tym konkretnym zbiorze danych.
+\end{itemize}
+
+% Final conclusions
+Podsumowując, autorskie metody \texttt{Metoda20} i \texttt{Metoda19} osiągnęły wybitne wyniki w trybie \textbf{one-shot}, szczególnie w zakresie \textbf{dokładności} i \textbf{F1-score}, co czyni je konkurencyjnymi w scenariuszach z ograniczonymi danymi, jak w przypadku zbioru \textbf{ISOT}. W trybie \textbf{few-shot}, \texttt{Metoda19} i \texttt{Metoda18} były skuteczne dla różnych modeli, zwłaszcza dla \texttt{SBERT}, gdzie uzyskano bardzo dobre wyniki jakościowe przy najkrótszym \textbf{czasie wykonania}. W trybie \textbf{klasycznym}, \texttt{Metoda19} również wyróżniła się w kluczowych metrykach. \texttt{Metoda17} miała mieszane wyniki i wymaga optymalizacji \textbf{czasu działania}. Ogólnie, metody autorskie wykazują zarówno wysoką \textbf{wydajność}, jak i \textbf{efektywność obliczeniową}, co czyni je obiecującymi w detekcji fałszywych wiadomości, szczególnie w warunkach ograniczonej ilości danych.

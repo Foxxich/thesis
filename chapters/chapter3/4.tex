@@ -1,8 +1,8 @@
 \section{Czwarta metoda (\textbf{Metoda20})}
 \subsection{Pomysł na metodę}
-Metoda ta powstała na bazie idei integracji wielu modeli, podobnie jak w \textbf{Metoda17} i \textbf{Metoda18}, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były również metody stacking, takie jak \textbf{Metoda18}, gdzie predykcje modeli bazowych służyły jako cechy dla meta-modelu.
+Metoda ta powstała na bazie idei integracji wielu modeli, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były również metody stacking, gdzie predykcje modeli bazowych służyły jako cechy dla meta-modelu.
 
-W \textbf{Metoda20} połączono LightGBM, CatBoost, Random Forest i Gradient Boosting. LightGBM i CatBoost to zaawansowane algorytmy boostingowe znane ze swojej szybkości i efektywności. Random Forest jest modelem opartym na zespołach losowo tworzonych predyktorów, a Gradient Boosting sekwencyjnie buduje modele korygujące błędy poprzedników. Podobnie jak w \textbf{Metoda18}, regresja logistyczna służy tutaj jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie unikalnych mocnych stron każdego z tych algorytmów, aby osiągnąć wyższą dokładność i bardziej stabilne predykcje.
+W \textbf{Metoda20} połączono LightGBM, CatBoost, Random Forest i Gradient Boosting. LightGBM i CatBoost to zaawansowane algorytmy boostingowe znane ze swojej szybkości i efektywności. Random Forest jest modelem opartym na zespołach losowo tworzonych predyktorów, a Gradient Boosting sekwencyjnie buduje modele korygujące błędy poprzedników. Regresja logistyczna służy tutaj jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie unikalnych mocnych stron każdego z tych algorytmów, aby osiągnąć wyższą dokładność i bardziej stabilne predykcje.
 
 \subsection{Wejściowe dane}
 Metoda \texttt{train\_run20} przyjmuje następujące parametry wejściowe:
@@ -63,60 +63,14 @@ Metoda zwraca następujące elementy:
 	\item
 	      Zwracanie wyników: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
 \end{enumerate}
+Szczegółowy schemat \textbf{metoda20} jest pokazany na \ref{fig:diagram_metoda20}. Pomysł na taką impelmentacją wynika bardziej nie z jakieś konkretnej metody, a z pomy słu na łączenie klasyfikatorów w celu poprawy ogólnej wydajności predykcyjnej.
 
-\subsection{Kod}
-\begin{lstlisting}[caption={Kod do 20 metody}, label={20Metoda}]
-lgb_clf = LGBMClassifier(
-n_estimators=100,
-random_state=42
-) # LightGBM
-cat_clf = CatBoostClassifier(
-iterations=100,
-verbose=0,
-random_state=42
-) # CatBoost
-rf_clf = RandomForestClassifier(
-n_estimators=100,
-random_state=42
-) # Random Forest
-gb_clf = GradientBoostingClassifier(
-n_estimators=100,
-random_state=42
-) # Gradient Boosting
-
-lgb_clf.fit(X_train, y_train)
-cat_clf.fit(X_train, y_train)
-rf_clf.fit(X_train, y_train)
-gb_clf.fit(X_train, y_train)
-
-lgb_preds_train = lgb_clf.predict_proba(X_train)[:, 1]
-cat_preds_train = cat_clf.predict_proba(X_train)[:, 1]
-rf_preds_train = rf_clf.predict_proba(X_train)[:, 1]
-gb_preds_train = gb_clf.predict_proba(X_train)[:, 1]
-
-meta_features_train = pd.DataFrame({
-'lgb_preds': lgb_preds_train,
-'cat_preds': cat_preds_train,
-'rf_preds': rf_preds_train,
-'gb_preds': gb_preds_train
-})
-
-meta_model = LogisticRegression()
-meta_model.fit(meta_features_train, y_train)
-
-lgb_preds_test = lgb_clf.predict_proba(X_test)[:, 1]
-cat_preds_test = cat_clf.predict_proba(X_test)[:, 1]
-rf_preds_test = rf_clf.predict_proba(X_test)[:, 1]
-gb_preds_test = gb_clf.predict_proba(X_test)[:, 1]
-
-meta_features_test = pd.DataFrame({
-'lgb_preds': lgb_preds_test,
-'cat_preds': cat_preds_test,
-'rf_preds': rf_preds_test,
-'gb_preds': gb_preds_test
-})
-return meta_model, meta_features_test, y_test
-\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{img/diagrams/metoda20.drawio.png}
+	\caption{Schemat metody 20.}
+	\label{fig:diagram_metoda20}
+\end{figure}
 
 \subsection{Właściwości analityczne}
 \begin{enumerate}

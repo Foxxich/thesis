@@ -67,93 +67,14 @@ Metoda zwraca następujące elementy:
 	\item
 	      Zwracanie wyników: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
 \end{enumerate}
+Szczegółowy schemat \textbf{metoda19} jest pokazany na \ref{fig:diagram_metoda19}. Pomarańczowe prostokąty odpowiadają pomysłom, które się opierały na podejściu z \textbf{metoda5}. 
 
-\subsection{Kod}
-\begin{verbatim}
-# 1. Skalowanie danych
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-# 2. Inicjalizacja i optymalizacja modeli bazowych
-rf_clf = RandomForestClassifier(
-n_estimators=200,
-max_depth=10,
-random_state=42
-)
-
-xgb_clf = xgb.XGBClassifier(
-n_estimators=200,
-use_label_encoder=False,
-eval_metric='logloss',
-learning_rate=0.05,
-max_depth=5,
-random_state=42
-)
-
-gb_clf = GradientBoostingClassifier(
-n_estimators=100,
-learning_rate=0.1,
-max_depth=3,
-random_state=42
-)
-
-# 3. Walidacja krzyzowa do generowania meta-cech
-skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-
-rf_preds_train = cross_val_predict(
-rf_clf,
-X_train_scaled,
-y_train,
-cv=skf,
-method='predict_proba'
-)[:, 1]
-
-xgb_preds_train = cross_val_predict(
-xgb_clf,
-X_train_scaled,
-y_train,
-cv=skf,
-method='predict_proba'
-)[:, 1]
-
-gb_preds_train = cross_val_predict(
-gb_clf,
-X_train_scaled,
-y_train,
-cv=skf,
-method='predict_proba'
-)[:, 1]
-
-meta_features_train = pd.DataFrame({
-'rf_preds': rf_preds_train,
-'xgb_preds': xgb_preds_train,
-'gb_preds': gb_preds_train
-})
-
-# 4. Trening meta-modelu
-meta_model = LogisticRegression(
-solver='liblinear', random_state=42
-)
-meta_model.fit(meta_features_train, y_train)
-
-# 5. Predykcje na zbiorze testowym
-rf_clf.fit(X_train_scaled, y_train)
-xgb_clf.fit(X_train_scaled, y_train)
-gb_clf.fit(X_train_scaled, y_train)
-
-rf_preds_test = rf_clf.predict_proba(X_test_scaled)[:, 1]
-xgb_preds_test = xgb_clf.predict_proba(X_test_scaled)[:, 1]
-gb_preds_test = gb_clf.predict_proba(X_test_scaled)[:, 1]
-
-meta_features_test = pd.DataFrame({
-'rf_preds': rf_preds_test,
-'xgb_preds': xgb_preds_test,
-'gb_preds': gb_preds_test
-})
-
-return meta_model, meta_features_test, y_test
-\end{verbatim}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/diagrams/metoda19.drawio.png}
+	\caption{Schemat metody 19.}
+	\label{fig:diagram_metoda19}
+\end{figure}
 
 \subsection{Właściwości analityczne}
 \begin{enumerate}

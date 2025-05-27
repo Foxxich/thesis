@@ -56,55 +56,15 @@ Metoda zwraca następujące elementy:
 	      Zwracanie wyników: Zwraca się wytrenowany model głosujący (\textbf{voting\_clf\_final}), przeskalowane cechy zbioru testowego (\textbf{X\_test\_scaled}) oraz oryginalne etykiety testowe (\textbf{y\_test}).
 \end{enumerate}
 
-\subsection{Kod}
-\begin{verbatim}
-# Inicjalizacja modeli: MLP, XGBoost, regresja logistyczna
-# w potoku ze skalowaniem i optymalizacją hiperparametrów.
-mlp = MLPClassifier(...)
-xgb = XGBClassifier(...)
-pipeline_logreg = Pipeline(
-[('scaler', StandardScaler()),
-('log_reg', LogisticRegression(...))
-])
+Szczegółowy schemat \textbf{metoda17} jest pokazany na \ref{fig:diagram_metoda17}. Pomarańczowe prostokąty odpowiadają autorskim pomysłom, które wprowadziliśmy tworząc swoje rozwiązanie.
 
-# Definiowanie przestrzeni hiperparametrów do
-# przeszukania dla regresji logistycznej.
-param_grid_logreg = {...}
-
-# Wyszukiwanie najlepszych hiperparametrów dla regresji logistycznej.
-grid_search_logreg = GridSearchCV(pipeline_logreg, param_grid_logreg, ...)
-grid_search_logreg.fit(X_train, y_train)
-log_reg_optimized = grid_search_logreg.best_estimator_.named_steps['log_reg']
-scaler_logreg = grid_search_logreg.best_estimator_.named_steps['scaler']
-X_test_scaled_logreg = scaler_logreg.transform(X_test)
-
-# Potok dla MLP ze skalowaniem.
-pipeline_mlp = Pipeline([('scaler', StandardScaler()), ('mlp', mlp)])
-pipeline_mlp.fit(X_train, y_train)
-X_test_scaled_mlp = pipeline_mlp.named_steps['scaler'].transform(X_test)
-mlp_optimized = pipeline_mlp.named_steps['mlp']
-
-# Potok dla XGBoost ze skalowaniem.
-pipeline_xgb = Pipeline([('scaler', StandardScaler()), ('xgb', xgb)])
-pipeline_xgb.fit(X_train, y_train)
-X_test_scaled_xgb = pipeline_xgb.named_steps['scaler'].transform(X_test)
-xgb_optimized = pipeline_xgb.named_steps['xgb']
-
-# Stworzenie modelu zespołowego (VotingClassifier) z miękkim głosowaniem.
-voting_clf = VotingClassifier(estimators=[
-('mlp', mlp_optimized),
-('log_reg', log_reg_optimized),
-('xgb', xgb_optimized)], voting='soft')
-
-# Trenowanie modelu zespołowego.
-voting_clf.fit(X_train, y_train)
-
-# Przeskalowanie danych testowych.
-X_test_scaled = StandardScaler().fit_transform(X_test)
-
-return voting_clf, X_test_scaled, y_test
-\end{verbatim}
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.99\textwidth]{img/diagrams/metoda17.drawio.png}
+	\caption{Schemat metody 17.}
+	\label{fig:diagram_metoda17}
+\end{figure}
+  
 \subsection{Właściwości analityczne}
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}

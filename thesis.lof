@@ -17,22 +17,49 @@
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Porównanie Mean dla ISOT dla różnych uruchomień metod.}}{48}{figure.caption.54}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces Porównanie Execution Time dla ISOT dla różnych uruchomień metod.}}{49}{figure.caption.55}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Schemat metody 17.}}{53}{figure.caption.57}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Schemat metody 18.}}{56}{figure.caption.58}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Schemat metody 19.}}{59}{figure.caption.59}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Schemat metody 20.}}{62}{figure.caption.60}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram architektury systemu.}}{67}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Przykładowe uruchomienie aplikacji.}}{69}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram architektury systemu.}}{66}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Przykładowe uruchomienie aplikacji.}}{68}{figure.caption.62}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{72}{figure.caption.60}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{73}{figure.caption.62}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{75}{figure.caption.64}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{76}{figure.caption.66}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{78}{figure.caption.68}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{79}{figure.caption.70}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{81}{figure.caption.72}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{83}{figure.caption.74}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{85}{figure.caption.76}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{87}{figure.caption.78}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{88}{figure.caption.80}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{90}{figure.caption.82}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{71}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{72}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{74}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{75}{figure.caption.70}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{77}{figure.caption.72}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{78}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{80}{figure.caption.76}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{82}{figure.caption.78}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{84}{figure.caption.80}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{86}{figure.caption.82}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{87}{figure.caption.84}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{89}{figure.caption.86}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{96}{figure.caption.95}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{97}{figure.caption.97}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{99}{figure.caption.99}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{100}{figure.caption.101}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{102}{figure.caption.103}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{103}{figure.caption.105}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{105}{figure.caption.107}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{107}{figure.caption.109}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{109}{figure.caption.111}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{111}{figure.caption.113}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{112}{figure.caption.115}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{114}{figure.caption.117}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{121}{figure.caption.126}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{122}{figure.caption.128}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{124}{figure.caption.130}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{125}{figure.caption.132}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{127}{figure.caption.134}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{128}{figure.caption.136}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{130}{figure.caption.138}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{132}{figure.caption.140}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{134}{figure.caption.142}%
+\contentsline {figure}{\numberline {5.34}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{136}{figure.caption.144}%
+\contentsline {figure}{\numberline {5.35}{\ignorespaces Histogram rozkładu \textbf {Pola pod krzywą ROC-AUC (ROC-AUC)}.}}{137}{figure.caption.146}%
+\contentsline {figure}{\numberline {5.36}{\ignorespaces \textbf {Czas wykonania (Execution Time)} w sekundach.}}{139}{figure.caption.148}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
