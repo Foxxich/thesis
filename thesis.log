@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  27 MAY 2025 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  28 MAY 2025 01:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1736,25 +1736,38 @@ Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_H
 
 
 [95]
+Overfull \hbox (16.65257pt too wide) in paragraph at lines 45--46
+[]\T1/qtm/m/n/12 (-20) Najni»sze wy-ni-ki od-no-to-wa-no dla \T1/cmtt/b/n/12 Metoda1-4\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) ,
+ []
+
+
 
 [96 <./img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_Histogram.png>]
+Overfull \hbox (17.27882pt too wide) in paragraph at lines 54--55
+[]\T1/qtm/m/n/12 (-20) Najlepsze war-to-±ci F1-Score osi¡-gn¦-ªy me-to-dy z gru-py \T1/cmtt/b/n/12 Metoda1\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda14\T1/qtm/m/n/12 (-20) ,
+ []
+
 <img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png, id=1285, 426.393pt x 464.4552pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png>
-Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png  used on input line 62.
+Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png  used on input line 60.
 (pdftex.def)             Requested size: 422.52577pt x 460.25854pt.
 
 
 [97 <./img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png>]
+Overfull \hbox (10.47908pt too wide) in paragraph at lines 72--73
+[]\T1/qtm/m/n/12 (-20) Najni»sze wy-ni-ki od-no-to-wa-no dla \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) ,
+ []
+
 <img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png, id=1292, 426.393pt x 461.5644pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png>
-Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png  used on input line 93.
+Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png  used on input line 89.
 (pdftex.def)             Requested size: 422.52577pt x 457.39388pt.
 <img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png, id=1294, 260.8947pt x 487.0998pt>
 File: img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png>
-Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png  used on input line 124.
+Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png  used on input line 120.
 (pdftex.def)             Requested size: 422.52577pt x 788.9264pt.
 
 
@@ -1766,14 +1779,10 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 
 
 [100 <./img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png>]
-Overfull \hbox (15.95395pt too wide) in paragraph at lines 149--150
-[]\T1/qtm/m/n/12 (-20) Najgorsze wy-ni-ki od-no-to-wa-no dla \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda20\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) ,\T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) ,
- []
-
 <img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_Histogram.png, id=1315, 426.393pt x 464.4552pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_Histogram.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_Histogram.png>
-Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_Histogram.png  used on input line 160.
+Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_Histogram.png  used on input line 152.
 (pdftex.def)             Requested size: 422.52577pt x 460.25854pt.
 
 
@@ -1783,15 +1792,15 @@ Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy
 <img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png, id=1330, 426.393pt x 464.4552pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png>
-Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png  used on input line 189.
+Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png  used on input line 179.
 (pdftex.def)             Requested size: 422.52577pt x 460.25854pt.
 
 
 [103 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_histogram.png>]
-<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png, id=1339, 426.393pt x 462.528pt>
+<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png, id=1337, 426.393pt x 462.528pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png>
-Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png  used on input line 220.
+Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_histogram.png  used on input line 210.
 (pdftex.def)             Requested size: 422.52577pt x 458.34875pt.
 
 
@@ -1801,7 +1810,7 @@ Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_
 <img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png, id=1353, 260.8947pt x 487.0998pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png>
-Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png  used on input line 251.
+Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png  used on input line 239.
 (pdftex.def)             Requested size: 422.52577pt x 788.9264pt.
 
 
@@ -1811,62 +1820,44 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 
 
 [107 <./img/stats/ISOT_few_shot/ISOT_few_shot_Execution Time (s)_comparison.png>]
-Overfull \hbox (11.90869pt too wide) in paragraph at lines 281--282
-[]\T1/qtm/m/n/12 (-20) Najlepsze wy-ni-ki osi¡-gn¦-ªy me-to-dy ta-kie jak \T1/cmtt/b/n/12 Metoda1-1\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda6\T1/qtm/m/n/12 (-20) ,
- []
-
 <img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png, id=1364, 426.393pt x 462.528pt>
 File: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png Graphic file (type png)
 <use img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png>
-Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png  used on input line 287.
+Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png  used on input line 275.
 (pdftex.def)             Requested size: 422.52577pt x 458.34875pt.
 
 
 [108]
-Overfull \hbox (2.35834pt too wide) in paragraph at lines 300--301
-\T1/cmtt/b/n/12 Metoda12-catboost\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda6\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda9
+Overfull \hbox (5.6588pt too wide) in paragraph at lines 288--289
+\T1/cmtt/b/n/12 Metoda14\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda5\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda6 \T1/qtm/m/n/12 (-20) oraz w±ród
  []
 
 
 
 [109 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_Histogram.png>]
-Overfull \hbox (15.16055pt too wide) in paragraph at lines 305--306
-[]\T1/qtm/m/n/12 (-20) Najlepsze re-zul-ta-ty, na po-zio-mie 100%, uzy-ska-ªy me-to-dy z gru-py \T1/cmtt/b/n/12 Metoda12\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda10\T1/qtm/m/n/12 (-20) ,
- []
-
-
-Overfull \hbox (27.61919pt too wide) in paragraph at lines 310--311
-\T1/cmtt/b/n/12 Metoda1-1\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda10\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda8 \T1/qtm/m/n/12 (-20) oraz au-tor-ska \T1/cmtt/b/n/12 Metoda20\T1/qtm/m/n/12 (-20) .
- []
-
 File: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png>
-Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png  used on input line 316.
+Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_histogram.png  used on input line 304.
 (pdftex.def)             Requested size: 422.52577pt x 460.25854pt.
 
 
 [110]
-
-[111]
-Overfull \hbox (1.11038pt too wide) in paragraph at lines 341--342
-[]\T1/qtm/m/n/12 (-20) Najlepsze war-to-±ci ROC-AUC osi¡-gn¦-ªa me-to-da au-tor-ska \T1/cmtt/b/n/12 Metoda20 \T1/qtm/m/n/12 (-20) oraz \T1/cmtt/b/n/12 Metoda10\T1/qtm/m/n/12 (-20) ,
- []
-
-
-Overfull \hbox (4.4141pt too wide) in paragraph at lines 342--343
-[]\T1/qtm/m/n/12 (-20) Najgorsze re-zul-ta-ty za-ob-ser-wo-wa-no dla au-tor-skich \T1/cmtt/b/n/12 Metoda17\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda18\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda19\T1/qtm/m/n/12 (-20) ,
+Overfull \hbox (3.7408pt too wide) in paragraph at lines 322--323
+[]\T1/qtm/m/n/12 (-20) Najlepsze war-to-±ci ROC-AUC osi¡-gn¦-ªy me-to-dy au-tor-skie \T1/cmtt/b/n/12 Metoda17 \T1/qtm/m/n/12 (-20) oraz \T1/cmtt/b/n/12 Metoda18
  []
 
 File: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png>
-Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png  used on input line 347.
+Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_histogram.png  used on input line 334.
 (pdftex.def)             Requested size: 422.52577pt x 457.39388pt.
 
+
+[111]
 
 [112]
 File: img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png>
-Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png  used on input line 378.
+Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Execution Time (s)_comparison.png  used on input line 363.
 (pdftex.def)             Requested size: 422.52577pt x 788.9264pt.
 
 
@@ -2057,7 +2048,7 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 [148
 
 ] (chapters/appendix1.tex)
-runsystem(latexminted cleantemp  --timestamp 20250527202621 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20250528011823 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -2074,13 +2065,13 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 Here is how much of TeX's memory you used:
  34814 strings out of 473529
  689936 string characters out of 5714773
- 1354316 words of memory out of 5000000
+ 1354315 words of memory out of 5000000
  56617 multiletter control sequences out of 15000+600000
  655563 words of font info for 225 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,11n,121p,1641b,741s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (153 pages, 11169302 bytes).
+Output written on thesis.pdf (153 pages, 11168159 bytes).
 PDF statistics:
  1891 PDF objects out of 2073 (max. 8388607)
  500 named destinations out of 1000 (max. 500000)
