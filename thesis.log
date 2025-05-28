@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  28 MAY 2025 01:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  28 MAY 2025 10:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1887,6 +1887,10 @@ Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_Accu
 [120]
 
 [121 <./img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_Histogram.png>]
+Overfull \hbox (5.00322pt too wide) in paragraph at lines 50--51
+[]\T1/qtm/m/n/12 (-20) Najsªabsze wy-ni-ki wy-ka-za-ªy kil-ka me-tod, w±ród nich nie-ste-ty rów-nie» by-ªa \T1/cmtt/b/n/12 Metoda20\T1/qtm/m/n/12 (-20) . 
+ []
+
 <img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png, id=1450, 426.393pt x 470.9595pt>
 File: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png>
@@ -1915,8 +1919,8 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 
 
 [125 <./img/stats/WELFake_classic/WELFake_classic_Execution Time (s)_comparison.png>]
-Overfull \hbox (15.95395pt too wide) in paragraph at lines 139--140
-[]\T1/qtm/m/n/12 (-20) Najgorsze wy-ni-ki od-no-to-wa-no dla \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda20\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) ,\T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) ,
+Overfull \hbox (13.13818pt too wide) in paragraph at lines 132--133
+[]\T1/qtm/m/n/12 (-20) Najlepsze wy-ni-ki osi¡-gn¦-ªy me-to-dy ta-kie jak \T1/cmtt/b/n/12 Metoda9\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda12-catboost\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda7\T1/qtm/m/n/12 (-20) ,
  []
 
 <img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_Histogram.png, id=1480, 426.393pt x 473.6094pt>
@@ -1960,57 +1964,43 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 
 
 [132 <./img/stats/WELFake_few_shot/WELFake_few_shot_Execution Time (s)_comparison.png>]
-Overfull \hbox (11.90869pt too wide) in paragraph at lines 261--262
-[]\T1/qtm/m/n/12 (-20) Najlepsze wy-ni-ki osi¡-gn¦-ªy me-to-dy ta-kie jak \T1/cmtt/b/n/12 Metoda1-1\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda6\T1/qtm/m/n/12 (-20) ,
- []
-
 <img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_Histogram.png, id=1529, 426.393pt x 458.6736pt>
 File: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_Histogram.png Graphic file (type png)
 <use img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_Histogram.png>
-Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_Histogram.png  used on input line 267.
+Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_Histogram.png  used on input line 266.
 (pdftex.def)             Requested size: 422.52577pt x 454.52917pt.
 
 
 [133]
-Overfull \hbox (2.35834pt too wide) in paragraph at lines 278--279
-\T1/cmtt/b/n/12 Metoda12-catboost\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda6\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda9
- []
-
-
 
 [134 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_Histogram.png>]
-Overfull \hbox (27.61919pt too wide) in paragraph at lines 288--289
-\T1/cmtt/b/n/12 Metoda1-1\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda10\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda15\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda8 \T1/qtm/m/n/12 (-20) oraz au-tor-ska \T1/cmtt/b/n/12 Metoda20\T1/qtm/m/n/12 (-20) .
+Overfull \hbox (6.31319pt too wide) in paragraph at lines 288--289
+[]\T1/qtm/m/n/12 (-20) Najgorsze re-zul-ta-ty za-ob-ser-wo-wa-no dla \T1/cmtt/b/n/12 Metoda19\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda12-rf\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda3\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda4
  []
 
 File: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png>
-Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png  used on input line 294.
+Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_histogram.png  used on input line 293.
 (pdftex.def)             Requested size: 422.52577pt x 466.70407pt.
 
 
 [135]
-
-[136]
-Overfull \hbox (1.11038pt too wide) in paragraph at lines 317--318
-[]\T1/qtm/m/n/12 (-20) Najlepsze war-to-±ci ROC-AUC osi¡-gn¦-ªa me-to-da au-tor-ska \T1/cmtt/b/n/12 Metoda20 \T1/qtm/m/n/12 (-20) oraz \T1/cmtt/b/n/12 Metoda10\T1/qtm/m/n/12 (-20) ,
- []
-
-
-Overfull \hbox (4.4141pt too wide) in paragraph at lines 318--319
-[]\T1/qtm/m/n/12 (-20) Najgorsze re-zul-ta-ty za-ob-ser-wo-wa-no dla au-tor-skich \T1/cmtt/b/n/12 Metoda17\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda18\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda19\T1/qtm/m/n/12 (-20) ,
+Overfull \hbox (19.68312pt too wide) in paragraph at lines 309--310
+[]\T1/qtm/m/n/12 (-20) Najlepsze re-zul-ta-ty uzy-ska-no dla me-tod \T1/cmtt/b/n/12 Metoda12-rf\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda16\T1/qtm/m/n/12 (-20) ,
  []
 
 File: img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_histogram.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_histogram.png>
-Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_histogram.png  used on input line 323.
+Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_histogram.png  used on input line 321.
 (pdftex.def)             Requested size: 422.52577pt x 453.57431pt.
 
+
+[136]
 
 [137]
 File: img/stats/WELFake_classic/WELFake_classic_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Execution Time (s)_comparison.png>
-Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Execution Time (s)_comparison.png  used on input line 352.
+Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Execution Time (s)_comparison.png  used on input line 350.
 (pdftex.def)             Requested size: 422.52577pt x 788.9264pt.
 
 
@@ -2025,17 +2015,26 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 
 [141]
 
-[142])) (chapters/summary.tex) (thesis.bbl
+[142]
 
 [143]
+Overfull \hbox (5.53528pt too wide) in paragraph at lines 470--471
+[]\T1/cmtt/b/n/12 metoda17 \T1/qtm/m/n/12 (-20) mia-ªa mie-sza-ne wy-ni-ki: w try-bie \T1/qtm/b/n/12 (-20) few-shot \T1/qtm/m/n/12 (-20) dla \T1/qtm/b/n/12 (-20) Ro-BER-Ta \T1/qtm/m/n/12 (-20) osi¡-gn¦-ªa ROC-AUC
+ []
 
-[144
+
+
+[144])) (chapters/summary.tex) (thesis.bbl
+
+[145]
+
+[146
 
 ])
 
-[145] (thesis.lof
+[147] (thesis.lof
 
-[146
+[148
 
 ])
 \tf@lof=\write7
@@ -2043,12 +2042,12 @@ Overfull \vbox (115.14331pt too high) has occurred while \output is active []
 
 
 
-[147]
+[149]
 
-[148
+[150
 
 ] (chapters/appendix1.tex)
-runsystem(latexminted cleantemp  --timestamp 20250528011823 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20250528102602 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -2063,17 +2062,17 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 8E7F9DCC841A3C674FA845800DC82644;20091.
  ) 
 Here is how much of TeX's memory you used:
- 34814 strings out of 473529
- 689936 string characters out of 5714773
- 1354315 words of memory out of 5000000
+ 34816 strings out of 473529
+ 689952 string characters out of 5714773
+ 1354316 words of memory out of 5000000
  56617 multiletter control sequences out of 15000+600000
  655563 words of font info for 225 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  123i,11n,121p,1641b,741s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (153 pages, 11168159 bytes).
+Output written on thesis.pdf (155 pages, 11173037 bytes).
 PDF statistics:
- 1891 PDF objects out of 2073 (max. 8388607)
- 500 named destinations out of 1000 (max. 500000)
+ 1899 PDF objects out of 2073 (max. 8388607)
+ 502 named destinations out of 1000 (max. 500000)
  32840 words of extra memory for PDF output out of 35830 (max. 10000000)
 
