@@ -1,5 +1,5 @@
 \chapter{Własne metody}
-Autorskie metody powstały w oparciu o szkielet oraz koncepcje metod, które w badaniach wykazały najlepsze rezultaty. Krótko się przejrzaliśmy wynikom w \ref{text:results}. Wykorzystując wnioski płynące z analizy ich wzorców, opracowaliśmy nowatorskie podejścia, które skutecznie łączą precyzję z wydajnością. Rozwiązania te zostały starannie dostosowane do wymagań i złożoności problematyki wykrywania \textbf{fake news}, gwarantując wysoką jakość i efektywność.
+Autorskie metody powstały w oparciu o szkielet oraz koncepcje metod, które w badaniach wykazały najlepsze rezultaty. Krótko się przejrzałem wynikom w \ref{text:results}. Wykorzystując wnioski płynące z analizy ich wzorców, opracowując nowatorskie podejścia, które skutecznie łączą precyzję z wydajnością. Rozwiązania te zostały starannie dostosowane do wymagań i złożoności problematyki wykrywania \textbf{fake news}, gwarantując wysoką jakość i efektywność.
 
 \section{Pierwsza metoda (\textbf{Metoda17})}
 \textbf{Metoda17} jest modelem zespołowym, który łączy predykcje trzech różnych klasyfikatorów: wielowarstwowego perceptronu (\texttt{MLPClassifier}), regresji logistycznej \newline(\texttt{LogisticRegression}) i XGBoosta (\texttt{XGBClassifier}) za pomocą miękkiego głosowania. Inspiracją dla tej metody jest \textbf{Metoda10}, która również wykorzystuje \texttt{VotingClassifier} do łączenia różnych modeli. Kluczowym ulepszeniem w \textbf{Metoda17} jest zastosowanie optymalizacji hiperparametrów (przynajmniej dla regresji logistycznej) oraz skalowania cech dla każdego z bazowych klasyfikatorów przed ich połączeniem. Celem jest wykorzystanie komplementarnych mocnych stron różnych algorytmów i poprawa ogólnej wydajności predykcyjnej poprzez dostrojenie parametrów i ujednolicenie skali danych wejściowych.
@@ -54,7 +54,7 @@ Metoda zwraca następujące elementy:
 	      Zwracanie wyników: Zwraca się wytrenowany model głosujący (\textbf{voting\_clf\_final}), przeskalowane cechy zbioru testowego (\textbf{X\_test\_scaled}) oraz oryginalne etykiety testowe (\textbf{y\_test}).
 \end{enumerate}
 
-Szczegółowy schemat \textbf{metoda17} jest pokazany na \ref{fig:diagram_metoda17}. Pomarańczowe prostokąty odpowiadają autorskim pomysłom, które wprowadziliśmy tworząc swoje rozwiązanie.
+Szczegółowy schemat \textbf{metoda17} jest pokazany na \ref{fig:diagram_metoda17}. Pomarańczowe prostokąty odpowiadają autorskim pomysłom, które wprowadziłem tworząc swoje rozwiązanie.
 
 \begin{figure}[H]
 	\centering

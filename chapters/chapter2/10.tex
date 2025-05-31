@@ -1,10 +1,10 @@
 \section{Wstępna analiza wyników}
 \label{text:results}
 
-W niniejszym podrozdziale przeprowadzamy wstępną analizę wyników, koncentrując się wyłącznie na zbiorze danych ISOT Fake News Dataset, który posłuży jako baza do przykładów inspirujących moje autorskie metody. Szczegółowe omówienie wyników na tych danych umożliwi nam wypracowanie i implementację innowacyjnych podejść, otwierając drogę do przełomowych rozwiązań. Skupiamy się na dokładnym opisie wyników z wykorzystaniem paradygmatów few-shot learning oraz Sentence-BERT (SBERT). Wybór few-shot wynika z jego zdolności do efektywnego uczenia się na małej liczbie przykładów, co jest kluczowe w dynamicznie zmieniającym się środowisku dezinformacji, w przeciwieństwie do no-shot czy one-shot, które nie zapewniają odpowiedniej elastyczności. Z kolei SBERT został wybrany ze względu na jego zaawansowane możliwości semantycznego modelowania tekstu, przewyższające tradycyjne modele jak BERT czy RoBERTa, szczególnie w zadaniach wymagających analizy kontekstowej i porównawczej.
+W niniejszym podrozdziale przeprowadzam wstępną analizę wyników, koncentrując się wyłącznie na zbiorze danych ISOT Fake News Dataset, który posłuży jako baza do przykładów inspirujących moje autorskie metody. Szczegółowe omówienie wyników na tych danych umożliwi nam wypracowanie i implementację innowacyjnych podejść, otwierając drogę do przełomowych rozwiązań. Skupiam się na dokładnym opisie wyników z wykorzystaniem paradygmatów few-shot learning oraz Sentence-BERT (SBERT). Wybór few-shot wynika z jego zdolności do efektywnego uczenia się na małej liczbie przykładów, co jest kluczowe w dynamicznie zmieniającym się środowisku dezinformacji, w przeciwieństwie do no-shot czy one-shot, które nie zapewniają odpowiedniej elastyczności. Z kolei SBERT został wybrany ze względu na jego zaawansowane możliwości semantycznego modelowania tekstu, przewyższające tradycyjne modele jak BERT czy RoBERTa, szczególnie w zadaniach wymagających analizy kontekstowej i porównawczej.
 
 \subsection{Dokładność (Accuracy)}
-W tej analizie oceniamy dokładność (Accuracy), której proponujemy się przejrzeć na rysunku \ref{fig:accuracy_isot}. Najwyższe wyniki, osiągające wartość 1.0, zanotowały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16}, \textbf{metoda12\_catboost}, co dowodzi ich wyjątkowej skuteczności w zadaniu klasyfikacji. Z kolei najgorzej wypadła \textbf{metoda4}, uzyskując wyniki w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i konieczność dalszej poprawy. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wnioski motywują nas do projektowania nowatorskich podejść, które będą czerpały z metod osiągających najlepszą dokładność.
+W tej analizie oceniam dokładność (Accuracy), której proponuję się przejrzeć na rysunku \ref{fig:accuracy_isot}. Najwyższe wyniki, osiągające wartość 1.0, zanotowały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16}, \textbf{metoda12\_catboost}, co dowodzi ich wyjątkowej skuteczności w zadaniu klasyfikacji. Z kolei najgorzej wypadła \textbf{metoda4}, uzyskując wyniki w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i konieczność dalszej poprawy. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wnioski motywują nas do projektowania nowatorskich podejść, które będą czerpały z metod osiągających najlepszą dokładność.
 
 \begin{figure}[H]
 	\centering
@@ -14,7 +14,7 @@ W tej analizie oceniamy dokładność (Accuracy), której proponujemy się przej
 \end{figure}
 
 \subsection{Precyzja (Precision)}
-W tym podrozdziale przyglądamy się precyzji (Precision), co zobrazowano na rysunku \ref{fig:precision_isot}. Najsłabiej wypadła \textbf{metoda4}, z wynikiem w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i potrzebę dalszego doskonalenia. \textbf{metoda3} oraz \textbf{metoda9} prezentują umiarkowaną wydajność. Natomiast najwyższe wyniki osiągnęły pozostałe metody, co świadczy o ich wyjątkowej skuteczności w identyfikacji prawdziwych przypadków. Te obserwacje motywują do bardziej rozbudowanego opracowania wyników według kolejnych kryteriów, ponieważ nie udało nam się ograniczyć liczby potencjalnych metod, które pozwolą nam zaprezentować autorskie rozwiązania.
+W tym podrozdziale przyglądam się precyzji (Precision), co zobrazowano na rysunku \ref{fig:precision_isot}. Najsłabiej wypadła \textbf{metoda4}, z wynikiem w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i potrzebę dalszego doskonalenia. \textbf{metoda3} oraz \textbf{metoda9} prezentują umiarkowaną wydajność. Natomiast najwyższe wyniki osiągnęły pozostałe metody, co świadczy o ich wyjątkowej skuteczności w identyfikacji prawdziwych przypadków. Te obserwacje motywują do bardziej rozbudowanego opracowania wyników według kolejnych kryteriów, ponieważ nie udało nam się ograniczyć liczby potencjalnych metod, które pozwolą nam zaprezentować autorskie rozwiązania.
 
 \begin{figure}[H]
 	\centering
@@ -24,7 +24,7 @@ W tym podrozdziale przyglądamy się precyzji (Precision), co zobrazowano na rys
 \end{figure}
 
 \subsection{Recall}
-W tej części badamy Recall, co ukazano na rysunku \ref{fig:recall_isot}. Najwyższe rezultaty, sięgające wartości 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co podkreśla ich wybitną skuteczność w wykrywaniu istotnych przypadków. Pozostałe podejścia osiągają przeciętne rezultaty. Warto podkreślić, że wyniki danych metod dla Recall pokrywają się z rezultatami w porównaniu dokładności (Accuracy), co ułatwia dalszy wybór inspiracji oraz modeli dla autorskich metod.
+W tej części badam Recall, co ukazano na rysunku \ref{fig:recall_isot}. Najwyższe rezultaty, sięgające wartości 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co podkreśla ich wybitną skuteczność w wykrywaniu istotnych przypadków. Pozostałe podejścia osiągają przeciętne rezultaty. Warto podkreślić, że wyniki danych metod dla Recall pokrywają się z rezultatami w porównaniu dokładności (Accuracy), co ułatwia dalszy wybór inspiracji oraz modeli dla autorskich metod.
 
 \begin{figure}[H]
 	\centering
@@ -34,7 +34,7 @@ W tej części badamy Recall, co ukazano na rysunku \ref{fig:recall_isot}. Najwy
 \end{figure}
 
 \subsection{Wynik F1 (F1-Score)}
-W tej sekcji przyglądamy się wynikowi F1 (F1-Score), któremu proponujemy się przejrzeć na rysunku \ref{fig:f1score_isot}. Najlepsze rezultaty, osiągające wartość 1.0, uzyskały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda7}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co po raz kolejny potwierdza ich wybitną skuteczność. Pozostałe podejścia osiągają średni poziom wydajności, co już pozwala nam ich ograniczyć, patrząc na zachowanie podobnej tendencji dla wyników.
+W tej sekcji przyglądam się wynikowi F1 (F1-Score), któremu proponuję się przejrzeć na rysunku \ref{fig:f1score_isot}. Najlepsze rezultaty, osiągające wartość 1.0, uzyskały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda7}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co po raz kolejny potwierdza ich wybitną skuteczność. Pozostałe podejścia osiągają średni poziom wydajności, co już pozwala nam ich ograniczyć, patrząc na zachowanie podobnej tendencji dla wyników.
 
 \begin{figure}[H]
 	\centering
@@ -44,7 +44,7 @@ W tej sekcji przyglądamy się wynikowi F1 (F1-Score), któremu proponujemy się
 \end{figure}
 
 \subsection{Logarytmiczna strata (Log-Loss)}
-W tej części oceniamy logarytmiczną stratę (Log-Loss), co zobrazowano na rysunku \ref{fig:logloss_isot}. W przypadku tej metryki najlepsze wyniki, czyli najniższe wartości bliskie 0.0, osiągnęły metody \textbf{metoda5}, \textbf{metoda10}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co świadczy o ich wysokiej skuteczności w minimalizowaniu błędu predykcji. Pozostałe podejścia prezentują się na przeciętnym poziomie. Te obserwacje inspirują do zwrócenia uwagi oraz szczególnego porównania dla metod o najlepszych wynikach, ponieważ dokładnie one się wybijaja na tle innych.
+W tej części oceniam logarytmiczną stratę (Log-Loss), co zobrazowano na rysunku \ref{fig:logloss_isot}. W przypadku tej metryki najlepsze wyniki, czyli najniższe wartości bliskie 0.0, osiągnęły metody \textbf{metoda5}, \textbf{metoda10}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co świadczy o ich wysokiej skuteczności w minimalizowaniu błędu predykcji. Pozostałe podejścia prezentują się na przeciętnym poziomie. Te obserwacje inspirują do zwrócenia uwagi oraz szczególnego porównania dla metod o najlepszych wynikach, ponieważ dokładnie one się wybijaja na tle innych.
 
 \begin{figure}[H]
 	\centering
@@ -54,7 +54,7 @@ W tej części oceniamy logarytmiczną stratę (Log-Loss), co zobrazowano na rys
 \end{figure}
 
 \subsection{Współczynnik korelacji Matthewsa (MCC)}
-W tej części przyglądamy się współczynnikowi korelacji Matthewsa (MCC), co przedstawiono na rysunku \ref{fig:mcc_isot}. Najlepsze wyniki, sięgające wartości 1.0, osiągnęły metody \textbf{metoda5}, \textbf{metoda10}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}. Pozostałe podejścia osiągają zróżnicowane wyniki, co nie wpływa na wnioski, ponieważ skupiliśmy się na porównaniu faworytów według poprzednich kryteriów. Te wyniki wskazują na użyteczność tego kryterium w ocenie metod, co motywuje nas do skupienia się na najlepszych rozwiązaniach w dalszej analizie.
+W tej części przyglądam się współczynnikowi korelacji Matthewsa (MCC), co przedstawiono na rysunku \ref{fig:mcc_isot}. Najlepsze wyniki, sięgające wartości 1.0, osiągnęły metody \textbf{metoda5}, \textbf{metoda10}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}. Pozostałe podejścia osiągają zróżnicowane wyniki, co nie wpływa na wnioski, ponieważ skupiłem się na porównaniu faworytów według poprzednich kryteriów. Te wyniki wskazują na użyteczność tego kryterium w ocenie metod, co motywuje nas do skupienia się na najlepszych rozwiązaniach w dalszej analizie.
 
 \begin{figure}[H]
 	\centering
@@ -64,7 +64,7 @@ W tej części przyglądamy się współczynnikowi korelacji Matthewsa (MCC), co
 \end{figure}
 
 \subsection{Pole pod krzywą ROC-AUC (ROC-AUC)}
-W tej sekcji analizujemy pole pod krzywą ROC-AUC (ROC-AUC), co zilustrowano na rysunku \ref{fig:rocauc_isot}. Najwyższe wartości, osiągające 1.0, zanotowały praktycznie wszystkie metody, oprócz \textbf{metoda3}, \textbf{metoda4} oraz \textbf{metoda1-2}. Ciężko tutaj wyróżnić faworytów lub metody, które szczegółowo się wybijają, dlatego warto będzie ich porównać również pod innymi względami.
+W tej sekcji analizuję pole pod krzywą ROC-AUC (ROC-AUC), co zilustrowano na rysunku \ref{fig:rocauc_isot}. Najwyższe wartości, osiągające 1.0, zanotowały praktycznie wszystkie metody, oprócz \textbf{metoda3}, \textbf{metoda4} oraz \textbf{metoda1-2}. Ciężko tutaj wyróżnić faworytów lub metody, które szczegółowo się wybijają, dlatego warto będzie ich porównać również pod innymi względami.
 
 \begin{figure}[H]
 	\centering
@@ -74,7 +74,7 @@ W tej sekcji analizujemy pole pod krzywą ROC-AUC (ROC-AUC), co zilustrowano na 
 \end{figure}
 
 \subsection{Współczynnik Kappa Cohena (Cohen's Kappa)}
-W tej części oceniamy współczynnik Kappa Cohena (Cohen's Kappa), co przedstawiono na rysunku \ref{fig:cohenskappa_isot}. Najwyższe wartości, zbliżone do 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co świadczy o ich doskonałej zgodności przewidywań z rzeczywistymi wynikami. Natomiast inne metody wypadły z wynikiem poniżej 0.9, co wskazuje na ich umiarkowane rezultaty.
+W tej części oceniam współczynnik Kappa Cohena (Cohen's Kappa), co przedstawiono na rysunku \ref{fig:cohenskappa_isot}. Najwyższe wartości, zbliżone do 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16} oraz \textbf{metoda12\_catboost}, co świadczy o ich doskonałej zgodności przewidywań z rzeczywistymi wynikami. Natomiast inne metody wypadły z wynikiem poniżej 0.9, co wskazuje na ich umiarkowane rezultaty.
 
 \begin{figure}[H]
 	\centering
@@ -85,7 +85,7 @@ W tej części oceniamy współczynnik Kappa Cohena (Cohen's Kappa), co przedsta
 
 
 \subsection{Średnia (Mean)}
-W niniejszym podrozdziale przyglądamy się średniej (Mean), co ukazano na rysunku \ref{fig:mean_isot}. Najwyższe wartości, oscylujące wokół 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda15} oraz \textbf{metoda16}. Najsłabiej wypadła \textbf{metoda11}, z wynikiem poniżej 0.3, co wskazuje na jej ograniczoną efektywność oraz sugeruje, że wspomniana metoda nie nadaje się do czerpania inspiracji ani pomysłów na tworzenie autorskich rozwiązań. Inne metody osiągnęły średnie wyniki, dlatego proponuję nie skupiać się na nich zbytnio na obecnym etapie.
+W niniejszym podrozdziale przyglądam się średniej (Mean), co ukazano na rysunku \ref{fig:mean_isot}. Najwyższe wartości, oscylujące wokół 1.0, osiągnęły metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda15} oraz \textbf{metoda16}. Najsłabiej wypadła \textbf{metoda11}, z wynikiem poniżej 0.3, co wskazuje na jej ograniczoną efektywność oraz sugeruje, że wspomniana metoda nie nadaje się do czerpania inspiracji ani pomysłów na tworzenie autorskich rozwiązań. Inne metody osiągnęły średnie wyniki, dlatego proponuję nie skupiać się na nich zbytnio na obecnym etapie.
 
 \begin{figure}[H]
 	\centering
@@ -95,7 +95,7 @@ W niniejszym podrozdziale przyglądamy się średniej (Mean), co ukazano na rysu
 \end{figure}
 
 \subsection{Czas wykonania (Execution Time)}
-W tej sekcji analizujemy czas wykonania (Execution Time), któremu proponujemy się przejrzeć na rysunku \ref{fig:executiontime_isot}. Najlepsze wyniki, czyli najkrótszy czas wykonania wynoszący około 0.1--0.2 sekundy, osiągnęły metody \textbf{metoda5}, \textbf{metoda7}, \textbf{metoda10} oraz \textbf{metoda12\_catboost}, co świadczy o ich wysokiej efektywności obliczeniowej. Najsłabsze wyniki osiągnęły \textbf{metoda4}, \textbf{metoda14} oraz \textbf{metoda16}, z czasem wykonania przekraczającym 1200 sekund. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wyniki podkreślają znaczenie tego kryterium w doborze efektywnych rozwiązań, co pozwala na tworzenie autorskich metod o lepszej wydajności obliczeniowej i krótszym czasie wykonania.
+W tej sekcji analizuję czas wykonania (Execution Time), któremu proponuję się przejrzeć na rysunku \ref{fig:executiontime_isot}. Najlepsze wyniki, czyli najkrótszy czas wykonania wynoszący około 0.1--0.2 sekundy, osiągnęły metody \textbf{metoda5}, \textbf{metoda7}, \textbf{metoda10} oraz \textbf{metoda12\_catboost}, co świadczy o ich wysokiej efektywności obliczeniowej. Najsłabsze wyniki osiągnęły \textbf{metoda4}, \textbf{metoda14} oraz \textbf{metoda16}, z czasem wykonania przekraczającym 1200 sekund. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wyniki podkreślają znaczenie tego kryterium w doborze efektywnych rozwiązań, co pozwala na tworzenie autorskich metod o lepszej wydajności obliczeniowej i krótszym czasie wykonania.
 
 \begin{figure}[H]
 	\centering

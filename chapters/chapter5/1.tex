@@ -7,90 +7,109 @@ W tej sekcji przedstawiono analizę wyników uzyskanych dla datasetu \textbf{Buz
 W trybie \textbf{klasycznym} dla datasetu \textbf{BuzzFeed}. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów, które ilustrują rozkłady kluczowych metryk, oraz wykresu liniowego czasu wykonania eksperymentów.
 
 \subsubsection{Accuracy}
-Histogram \textbf{Dokładności (Accuracy)} \ref{fig:buzzfeed_classic_accuracy} pokazuje rozkład wartości dokładności dla wszystkich metod. Analizując podany histogram można zauważyć następujące rozkłady wyników:
-
+Wykresy słupkowe \textbf{Dokładności (Accuracy)} \ref{fig:buzzfeed_classic_accuracy} przedstawiają rozkład wartości dokładności dla różnych metod klasyfikacji tekstu w ramach podejścia (BuzzFeed, classic).
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda12\-rf} oraz \texttt{Metoda19}.
-		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda18}, \texttt{Metoda10} oraz \texttt{Metoda9}.
+		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda12\-rf} oraz \texttt{Metoda19}, charakteryzujące się dokładnością zbliżoną do 0.6. Ich wysoka skuteczność wskazuje, że zaawansowane techniki ensemble learning, szczególnie algorytmy takie jak z użyciem \texttt{CatBoost}, \texttt{Random Forest}, \texttt{XGBoost} lub \texttt{Gradient Boost} w połączeniu stacking, są w stanie efektywnie wykorzystać bogate i złożone cechy generowane przez model BERT. Sugeruje to, że embeddingi BERT zawierają wystarczająco dużo informacji, aby te modele mogły tworzyć precyzyjne granice decyzyjne.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda18} z dokładnością wokół 0.378. To może świadczyć o niedostatecznej optymalizacji hiperparametrów tej metody dla embeddingów BERT lub o tym, że jej architektura nie jest w stanie odpowiednio przetworzyć złożoności danych.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki uzyskały metody z grupy \texttt{Metoda10} oraz \texttt{Metoda12-catboost}.
-		      \item Najgorsze wyniki wystąpiły dla \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda17} oraz \texttt{Metoda19}.
+		      \item Najlepsze wyniki uzyskały metody z grupy \texttt{Metoda10} oraz \texttt{Metoda12\-catboost}, osiągając dokładność 0.676. Jest to interesujące, zwłaszcza w kontekście \texttt{Metoda10}, która dla BERT-a radziła sobie słabo. Sugeruje to, że embeddingi RoBERTa mogą być bardziej pasujące do modeli neuronowych (MLP, jak w \texttt{Metoda10}) lub że zaimplementowane w \texttt{Metoda10} hiperparametry i struktury modeli są lepiej dopasowane do charakterystyki embeddingów RoBERTa. Ponowna wysoka skuteczność \texttt{Metoda12\-catboost} potwierdza jej ogólną solidność.
+		      \item Najgorsze wyniki wystąpiły dla \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda17} oraz \texttt{Metoda19}, z dokładnością na poziomie 0.486. Niska wydajność \texttt{Metoda1\-2} i \texttt{Metoda1\-3} (instancje sieci neuronowych z \texttt{metoda1}) wskazuje na trudności w generalizacji dla pojedynczych modeli neuronowych na danych z RoBERTa bez odpowiedniej agregacji lub bardzo precyzyjnej optymalizacji. \texttt{Metoda17}, posiadająca zaawansowany \texttt{VotingClassifier} oraz \texttt{Metoda19} posiadająca \texttt{Random Forest}, \texttt{XGBoost} i \texttt{Gradient Boost}, nie radzą sobie dobrze, co może oznaczać, że ich konfiguracje oraz procesy skalowania/optymalizacji nie są optymalne dla embeddingów RoBERTa, lub że kombinacja modeli jest nieskuteczna w tym specyficznym kontekście.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki to między innymi \texttt{Metoda13} i \texttt{Metoda12\-catboost}.
-		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda1\-3}, \texttt{Metoda3} oraz \texttt{Metoda4}.
+		      \item Najlepsze wyniki odnotowano dla \texttt{Metoda13} i \texttt{Metoda12\-catboost}, obie osiągające dokładność 0.730. Wysoka skuteczność \texttt{Metoda13}, która wykorzystuje technikę SMOTETomek do radzenia sobie z niezrównoważonymi klasami oraz zaawansowany stacking (Random Forest, Gradient Boosting, XGBoost), podkreśla znaczenie zarówno algorytmów ensemble, jak i technik preprocessingowych w optymalnym wykorzystaniu embeddingów SBERT. Niezawodność \texttt{Metoda12-catboost} jest ponownie widoczna, co utwierdza w przekonaniu o jej uniwersalności.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda1\-3}, \texttt{Metoda3} oraz \texttt{Metoda4}, również z dokładnością na poziomie 0.486. Podobnie jak w przypadku RoBERTa, indywidualna sieć neuronowa \texttt{Metoda1\-3} okazuje się niewystarczająca. Metody \texttt{Metoda3} i \texttt{Metoda4} wskazują, że embeddingi SBERT, mimo swojej efektywności w reprezentacji semantycznej, wymagają odpowiednio złożonych i/lub zoptymalizowanych algorytmów do osiągnięcia wysokiej dokładności. Wnioskiem jest to, że \texttt{Metoda3} i \texttt{Metoda4} są prawdopodobnie prostsze lub źle skonfigurowane.
 	      \end{itemize}
 \end{itemize}
+
+Analiza wykresów słupkowych ujawnia, że \texttt{Metoda12\-catboost} jest wyjątkowo odpornym i skutecznym algorytmem, konsekwentnie osiągającym doskonałe wyniki niezależnie od zastosowanego typu embeddingu. Potwierdza to jego reputację jako silnego predyktora w zadaniach klasyfikacyjnych. Modele oparte na ensemble learning, takie jak stacking (\texttt{Metoda13}, \texttt{Metoda19}), mają potencjał do osiągania najwyższej dokładności, ale ich wydajność jest silnie uzależniona od właściwego doboru modeli bazowych i starannej optymalizacji hiperparametrów, co jest widoczne w zróżnicowanych wynikach dla różnych typów embeddingów. Prostsze modele lub pojedyncze instancje sieci neuronowych (\texttt{Metoda1-x}) często wymagają dalszej agregacji lub bardziej intensywnej optymalizacji, aby dorównać złożonym ensemble. Kluczowe jest również uwzględnienie specyfiki każdego typu embeddingu językowego, gdyż optymalna metoda dla jednego embeddingu niekoniecznie sprawdzi się dla innego.
+
+Wśród autorskich metod uwagę zwraca \texttt{Metoda19}, która osiągnęła bardzo dobre wyniki dla osadzeń BERT i SBERT. Jest to model stackingowy, co wskazuje na skuteczność łączenia różnorodnych predyktorów w celu poprawy ogólnej wydajności w tych konkretnych kontekstach. Należy jednak zauważyć, że ta sama metoda (\texttt{Metoda19}) odnotowała niskie wyniki dla osadzeń RoBERTa, co podkreśla konieczność precyzyjnej optymalizacji metod autorskich pod kątem specyfiki każdego typu embeddingu. Inne autorskie metody, takie jak \texttt{Metoda17}, \texttt{Metoda18} i \texttt{Metoda20}, wykazują zróżnicowaną wydajność, co wskazuje na potrzebę dalszych badań i optymalizacji, aby mogły w pełni wykorzystać swój potencjał.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_Histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png}
 	\caption{Histogram rozkładu \textbf{Dokładności (Accuracy)}.}
 	\label{fig:buzzfeed_classic_accuracy}
 \end{figure}
 
 \subsubsection{F1-Score}
-Histogram \textbf{Wyniku F1 (F1-Score)} \ref{fig:buzzfeed_classic_f1} przedstawia rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{Wyniku F1 (F1-Score)} \ref{fig:buzzfeed_classic_f1} przedstawiają rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda19}, \texttt{Metoda17}, \texttt{Metoda12\-catboost} oraz \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda1\-4}.
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda1\-2}, \texttt{Metoda1\-5}.
+		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda19} z zaimplementowanym modelem stackingowym, \texttt{Metoda17} posiadający zaawansowany VotingClassifier, \texttt{Metoda12-catboost} oparta na CatBoost oraz \texttt{Metoda1-2}, \texttt{Metoda1-3}, \texttt{Metoda1-4} (indywidualne instancje sieci neuronowych). Ich wysokie wyniki podkreślają zdolność tych algorytmów do precyzyjnego balansu między precyzją a kompletnością w klasyfikacji, co jest kluczowe w zadaniach z potencjalnie niezrównoważonymi klasami. Wskazuje to, że embeddingi BERT zawierają wystarczająco dużo informacji, aby te modele mogły skutecznie identyfikować zarówno prawdziwe pozytywy, jak i minimalizować fałszywe. W szczególności, zaawansowane techniki ensemble learning (takie jak stacking czy VotingClassifier) efektywnie wykorzystują bogate i złożone cechy generowane przez model BERT.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda1\-2} i \texttt{Metoda1\-5} (indywidualne instancje sieci neuronowych). Niska wartość F1-Score dla tych metod może sugerować trudności w radzeniu sobie z nierównowagą klas lub brakiem zdolności do efektywnego uczenia się złożonych wzorców z osadzeń BERT, co jest typowe dla pojedynczych, nieskalowanych modeli neuronowych.
 	      \end{itemize}
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskały metody z grupy \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda10}, \texttt{Metoda17} oraz \texttt{Metoda12\-catboost}.
-		      \item Najsłabsze wyniki wykazały \texttt{Metoda1\-1}, \texttt{Metoda1\-4} oraz \texttt{Metoda1\-5}.
+		      \item Najlepsze rezultaty uzyskały metody z grupy \texttt{Metoda1\-2}, \texttt{Metoda1\-3} (indywidualne instancje sieci neuronowych), \texttt{Metoda10} będąca implementacją VotingClassifier z MLP, Logistic Regression i XGBoost, \texttt{Metoda17} ze zaawansowanym VotingClassifier oraz \texttt{Metoda12\-catboost} oparta na CatBoost. Konsystencja dobrych wyników dla \texttt{Metoda12-catboost} oraz pojawienie się innych metod na czele świadczy o ich adaptacyjności do charakterystyki embeddingów RoBERTa, szczególnie w kontekście równoważenia precyzji i recall. Jest to interesujące, zwłaszcza w kontekście \texttt{Metoda10}, która dla BERT-a radziła sobie słabo. Sugeruje to, że embeddingi RoBERTa mogą być bardziej optymalne dla modeli neuronowych (jak w \texttt{Metoda10}) lub że zaimplementowane w \texttt{Metoda10} hiperparametry i struktury modeli są lepiej dopasowane do charakterystyki embeddingów RoBERTa.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda1-1}, \texttt{Metoda1-4} oraz \texttt{Metoda1-5} (indywidualne instancje sieci neuronowych). Niska wydajność F1-Score dla tych metod może wynikać z niedostatecznej optymalizacji lub braku zdolności do efektywnego wykorzystania subtelnych niuansów w h RoBERTa przez pojedyncze modele neuronowe.
 	      \end{itemize}
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości F1-Score osiągnęły metody \texttt{Metoda13}, \texttt{Metoda12-catboost}, \texttt{Metoda18} oraz \texttt{Metoda19}.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda1\-2}, \texttt{Metoda1\-2}.
+		      \item Najlepsze wartości F1-Score osiągnęły metody \texttt{Metoda13} wykorzystująca technikę SMOTETomek oraz zaawansowany stacking z Random Forest, Gradient Boosting, XGBoost, \texttt{Metoda12-catboost} oparta na CatBoost, \texttt{Metoda18} stacking z GradientBoosting i CatBoost oraz \texttt{Metoda19} model stackingowy. Ich wysoka skuteczność podkreśla znaczenie zarówno algorytmów ensemble, jak i technik preprocessingowych w optymalnym wykorzystaniu semantycznie bogatych osadzeń SBERT, co przekłada się na zbalansowane i wysokiej jakości klasyfikacje. Niezawodność \texttt{Metoda12\-catboost} jest ponownie widoczna, co utwierdza w przekonaniu o jej uniwersalności.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda1\-2} (prawdopodobnie dwukrotnie wymieniona dla podkreślenia jej słabych wyników jako indywidualnej instancji sieci neuronowej). Podobnie jak w przypadku innych embeddingów, słabe wyniki F1-Score dla tej metody mogą wskazywać na trudności w dostosowaniu się do specyfiki danych SBERT, co skutkuje niezbalansowaną wydajnością precyzji i recall.
 	      \end{itemize}
 \end{itemize}
+
+Analiza wykresów słupkowych F1-Score, podobnie jak analiza dokładności, potwierdza, że \texttt{Metoda12-catboost} jest wyjątkowo odpornym i skutecznym algorytmem, konsekwentnie osiągającym doskonałe wyniki niezależnie od zastosowanego typu embeddingu. Potwierdza to jego reputację jako silnego predyktora w zadaniach klasyfikacyjnych. Modele oparte na ensemble learning, takie jak stacking (\texttt{Metoda13}, \texttt{Metoda19}, \texttt{Metoda18}) oraz głosowanie (\texttt{Metoda10}, \texttt{Metoda17}), mają potencjał do osiągania najwyższej wydajności, ale ich skuteczność jest silnie uzależniona od właściwego doboru modeli bazowych i starannej optymalizacji hiperparametrów, co jest widoczne w zróżnicowanych wynikach dla różnych typów embeddingów. Prostsze modele lub pojedyncze instancje sieci neuronowych (\texttt{Metoda1-x}) często wymagają dalszej agregacji lub bardziej intensywnej optymalizacji, aby dorównać złożonym ensemble. Kluczowe jest również uwzględnienie specyfiki każdego typu embeddingu językowego, gdyż optymalna metoda dla jednego embeddingu niekoniecznie sprawdzi się dla innego.
+
+Wśród autorskich metod uwagę zwraca \texttt{Metoda19}, która osiągnęła bardzo dobre wyniki dla osadzeń BERT i SBERT, a także wysoki F1-Score dla tych samych embeddingów. Jest to model stackingowy, co wskazuje na skuteczność łączenia różnorodnych predyktorów (takich jak Random Forest, XGBoost i Gradient Boost, jak w przykładzie Accuracy) w celu poprawy ogólnej wydajności w tych konkretnych kontekstach. Należy jednak zauważyć, że ta sama metoda (\texttt{Metoda19}) odnotowała niskie wyniki dla osadzeń RoBERTa, co podkreśla konieczność precyzyjnej optymalizacji metod autorskich pod kątem specyfiki każdego typu embeddingu. Inne autorskie metody, takie jak \texttt{Metoda17} (zaawansowany VotingClassifier) i \texttt{Metoda18} (stacking z GradientBoosting i CatBoost), również wykazują zróżnicowaną wydajność, co wskazuje na potrzebę dalszych badań według innych kryteriów i optymalizacji, aby mogły w pełni wykorzystać swój potencjał.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png}
 	\caption{Histogram rozkładu \textbf{Wyniku F1 (F1-Score)}.}
 	\label{fig:buzzfeed_classic_f1}
 \end{figure}
 
 \subsubsection{ROC-AUC}
-Histogram \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:buzzfeed_classic_roc} przedstawia rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:buzzfeed_classic_roc} przedstawiają rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości ROC-AUC osiągnęła metoda \texttt{Metoda19}.
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda17}, \texttt{Metoda1\-4}.
+		      \item Najwyższe wartości ROC-AUC osiągnęła metoda \texttt{Metoda19} (model stackingowy, który w poprzednich sekcjach wykazywał skuteczność w łączeniu różnorodnych predyktorów, takich jak Random Forest, XGBoost i Gradient Boost). Jej wysoki wynik wskazuje na doskonałą zdolność tego modelu do rozróżniania klas, co jest kluczowe w zadaniach klasyfikacji binarnej.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda17} (zaawansowany VotingClassifier) oraz \texttt{Metoda1-4} (indywidualna instancja sieci neuronowej). Niska wartość ROC-AUC dla tych metod może świadczyć o trudnościach w efektywnym odróżnianiu klas na danych z embeddingów BERT, co może wynikać z niedostatecznej optymalizacji ich hiperparametrów lub ograniczeń architekturalnych w przypadku pojedynczych sieci neuronowych.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskały metody \texttt{Metoda1\-2}, \texttt{Metoda1\-3} oraz \texttt{Metoda17}.
-		      \item Najsłabsze wyniki wykazały \texttt{Metoda14}, \texttt{Metoda16} \texttt{Metoda12\-rf}, \texttt{Metoda19} oraz \texttt{Metoda5}.
+		      \item Najlepsze rezultaty uzyskały metody \texttt{Metoda1-2}, \texttt{Metoda1-3} (indywidualne instancje sieci neuronowych) oraz \texttt{Metoda17} (zaawansowany VotingClassifier). Ich wysokie wyniki ROC-AUC sugerują, że te metody są w stanie efektywnie przetwarzać embeddingi RoBERTa, osiągając dobrą separowalność klas. Jest to interesujące dla pojedynczych instancji sieci neuronowych, co może wskazywać na lepsze dopasowanie RoBERTa do prostszych architektur lub efektywną optymalizację tych konkretnych instancji.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda14}, \texttt{Metoda16}, \texttt{Metoda12-rf} (algorytm Random Forest), \texttt{Metoda19} (model stackingowy) oraz \texttt{Metoda5}. Zróżnicowanie typów metod wśród najgorszych wyników (od prostszych po ensemble) wskazuje, że dla embeddingów RoBERTa niektóre konfiguracje algorytmów, w tym te oparte na drzewach decyzyjnych jak Random Forest, czy złożone stackingi, mogą mieć trudności z optymalnym odwzorowaniem granic decyzyjnych lub wymagają dalszej optymalizacji.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości ROC-AUC osiągnęła metoda \texttt{Metoda1\-4}.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda4}.
+		      \item Najlepsze wartości ROC-AUC osiągnęła metoda \texttt{Metoda1-4} (indywidualna instancja sieci neuronowej). Osiągnięcie wysokiego ROC-AUC przez pojedynczą sieć neuronową w tym kontekście podkreśla potencjał embeddingów SBERT w dostarczaniu wysoce informatywnych cech, które mogą być efektywnie przetwarzane nawet przez relatywnie prostsze architektury, o ile są dobrze zoptymalizowane.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda4} posiadająca prawdopodobnie prostszy lub słabo  skonfigurowany model, pokazuje podobne wyniki jak w przypadku analizy Accuracy. Niska wartość ROC-AUC dla tej metody wskazuje, że mimo efektywności embeddingów SBERT w reprezentacji semantycznej, nadal wymagają one odpowiednio złożonych i/lub zoptymalizowanych algorytmów do osiągnięcia wysokiej zdolności rozróżniania klas.
 	      \end{itemize}
 \end{itemize}
+
+Analiza wykresów słupkowych ROC-AUC pokazuje zróżnicowanie w wydajności metod w zależności od typu zastosowanego embeddingu. Modele oparte na ensemble learning, takie jak stacking (\texttt{Metoda19}) czy VotingClassifier (\texttt{Metoda17}), wykazują duży potencjał w niektórych scenariuszach, ale ich wydajność nie jest uniwersalna i jest silnie uzależniona od właściwego doboru modeli bazowych i starannej optymalizacji hiperparametrów. Warto zauważyć, że indywidualne instancje sieci neuronowych (\texttt{Metoda1-x}) czasami osiągają zaskakująco dobre wyniki ROC-AUC, zwłaszcza dla embeddingów RoBERTa i SBERT, co sugeruje, że te embeddingi mogą być bardziej "przyjazne" dla prostszych architektur, lub że te konkretne instancje zostały bardzo precyzyjnie zoptymalizowane. Niemniej jednak, ogólny wniosek pozostaje, że kluczowe jest uwzględnienie specyfiki każdego typu embeddingu językowego, gdyż optymalna metoda dla jednego embeddingu niekoniecznie sprawdzi się dla innego.
+
+Wśród autorskich metod, \texttt{Metoda19} wyróżnia się najwyższym ROC-AUC dla osadzeń BERT, co potwierdza jej skuteczność w tym kontekście. Z kolei dla RoBERTa i SBERT inne metody osiągają lepsze wyniki. \texttt{Metoda17} z zaawansowanym VotingClassifier również wykazuje zróżnicowaną wydajność, osiągając dobre wyniki dla RoBERTa, ale słabsze dla BERT. To podkreśla konieczność dalszych badań i precyzyjnej optymalizacji metod autorskich pod kątem specyfiki każdego typu embeddingu, aby mogły w pełni wykorzystać swój potencjał w zakresie rozróżniania klas.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png}
 	\caption{Histogram rozkładu \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)}.}
 	\label{fig:buzzfeed_classic_roc}
 \end{figure}
 
+
+
+
+
+
+
+
+% TODO
 \subsubsection{Czas wykonania}
 Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:buzzfeed_classic_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody. Na jego podstawie można wyróżnić następujące obserwacje:
 
@@ -121,94 +140,113 @@ Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:buzzfeed_class
 \end{figure}
 
 
+
+
+
+
 \subsection{Wyniki w trybie few-shot}
 W trybie \textbf{few-shot} dla datasetu \textbf{BuzzFeed}. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów, które ilustrują rozkłady kluczowych metryk, oraz wykresu liniowego czasu wykonania eksperymentów.
 
 \subsubsection{Accuracy}
-Histogram \textbf{Dokładności (Accuracy)} \ref{fig:buzzfeed_few_shot_accuracy} pokazuje rozkład wartości dokładności dla wszystkich metod. Analizując podany histogram można zauważyć następujące rozkłady wyników:
+Wykresy słupkowe \textbf{Dokładności (Accuracy)} \ref{fig:buzzfeed_few_shot_accuracy} pokazują rozkład wartości dokładności dla wszystkich metod. Analizując podany wykres słupkowy można zauważyć następujące rozkłady wyników:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda13}, \texttt{Metoda14} oraz \texttt{Metoda19}.
-		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda12\-rf}.
+		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda13} wykorzystująca technikę SMOTETomek do radzenia sobie z niezrównoważonymi klasami oraz zaawansowany stacking z Random Forest, Gradient Boosting i XGBoost. \texttt{Metoda14} - model zespołowy stacking z użyciem Random Forest, AdaBoost i SVC jako bazowych oraz Logistic Regression jako finalnego estymatora. Na samy koniec pozostaje \texttt{Metoda19} rezprezentująca model stackingowy, co wskazuje na skuteczność łączenia różnorodnych predyktorów w celu poprawy ogólnej wydajności. Ich wysoka skuteczność wskazuje, że zaawansowane techniki ensemble learning są w stanie efektywnie wykorzystać bogate i złożone cechy generowane przez model BERT. Sugeruje to, że embeddingi BERT zawierają wystarczająco dużo informacji, aby te modele mogły tworzyć precyzyjne granice decyzyjne.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda12-rf} oparta na algorytmie Random Forest. Niska dokładność tej metody może świadczyć o niedostatecznej optymalizacji hiperparametrów dla embeddingów BERT lub o tym, że jej architektura nie jest w stanie odpowiednio przetworzyć złożoności danych z BERT w trybie few\-shot.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki należą do \texttt{Metoda18}.
-		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda15}, \texttt{Metoda20}, \texttt{Metoda2},\texttt{Metoda3}, \texttt{Metoda4}, \texttt{Metoda5}, \texttt{Metoda6}, \texttt{Metoda8} oraz \texttt{Metoda9}.
+		      \item Najlepsze wyniki należą do \texttt{Metoda18} - model stackingowy, stacking z GradientBoosting i CatBoost. Jej wysoka skuteczność sugeruje, że embeddingi RoBERTa są dobrze dopasowane do zaawansowanych technik ensemble, pozwalając tej metodzie na efektywne wykorzystanie złożonych wzorców w danych.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda15}, \texttt{Metoda20}, \texttt{Metoda2}, \texttt{Metoda3} (dwupoziomowy model zespołowy z VotingClassifier na pierwszym poziomie (SVC, MultinomialNB, DecisionTree) i BaggingClassifier z AdaBoostClassifier na drugim), \texttt{Metoda4}, \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem), \texttt{Metoda6}, \texttt{Metoda8} oraz \texttt{Metoda9}. Tak szeroki zakres metod o niskiej dokładności może wskazywać na trudności w generalizacji dla embeddingów RoBERTa, szczególnie dla prostszych modeli lub tych, które nie są optymalnie skonfigurowane do przetwarzania złożoności tych danych. Niektóre zaawansowane metody ensemble również radzą sobie słabo, co może oznaczać, że ich konfiguracje lub procesy skalowania/optymalizacji nie są optymalne dla embeddingów RoBERTa, lub że kombinacja modeli jest nieskuteczna w tym specyficznym kontekście.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki należą do \texttt{Metoda19}, \texttt{Metoda5}, \texttt{13} oraz \texttt{Metoda1\-1}, \texttt{Metoda1\-3} i \texttt{Metoda1\-5}.
-		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda12\-rf}.
+		      \item Najlepsze wyniki należą do \texttt{Metoda19} model stackingowy, \texttt{Metoda5} model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem, \texttt{Metoda13} wykorzystująca technikę SMOTETomek oraz zaawansowany stacking z Random Forest, Gradient Boosting i XGBoost oraz \texttt{Metoda1-1}, \texttt{Metoda1-3} i \texttt{Metoda1-5} (indywidualne instancje sieci neuronowych). Wysoka skuteczność tych metod podkreśla znaczenie zarówno algorytmów ensemble, jak i, w niektórych przypadkach, nawet pojedynczych, dobrze zoptymalizowanych sieci neuronowych w optymalnym wykorzystaniu embeddingów SBERT. Fakt, że prostsze modele neuronowe radzą sobie dobrze, może wskazywać, że embeddingi SBERT dostarczają bardzo czytelnych i użytecznych cech.
+		      \item Najgorsze wyniki odnotowano dla \texttt{Metoda12-rf} (oparta na algorytmie Random Forest). Niska wydajność tej metody wskazuje, że embeddingi SBERT, mimo swojej efektywności w reprezentacji semantycznej, wymagają odpowiednio złożonych i/lub zoptymalizowanych algorytmów do osiągnięcia wysokiej dokładności.
 	      \end{itemize}
 \end{itemize}
+Analiza wykresów słupkowych dokładności dla few-shot learning ujawnia, że modele oparte na ensemble learning, takie jak stacking (\texttt{Metoda13}, \texttt{Metoda14}, \texttt{Metoda19}, \texttt{Metoda18}, \texttt{Metoda5}) mają duży potencjał do osiągania najwyższej dokładności. Ich wydajność jest jednak silnie uzależniona od właściwego doboru modeli bazowych i starannej optymalizacji hiperparametrów, co jest widoczne w zróżnicowanych wynikach dla różnych typów embeddingów (\texttt{Metoda19} radzi sobie świetnie z BERT i SBERT, ale nie jest wymieniona wśród najlepszych dla RoBERTa, a \texttt{Metoda5} jest wśród najlepszych dla SBERT, ale najgorszych dla RoBERTa). Prostsze modele lub pojedyncze instancje sieci neuronowych (\texttt{Metoda1-x}) czasami wykazują obiecujące wyniki (dla SBERT), ale często wymagają dalszej agregacji lub bardziej intensywnej optymalizacji, aby dorównać złożonym ensemble w innych kontekstach. Kluczowe jest również uwzględnienie specyfiki każdego typu embeddingu językowego, gdyż optymalna metoda dla jednego embeddingu niekoniecznie sprawdzi się dla innego.
+
+Wśród autorskich metod, \texttt{Metoda19} osiąga bardzo dobre wyniki dla osadzeń BERT i SBERT, co potwierdza jej skuteczność jako modelu stackingowego. Z kolei \texttt{Metoda18} dominuje dla RoBERTa.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_Histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png}
 	\caption{Histogram rozkładu \textbf{Dokładności (Accuracy)}.}
 	\label{fig:buzzfeed_few_shot_accuracy}
 \end{figure}
 
 \subsubsection{F1-Score}
-Histogram \textbf{Wyniku F1 (F1-Score)} \ref{fig:buzzfeed_few_shot_f1} przedstawia rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{Wyniku F1 (F1-Score)} \ref{fig:buzzfeed_few_shot_f1} przedstawiają rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda19}, \texttt{Metoda14} oraz \texttt{Metoda1\-2}, \texttt{Metoda1\-3}, \texttt{Metoda1\-4}.
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda1\-1}, \texttt{Metoda1\-5} oraz \texttt{Metoda17}.
+		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda19} (model stackingowy, wykazujący skuteczność w łączeniu różnorodnych predyktorów), \texttt{Metoda14} (model zespołowy stacking z użyciem Random Forest, AdaBoost i SVC jako bazowych oraz Logistic Regression jako finalnego estymatora) oraz \texttt{Metoda1-2}, \texttt{Metoda1-3}, \texttt{Metoda1-4} (indywidualne instancje sieci neuronowych). Ich wysokie wyniki podkreślają zdolność tych algorytmów do precyzyjnego balansu między precyzją a kompletnością w klasyfikacji, co jest kluczowe w zadaniach z potencjalnie niezrównoważonymi klasami.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda1-1}, \texttt{Metoda1-5} (indywidualne instancje sieci neuronowych) oraz \texttt{Metoda17} (zaawansowany VotingClassifier). Niska wartość F1-Score dla tych metod może sugerować trudności w radzeniu sobie z nierównowagą klas lub brakiem zdolności do efektywnego uczenia się złożonych wzorców z osadzeń BERT, szczególnie dla pojedynczych sieci neuronowych, a także dla zaawansowanych modeli ensemble, które mogą wymagać dalszej optymalizacji dla tego konkretnego kontekstu.
 	      \end{itemize}
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskała autorska metoda \texttt{Metoda18}.
-		      \item Najsłabsze wyniki wykazały autorskie metody \texttt{Metoda20}, \texttt{Metoda17} oraz spora część metod z artykułów.
+		      \item Najlepsze rezultaty uzyskała autorska metoda \texttt{Metoda18} (model stackingowy z GradientBoosting i CatBoost). Jej wysoka skuteczność sugeruje, że embeddingi RoBERTa są dobrze dopasowane do zaawansowanych technik ensemble, pozwalając tej metodzie na efektywne wykorzystanie złożonych wzorców w danych i osiągnięcie zbalansowanych wyników klasyfikacji.
+		      \item Najsłabsze wyniki wykazały autorskie metody \texttt{Metoda20}, \texttt{Metoda17} (zaawansowany VotingClassifier) oraz spora część metod z artykułów, co może obejmować \texttt{Metoda2}, \texttt{Metoda3} (dwupoziomowy model zespołowy z VotingClassifier i Bagging/AdaBoost), \texttt{Metoda4}, \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem), \texttt{Metoda6}, \texttt{Metoda8} oraz \texttt{Metoda9}. Tak szeroki zakres metod o niskim F1-Score może wskazywać na ogólne trudności w generalizacji dla embeddingów RoBERTa, szczególnie dla prostszych modeli lub tych, które nie są optymalnie skonfigurowane do przetwarzania złożoności tych danych, a także dla niektórych zaawansowanych ensemble, które mogą wymagać dalszej optymalizacji dla tego specyficznego kontekstu.
 	      \end{itemize}
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości F1-Score osiągnęły metody \texttt{Metoda13}, \texttt{Metoda1\-3}, \texttt{Metoda5} oraz \texttt{Metoda19}.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda3}.
+		      \item Najlepsze wartości F1-Score osiągnęły metody \texttt{Metoda13} (wykorzystująca technikę SMOTETomek do radzenia sobie z niezrównoważonymi klasami oraz zaawansowany stacking z Random Forest, Gradient Boosting i XGBoost), \texttt{Metoda1-3} (indywidualna instancja sieci neuronowej), \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem) oraz \texttt{Metoda19} (model stackingowy). Wysoka skuteczność tych metod podkreśla znaczenie zarówno algorytmów ensemble, jak i, w niektórych przypadkach, nawet pojedynczych, dobrze zoptymalizowanych sieci neuronowych w optymalnym wykorzystaniu embeddingów SBERT do osiągnięcia zbalansowanych i wysokiej jakości klasyfikacji.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda3} (dwupoziomowy model zespołowy z VotingClassifier i Bagging/AdaBoost). Niska wartość F1-Score dla tej metody wskazuje, że mimo jej złożonej struktury, konfiguracja lub proces optymalizacji dla embeddingów SBERT nie były wystarczająco efektywne, co skutkuje niezbalansowaną wydajnością precyzji i recall.
 	      \end{itemize}
 \end{itemize}
+
+Analiza wykresów słupkowych F1-Score dla few-shot learning ujawnia, że modele oparte na ensemble learning, a w szczególności stacking: (\texttt{Metoda19}, \texttt{Metoda14}, \texttt{Metoda18}, \texttt{Metoda13}, \texttt{Metoda5}) mają duży potencjał do osiągania najwyższej wydajności, szczególnie w kontekście balansu między precyzją a recall. Ich skuteczność jest jednak silnie uzależniona od właściwego doboru modeli bazowych i starannej optymalizacji hiperparametrów, co jest widoczne w zróżnicowanych wynikach dla różnych typów embeddingów (\texttt{Metoda19} i \texttt{Metoda14} świetnie radzą sobie z BERT, ale nie są wśród najlepszych dla RoBERTa). Prostsze modele lub pojedyncze instancje sieci neuronowych (\texttt{Metoda1-x}) czasami wykazują obiecujące wyniki (dla BERT i SBERT), ale często wymagają dalszej agregacji lub bardziej intensywnej optymalizacji, aby dorównać złożonym ensemble w innych kontekstach. Kluczowe jest również uwzględnienie specyfiki każdego typu embeddingu językowego, gdyż optymalna metoda dla jednego embeddingu niekoniecznie sprawdzi się dla innego.
+
+Wśród autorskich metod, \texttt{Metoda19} osiąga bardzo dobre wyniki F1-Score dla osadzeń BERT i SBERT, co potwierdza jej skuteczność jako modelu stackingowego. \texttt{Metoda18} dominuje dla RoBERTa, co świadczy o jej potencjale w wykorzystaniu tego typu embeddingów. \texttt{Metoda17} i \texttt{Metoda20} posiadają najlepsze wyniki dla RoBERTa, co podkreśla konieczność precyzyjnej optymalizacji metod autorskich pod kątem specyfiki każdego typu embeddingu.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png}
 	\caption{Histogram rozkładu \textbf{Wyniku F1 (F1-Score)}.}
 	\label{fig:buzzfeed_few_shot_f1}
 \end{figure}
 
 \subsubsection{ROC-AUC}
-Histogram \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:buzzfeed_few_shot_roc} przedstawia rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:buzzfeed_few_shot_roc} przedstawiają rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości ROC-AUC osiągnęły metody \texttt{Metoda14} oraz \texttt{Metoda1\-4}.
-		      \item Najniższe wyniki odnotowano dla autorskich metod \texttt{Metoda16}, \texttt{Metoda20} oraz 7 gotowych metod.
+		      \item Najwyższe wartości ROC-AUC osiągnęły metody \texttt{Metoda14} (model zespołowy stacking z użyciem Random Forest, AdaBoost i SVC jako bazowych oraz Logistic Regression jako finalnego estymatora) oraz \texttt{Metoda1-4} (indywidualna instancja sieci neuronowej). Ich wysokie wyniki wskazują na doskonałą zdolność tych modeli do rozróżniania klas na danych z embeddingów BERT, co jest kluczowe w zadaniach klasyfikacji binarnej.
+		      \item Najniższe wyniki odnotowano dla autorskich metod \texttt{Metoda16} (model zespołowy stacking z meta-klasyfikatorem używającym regresji logistycznej, bazujące na Random Forest i SVC) oraz \texttt{Metoda20}, a także 7 gotowych metod. Niska wartość ROC-AUC dla tych metod może świadczyć o trudnościach w efektywnym odróżnianiu klas na danych z embeddingów BERT, co może wynikać z niedostatecznej optymalizacji ich hiperparametrów lub ograniczeń architekturalnych.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskała metoda \texttt{Metoda17} oraz na dość wysokim poziomie są wyniki dla \texttt{Metoda18}, \texttt{14}.
-		      \item Najsłabsze wyniki wykazały \texttt{Metoda14}, \texttt{Metoda16} \texttt{Metoda12\-rf}, \texttt{Metoda19} oraz \texttt{Metoda5}.
+		      \item Najlepsze rezultaty uzyskała metoda \texttt{Metoda17} (zaawansowany VotingClassifier), a na dość wysokim poziomie są również wyniki dla \texttt{Metoda18} (model stackingowy z GradientBoosting i CatBoost) oraz \texttt{Metoda14} (model zespołowy stacking z Random Forest, AdaBoost i SVC jako bazowymi oraz Logistic Regression jako finalnego estymatora). Ich wysokie wyniki ROC-AUC sugerują, że te metody są w stanie efektywnie przetwarzać embeddingi RoBERTa, osiągając dobrą separowalność klas.
+		      \item Najsłabsze wyniki wykazały \texttt{Metoda14} (która dobrze radziła sobie dla BERT), \texttt{Metoda16} (model stackingowy bazujący na Random Forest i SVC), \texttt{Metoda12-rf} (algorytm Random Forest), \texttt{Metoda19} (model stackingowy) oraz \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem). Zróżnicowanie typów metod wśród najgorszych wyników (od prostszych po ensemble) wskazuje, że dla embeddingów RoBERTa niektóre konfiguracje algorytmów, w tym te oparte na drzewach decyzyjnych jak Random Forest, czy złożone stackingi, mogą mieć trudności z optymalnym odwzorowaniem granic decyzyjnych lub wymagają dalszej optymalizacji.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości ROC-AUC osiągnęły metody \texttt{Metoda19}, \texttt{Metoda5} oraz kilka meotd z zakresu \texttt{Metoda1}.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda14}.
+		      \item Najlepsze wartości ROC-AUC osiągnęły metody \texttt{Metoda19} (model stackingowy), \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem) oraz kilka metod z zakresu \texttt{Metoda1} (indywidualne instancje sieci neuronowych). Wysokie wyniki ROC-AUC dla tych metod podkreślają, że embeddingi SBERT dostarczają wysoce informatywnych cech, które mogą być efektywnie przetwarzane zarówno przez zaawansowane ensemble, jak i dobrze zoptymalizowane, prostsze architektury neuronowe.
+		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda14} (model zespołowy stacking z Random Forest, AdaBoost i SVC jako bazowymi oraz Logistic Regression jako finalnego estymatora). Niska wartość ROC-AUC dla tej metody wskazuje, że mimo jej złożoności, konfiguracja lub proces optymalizacji dla embeddingów SBERT nie były wystarczająco efektywne, co skutkuje słabą zdolnością rozróżniania klas.
 	      \end{itemize}
 \end{itemize}
+
+Analiza wykresów słupkowych ROC-AUC dla few-shot learning pokazuje zróżnicowanie w wydajności metod w zależności od typu zastosowanego embeddingu. Modele oparte na ensemble learning, takie jak stacking (\texttt{Metoda14}, \texttt{Metoda19}, \texttt{Metoda18}, \texttt{Metoda16}, \texttt{Metoda5}) czy VotingClassifier (\texttt{Metoda17}), wykazują duży potencjał w niektórych scenariuszach, ale ich wydajność nie jest uniwersalna i jest silnie uzależniona od właściwego doboru modeli bazowych i starannej optymalizacji hiperparametrów. Warto zauważyć, że indywidualne instancje sieci neuronowych (\texttt{Metoda1-x}) czasami osiągają zaskakująco dobre wyniki ROC-AUC, zwłaszcza dla embeddingów BERT i SBERT, co sugeruje, że te embeddingi mogą być bardziej "przyjazne" dla prostszych architektur, lub że te konkretne instancje zostały bardzo precyzyjnie zoptymalizowane. Niemniej jednak, ogólny wniosek pozostaje, że kluczowe jest uwzględnienie specyfiki każdego typu embeddingu językowego, gdyż optymalna metoda dla jednego embeddingu niekoniecznie sprawdzi się dla innego.
+
+Wśród autorskich metod, \texttt{Metoda19} wyróżnia się wysokim ROC-AUC dla osadzeń BERT i SBERT odpowiednio, co potwierdza jej skuteczność w tych kontekstach. Z kolei dla RoBERTa, \texttt{Metoda17} i \texttt{Metoda18} osiągają najlepsze rezultaty. Należy jednak zauważyć, że \texttt{Metoda20}, odnotowała słabe wyniki dla BERT, a także \texttt{Metoda19} dla RoBERTa. To podkreśla konieczność dalszych badań i precyzyjnej optymalizacji metod autorskich pod kątem specyfiki każdego typu embeddingu, aby mogły w pełni wykorzystać swój potencjał w zakresie rozróżniania klas.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png}
 	\caption{Histogram rozkładu \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)}.}
 	\label{fig:buzzfeed_few_shot_roc}
 \end{figure}
 
+
+
+
+% TODO
 \subsubsection{Czas wykonania}
 Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:buzzfeed_few_shot_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody. Na jego podstawie można wyróżnić następujące obserwacje:
 
@@ -239,94 +277,114 @@ Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:buzzfeed_few_s
 \end{figure}
 
 
+
+
+
+
 \subsection{Wyniki w trybie one-shot}
 W trybie \textbf{one-shot} dla datasetu \textbf{BuzzFeed}. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów, które ilustrują rozkłady kluczowych metryk, oraz wykresu liniowego czasu wykonania eksperymentów.
 
 \subsubsection{Accuracy}
-Histogram \textbf{Dokładności (Accuracy)} \ref{fig:buzzfeed_one_shot_accuracy} pokazuje rozkład wartości dokładności dla wszystkich metod. Analizując podany histogram można zauważyć następujące rozkłady wyników:
+Wykresy słupkowe \textbf{Dokładności (Accuracy)} \ref{fig:buzzfeed_one_shot_accuracy} pokazują rozkład wartości dokładności dla wszystkich metod. Analizując podany wykres słupkowy można zauważyć następujące rozkłady wyników:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najlepsze i tak naprawdę idealne wyniki, w okolicach 100\% dokładności, osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda11}, \texttt{13}, \texttt{15}, \texttt{2}, \texttt{3}, \texttt{4}, \texttt{6}, \texttt{8}, \texttt{9} oraz autorska \texttt{Metoda20}.
-		      \item Najgorsze wyniki, na poziomie 50\% dokładności, odnotowano dla wszystkich pozostałych metod bez wyjątku.
+		      \item Najlepsze i tak naprawdę idealne wyniki, w okolicach 100\% dokładności, osiągnęły metody takie jak \texttt{Metoda12-catboost} (oparta na algorytmie CatBoost), \texttt{Metoda11} (model zespołowy z wykorzystaniem VotingClassifier: Random Forest, Logistic Regression i AdaBoost, z selekcją cech i normalizacją), \texttt{Metoda13} (wykorzystująca technikę SMOTETomek do radzenia sobie z niezrównoważonymi klasami oraz zaawansowany stacking z Random Forest, Gradient Boosting i XGBoost), \texttt{Metoda15}, \texttt{Metoda2} (trenuje model wykorzystując GradientBoosting oraz MLP na oddzielnych podzbiorach cech i łączy je za pomocą Regresji Logistycznej), \texttt{Metoda3} (dwupoziomowy model zespołowy z VotingClassifier na pierwszym poziomie (SVC, MultinomialNB, DecisionTree) i BaggingClassifier z AdaBoostClassifier na drugim), \texttt{Metoda4} (architektura oparta na zespole sieci Bi-LSTM, CNN i MLP), \texttt{Metoda6}, \texttt{Metoda8}, \texttt{Metoda9} oraz autorska \texttt{Metoda20}. Tak szeroki zakres metod osiągających niemal perfekcyjne wyniki może wskazywać na to, że embeddingi BERT w kontekście one-shot są wyjątkowo informatywne i pozwalają na łatwą separację klas, nawet dla prostszych lub domyślnych konfiguracji modeli.
+		      \item Najgorsze wyniki, na poziomie 50\% dokładności, odnotowano dla wszystkich pozostałych metod bez wyjątku. To sugeruje, że dla tych metod proces klasyfikacji jest na poziomie losowego zgadywania, co może wskazywać na poważne problemy z dopasowaniem modelu, optymalizacją, lub na to, że nie są one w stanie efektywnie wykorzystać informacji zawartych w embeddingach BERT w tym konkretnym scenariuszu.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki, w okolicach 100\% dokładności poprzednio, osiągnęły metody takie jak \texttt{Metoda12\-catboost}, \texttt{Metoda11}, \texttt{13}, \texttt{10}, \texttt{14}, \texttt{5}, \texttt{7} oraz autorska \texttt{Metoda19}.
-		      \item Najgorsze wyniki, na poziomie 50\% dokładności, odnotowano dla wszystkich pozostałych metod bez wyjątku.
+		      \item Najlepsze wyniki, w okolicach 100\% dokładności, osiągnęły metody takie jak \texttt{Metoda12-catboost} (oparta na algorytmie CatBoost), \texttt{Metoda11} (model zespołowy z VotingClassifier), \texttt{Metoda13} (stacking z SMOTETomek), \texttt{Metoda10}, \texttt{Metoda14} (model zespołowy stacking z Random Forest, AdaBoost i SVC), \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem), \texttt{Metoda7} oraz autorska \texttt{Metoda19} (model stackingowy). Podobnie jak w przypadku BERT, wysoka dokładność wielu metod podkreśla, że embeddingi RoBERTa również dostarczają bardzo czytelnych cech dla zadań one-shot, pozwalając wielu różnym architekturom na osiągnięcie niemal idealnej klasyfikacji.
+		      \item Najgorsze wyniki, na poziomie 50\% dokładności, odnotowano dla wszystkich pozostałych metod bez wyjątku. To konsekwentnie wskazuje na dychotomiczny charakter wyników w few-shot learningu: albo metoda jest w stanie idealnie przetwarzać dane, albo jej wydajność spada do poziomu losowego zgadywania.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda1\-1}, \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda6}, \texttt{Metoda5}, \texttt{Metoda15}, \texttt{Metoda10} oraz autorska \texttt{Metoda20}.
-		      \item Najgorsze wyniki, na tym sammym poziomie co zauważylismy w poprzednich przypadkach, odnotowano dla wszystkich pozostałych metod bez wyjątku.
+		      \item Najlepsze wyniki osiągnęły metody takie jak \texttt{Metoda1-1}, \texttt{Metoda2} (trenuje model wykorzystując GradientBoosting oraz MLP na oddzielnych podzbiorach cech i łączy je za pomocą Regresji Logistycznej), \texttt{Metoda3} (dwupoziomowy model zespołowy z VotingClassifier i Bagging/AdaBoost), \texttt{Metoda6}, \texttt{Metoda5} (model stackingowy z Random Forest i XGBoost jako bazowymi oraz Logistic Regression jako meta-modelem), \texttt{Metoda15}, \texttt{Metoda10} oraz autorska \texttt{Metoda20}. Powtarzająca się obecność metod ensemble i sieci neuronowych wśród najlepszych pokazuje, że embeddingi SBERT również są skuteczne w dostarczaniu informacji, które te modele mogą wykorzystać do osiągnięcia wysokiej dokładności w kontekście few-shot.
+		      \item Najgorsze wyniki, na tym samym poziomie co zauważyłem w poprzednich przypadkach (50\% dokładności), odnotowano dla wszystkich pozostałych metod bez wyjątku. To ponownie potwierdza, że w scenariuszu one-shot, jeśli metoda nie osiąga niemal idealnej dokładności, jej wydajność jest znikoma.
 	      \end{itemize}
 \end{itemize}
+
+Analiza wykresów słupkowych dokładności dla one-shot learningu ujawnia bardzo specyficzny wzorzec: większość metod osiąga albo niemal perfekcyjną dokładność (około 100\%), albo bardzo słabe wyniki (około 50\%, czyli poziom losowego zgadywania). Taka zależność sugeruje, że w tym trybie uczenia, model albo jest w stanie zrozumieć i generalizować z pojedynczego przykładu, albo całkowicie sobie z tym nie radzi. Brak wyników pośrednich jest uderzający i może wskazywać na wrażliwość algorytmów na charakterystykę danych lub na specyfikę zadań one-shot.
+
+Wśród metod osiągających niemal perfekcyjne wyniki dominują zaawansowane modele ensemble ( \texttt{Metoda12-catboost}, \texttt{Metoda11}, \texttt{Metoda13}, \texttt{Metoda14}, \texttt{Metoda5}, \texttt{Metoda19}, \texttt{Metoda2}, \texttt{Metoda3}) oraz niektóre indywidualne instancje sieci neuronowych ( \texttt{Metoda1-x}, \texttt{Metoda4}). Sugeruje to, że kluczem do sukcesu w one-shot learningu na zbiorze BuzzFeed jest zdolność modelu do efektywnego wykorzystania bogatych reprezentacji dostarczanych przez embeddingi, takich jak BERT, RoBERTa czy SBERT. Autorskie metody, takie jak \texttt{Metoda20}, \texttt{Metoda19}, \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda4}, \texttt{Metoda5} i \texttt{Metoda11}, wykazują doskonałą wydajność, co potwierdza ich potencjał w trudnym scenariuszu one-shot learningu.
+
+Konsekwentnie niskie wyniki (50\% dokładności) dla pozostałych metod, niezależnie od typu embeddingu, wskazują, że one-shot learning na zbiorze BuzzFeed jest zadaniem binarnym, w którym modele nieprzystosowane do specyfiki danych i zadania nie są w stanie wyciągnąć użytecznych informacji z pojedynczego przykładu, co prowadzi do losowych predykcji. Brak wyników pośrednich podkreśla, że dataset BuzzFeed w połączeniu z one-shot learningiem tworzy środowisko, w którym tylko odpowiednio zaprojektowane i zoptymalizowane modele mogą osiągnąć sukces, podczas gdy inne zawodzą całkowicie.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_Histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png}
 	\caption{Histogram rozkładu \textbf{Dokładności (Accuracy)}.}
 	\label{fig:buzzfeed_one_shot_accuracy}
 \end{figure}
 
 \subsubsection{F1-Score}
-Histogram \textbf{Wyniku F1 (F1-Score)} \ref{fig:buzzfeed_one_shot_f1} przedstawia rozkład wartości F1-Score dla wszystkich analizowanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+Analiza wykresów \ref{fig:buzzfeed_one_shot_f1} słupkowych F1-Score dla one-shot learningu na zbiorze danych BuzzFeed ujawnia wyraźny wzorzec: wiele metod osiąga niemal perfekcyjny wynik F1-Score (około 100\%), podczas gdy inne uzyskują znacznie słabsze rezultaty, często odpowiadające losowemu zgadywaniu (około 50\% w przypadku klasyfikacji binarnej). Taki wyraźny podział na dwie grupy – metody skuteczne i nieskuteczne – wskazuje na specyfikę datasetu BuzzFeed oraz wyzwania związane z one-shot learningiem, które wymagają precyzyjnej optymalizacji modeli. Na podstawie wykresu można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości F1-Score osiągnęły metody takie jak \texttt{Metoda11}, \texttt{Metoda13}, \texttt{Metoda12\-catboost}, \texttt{Metoda15}, \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda4}, \texttt{Metoda6}, \texttt{Metoda9} oraz autorska \texttt{Metoda20}. Wynik dla podanych metod jest w okolicach dokłasności 100\%. Metody rzędy \texttt{Metoda1} oraz autorskie \texttt{Metoda17}, \texttt{Metoda18} osiągnęły wynikór w skali od 60\% i do 70\% dokładności.
-		      \item Najniższe wyniki niestety odnotowano dla metod autorskich \texttt{Metoda19}, \texttt{Metoda16}.
+		      \item Najwyższe wartości F1-Score, osiągające 100\%, odnotowano dla metod takich jak \texttt{Metoda11} (model zespołowy z VotingClassifier: Random Forest, Logistic Regression i AdaBoost), \texttt{Metoda13} (wykorzystująca SMOTETomek oraz stacking z Random Forest, Gradient Boosting i XGBoost), \texttt{Metoda12-catboost} (oparta na algorytmie CatBoost), \texttt{Metoda15}, \texttt{Metoda2} (GradientBoosting i MLP na oddzielnych podzbiorach cech, połączone Regresją Logistyczną), \texttt{Metoda3} (dwupoziomowy model zespołowy z VotingClassifier i Bagging/AdaBoost), \texttt{Metoda4} (architektura z Bi-LSTM, CNN i MLP), \texttt{Metoda6}, \texttt{Metoda9} oraz autorska \texttt{Metoda20}. Perfekcyjny F1-Score wskazuje, że te metody idealnie balansują między precyzją a recall, co jest kluczowe dla skutecznej klasyfikacji w one-shot learningu z embeddingami BERT.
+		      \item Niektóre metody, takie jak \texttt{Metoda1} (indywidualne instancje sieci neuronowych), \texttt{Metoda17} (zaawansowany VotingClassifier) i \texttt{Metoda18} (stacking z GradientBoosting i CatBoost), osiągnęły F1-Score w zakresie 60--70\%, co wskazuje na umiarkowaną, ale lepszą niż losowa wydajność.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda19} (model stackingowy) i \texttt{Metoda16} (stacking z meta-klasyfikatorem opartym na Regresji Logistycznej). Ich słaba wydajność wynika z niezbalansowania precyzji i recall w kontekście BERT.
 	      \end{itemize}
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty, na poziomie 100\%, uzyskały metody z grupy \texttt{Metoda12}, \texttt{Metoda10}, \texttt{Metoda11}, \texttt{Metoda5} oraz autorska \texttt{Metoda19}.
-		      \item Najsłabsze wyniki wykazały \texttt{Metoda1\-4}, \texttt{Metoda16}, \texttt{Metoda3}, \texttt{9} oraz autorska implementacja\texttt{Metoda17}.
+		      \item Najlepsze rezultaty, na poziomie 100\% F1-Score, osiągnęły \texttt{Metoda12} (w tym \texttt{Metoda12-catboost}), \texttt{Metoda10}, \texttt{Metoda11} (VotingClassifier), \texttt{Metoda5} (stacking z Random Forest i XGBoost oraz Logistic Regression jako meta-modelem) oraz \texttt{Metoda19} (model stackingowy). Te metody potwierdzają, że embeddingi RoBERTa dostarczają wysoce informatywnych reprezentacji, umożliwiających perfekcyjną klasyfikację w one-shot learningu.
+		      \item Najsłabsze wyniki odnotowano dla \texttt{Metoda1-4} (indywidualna instancja sieci neuronowej), \texttt{Metoda16} (stacking z meta-klasyfikatorem), \texttt{Metoda3} (dwupoziomowy model zespołowy), \texttt{Metoda9} oraz \texttt{Metoda17} (zaawansowany VotingClassifier). Niski F1-Score sugeruje trudności w efektywnym balansowaniu precyzji i recall w kontekście RoBERTa, co wynika z braku optymalizacji dla tego scenariusza.
 	      \end{itemize}
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości wyników, w wysokości 100\% F1-Score, osiągnęły metody \texttt{Metoda1\-1}, \texttt{Metoda10}, \texttt{Metoda15}. \texttt{Metoda2}, \texttt{Metoda3}, \texttt{Metoda8} oraz autorska \texttt{Metoda20}. Średni wynik osiągnęła \texttt{Metoda17}, dająć 70\%.
-		      \item Najgorsze rezultaty zaobserwowano dla większości artykułowych implementacji oraz autorskich \texttt{Metoda18}, \texttt{Metoda19}.
+		      \item Najlepsze wartości F1-Score (100\%) osiągnęły \texttt{Metoda1-1}, \texttt{Metoda10}, \texttt{Metoda15}, \texttt{Metoda2} (GradientBoosting i MLP), \texttt{Metoda3} (dwupoziomowy model zespołowy), \texttt{Metoda8} oraz \texttt{Metoda20}. Wyniki te pokazują, że embeddingi SBERT są wysoce skuteczne w dostarczaniu separowalnych cech dla one-shot learningu. \texttt{Metoda17} (zaawansowany VotingClassifier) osiągnęła 70\% F1-Score, co wskazuje na stabilną, ale nieperfekcyjną wydajność.
+		      \item Najgorsze rezultaty odnotowano dla \texttt{Metoda18} (stacking z GradientBoosting i CatBoost) i \texttt{Metoda19} (model stackingowy). Niski F1-Score dla tych metod może wynika z trudności w adaptacji do specyfiki embeddingów SBERT lub niezbalansowania precyzji i recall.
 	      \end{itemize}
 \end{itemize}
+
+Wyniki F1-Score dla one-shot learningu na zbiorze BuzzFeed potwierdzają wyraźny podział na dwie grupy: metody osiągające perfekcyjny wynik (100\% F1-Score) oraz metody o słabszych rezultatach, często bliskich losowemu zgadywaniu. Kluczem do sukcesu jest zdolność modeli do efektywnego wykorzystania bogatych reprezentacji dostarczanych przez embeddingi BERT, RoBERTa i SBERT, co jest szczególnie istotne w przypadku wyraźnych wzorców językowych w datasetcie BuzzFeed. Zaawansowane modele ensemble ( \texttt{Metoda12-catboost}, \texttt{Metoda11}, \texttt{Metoda13}, \texttt{Metoda5}) oraz niektóre sieci neuronowe ( \texttt{Metoda4}, \texttt{Metoda1-1}) radzą sobie znakomicie, podczas gdy modele mniej zoptymalizowane ( \texttt{Metoda16}, \texttt{Metoda19}) nie są w stanie efektywnie generalizować, co prowadzi do słabych wyników F1-Score.
+
+Wyraźny podział wyników F1-Score na zbiorze BuzzFeed w one-shot learningu wynika z kombinacji wyraźnych wzorców językowych w danych, bogatych reprezentacji dostarczanych przez embeddingi oraz specyfiki zadania, które wymaga precyzyjnej optymalizacji modeli. To podkreśla kluczową rolę projektowania modeli i ich optymalizacji pod kątem specyfiki datasetu BuzzFeed i one-shot learningu. Charakterystyczna dla datasetu BuzzFeed wysoka kontrastowość między klasami była opisana w \cite{Frost2016photon}. To wynika z wyraźnych różnic w stylu i emocjonalnym nacechowaniu tekstów, ułatwia separację klas w one-shot learningu dla dobrze zoptymalizowanych modeli, podczas gdy modele mniej dostosowane nie są w stanie efektywnie generalizować, co skutkuje wynikami bliskimi losowemu zgadywaniu.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png}
 	\caption{Histogram rozkładu \textbf{Wyniku F1 (F1-Score)}.}
 	\label{fig:buzzfeed_one_shot_f1}
 \end{figure}
 
 \subsubsection{ROC-AUC}
-Histogram \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:buzzfeed_one_shot_roc} przedstawia rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:buzzfeed_one_shot_roc} przedstawiają rozkład wartości ROC-AUC dla wszystkich badanych metod. Na podstawie wykresu można sformułować następujące obserwacje:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Wykres górny (osadzenia BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości ROC-AUC osiągnęły autorskie metody \texttt{Metoda20}, \texttt{Metoda17} oraz większość z artykułow naukowych..
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda10}, \texttt{Metoda1\-4} oraz autorskich \texttt{Metoda18}, \texttt{Metoda19}.
+		      \item Najwyższe wartości ROC-AUC osiągnęły autorskie metody \texttt{Metoda20} (prawdopodobnie zaawansowany model ensemble, co sugeruje jego zdolność do wyłapywania złożonych zależności w danych), \texttt{Metoda17} (zaawansowany VotingClassifier) oraz większość z artykułów naukowych. Te wysokie wyniki wskazują na doskonałą zdolność tych modeli do rozróżniania klas na danych z embeddingów BERT, co jest kluczowe w zadaniach klasyfikacji binarnej w scenariuszu one-shot.
+		      \item Najniższe wyniki odnotowano dla \texttt{Metoda10}, \texttt{Metoda1-4} (indywidualna instancja sieci neuronowej) oraz autorskich \texttt{Metoda18} (model stackingowy, w poprzednich analizach stacking z GradientBoosting i CatBoost) i \texttt{Metoda19} (model stackingowy). Niska wartość ROC-AUC dla tych metod może świadczyć o trudnościach w efektywnym odróżnianiu klas na danych z embeddingów BERT, co może wynikać z niedostatecznej optymalizacji ich hiperparametrów lub ograniczeń architekturalnych w przypadku pojedynczych sieci neuronowych i niektórych konfiguracji stackingowych w kontekście one-shot.
 	      \end{itemize}
 
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Wykres środkowy (osadzenia RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskały metody rzędu \texttt{Metoda12}, większośc metod naukowych oraz autorskie \texttt{Metoda17}, \texttt{Metoda18} i \texttt{19}.
-		      \item Najsłabsze wyniki wykazały metody rzędy \texttt{Metoda1}.
+		      \item Najlepsze rezultaty uzyskały metody z grupy \texttt{Metoda12} (różne implementacje,  \texttt{Metoda12-catboost}), większość metod naukowych oraz autorskie \texttt{Metoda17} (zaawansowany VotingClassifier), \texttt{Metoda18} (stacking z GradientBoosting i CatBoost) i \texttt{Metoda19} (model stackingowy). Ich wysokie wyniki ROC-AUC sugerują, że te metody są w stanie efektywnie przetwarzać embeddingi RoBERTa, osiągając dobrą separowalność klas nawet przy ograniczonych danych. Jest to szczególnie widoczne dla zaawansowanych modeli ensemble, które potrafią wykorzystać złożone reprezentacje dostarczane przez RoBERTa.
+		      \item Najsłabsze wyniki wykazały metody z grupy \texttt{Metoda1} (indywidualne instancje sieci neuronowych, takie jak \texttt{Metoda1-1}, \texttt{Metoda1-2}, \texttt{Metoda1-3}, \texttt{Metoda1-4}, \texttt{Metoda1-5}). Niska wartość ROC-AUC dla tych metod może wskazywać, że prostsze architektury neuronowe, nawet jeśli są zdolne do uczenia się z embeddingów, mogą mieć trudności z generalizacją w scenariuszu one-shot z RoBERTa, co prowadzi do słabej zdolności rozróżniania klas.
 	      \end{itemize}
 
-	\item \textbf{Wykres dolny (SBERT):}
+	\item \textbf{Wykres dolny (osadzenia SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości ROC-AUC osiągnęła metoda autorska \texttt{Metoda20} oraz \texttt{Metoda10}, \texttt{Metoda11}, \texttt{Metoda15}, inne.
-		      \item Najgorsze rezultaty zaobserwowano dla autorskich \texttt{Metoda17}, \texttt{Metoda18}, \texttt{Metoda19}, metod rzędu \texttt{Metoda12} i pozostałych innych.
+		      \item Najlepsze wartości ROC-AUC osiągnęła metoda autorska \texttt{Metoda20} (zaawansowany model ensemble), a także \texttt{Metoda10}, \texttt{Metoda11} (model zespołowy z VotingClassifier: Random Forest, Logistic Regression i AdaBoost), \texttt{Metoda15} i inne (prawdopodobnie inne metody z artykułów naukowych, które okazały się skuteczne). Wysokie wyniki ROC-AUC dla tych metod podkreślają, że embeddingi SBERT dostarczają wysoce informatywnych cech, które mogą być efektywnie przetwarzane zarówno przez zaawansowane ensemble, jak i dobrze zoptymalizowane modele, nawet w trudnym scenariuszu one-shot.
+		      \item Najgorsze rezultaty zaobserwowano dla autorskich \texttt{Metoda17} (zaawansowany VotingClassifier), \texttt{Metoda18} (stacking z GradientBoosting i CatBoost), \texttt{Metoda19} (model stackingowy), metod z grupy \texttt{Metoda12} ( \texttt{Metoda12-catboost}) i pozostałych innych. Niska wartość ROC-AUC dla tych zaawansowanych metod ensemble jest zaskakująca i wskazuje, że ich konfiguracja lub proces optymalizacji dla embeddingów SBERT w kontekście one-shot nie były wystarczająco efektywne, co skutkuje słabą zdolnością rozróżniania klas.
 	      \end{itemize}
 \end{itemize}
+Wyraźny podział wyników ROC-AUC na zbiorze BuzzFeed w one-shot learningu wynika z wysokiej kontrastowości między klasami, bogatych reprezentacji dostarczanych przez embeddingi oraz wymagań specyficznych dla zadania one-shot. Modele zoptymalizowane, takie jak \texttt{Metoda20} czy \texttt{Metoda17}, osiągają doskonałe ROC-AUC, podczas gdy modele mniej dostosowane uzyskują wyniki bliskie losowemu zgadywaniu, co podkreśla znaczenie precyzyjnej optymalizacji dla konkretnego datasetu i typu embeddingu.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_histogram.png}
+	\includegraphics[width=0.99\textwidth]{img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png}
 	\caption{Histogram rozkładu \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)}.}
 	\label{fig:buzzfeed_one_shot_roc}
 \end{figure}
 
+
+
+% TODO
 \subsubsection{Czas wykonania}
 Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:buzzfeed_one_shot_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody. Na jego podstawie można wyróżnić następujące obserwacje:
 
@@ -357,6 +415,9 @@ Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:buzzfeed_one_s
 \end{figure}
 
 
+
+
+% TODO
 \subsection{Dodatkowa analiza wyników dla datasetu BuzzFeed}
 \label{subsec:buzzfeed_additional_analysis}
 
@@ -371,7 +432,7 @@ Poniższa tabela przedstawia wyniki AUC-PR dla różnych metod zastosowanych na 
 	\label{tab:buzzfeed_auc_pr}
 	\begin{tabular}{l r}
 		\toprule
-		Metoda & AUC-PR \\
+		Metoda            & AUC-PR \\
 		\midrule
 		metoda1-1         & 0.7527 \\
 		metoda1-2         & 0.7634 \\
@@ -404,11 +465,11 @@ Poniższa tabela przedstawia wyniki AUC-PR dla różnych metod zastosowanych na 
 
 \subsubsection{Testy normalności i analizy statystyczne}
 
-Testy Shapiro-Wilka przeprowadzone dla każdej metryki wskazują, że większość z nich (\textbf{Accuracy}, \textbf{Precision}, \textbf{Recall}, \textbf{F1-Score}, \textbf{MCC}, \textbf{Cohen’s Kappa}) nie wykazuje rozkładu normalnego (p-value < 0,05) dla wielu metod. Na przykład, dla metryki \textbf{Accuracy}, tylko metody \texttt{metoda1-5}, \texttt{metoda10}, \texttt{metoda12-catboost}, \texttt{metoda12-rf}, \texttt{metoda13}, \texttt{metoda15}, \texttt{metoda16}, \texttt{metoda18}, \texttt{metoda19}, \texttt{metoda20}, \texttt{metoda2}, \texttt{metoda5}, \texttt{metoda6}, \texttt{metoda8}, \texttt{metoda9} mają p-value > 0,05, co sugeruje możliwość rozkładu normalnego. W przypadku \textbf{ROC-AUC}, wszystkie metody wykazują p-value > 0,05, co wskazuje na rozkład normalny dla tej metryki (najwyższe p-value = 0,8526 dla \texttt{metoda16}). Testy Kruskal-Wallis nie wykazały istotnych statystycznie różnic między metodami dla żadnej metryki (p-value > 0,05), przy czym najwyższe p-value uzyskano dla \textbf{ROC-AUC} (0,9931), co potwierdza brak znaczących różnic w wydajności metod dla tej metryki.
+Testy Shapiro-Wilka przeprowadzone dla każdej metryki wskazują, że większość z nich (\textbf{Accuracy}, \textbf{Precision}, \textbf{Recall}, \textbf{F1-Score}, \textbf{MCC}, \textbf{Cohen’s Kappa}) nie wykazuje rozkładu normalnego (p-value < 0,05) dla wielu metod. Na przykład, dla metryki \textbf{Accuracy}, tylko metody \texttt{metoda1-5}, \texttt{metoda10}, \texttt{metoda12-catboost}, \texttt{metoda12-rf}, \texttt{metoda13}, \texttt{metoda15}, \texttt{metoda16}, \texttt{metoda18}, \texttt{metoda19}, \texttt{metoda20}, \texttt{metoda2}, \texttt{metoda5}, \texttt{metoda6}, \texttt{metoda8}, \texttt{metoda9} mają p-value 0,05, co sugeruje możliwość rozkładu normalnego. W przypadku \textbf{ROC-AUC}, wszystkie metody wykazują p-value 0,05, co wskazuje na rozkład normalny dla tej metryki (najwyższe p-value = 0,8526 dla \texttt{metoda16}). Testy Kruskal-Wallis nie wykazały istotnych statystycznie różnic między metodami dla żadnej metryki (p-value 0,05), przy czym najwyższe p-value uzyskano dla \textbf{ROC-AUC} (0,9931), co potwierdza brak znaczących różnic w wydajności metod dla tej metryki.
 
 \subsubsection{Analiza korelacji}
 
-Macierze korelacji Pearsona i Spearmana ujawniły zależności między metrykami. Najsilniejsze korelacje dodatnie w macierzy Pearsona zaobserwowano między \textbf{Accuracy} a \textbf{Cohen’s Kappa} (0,9996), \textbf{Accuracy} a \textbf{MCC} (0,9974) oraz \textbf{MCC} a \textbf{Cohen’s Kappa} (0,9977). W macierzy Spearmana analogiczne korelacje są nieco słabsze, ale nadal bardzo silne, np. \textbf{Accuracy} a \textbf{Cohen’s Kappa} (0,9992) oraz \textbf{Accuracy} a \textbf{MCC} (0,9907). Silne korelacje dodatnie występują także między \textbf{Precision} a \textbf{F1-Score} (0,8777 w Pearsonie, 0,8147 w Spearmanie) oraz \textbf{Recall} a \textbf{F1-Score} (0,7355 w Pearsonie, 0,7760 w Spearmanie). Zauważono również silną dodatnią korelację między \textbf{ROC-AUC} a \textbf{AUC-PR} (0,9376 w Pearsonie, 0,9101 w Spearmanie), co wskazuje na zgodność tych metryk w ocenie wydajności klasyfikatorów.
+Macierze korelacji Pearsona i Spearmana ujawniły zależności między metrykami. Najsilniejsze korelacje dodatnie w macierzy Pearsona zaobserwowano między \textbf{Accuracy} a \textbf{Cohen’s Kappa} (0,9996), \textbf{Accuracy} a \textbf{MCC} (0,9974) oraz \textbf{MCC} a \textbf{Cohen’s Kappa} (0,9977). W macierzy Spearmana analogiczne korelacje są nieco słabsze, ale nadal bardzo silne, \textbf{Accuracy} a \textbf{Cohen’s Kappa} (0,9992) oraz \textbf{Accuracy} a \textbf{MCC} (0,9907). Silne korelacje dodatnie występują także między \textbf{Precision} a \textbf{F1-Score} (0,8777 w Pearsonie, 0,8147 w Spearmanie) oraz \textbf{Recall} a \textbf{F1-Score} (0,7355 w Pearsonie, 0,7760 w Spearmanie). Zauważono również silną dodatnią korelację między \textbf{ROC-AUC} a \textbf{AUC-PR} (0,9376 w Pearsonie, 0,9101 w Spearmanie), co wskazuje na zgodność tych metryk w ocenie wydajności klasyfikatorów.
 
 \begin{table}[H]
 	\centering
@@ -416,14 +477,14 @@ Macierze korelacji Pearsona i Spearmana ujawniły zależności między metrykami
 	\label{tab:buzzfeed_pearson_correlations}
 	\begin{tabular}{l r l}
 		\toprule
-		Para metryk             & Współczynnik Pearsona & Interpretacja       \\
+		Para metryk               & Współczynnik Pearsona & Interpretacja         \\
 		\midrule
-		Accuracy -- Cohen’s Kappa & 0.9996 & Bardzo silna dodatnia \\
-		Accuracy -- MCC           & 0.9974 & Bardzo silna dodatnia \\
-		MCC -- Cohen’s Kappa      & 0.9977 & Bardzo silna dodatnia \\
-		Precision -- F1-Score     & 0.8777 & Silna dodatnia        \\
-		Recall -- F1-Score        & 0.7355 & Silna dodatnia        \\
-		ROC-AUC -- AUC-PR         & 0.9376 & Bardzo silna dodatnia \\
+		Accuracy -- Cohen’s Kappa & 0.9996                & Bardzo silna dodatnia \\
+		Accuracy -- MCC           & 0.9974                & Bardzo silna dodatnia \\
+		MCC -- Cohen’s Kappa      & 0.9977                & Bardzo silna dodatnia \\
+		Precision -- F1-Score     & 0.8777                & Silna dodatnia        \\
+		Recall -- F1-Score        & 0.7355                & Silna dodatnia        \\
+		ROC-AUC -- AUC-PR         & 0.9376                & Bardzo silna dodatnia \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -434,56 +495,16 @@ Macierze korelacji Pearsona i Spearmana ujawniły zależności między metrykami
 	\label{tab:buzzfeed_spearman_correlations}
 	\begin{tabular}{l r l}
 		\toprule
-		Para metryk             & Współczynnik Spearmana & Interpretacja       \\
+		Para metryk               & Współczynnik Spearmana & Interpretacja         \\
 		\midrule
-		Accuracy -- Cohen’s Kappa & 0.9992 & Bardzo silna dodatnia \\
-		Accuracy -- MCC           & 0.9907 & Bardzo silna dodatnia \\
-		MCC -- Cohen’s Kappa      & 0.9868 & Bardzo silna dodatnia \\
-		Precision -- F1-Score     & 0.8147 & Silna dodatnia        \\
-		Recall -- F1-Score        & 0.7760 & Silna dodatnia        \\
-		ROC-AUC -- AUC-PR         & 0.9101 & Bardzo silna dodatnia \\
+		Accuracy -- Cohen’s Kappa & 0.9992                 & Bardzo silna dodatnia \\
+		Accuracy -- MCC           & 0.9907                 & Bardzo silna dodatnia \\
+		MCC -- Cohen’s Kappa      & 0.9868                 & Bardzo silna dodatnia \\
+		Precision -- F1-Score     & 0.8147                 & Silna dodatnia        \\
+		Recall -- F1-Score        & 0.7760                 & Silna dodatnia        \\
+		ROC-AUC -- AUC-PR         & 0.9101                 & Bardzo silna dodatnia \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 Warto zauważyć, że brak silnych ujemnych korelacji w obu macierzach sugeruje, że nie ma wyraźnych kompromisów między metrykami w tym datasecie. Wysokie korelacje między \textbf{Accuracy}, \textbf{MCC} i \textbf{Cohen’s Kappa} wskazują, że te metryki są wzajemnie zgodne w ocenie wydajności modeli, co może być przydatne przy wyborze odpowiednich miar do oceny klasyfikatorów.
-
-\subsubsection{Wnioski}
-Analiza wyników dla datasetu \textbf{BuzzFeed} w różnych trybach uczenia (\textbf{klasycznym}, \textbf{few-shot} i \textbf{one-shot}) dostarczyła wiele cennych obserwacji w wydajności różnych metod, w tym szczególnie autorskich metod \texttt{Metoda17}, \texttt{Metoda18}, \texttt{Metoda19} i \texttt{Metoda20}. Poniżej przedstawiono kluczowe wnioski z przeprowadzonej analizy.
-
-W trybie \textbf{one-shot}, gdzie ilość danych treningowych jest minimalna, wiele metod osiągnęło doskonałe wyniki, a autorskie metody wyróżniły się szczególnie:
-\begin{itemize}
-	\item \textbf{\texttt{Metoda20}} dla modeli \textbf{BERT} i \textbf{SBERT} osiągnęła wyniki bliskie 100\% pod względem dokładności i F1-score, co świadczy o jej wyjątkowej skuteczności w warunkach ekstremalnie ograniczonej ilości danych.
-	\item \textbf{\texttt{Metoda19}} dla modelu \textbf{RoBERTa} również osiągnęła wyniki na poziomie 100\% dla dokładności i F1-score, potwierdzając jej potencjał w tym trybie.
-	\item \textbf{\texttt{Metoda17}} dla \textbf{BERT} osiągnęła wyniki w zakresie 60--70\% dla F1-score, co jest średnim wynikiem, ale dla \textbf{SBERT} dała 70\%, co jest akceptowalne. Jednak dla \textbf{RoBERTa} była wśród najsłabszych, co wskazuje na zmienność wydajności w zależności od modelu.
-	\item \textbf{\texttt{Metoda18}} miała mieszane wyniki, z dobrymi rezultatami dla \textbf{RoBERTa} w ROC-AUC, ale słabszymi dla \textbf{SBERT} w F1-score.
-\end{itemize}
-
-Tryb \textbf{one-shot} okazał się najbardziej korzystny dla metod autorskich, co sugeruje, że są one dobrze dostosowane do scenariuszy z bardzo ograniczonymi danymi treningowymi. W trybach \textbf{few-shot} i \textbf{klasycznym}, wydajność była bardziej zróżnicowana, ale autorskie metody pokazały się z dobrej strony w wielu aspektach:
-\begin{itemize}
-	\item \textbf{\texttt{Metoda19}} wyróżniła się dobrą wydajnością w trybie \textbf{few-shot} dla modeli \textbf{BERT} i \textbf{SBERT}, osiągając wysokie wyniki w dokładności, F1-score i ROC-AUC. W trybie \textbf{klasycznym} również pokazała dobre rezultaty pod względem dokładności dla \textbf{BERT} i F1-score dla \textbf{SBERT}.
-	\item \textbf{\texttt{Metoda18}} osiągnęła wysokie wyniki w trybie \textbf{few-shot} dla modelu \textbf{RoBERTa}, szczególnie w F1-score i ROC-AUC, a w trybie \textbf{klasycznym} była wśród najlepszych w F1-score dla \textbf{SBERT}.
-	\item \textbf{\texttt{Metoda17}} miała mieszane wyniki: dla \textbf{RoBERTa} w trybie \textbf{few-shot} była wśród najlepszych w ROC-AUC, ale dla \textbf{BERT} i \textbf{SBERT} często znajdowała się wśród najgorszych, zwłaszcza w dokładności i F1-score. W trybie \textbf{klasycznym} osiągnęła dobre wyniki w F1-score dla \textbf{BERT} i \textbf{RoBERTa}, ale była słabsza w dokładności dla \textbf{RoBERTa}.
-	\item \textbf{\texttt{Metoda20}} miała słabsze wyniki w trybie \textbf{few-shot}, szczególnie dla \textbf{RoBERTa}, gdzie była wśród najgorszych w dokładności, oraz nie była wyraźnie wyróżniona w trybie \textbf{klasycznym}.
-\end{itemize}
-
-Pod względem czasu wykonania, autorskie metody wykazały się dużą efektywnością:
-\begin{itemize}
-	\item \textbf{\texttt{Metoda18}} i \textbf{\texttt{Metoda19}} często miały bardzo krótki czas wykonania, poniżej 1 sekundy, szczególnie w trybach \textbf{few-shot} i \textbf{one-shot} dla modeli \textbf{BERT} i \textbf{RoBERTa}, co czyni je atrakcyjnymi dla zastosowań, gdzie szybkość jest kluczowa.
-	\item \textbf{\texttt{Metoda20}} również charakteryzowała się krótkim czasem wykonania w niektórych konfiguracjach, np. dla \textbf{BERT} w trybie \textbf{one-shot}.
-	\item \textbf{\texttt{Metoda17}} miała mieszane wyniki: krótki czas dla \textbf{BERT} w trybie \textbf{klasycznym} (<1s), ale długi czas (>60s) dla \textbf{BERT} w \textbf{few-shot} i (>8s) dla \textbf{RoBERTa} w \textbf{klasycznym}, co wskazuje na niekonsekwencję.
-\end{itemize}
-
-W analizie datasetu BuzzFeed, metoda autorska \texttt{metoda17} osiągnęła wysoki wynik AUC-PR na poziomie 0,7041, co plasuje ją na 4. miejscu spośród wszystkich testowanych metod. Również \texttt{metoda20} z AUC-PR 0,6671 należy do bardzo dobrych wyników, w przeciwieństwie do \texttt{metod19} oraz \texttt{metoda18}.
-
-Analiza statystyczna, oparta na testach Shapiro-Wilka, macierzach korelacji Pearsona i Spearmana oraz testach Kruskal-Wallis, dostarczyła dodatkowe informacje:
-\begin{itemize}
-    \item Testy normalności wykazały, że rozkłady wielu metryk nie są normalne w przypadku niektórych metod, co uzasadnia stosowanie testów \textbf{nieparametrycznych}.
-    \item Zaobserwowano silne dodatnie korelacje między \textbf{dokładnością}, \textbf{MCC} a \textbf{Cohen's Kappa}, z współczynnikami \textbf{Pearsona} powyżej 0{,}99 oraz \textbf{Spearmana} powyżej 0{,}98, co potwierdza spójność tych metryk w ocenie wydajności.
-    \item Testy \textbf{Kruskala-Wallisa} nie wykazały istotnych statystycznie różnic między metodami (p > 0{,}05), co może sugerować ich zbliżoną ogólną wydajność lub wpływ specyfiki zbioru danych \texttt{BuzzFeed}.
-    \item Silna korelacja między \textbf{ROC-AUC} a \textbf{AUC-PR} (Pearson: 0{,}9376; Spearman: 0{,}9101) sugeruje, że metryki te można stosować zamiennie w analizach porównawczych.
-    \item Brak silnych ujemnych korelacji między metrykami wskazuje, że poprawa jednej nie skutkuje pogorszeniem innej, co świadczy o stabilności modeli w różnych aspektach oceny.
-    \item Niska zmienność wartości \textbf{AUC-PR} wśród najlepszych metod (różnica ~0{,}01 między czołowymi wynikami) sugeruje zbliżony poziom wydajności klasyfikatorów w tym konkretnym zbiorze danych.
-\end{itemize}
-
-Podsumowując, autorskie metody \texttt{Metoda20} i \texttt{Metoda19} osiągnęły wybitne wyniki w trybie \textbf{one-shot}, szczególnie w zakresie \textbf{dokładności} i \textbf{F1-score}, co czyni je konkurencyjnymi w scenariuszach z ograniczonymi danymi, jak w przypadku zbioru \textbf{BuzzFeed}. W trybie \textbf{few-shot}, \texttt{Metoda19} i \texttt{Metoda18} były skuteczne dla różnych modeli, zwłaszcza dla \texttt{SBERT}, gdzie uzyskano bardzo dobre wyniki jakościowe przy najkrótszym \textbf{czasie wykonania}. W trybie \textbf{klasycznym}, \texttt{Metoda19} również wyróżniła się w kluczowych metrykach. \texttt{Metoda17} miała mieszane wyniki i wymaga optymalizacji \textbf{czasu działania}. Ogólnie, metody autorskie wykazują zarówno wysoką \textbf{wydajność}, jak i \textbf{efektywność obliczeniową}, szybki \textbf{czas wykonania}, co czyni je obiecującymi w detekcji fałszywych wiadomości, szczególnie w warunkach ograniczonej ilości danych.

@@ -361,4 +361,438 @@ INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-s
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ptm.cfg
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ptm.cfg
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ptm.cfg
+INPUT .\thesis.out
+INPUT .\thesis.out
+INPUT thesis.out
+INPUT thesis.out
+OUTPUT thesis.pdf
+INPUT .\thesis.out
+INPUT .\thesis.out
 OUTPUT thesis.out
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\mathdesign\mdugm\t1mdugm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\mathdesign\mdugm\t1mdugm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\mathdesign\mdugm\t1mdugm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmr8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ugm.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ugm.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-ugm.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msa.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msa.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msa.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msb.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msb.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-msb.cfg
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmr8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmr8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\mdugmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmm8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\ly1\texnansi.enc
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmm8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmr8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmr8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmr8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmm8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmr8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmr8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmr8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmm8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmr8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmr8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmr8t.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\vf\mathdesign\mdugm\mdugmm8t.vf
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8y.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\mathdesign\mdugm\md-gmm8t.tfm
+INPUT .\chapters\abstract.tex
+INPUT .\chapters\abstract.tex
+INPUT .\chapters\abstract.tex
+INPUT .\chapters\abstract.tex
+INPUT chapters\abstract.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmb.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmb.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ec.enc
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmr.tfm
+INPUT .\thesis.toc
+INPUT .\thesis.toc
+INPUT thesis.toc
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmb.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+OUTPUT thesis.toc
+INPUT .\chapters\chapter1_Introduction.tex
+INPUT .\chapters\chapter1_Introduction.tex
+INPUT chapters\chapter1_Introduction.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmri.tfm
+INPUT .\chapters\chapter2_Literature.tex
+INPUT .\chapters\chapter2_Literature.tex
+INPUT .\chapters\chapter2_Literature.tex
+INPUT .\chapters\chapter2_Literature.tex
+INPUT chapters\chapter2_Literature.tex
+INPUT .\chapters\chapter2\1.tex
+INPUT .\chapters\chapter2\1.tex
+INPUT chapters\chapter2\1.tex
+INPUT .\chapters\chapter2\2.tex
+INPUT .\chapters\chapter2\2.tex
+INPUT chapters\chapter2\2.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmb.tfm
+INPUT .\chapters\chapter2\3.tex
+INPUT .\chapters\chapter2\3.tex
+INPUT chapters\chapter2\3.tex
+INPUT .\chapters\chapter2\4.tex
+INPUT .\chapters\chapter2\4.tex
+INPUT chapters\chapter2\4.tex
+INPUT .\chapters\chapter2\5.tex
+INPUT .\chapters\chapter2\5.tex
+INPUT chapters\chapter2\5.tex
+INPUT .\chapters\chapter2\6.tex
+INPUT .\chapters\chapter2\6.tex
+INPUT chapters\chapter2\6.tex
+INPUT .\chapters\chapter2\7.tex
+INPUT .\chapters\chapter2\7.tex
+INPUT chapters\chapter2\7.tex
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda15.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda2.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda3.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\img\diagrams\metoda5.drawio.png
+INPUT .\chapters\chapter2\8.tex
+INPUT .\chapters\chapter2\8.tex
+INPUT chapters\chapter2\8.tex
+INPUT .\chapters\chapter2\9.tex
+INPUT .\chapters\chapter2\9.tex
+INPUT chapters\chapter2\9.tex
+INPUT .\chapters\chapter2\10.tex
+INPUT .\chapters\chapter2\10.tex
+INPUT chapters\chapter2\10.tex
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Accuracy_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Precision_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_Recall_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_F1-Score_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_Log Loss_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_MCC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_ROC-AUC_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT .\img\best_results\best_Execution Time (s)_comparison.png
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmr.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT .\chapters\chapter3_Our_Methods.tex
+INPUT .\chapters\chapter3_Our_Methods.tex
+INPUT .\chapters\chapter3_Our_Methods.tex
+INPUT .\chapters\chapter3_Our_Methods.tex
+INPUT chapters\chapter3_Our_Methods.tex
+INPUT .\chapters\chapter3\1.tex
+INPUT .\chapters\chapter3\1.tex
+INPUT chapters\chapter3\1.tex
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\img\diagrams\metoda17.drawio.png
+INPUT .\chapters\chapter3\2.tex
+INPUT .\chapters\chapter3\2.tex
+INPUT chapters\chapter3\2.tex
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\img\diagrams\metoda18.drawio.png
+INPUT .\chapters\chapter3\3.tex
+INPUT .\chapters\chapter3\3.tex
+INPUT chapters\chapter3\3.tex
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\img\diagrams\metoda19.drawio.png
+INPUT .\chapters\chapter3\4.tex
+INPUT .\chapters\chapter3\4.tex
+INPUT chapters\chapter3\4.tex
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\img\diagrams\metoda20.drawio.png
+INPUT .\chapters\chapter4_Implementation.tex
+INPUT .\chapters\chapter4_Implementation.tex
+INPUT .\chapters\chapter4_Implementation.tex
+INPUT .\chapters\chapter4_Implementation.tex
+INPUT chapters\chapter4_Implementation.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ts1qtm.fd
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ts1.enc
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\SystemArchitecture.png
+INPUT .\img\app\console.png
+INPUT .\img\app\console.png
+INPUT .\img\app\console.png
+INPUT .\img\app\console.png
+INPUT .\img\app\console.png
+INPUT .\img\app\console.png
+INPUT .\img\app\console.png
+INPUT .\chapters\chapter5_Tests_Results.tex
+INPUT .\chapters\chapter5_Tests_Results.tex
+INPUT .\chapters\chapter5_Tests_Results.tex
+INPUT .\chapters\chapter5_Tests_Results.tex
+INPUT chapters\chapter5_Tests_Results.tex
+INPUT .\chapters\chapter5\1.tex
+INPUT .\chapters\chapter5\1.tex
+INPUT chapters\chapter5\1.tex
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\chapters\summary.tex
+INPUT .\chapters\summary.tex
+INPUT .\chapters\summary.tex
+INPUT .\chapters\summary.tex
+INPUT chapters\summary.tex
+INPUT .\thesis.bbl
+INPUT .\thesis.bbl
+INPUT thesis.bbl
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmri.tfm
+INPUT .\thesis.lof
+INPUT .\thesis.lof
+INPUT thesis.lof
+OUTPUT thesis.lof
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmr.tfm
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmb.tfm
+INPUT .\chapters\appendix1.tex
+INPUT .\chapters\appendix1.tex
+INPUT .\chapters\appendix1.tex
+INPUT .\chapters\appendix1.tex
+INPUT chapters\appendix1.tex
+INPUT thesis.aux
+INPUT .\thesis.out
+INPUT .\thesis.out
+INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
+INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmri.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmri.pfb
+INPUT .\ugmm8a.pfb
+INPUT .\ugmm8a.pfb
+INPUT .\ugmr8a.pfb
+INPUT .\ugmr8a.pfb
