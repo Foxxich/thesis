@@ -1,5 +1,4 @@
 \section{Trzecia metoda (\textbf{Metoda19})}
-\subsection{Pomysł na metodę}
 \textbf{Metoda19} jest efektem rozwoju pomysłów z \textbf{Metoda5}, która opierała się na łączeniu wyników różnych algorytmów. W \textbf{Metoda5} zastosowano Random Forest i XGBoost jako modele bazowe, które następnie były integrowane za pomocą regresji logistycznej. \textbf{Metoda19} rozwija tę koncepcję, wykorzystując bardziej rozbudowaną architekturę stacking z trzema różnymi modelami bazowymi: Random Forest, XGBoost oraz Gradient Boosting.
 
 W \textbf{Metoda19} łączy się Random Forest, oparty na agregacji wielu losowych predyktorów, XGBoost, wykorzystujący technikę gradientowego wzmacniania, oraz Gradient Boosting, który sekwencyjnie buduje modele korygujące błędy poprzedników. Inspiracją z \textbf{Metoda5} jest zastosowanie regresji logistycznej jako meta-modelu, który skutecznie integruje predykcje tych trzech różnorodnych algorytmów. Wykorzystanie wielu, różniących się w swoim działaniu, modeli bazowych ma na celu zwiększenie ogólnej dokładności i stabilności predykcji.

@@ -1,6 +1,5 @@
 \section{Czwarta metoda (\textbf{Metoda20})}
-\subsection{Pomysł na metodę}
-Metoda ta powstała na bazie idei integracji wielu modeli, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były również metody stacking, gdzie predykcje modeli bazowych służyły jako cechy dla meta-modelu.
+\textbf{Metoda20} ta powstała na bazie idei integracji wielu modeli, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były również metody stacking, gdzie predykcje modeli bazowych służyły jako cechy dla meta-modelu.
 
 W \textbf{Metoda20} połączono LightGBM, CatBoost, Random Forest i Gradient Boosting. LightGBM i CatBoost to zaawansowane algorytmy boostingowe znane ze swojej szybkości i efektywności. Random Forest jest modelem opartym na zespołach losowo tworzonych predyktorów, a Gradient Boosting sekwencyjnie buduje modele korygujące błędy poprzedników. Regresja logistyczna służy tutaj jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie unikalnych mocnych stron każdego z tych algorytmów, aby osiągnąć wyższą dokładność i bardziej stabilne predykcje.
 

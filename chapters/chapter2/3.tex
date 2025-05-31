@@ -1,207 +1,167 @@
 \section{Kluczowe modele w analizie i detekcji dezinformacji}
 \subsection{Regresja logistyczna}
-Regresja logistyczna jest modelem statystycznym stosowanym głównie w
-klasyfikacji binarnej. Opiera się na wykorzystaniu funkcji sigmoidalnej,
-która przekształca wyniki liniowej kombinacji cech wejściowych w wartość
-prawdopodobieństwa, umożliwiając klasyfikację na dwie klasy. Model ten
-jest szczególnie ceniony za prostotę i interpretowalność --
-współczynniki regresji wskazują na wpływ poszczególnych cech na wynik
-predykcji.
 
-W praktyce regresja logistyczna jest wykorzystywana w analizach, takich
-jak:
+Regresja logistyczna jest klasycznym modelem statystycznym wykorzystywanym głównie w klasyfikacji binarnej. Bazuje na funkcji sigmoidalnej, która przekształca liniową kombinację cech wejściowych w wartości prawdopodobieństwa przynależności do jednej z dwóch klas. Dzięki swojej prostocie oraz interpretowalności — gdzie współczynniki regresji informują o kierunku i sile wpływu zmiennych — model ten jest powszechnie stosowany w naukach społecznych, biomedycynie czy analizie danych politycznych.
+
+Przykładowe zastosowania regresji logistycznej obejmują:
 
 \begin{itemize}
-	\item
-	      \textbf{Prognozowanie ryzyka chorób} w medycynie,
-	\item
-	      \textbf{Segmentacja klientów} w marketingu,
-	\item
-	      \textbf{Ocena ryzyka kredytowego} w finansach.
+	\item \textbf{Modelowanie prawdopodobieństwa wybuchu konfliktu zbrojnego} w analizie politycznej,
+	\item \textbf{Szacowanie ryzyka zamachu terrorystycznego} na podstawie cech geograficznych i społecznych,
+	\item \textbf{Prognozowanie porażki wyborczej urzędującego kandydata} przy rzadkich przypadkach zmiany władzy.
 \end{itemize}
 
-Największym ograniczeniem regresji logistycznej
-jest jej niezdolność do modelowania złożonych, nieliniowych zależności
-oraz tendencja do faworyzowania klasy dominującej w przypadku
-nierównoważnych danych.
+Jednak regresja logistyczna wykazuje istotne ograniczenia przy modelowaniu rzadkich zdarzeń (rare events*), czyli przypadków, gdy pozytywna klasa występuje bardzo rzadko w porównaniu do klasy negatywnej. W takich sytuacjach standardowe estymatory logistyczne mogą prowadzić do silnie obciążonych wyników, zaniżając prawdopodobieństwo wystąpienia rzadkiego zdarzenia oraz przeszacowując trafność klasyfikatora. Jak pokazują King i Zeng w pracy \cite{Regresja_logistyczna}, konieczne są specjalne techniki korekcyjne, takie jak zastosowanie ważonego doboru próby (*prior correction*) czy poprawionych estymatorów maksymalnego prawdopodobieństwa, by zapewnić wiarygodność modelu.
 
 \subsection{Random Forest}
-Random Forest to rozwinięcie drzew decyzyjnych, które wprowadza element
-losowości, aby zwiększyć różnorodność modeli bazowych i zmniejszyć ich
-podatność na przeuczenie. Model ten wykorzystuje:
+
+Random Forest to potężna metoda uczenia zespołowego oparta na zbiorze drzew decyzyjnych, zaprojektowana z myślą o poprawie dokładności predykcji i ograniczeniu ryzyka przeuczenia. Model ten łączy wiele niezależnie wytrenowanych drzew, wprowadzając losowość zarówno na etapie próbkowania danych, jak i wyboru cech przy podziałach węzłów. Kluczowe mechanizmy działania Random Forest obejmują:
 
 \begin{itemize}
 	\item
-	      \textbf{Bagging} (Bootstrap Aggregating): losowe próbkowanie z
-	      zamianą, aby stworzyć wiele zbiorów danych treningowych,
+	      \textbf{Bagging} (Bootstrap Aggregating) - losowe próbkowanie ze zwracaniem w celu generowania zróżnicowanych zbiorów treningowych dla poszczególnych drzew,
 	\item
-	      \textbf{Losowy wybór cech} na każdym etapie budowy drzewa, co
-	      zmniejsza korelację między drzewami.
+	      \textbf{Losowy wybór podzbioru cech} przy każdym rozgałęzieniu drzewa, co zmniejsza korelację między drzewami i zwiększa ogólną różnorodność modelu.
 \end{itemize}
 
-Według przeprowadzonej analizie zastosowań, Random Forest jest przydatny w zadaniach takich
-jak:
+Zgodnie z analizą przedstawioną w pracy \cite{Random_forest}, Random Forest charakteryzuje się wysoką odpornością na szum, dobrze radzi sobie z brakującymi danymi oraz skutecznie działa w przestrzeniach o wysokiej wymiarowości. Szczególnie przydatny jest w zadaniach klasyfikacji i regresji, gdzie niezakłócona interpretacja indywidualnych zmiennych nie jest kluczowa. Przykładowe zastosowania to:
 
 \begin{itemize}
 	\item
-	      \textbf{Diagnoza medyczna}, gdzie umożliwia ocenę ważności cech
-	      diagnostycznych,
+	      \textbf{Klasyfikacja danych genomicznych} w bioinformatyce, gdzie Random Forest skutecznie radzi sobie z dużymi zbiorami danych o wysokiej wymiarowości,
 	\item
-	      \textbf{Wykrywanie intruzji} w systemach bezpieczeństwa,
+	      \textbf{Regresja w analizie danych chemicznych}, przykładowo przewidywanie właściwości chemicznych na podstawie cech molekularnych,
 	\item
-	      \textbf{Analiza danych obrazowych}, dzięki możliwości przetwarzania
-	      dużych zbiorów w sposób równoległy.
+	      \textbf{Klasyfikacja obrazów}, gdzie model jest wykorzystywany do rozpoznawania wzorców w danych obrazowych.
 \end{itemize}
 
-Pomimo swoich zalet, Random Forest jest trudniejszy w interpretacji w
-porównaniu do pojedynczych drzew decyzyjnych.
+Pomimo wysokiej skuteczności, Random Forest jest mniej przejrzysty niż pojedyncze drzewa decyzyjne - trudniej jest jednoznacznie interpretować wpływ poszczególnych zmiennych na wynik końcowy. Jednak jak podkreślają autorzy \cite{Random_forest}, zalety związane z dokładnością, skalowalnością i odpornością na przetrenowanie czynią Random Forest jednym z najbardziej uniwersalnych narzędzi w analizie danych.
 
 \subsection{Boosting: AdaBoost i Gradient Boosting}
-Boosting to rodzina algorytmów, które iteracyjnie wzmacniają słabe
-klasyfikatory. Każda iteracja skupia się na poprawie błędów poprzednich,
-co prowadzi do bardziej precyzyjnego modelu.
-
+Boosting to technika uczenia zespołowego, której celem jest stworzenie silnego klasyfikatora poprzez iteracyjne dodawanie słabych modeli. Każdy nowy model koncentruje się na błędach popełnionych przez poprzednie, prowadząc do sukcesywnego zwiększenia dokładności predykcji.
 \begin{itemize}
 	\item
-	      \textbf{AdaBoost}: Używa prostych modeli i nadaje większe wagi przykładom błędnie sklasyfikowanym.
-	      Znajduje zastosowanie w:
+	      \textbf{AdaBoost} (Adaptive Boosting) wykorzystuje słabe klasyfikatory, takie jak płytkie drzewa decyzyjne. Modele w kolejnych iteracjach przywiązują większą wagę do przykładów trudnych do sklasyfikowania. Algorytm ten jest szczególnie skuteczny w warunkach małego szumu i został zastosowany między innym w:
 
 	      \begin{itemize}
 		      \item
-		            \textbf{Wykrywaniu intruzji} w systemach komputerowych,
+		            \textbf{Rozpoznawaniu obiektów w obrazach cyfrowych}, przykładowo detekcja twarzy,
 		      \item
-		            \textbf{Analizie tekstu},
+		            \textbf{Klasyfikacji dokumentów tekstowych},
 		      \item
-		            \textbf{Prognozowaniu upadłości firm}.
+		            \textbf{Wykrywaniu anomalii w danych sensorycznych}.
 	      \end{itemize}
+
 	\item
-	      \textbf{Gradient Boosting}: Wykorzystuje optymalizację gradientową,
-	      aby iteracyjnie korygować błędy. Modeluje złożone zależności
-	      nieliniowe, co sprawia, że jest bardzo dokładny, ale wymaga starannego
-	      strojenia hiperparametrów. Zastosowania obejmują:
+	      \textbf{Gradient Boosting} opiera się na podejściu funkcji kosztu minimalizowanej przy użyciu gradientu. Każdy nowy model uczy się na podstawie błędów popełnionych przez poprzednie modele. Jak opisano w pracy \cite{Gradient_boosting}, technika ta jest elastyczna i skuteczna w modelowaniu złożonych zależności, jednak wymaga odpowiednich technik regularyzacji. Przykładowe zastosowania gradient boostingu z artykułu obejmują:
 
 	      \begin{itemize}
 		      \item
-		            \textbf{Diagnozę medyczną},
+		            \textbf{Bioinformatykę} — klasyfikacja sekwencji DNA lub ekspresji genów,
 		      \item
-		            \textbf{Prognozowanie sprzedaży},
+		            \textbf{Przewidywanie wyników sportowych} na podstawie danych historycznych,
 		      \item
-		            \textbf{Analizę ryzyka kredytowego}.
+		            \textbf{Segmentację obrazów} oraz inne zadania z zakresu przetwarzania obrazu.
 	      \end{itemize}
 \end{itemize}
-
-Boosting jest bardziej podatny na szum w danych, ale pozwala uzyskać
-wysoką dokładność nawet w trudnych zadaniach.
+Jak podkreślają autorzy w \cite{Gradient_boosting}, Gradient Boosting osiąga wysoką skuteczność predykcyjną, jednak jest wrażliwy na szum w danych i ryzyko przeuczenia. Właściwe działanie modelu wymaga zatem uważnej regularyzacji (przykładowo shrinkage, ograniczenie głębokości drzew) oraz walidacji krzyżowej. Boosting stanowi obecnie jeden z najbardziej efektywnych algorytmów stosowanych w klasyfikacji i regresji.
 
 \subsection{XGBoost i LightGBM}
-Te zaawansowane modele boostingu zostały zoptymalizowane pod kątem
-wydajności i skalowalności:
+XGBoost i LightGBM to nowoczesne implementacje boostingu drzew decyzyjnych, zaprojektowane z myślą o wydajności obliczeniowej, skalowalności i możliwości przetwarzania dużych wolumenów danych. Oba algorytmy opierają się na koncepcji Gradient Boosting, ale wprowadzają istotne usprawnienia architektoniczne.
 
 \begin{itemize}
 	\item
-	      \textbf{XGBoost}: Wprowadza regularyzację (L1 i L2) i przetwarzanie
-	      równoległe, co pozwala na szybkie trenowanie dużych zbiorów danych.
-	      Jest szeroko stosowany w:
+	      \textbf{XGBoost}: Wprowadza zaawansowaną regularyzację (zarówno L1, jak i L2), precyzyjną kontrolę złożoności modelu oraz wykorzystuje przetwarzanie równoległe podczas budowy drzew. Obsługuje również brakujące dane i przycinanie drzew wstecz . XGBoost jest szeroko wykorzystywany w:
 
 	      \begin{itemize}
 		      \item
-		            \textbf{Prognozowaniu cen akcji},
-		      \item
-		            \textbf{Wykrywaniu rzadkich chorób},
-		      \item
-		            \textbf{Analizie danych przestrzennych}.
+		            \textbf{Przewidywaniu stabilności filarów skalnych w kopalniach twardych skał}, gdzie pozwala na dokładną ocenę ryzyka zawalenia w oparciu o dane geologiczne.
 	      \end{itemize}
+
 	\item
-	      \textbf{LightGBM}: Korzysta z technik takich jak budowa drzewa na
-	      podstawie histogramów, co znacząco przyspiesza trenowanie.
-	      Zastosowania obejmują:
+	      \textbf{LightGBM}: Został zoptymalizowany pod kątem szybkości i pamięciooszczędności. Wykorzystuje techniki takie jak histogram\-based decision tree learning oraz \textit{leaf-wise} strategię rozgałęziania, co pozwala na szybsze trenowanie i lepsze skalowanie przy dużych zbiorach danych. Zastosowania obejmują:
 
 	      \begin{itemize}
 		      \item
-		            \textbf{Wykrywanie oszustw},
-		      \item
-		            \textbf{Analizę tekstu, obrazów i dźwięków}.
+		            \textbf{Przewidywanie stabilności filarów skalnych w kopalniach twardych skał}, umożliwiając efektywne modelowanie złożonych zależności geologicznych przy dużych zbiorach danych.
 	      \end{itemize}
 \end{itemize}
 
-Oba modele oferują wysoką dokładność, ale ich strojenie może być
-bardziej skomplikowane w porównaniu do prostszych rozwiązań.
+Oba modele osiągają wysoką dokładność predykcyjną i są powszechnie stosowane w rozwiązaniach produkcyjnych. Ich strojenie wymaga jednak starannej optymalizacji hiperparametrów. Szczegółowe porównanie tych metod i ich zastosowanie w praktyce przedstawiono w pracy \cite{XGBoost_LightGBM}.
 
 \subsection{Stacking}
-Stacking to metoda łączenia różnych modeli bazowych za pomocą
-meta-modelu. Meta-model uczy się, jak najlepiej łączyć prognozy, co
-pozwala na:
-
+Stacking to metoda łączenia różnych modeli bazowych za pomocą meta modelu. Meta model uczy się, jak najlepiej łączyć prognozy, co pozwala na:
 \begin{itemize}
 	\item
 	      \textbf{Uwzględnienie różnorodnych aspektów danych,}
 	\item
 	      \textbf{Zwiększenie skuteczności poprzez integrację różnych podejść.}
 \end{itemize}
-
-Stacking jest szczególnie efektywny w zadaniach, gdzie dane mają skomplikowaną strukturę, a różne modele bazowe mogą uchwycić różne cechy. Zastosowania obejmują:
-
+Stacking jest szczególnie efektywny w zadaniach, gdzie dane mają skomplikowaną strukturę, a różne modele bazowe mogą uchwycić różne cechy, o czym się wspominało w \cite{liang2021stacking}. Zastosowania obejmują:
 \begin{itemize}
-	\item \textbf{Analiza sentymentu w mediach społecznościowych},
-	\item \textbf{Rozpoznawanie mowy}.
+	\item
+	      \textbf{Przewidywanie fenotypów na podstawie danych genomicznych}, przykładowo w analizie cech roślin lub zwierząt w badaniach genetycznych.
 \end{itemize}
 
 \subsection{Sieci neuronowe}
 Sieci neuronowe to zaawansowane modele klasyfikacyjne oparte na warstwach neuronów, które przetwarzają dane wejściowe w sposób inspirowany ludzkim mózgiem. Pozwalają na:
-
 \begin{itemize}
-	\item \textbf{Modelowanie złożonych, nieliniowych zależności między cechami,}
-	\item \textbf{Przetwarzanie różnorodnych typów danych, takich jak tekst czy sekwencje.}
+	\item
+	      \textbf{Modelowanie złożonych, nieliniowych zależności między cechami,}
+	\item
+	      \textbf{Przetwarzanie różnorodnych typów danych, takich jak tekst czy sekwencje.}
 \end{itemize}
 
-Sieci neuronowe są szczególnie efektywne w zadaniach, gdzie dane mają strukturę sekwencyjną lub przestrzenną. W kontekście klasyfikacji obiekt (wektor cech lub tekst) przechodzi przez moduł klasyfikacji składający się z warstw neuronowych, a wynikiem jest etykieta binarna określająca grupę przynależności. Zastosowania obejmują:
-
+Sieci neuronowe są szczególnie efektywne w zadaniach, gdzie dane mają strukturę sekwencyjną lub przestrzenną \cite{NeuralNetworks}. W kontekście klasyfikacji obiekt (wektor cech lub tekst) przechodzi przez moduł klasyfikacji składający się z warstw neuronowych, a wynikiem jest etykieta binarna określająca grupę przynależności. Zastosowania obejmują:
 \begin{itemize}
-	\item \textbf{Wykrywanie dezinformacji w tekstach mediów społecznościowych,}
-	\item \textbf{Rozpoznawanie obrazów i analiza danych medycznych.}
+	\item
+	      \textbf{Rozpoznawanie obrazów}, przykładowo klasyfikacja obiektów na zdjęciach,
+	\item
+	      \textbf{Rozpoznawanie mowy}, przykładowo w systemach transkrypcji mowy na tekst.
 \end{itemize}
 
 \subsection{Voting Classifier}
 Voting Classifier to technika zespołowa, która integruje predykcje wielu klasyfikatorów za pomocą mechanizmu głosowania. Umożliwia:
 
 \begin{itemize}
-	\item \textbf{Zwiększenie stabilności predykcji poprzez konsensus,}
-	\item \textbf{Wykorzystanie różnorodnych podejść klasyfikacyjnych.}
+	\item
+	      \textbf{Zwiększenie stabilności predykcji,}
+	\item
+	      \textbf{Wykorzystanie różnorodnych podejść klasyfikacyjnych.}
 \end{itemize}
 
-Metoda ta jest skuteczna w zadaniach wymagających niezawodności i odporności na błędy pojedynczych modeli. Obiekt do klasyfikacji (wektor cech) jest analizowany przez moduł złożony z równolegle działających klasyfikatorów, a wynikiem jest etykieta binarna wyłoniona w procesie głosowania. Zastosowania obejmują:
-
+Metoda ta jest skuteczna w zadaniach wymagających niezawodności i odporności na błędy pojedynczych modeli \cite{VotingClassifier}. Obiekt do klasyfikacji (wektor cech) jest analizowany przez moduł złożony z równolegle działających klasyfikatorów, a wynikiem jest etykieta binarna obrana w procesie głosowania. Zastosowania obejmują:
 \begin{itemize}
-	\item \textbf{Analiza sentymentu w danych tekstowych,}
-	\item \textbf{Wykrywanie oszustw w systemach finansowych.}
+	\item
+	      \textbf{Identyfikacja wzorców defektów w produkcji półprzewodników}, przykładowo w celu poprawy jakości procesów produkcyjnych.
 \end{itemize}
 
 \subsection{Modele z post-processingiem}
 Modele z post-processingiem to podejście, które wzbogaca klasyfikację o dodatkowe kroki korygujące oparte na heurystykach lub analizie niepewności. Pozwalają na:
-
 \begin{itemize}
-	\item \textbf{Poprawę precyzji predykcji dzięki dodatkowym informacjom kontekstowym,}
-	\item \textbf{Uwzględnienie niepewności modelu w procesie decyzyjnym.}
+	\item
+	      \textbf{Poprawę precyzji predykcji dzięki dodatkowym informacjom kontekstowym,}
+	\item
+	      \textbf{Uwzględnienie niepewności modelu w procesie decyzyjnym.}
 \end{itemize}
 
-Są one szczególnie przydatne w specyficznych zadaniach, gdzie standardowa klasyfikacja wymaga doprecyzowania. Obiekt do analizy, tekst lub wektor cech, przechodzi przez moduł klasyfikacji, a następnie jego etykieta binarna jest korygowana na podstawie meta-danych, dając ostateczną grupę przynależności. Zastosowania obejmują:
+Są one szczególnie przydatne w specyficznych zadaniach, gdzie standardowa klasyfikacja wymaga doprecyzowania \cite{postprocessing}. Obiekt do analizy, tekst lub wektor cech, przechodzi przez moduł klasyfikacji, a następnie jego etykieta binarna jest korygowana na podstawie meta-danych, dając ostateczną grupę przynależności. Zastosowania obejmują:
 
 \begin{itemize}
-	\item \textbf{Wykrywanie dezinformacji z uwzględnieniem wiarygodności źródła,}
-	\item \textbf{Analiza ryzyka w danych finansowych.}
+	\item
+	      \textbf{Redukcja błędów w predykcjach modeli uczenia maszynowego} w zadaniach klasyfikacyjnych dla różnych grup demograficznych.
 \end{itemize}
 
 \subsection{CatBoost}
 CatBoost to algorytm boostingu zoptymalizowany do pracy z danymi kategorycznymi, który iteracyjnie ulepsza klasyfikację. Umożliwia:
-
 \begin{itemize}
-	\item \textbf{Efektywne przetwarzanie zmiennych kategorycznych bez dodatkowego kodowania,}
-	\item \textbf{Wysoką dokładność dzięki gradientowemu podejściu do optymalizacji.}
+	\item
+	      \textbf{Efektywne przetwarzanie zmiennych kategorycznych bez dodatkowego kodowania,}
+	\item
+	      \textbf{Wysoką dokładność dzięki gradientowemu podejściu do optymalizacji.}
 \end{itemize}
-
-CatBoost sprawdza się w zadaniach z heterogenicznymi danymi. Obiekt do klasyfikacji, wektor cech z danymi kategorycznymi, jest analizowany przez moduł oparty na drzewach decyzyjnych, a wynikiem jest etykieta binarna określająca grupę. Zastosowania obejmują:
-
+CatBoost sprawdza się w zadaniach z heterogenicznymi danymi \cite{CatBoost}. Obiekt do klasyfikacji, wektor cech z danymi kategorycznymi, jest analizowany przez moduł oparty na drzewach decyzyjnych, a wynikiem jest etykieta binarna określająca grupę. Zastosowania obejmują:
 \begin{itemize}
-	\item \textbf{Ocena ryzyka kredytowego w finansach,}
-	\item \textbf{Prognozowanie sprzedaży w e-commerce.}
+	\item
+	      \textbf{Przewidywanie niewypłacalności przedsiębiorstw}, w celu oceny ryzyka bankructwa na podstawie danych finansowych.
 \end{itemize}

@@ -30,6 +30,12 @@ Esma Aïmeur, Sabrine Amri, and Gilles Brassard.
 \newblock {\em Social Network Analysis and Mining}, 13(1):30, 2023.
 \newblock Uzyskano dostęp: 23 Stycznia 2025.
 
+\bibitem{Random_forest}
+Adele Cutler, David Cutler, and John Stevens.
+\newblock Random forests.
+\newblock {\em Machine Learning - ML}, 45:157--176, 01 2011.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
 \bibitem{metoda8}
 M.A. Ganaie, Minghui Hu, A.K. Malik, M.~Tanveer, and P.N. Suganthan.
 \newblock Ensemble deep learning: A review.
@@ -52,6 +58,13 @@ Saqib Hakak, Mamoun Alazab, Suleman Khan, Thippa~Reddy Gadekallu, Praveen
 \newblock {\em Future Generation Computer Systems}, 117:47--58, 2021.
 \newblock Uzyskano dostęp: 23 Stycznia 2025.
 
+\bibitem{CatBoost}
+Sami~Ben Jabeur, Cheima Gharib, Salma Mefteh-Wali, and Wissal~Ben Arfi.
+\newblock Catboost model and artificial intelligence techniques for corporate
+  failure prediction.
+\newblock {\em Technological Forecasting and Social Change}, 166:120658, 2021.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
 \bibitem{metoda13}
 Azal~Ahmad Khan, Omkar Chaudhari, and Rohitash Chandra.
 \newblock A review of ensemble learning and data augmentation models for class
@@ -67,6 +80,26 @@ Junaed~Younus Khan, Md. Tawkat~Islam Khondaker, Sadia Afroz, Gias Uddin, and
 \newblock {\em Machine Learning with Applications}, 4:100032, 2021.
 \newblock Uzyskano dostęp: 23 Stycznia 2025.
 
+\bibitem{Regresja_logistyczna}
+Gary King and Langche Zeng.
+\newblock Logistic regression in rare events data.
+\newblock {\em Political Analysis}, 9(2):137–163, 2001.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
+\bibitem{liang2021stacking}
+Mang Liang, Tianpeng Chang, Bingxing An, Xinghai Duan, Lili Du, Xiaoqiao Wang,
+  Jian Miao, Lingyang Xu, Xue Gao, Lupei Zhang, Junya Li, and Huijiang Gao.
+\newblock A stacking ensemble learning framework for genomic prediction.
+\newblock {\em Frontiers in Genetics}, 12:600040, 2021.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
+\bibitem{XGBoost_LightGBM}
+Weizhang Liang, Suizhi Luo, Guoyan Zhao, and Hao Wu.
+\newblock Predicting hard rock pillar stability using gbdt, xgboost, and
+  lightgbm algorithms.
+\newblock {\em Mathematics}, 8(5):765, 2020.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
 \bibitem{metoda10}
 Atik Mahabub.
 \newblock A robust technique of fake news detection using ensemble voting
@@ -81,6 +114,12 @@ Shubha Mishra, Piyush Shukla, and Ratish Agarwal.
 \newblock {\em Wireless Communications and Mobile Computing}, 2022(1):1575365,
   2022.
 \newblock Uzyskano dostęp: 23 Kwietnia 2025.
+
+\bibitem{Gradient_boosting}
+Alexey Natekin and Alois Knoll.
+\newblock Gradient boosting machines, a tutorial.
+\newblock {\em Frontiers in Neurorobotics}, Volume 7 - 2013, 2013.
+\newblock Uzyskano dostęp: 30 Maja 2025.
 
 \bibitem{metoda16}
 Parth Patel, Shubham Patel, and Yashkumar Patel.
@@ -129,6 +168,20 @@ Giovanni Santia and Jake Williams.
   Social Media}, 12(1):531--540, Jun. 2018.
 \newblock Uzyskano dostęp: 23 Kwietnia 2025.
 
+\bibitem{VotingClassifier}
+Muhammad Saqlain, Bilguun Jargalsaikhan, and Jong~Yun Lee.
+\newblock A voting ensemble classifier for wafer map defect patterns
+  identification in semiconductor manufacturing.
+\newblock {\em IEEE Transactions on Semiconductor Manufacturing},
+  32(2):171--182, 2019.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
+\bibitem{NeuralNetworks}
+Jürgen Schmidhuber.
+\newblock Deep learning in neural networks: An overview.
+\newblock {\em Neural Networks}, 61:85--117, 2015.
+\newblock Uzyskano dostęp: 30 Maja 2025.
+
 \bibitem{metoda15}
 K~V, B~B Al-onazi, V~Simic, E~B Tirkolaee, and C~Jana.
 \newblock Deepfnd: An ensemble-based deep learning approach for the
@@ -151,5 +204,11 @@ Pawan~Kumar Verma, Prateek Agrawal, Ivone Amorim, and Radu Prodan.
 \newblock {\em IEEE Transactions on Computational Social Systems},
   8(4):881--893, 2021.
 \newblock Uzyskano dostęp: 23 Kwietnia 2025.
+
+\bibitem{postprocessing}
+Yi~Zhou and Naman Goel.
+\newblock A post-processing-based fair federated learning framework.
+\newblock {\em arXiv preprint arXiv:2501.15318}, jan 2025.
+\newblock Uzyskano dostęp: 30 Maja 2025.
 
 \end{thebibliography}
