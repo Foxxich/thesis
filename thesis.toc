@@ -86,10 +86,10 @@
 \contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{70}{chapter.5}%
 \contentsline {section}{\numberline {5.1\relax .\enspace }Analiza wyników dla datasetu \textbf {BuzzFeed}}{71}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Wyniki w trybie klasycznym}{71}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{81}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{91}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu BuzzFeed}{101}{subsection.5.1.4}%
-\contentsline {chapter}{\numberline {6\relax .\enspace }Podsumowanie}{105}{chapter.6}%
-\contentsline {chapter}{Bibliografia}{106}{chapter*.93}%
-\contentsline {chapter}{Spis rysunk\'ow}{109}{chapter*.94}%
-\contentsline {chapter}{Dodatki}{110}{section*.95}%
+\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{82}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{93}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu BuzzFeed}{104}{subsection.5.1.4}%
+\contentsline {chapter}{\numberline {6\relax .\enspace }Podsumowanie}{109}{chapter.6}%
+\contentsline {chapter}{Bibliografia}{110}{chapter*.95}%
+\contentsline {chapter}{Spis rysunk\'ow}{113}{chapter*.96}%
+\contentsline {chapter}{Dodatki}{114}{section*.97}%
