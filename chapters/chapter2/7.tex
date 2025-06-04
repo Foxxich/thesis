@@ -5,21 +5,21 @@ Pragnę podkreślić, że wszystkie 16 omawianych podejść i implementacji bazu
 Dodatkowo, proponuję traktować każde podejście, opisane w jednym z 16 artykułów naukowych, jako odrębną metodę, co ułatwi ich prezentację i wyjaśnienie. Jednocześnie podkreślam, że autorskie metody, będą omówione w kolejnych rozdziałach, zostaną przedstawione jako metody numer 17, 18, 19 i 20, uzupełniając cel badania. Autorskie metody zostały opracowane na podstawie analizy 16 wspominanych wyżej podejść naukowych, co pozwoliło na stworzenie skutecznych rozwiązań.
 
 \subsection{Modele oparte na drzewach}
-\subsubsection{metoda12}
-\texttt{metoda12} - Random Forest i CatBoost: ensemble learning z baggingiem i boostingiem. Metoda ta trenuje równolegle klasyfikatory Random Forest i CatBoost, oceniając ich predykcje na danych testowych za pomocą metryk takich jak dokładność, precyzja, recall, F1 i ROC-AUC.
+\subsubsection{Hybrydowy model łączący Random Forest i CatBoost}
+\texttt{metoda12} - Random Forest i CatBoost: ensemble learning z baggingiem i boostingiem. Metoda trenuje równolegle klasyfikatory Random Forest i CatBoost, oceniając ich predykcje na danych testowych za pomocą metryk takich jak dokładność, precyzja, recall, F1 i ROC-AUC.
 
 W oryginalnym podejściu opisanym w artykule \cite{metoda12} proces klasyfikacji opiera się na ensemble learningu z baggingiem Random Forest i boostingiem CatBoost dla binarnej detekcji fałszywych wiadomości. Dane z zestawów ISOT Fake News i COVID-19 Fake News są oczyszczane: usuwanie stop-słów, lematyzacja za pomocą NLTK WordNetLemmatizer, tworząc wektory cech. Zbiór jest dzielony na 80\% treningowy i 20\% testowy, a modele Random Forest oraz CatBoost są trenowane na danych treningowych, z CatBoost monitorującym dane testowe. Wyniki są oceniane na zestawie testowym.
 
 Moja implementacja \texttt{metoda12} zachowuje wspólne cechy tej metody opisanej w \cite{metoda12}, opierając się na równoległym treningu Random Forest i CatBoost oraz ocenie metryk. Dane wejściowe, czyli \texttt{X\_train} reprezentujące cechy treningowe oraz \texttt{X\_test} odpowiadające cechom testowym, są przyjmowane jako tablice bez dodatkowego preprocessingu, co różni się od oczyszczania i kodowania TF-IDF w artykule, ale zachowuje ideę pracy na wektorach cech. Proces zaczyna się od inicjalizacji \texttt{RandomForestClassifier} i \texttt{CatBoostClassifier}, co jest zgodne z konfiguracją z artykułu. Random Forest jest trenowany na \texttt{X\_train} i \texttt{y\_train}, generując predykcje \texttt{rf\_y\_pred} na \texttt{X\_test}, podobnie jak w artykule. CatBoost jest trenowany na \texttt{X\_train} i \texttt{y\_train} z monitorowaniem \texttt{X\_test} i \texttt{y\_test}, generując predykcje \texttt{catboost\_y\_pred}, co odzwierciedla ustawienie \texttt{eval\_set} z artykułu. Wyniki są oceniane za pomocą funkcji \texttt{evaluate\_model}, obliczającej dokładność, precyzję, recall, F1 i ROC-AUC na podstawie \texttt{y\_test}, co odpowiada metrykom z artykułu. Metoda zwraca słownik zawierający wytrenowane modele (\texttt{rf\_classifier}, \texttt{catboost\_classifier}) oraz ich metryki (\texttt{rf\_metrics}, \texttt{catboost\_metrics}), co umożliwia dalszą analizę, podobnie jak w artykule, gdzie porównywano wydajność modeli.
 
 \subsection{Sieci neuronowe}
-\subsubsection{metoda1}
-\texttt{metoda1} - Ensemble sieci neuronowych: klasyfikacja binarna z różnorodnymi hiperparametrami. Metoda ta trenuje wiele modeli sieci neuronowych o różnych konfiguracjach hiperparametrów, łącząc ich przewidywania w ensemble, a wyniki ocenia na danych testowych za pomocą uśrednionych predykcji.
+\subsubsection{Model zespołowy sieci neuronowych (ensemble NN)}
+\texttt{metoda1} - Ensemble sieci neuronowych: klasyfikacja binarna z różnorodnymi hiperparametrami. Metoda trenuje wiele modeli sieci neuronowych o różnych konfiguracjach hiperparametrów, łącząc ich przewidywania w ensemble, a wyniki ocenia na danych testowych za pomocą uśrednionych predykcji.
 
 Moja implementacja \texttt{metoda1} całkowicie opiera się na artykule \cite{metoda1}, który opisuje trening ensemble składający się z 5 sieci neuronowych, z losowo wybieranymi hiperparametrami. Każdy model tworzony jest za pomocą funkcji \texttt{create\_model}, budującej sieć sekwencyjną z trzema warstwami gęstymi (\texttt{units1}, \texttt{units2}, \texttt{units3}), z regularizacją L2, normalizacją (\texttt{BatchNormalization}), aktywacją \texttt{LeakyReLU}, warstwami \texttt{Dropout} i wyjściową warstwą z aktywacją \texttt{sigmoid} dla klasyfikacji binarnej. Model jest kompilowany z optymalizatorem \texttt{Adam} i funkcją straty \texttt{binary\_crossentropy}. Trening każdego modelu odbywa się na danych \texttt{X\_train} i \texttt{y\_train} przez 20 iteracji, z walidacją na \texttt{X\_test} i \texttt{y\_test}, wykorzystując redukcję \texttt{ReduceLROnPlateau} o czynnik 0.5 przy stagnacji straty walidacyjnej przez 3 iteracji. Predykcje każdego modelu na \texttt{X\_test} są zbierane i uśredniane, tworząc finalne przewidywania \texttt{predictions}. Metoda zwraca listę wytrenowanych modeli \texttt{models}, \texttt{X\_test} oraz \texttt{y\_test}, umożliwiając dalszą analizę.
 
-\subsubsection{metoda4}
-\texttt{metoda4} - Bi-LSTM, CNN i MLP z klasyfikacją sigmoidalną. Metoda ta wykorzystuje podejście ensemble, w którym Bi-LSTM, CNN i MLP przetwarzają dane wejściowe, a wyniki są łączone i klasyfikowane za pomocą funkcji sigmoidalnej.
+\subsubsection{Zespół modeli: Bi-LSTM, CNN i MLP}
+\texttt{metoda4} - Bi-LSTM, CNN i MLP z klasyfikacją sigmoidalną. Metoda wykorzystuje podejście ensemble, w którym Bi-LSTM, CNN i MLP przetwarzają dane wejściowe, a wyniki są łączone i klasyfikowane za pomocą funkcji sigmoidalnej.
 
 Moja implementacja \texttt{metoda4} zachowuje oryginalne cechy tego podejścia opisanego w \cite{metoda4}, opierając się na ensemble learningu z Bi-LSTM, CNN i MLP, ale koncentruje się na klasyfikacji binarnej. Dane wejściowe, czyli \texttt{X\_train} reprezentujące cechy treningowe oraz \texttt{X\_test} odpowiadające cechom testowym, są skalowane za pomocą \texttt{StandardScaler} i przekształcane na format trójwymiarowy (\texttt{X\_train\_reshaped}, \texttt{X\_test\_reshaped}), co różni się od osadzania wektorowego w artykule, ale zachowuje ideę przygotowania danych do sieci neuronowych. Proces zaczyna się od inicjalizacji warstwy wejściowej (\texttt{Input}) o dynamicznej długości sekwencji, przez którą dane przechodzą do trzech ścieżek: \texttt{Bidirectional(LSTM)} dla sekwencyjnego przetwarzania, \texttt{Conv1D} z \texttt{MaxPooling1D} dla wykrywania wzorców oraz \texttt{Dense} dla prostego przetwarzania cech.
 
@@ -27,7 +27,7 @@ Wyjścia są spłaszczane, łączone i przekazywane do warstwy \texttt{Dense} z 
 
 Metoda zwraca wytrenowany model (\texttt{Model}), \texttt{X\_test\_reshaped} oraz \texttt{y\_test}, co umożliwia dalszą analizę, zgodnie z ideą oceny wyników w artykule.
 
-\subsubsection{metoda15}
+\subsubsection{Zespół modeli Bi-LSTM}
 \texttt{metoda15} - Ensemble modeli Bi-LSTM: modeli zespołowe oparte na dwukierunkowej warstwie LSTM z tokenizacją i wyrównaniem długości sekwencji tekstowych.
 
 Dane wejściowe są najpierw dzielone na pojedyncze słowa (tokenizacja), a ich długości są wyrównywane do wspólnej wartości, aby pasowały do wymagań sieci. Następnie tworzona jest warstwa wejściowa, przez którą dane przechodzą do trzech modeli Bi-LSTM, które analizują tekst w obu kierunkach aby lepiej zrozumieć kontekst. Każdy model jest kompilowany z optymalizatorem Adam, używając funkcji straty \texttt{binary\_crossentropy} do klasyfikacji binarnej. Wyniki z tych modeli są łączone i przetwarzane, a na końcu klasyfikowane za pomocą funkcji sigmoidalnej, która określa, czy wiadomość jest prawdziwa (1) czy fałszywa (0).
@@ -45,7 +45,7 @@ Dzięki analizie artykułu \cite{metoda15}, powstała implementacja \texttt{meto
 \end{figure}
 
 \subsection{Zespoły klasyfikatorów}
-\subsubsection{metoda2}
+\subsubsection{Stacking z regresją logistyczną}
 \texttt{metoda2} - Stacking z GradientBoosting i MLP z Regresją Logistyczną. W artykule \cite{metoda2} się opiuje podejście stackingu, w którym modele bazowe generują predykcje prawdopodobieństw, a meta-klasyfikator na ich podstawie dokonuje ostatecznej klasyfikacji.
 
 Moja implementacja \texttt{metoda2} zachowuje kluczowe wspólne cechy tego podejścia, opierając się na podobnej strukturze stackingu i wykorzystaniu ensemble learningu. W mojej wersji dane wejściowe, czyli \texttt{X\_train} reprezentujące cechy treningowe oraz \texttt{X\_test} odpowiadające cechom testowym. Proces zaczyna się od inicjalizacji modeli bazowych: \texttt{GradientBoostingClassifier} oznaczanego jako \texttt{boosted\_tree} oraz \texttt{MLPClassifier} oznaczanego jako \texttt{neural\_net}, co odpowiada użyciu Boosted Decision Tree i Neural Network w artykule.
@@ -67,7 +67,7 @@ Podczas gdy mój kod działa na ogólnych danych bez preprocessingu, wymagając 
 	\label{fig:diagram_metoda2}
 \end{figure}
 
-\subsubsection{metoda3}
+\subsubsection{Zespół modeli typu stacking z głosowaniem}
 \texttt{metoda3} - Dwupoziomowy Voting Classifier: SVM, Naive Bayes, Decision Tree i Bagging/AdaBoost.
 
 Moja implementacja posiada trzy klasyfikatory bazowe: SVM \texttt{SVC}, Naive Bayes \texttt{MultinomialNB} oraz Decision Tree \texttt{DecisionTreeClassifier}. Klasyfikatory te są łączone przez \texttt{VotingClassifier} z miękkim głosowaniem, które generuje prawdopodobieństwa predykcji \texttt{predict\_proba} dla \texttt{X\_train} i \texttt{X\_test}, tworząc meta-cechy: \newline\texttt{predictions\_1\_train} i \texttt{predictions\_1\_test}. Te meta-cechy są łączone z oryginalnymi danymi, tworząc rozszerzone zbiory \texttt{X\_train\_meta} i \texttt{X\_test\_meta}, gdzie każda próbka zawiera oryginalne cechy oraz prawdopodobieństwa predykcji z pierwszego poziomu.
@@ -85,7 +85,7 @@ Główna różnica między moją implementacją a artykułem dotyczy podejścia 
 	\label{fig:diagram_metoda3}
 \end{figure}
 
-\subsubsection{metoda5}
+\subsubsection{Model złożony (stacking) Random Forest–XGBoost}
 \texttt{metoda5} - Dwuwarstwowy Stacking Classifier z Random Forest, XGBoost i regresją logistyczną: Moja implementacja stosuje podejście stackingowe do klasyfikacji, zgodne z ideami ensemble learningu opisanymi w artykule \cite{metoda5}, gdzie różne modele maszynowe, takie jak Decision Tree, Random Forest i Extra Tree Classifier, są łączone w celu poprawy dokładności wykrywania fałszywych wiadomości.
 
 Moja implementacja w pierwszym etapie ma trenowanie dwóch modeli bazowych: Random Forest \texttt{RandomForestClassifier} oraz XGBoost \texttt{XGBClassifier}. Modele te są dopasowywane do \texttt{X\_train} i \texttt{y\_train}, generując prawdopodobieństwa predykcji (\texttt{predict\_proba}) dla klasy pozytywnej, co tworzy nowe cechy dla meta-modelu: \newline\texttt{rf\_preds\_train} i \texttt{xgb\_preds\_train}. Te predykcje są łączone w tablicę danych \newline\texttt{meta\_features\_train} z kolumnami \texttt{rf\_preds} i \texttt{xgb\_preds}, zawierającą dwie cechy na próbkę.
@@ -103,7 +103,7 @@ Wyniki zwracane przez \texttt{metoda5} obejmują: gotowy meta-model (\texttt{met
 	\label{fig:diagram_metoda5}
 \end{figure}
 
-\subsubsection{metoda6}
+\subsubsection{Zespół modeli BERT–CNN}
 \texttt{metoda6} - Weighted Convolutional Neural Network Ensemble (WCNNE) z AdaBoost i opcjonalnymi osadzeniami BERT: Moja implementacja stosuje podejście zespołowe do klasyfikacji sentymentów, zgodne z ideami ensemble learningu opisanymi w artykule \cite{metoda6}, gdzie różne modele, w tym konwolucyjne sieci neuronowe (CNN), są łączone w celu poprawy dokładności analizy sentymentów, szczególnie na danych tekstowych.
 
 Moja implementacja w \texttt{metoda6} rozpoczyna się od otrzymania danych treningowych (\texttt{X\_train}, \texttt{y\_train}) i testowych (\texttt{X\_test}, \texttt{y\_test}). Dane tekstowe w \texttt{X\_train} i \texttt{X\_test} są przekształcane na osadzenia za pomocą pretrenowanego modelu BERT \newline(\texttt{bert-base-uncased}), co pozwala na lepsze zrozumienie semantyki tekstu, podobnie jak w artykule, gdzie BERT jest wykorzystywany do ekstrakcji cech tekstowych. Osadzenia są generowane z użyciem \texttt{BertTokenizer} i \texttt{TFBertModel}, tworząc trójwymiarowe tablice o wymiarach: liczba próbek, maksymalna długość sekwencji, wymiar osadzenia. Następnie dane są skalowane za pomocą \texttt{StandardScaler}, tworząc \texttt{X\_train\_scaled} i \texttt{X\_test\_scaled}, aby zapewnić normalizację wymaganą przez modele CNN, co odpowiada standardowemu preprocessingowi w artykule. Określa się kształt wejścia \texttt{input\_shape}, \texttt{embedding\_dim} na podstawie wymiarów \texttt{X\_train\_scaled} oraz liczbę klas \newline(\texttt{num\_classes}) na podstawie unikalnych wartości w \texttt{y\_train}, umożliwiając elastyczne dostosowanie modelu do klasyfikacji binarnej lub wieloklasowej.
@@ -112,7 +112,7 @@ W kolejnym etapie definiuje się klasyfikator bazowy w postaci konwolucyjnej sie
 
 Wyniki są zwracane w następujący sposób: gotowy klasyfikator zespołowy (\texttt{model}), zawierający wytrenowane CNN i ustawienia AdaBoost, dane testowe (\texttt{X\_test}), które są osadzeniami oraz etykiety testowe (\texttt{y\_test}) z wartościami 0, 1, umożliwiające ocenę modelu.
 
-\subsubsection{metoda8}
+\subsubsection{Złożony model składający się z Random Forest, XGBoost oraz sieci DBN}
 \texttt{metoda8} - Voting Classifier z Random Forest i XGBoost: probabilistyczne głosowanie predykcji.
 
 W artykule \cite{metoda8} omówiono różne strategie ensemble learningu, takie jak bagging, boosting oraz głębokie modele neuronowe, stosowane w celu poprawy generalizacji modeli uczenia maszynowego, w tym Random Forest oparty na baggingu, modele oparte na boostingu, takie jak XGBoost, oraz głębokie sieci neuronowe, takie jak DBN, które zwiększają wydajność dzięki hierarchicznemu uczeniu cech, osiągając lepsze wyniki w klasyfikacji dzięki różnorodności predykcji.
@@ -123,7 +123,7 @@ Następnie dane są skalowane za pomocą \texttt{StandardScaler}, tworząc \text
 
 Klasyfikatory są łączone w \texttt{VotingClassifier}, oznaczany jako \texttt{ensemble\_model}, z miękkim głosowaniem, które uśrednia prawdopodobieństwa predykcji z \texttt{rf}, \texttt{xgb} i \texttt{dbn}, podobnie jak w artykule strategie ensemble łączyły predykcje dla poprawy wydajności. Model \texttt{ensemble\_model} jest trenowany na \texttt{X\_train\_scaled} i \texttt{y\_train}, co odpowiada etapowi uczenia w artykule, gdzie modele ensemble, w tym głębokie, były trenowane na różnych zbiorach danych po odpowiednim preprocessingu. Po wytrenowaniu metoda zwraca \texttt{ensemble\_model}, \texttt{X\_test} oraz \texttt{y\_test}, gdzie \texttt{y\_test} zawiera etykiety binarne (0 lub 1) lub wieloklasowe, umożliwiając dalszą ocenę modelu, co jest zgodne z praktyką oceny modeli w \cite{metoda8}.
 
-\subsubsection{metoda9}
+\subsubsection{Głosowanie oparte na wielu strategiach}
 \texttt{metoda9} - Voting Classifier z Logistic Regression, Random Forest i SVC oraz porównanie modeli zespołowych.
 
 W artykule \cite{metoda9} opisano podejście oparte na ensemble learning do wykrywania fałszywych wiadomości, stosując różne techniki zespołowe, w tym Voting Classifier z \newline \texttt{LogisticRegression}, \texttt{RandomForestClassifier} oraz innymi modelami, takimi jak KNN lub LSVM, a także Bagging i Boosting, w tym AdaBoost i XGBoost, oceniane za pomocą metryk takich jak dokładność, precyzja, recall i F1-score na czterech zbiorach danych, osiągając średnią dokładność 92.25\% dla metod zespołowych.
@@ -134,7 +134,7 @@ Dodatkowo jest stosowany \texttt{BaggingClassifier} z \texttt{rf} jako estymator
 
 Po wytrenowaniu każdy model generuje predykcje \texttt{y\_pred} na \texttt{X\_test} (cechy testowe), a wyniki są oceniane za pomocą \texttt{accuracy\_score}, \texttt{roc\_auc\_score} (jeśli model wspiera predykcje prawdopodobieństw) oraz \texttt{classification\_report} na podstawie \texttt{y\_test} (etykiety testowe z wartościami 0 lub 1), co jest wspólnym elementem z artykułem, gdzie stosowano metryki takie jak dokładność, precyzja, recall i F1-score do oceny wydajności. Metoda zwraca \texttt{model} (najlepszy model), \texttt{X\_test} oraz \texttt{y\_test}, umożliwiając dalszą analizę, podobnie jak w artykule wyniki były dostępne do porównania na różnych zbiorach danych.
 
-\subsubsection{metoda10}
+\subsubsection{Zespół modeli: MLP – regresja logistyczna – XGBoost}
 \texttt{metoda10} - Voting Classifier z MLP, Logistic Regression i XGBoost z miękkim głosowaniem.
 
 W artykule \cite{metoda10} jest zaproponowany Voting Classifier z trzema najlepszymi klasyfikatorami wybranymi po walidacji krzyżowej: \texttt{MLPClassifier}, \texttt{LogisticRegression} i \texttt{XGBClassifier}. Modele te są łączone z miękkim głosowaniem (\texttt{voting='soft'}) na podstawie prawdopodobieństw, osiągając dokładność 94.47\% na danych tekstowych po preprocessingu.
@@ -147,7 +147,7 @@ Trening \texttt{voting\_clf} odbywa się na \texttt{X\_train} i \texttt{y\_train
 
 Implementacja posiada dokładnie to samo podejście co w \cite{metoda10}, opierając się na Voting Classifier z identycznymi modelami \texttt{MLPClassifier}, \texttt{LogisticRegression} i \texttt{XGBClassifier} oraz \texttt{soft} głosowaniem, z tą różnicą, że pomijam preprocessing w kodzie na rzecz uniwersalnego przygotowania danych, co nie zmienia istoty ensemble methods opisanych w artykule.
 
-\subsubsection{metoda11}
+\subsubsection{Ensemble z głosowaniem opartym na wybranych cechach}
 \texttt{metoda11} - Voting Classifier z Random Forest, Logistic Regression i AdaBoost po selekcji cech.
 
 W artykule \cite{metoda11} opisano zastosowanie ensemble methods, w tym Voting Classifier z \texttt{RandomForestClassifier}, \texttt{LogisticRegression} i \texttt{AdaBoostClassifier}, do wykrywania fałszywych wiadomości na podstawie cech tekstowych, osiągając wysoką dokładność dzięki kombinacji predykcji.
@@ -160,7 +160,7 @@ Te modele są następnie łączone w \texttt{VotingClassifier}, oznaczanym jako 
 
 Po wytrenowaniu \texttt{voting\_clf} jest gotowy do predykcji na \texttt{X\_test\_selected}, a metoda zwraca \texttt{voting\_clf}, który zawiera ustawienia i wyniki uczenia, wraz z przetworzonymi danymi testowymi \texttt{X\_test\_selected} w formie macierzy oraz \texttt{y\_test} (etykiety testowe jako wektor z wartościami 0 i 1), co umożliwia ocenę jakości modelu, podobnie jak w artykule wyniki klasyfikacji służyły do weryfikacji skuteczności. Posiadam dokładnie to samo podejście co w \cite{metoda11}, opierając się na Voting Classifier z tymi samymi modelami bazowymi i miękkim głosowaniem, z dodaną normalizacją i selekcją cech jako częścią mojego pipeline, co wzmacnia zgodność z ideą ensemble methods opisaną w artykule.
 
-\subsubsection{metoda13}
+\subsubsection{Złożony model stackingowy z zastosowaniem SMOTETomek}
 \texttt{metoda13} - Stacking z SMOTETomek, wykorzystujący Random Forest, Gradient Boosting, XGBoost i Logistic Regression jako meta-model.
 
 Metoda13 trenuje model zespołowy stacking z wykorzystaniem Random Forest, Gradient Boosting i XGBoost jako klasyfikatorów bazowych, z Logistic Regression jako meta-uczniem, po uprzednim zbalansowaniu danych za pomocą SMOTETomek. Wyniki są oceniane na danych testowych za pomocą raportu klasyfikacji.
@@ -171,7 +171,7 @@ Następnie definiowane są trzy klasyfikatory bazowe: \texttt{RandomForestClassi
 
 Metoda zwraca wytrenowany model \texttt{stacking\_model}, \texttt{X\_test} oraz \texttt{y\_test}, umożliwiając dalszą analizę. Moja implementacja zachowuje kluczowe cechy podejścia opisanego w artykule \cite{metoda13}, koncentrując się na stackingu i obsłudze niezrównoważonych klas.
 
-\subsubsection{metoda14}
+\subsubsection{Model stackingowy z Random Forest, AdaBoost i SVC}
 \texttt{metoda14} - Stacking z Random Forest, AdaBoost, SVC i Logistic Regression jako meta-model.
 
 Metoda14 opisana w artykule \cite{metoda14} trenuje model zespołowy stacking, wykorzystujący Random Forest, AdaBoost i SVC jako klasyfikatory bazowe, z Logistic Regression jako meta-uczniem.
@@ -180,8 +180,8 @@ Moja implementacja \texttt{metoda14} bazuje na koncepcji ensemble learningu opis
 
 Najpierw definiowane są klasyfikatory bazowe: \texttt{RandomForestClassifier}, \newline\texttt{AdaBoostClassifier} oraz \texttt{SVC}. Następnie \texttt{StackingClassifier} łączy je z \newline\texttt{LogisticRegression} jako meta\-uczeniem, stosując 5-krotną walidację krzyżową. Model jest trenowany na \texttt{X\_train} i \texttt{y\_train}, a po zakończeniu zwraca wytrenowany \newline\texttt{stack\_model}, \texttt{X\_test} i \texttt{y\_test}, umożliwiając dalszą ewaluację. Moja implementacja nie generuje cech w kodzie i pomija bezpośrednią ocenę wyników, ponieważ \texttt{X\_test} i \texttt{y\_test} zostaną użyte do predykcji i ewaluacji poza funkcją.
 
-\subsubsection{Metoda16}
-\texttt{Metoda16} - Stacking z meta-cechami: Random Forest, SVC z Logistic Regression. Metoda ta wykorzystuje podejście stackingu, w którym modele bazowe generują meta-cechy, a meta-klasyfikator na ich podstawie dokonuje ostatecznej predykcji.
+\subsubsection{Model zespołowy łączący regresję logistyczną z Random Forest i SVC}
+\texttt{Metoda16} - Stacking z meta-cechami: Random Forest, SVC z Logistic Regression. Metoda wykorzystuje podejście stackingu, w którym modele bazowe generują meta-cechy, a meta-klasyfikator na ich podstawie dokonuje ostatecznej predykcji.
 
 W oryginalnym podejściu opisanym w artykule \cite{metoda16} proces klasyfikacji przebiega w kilku etapach. Najpierw dane tekstowe są przetwarzane za pomocą biblioteki NLTK, co obejmuje usuwanie stop-słów, stemming i lematyzację, a następnie konwertowane na cechy numeryczne za pomocą metod takich jak TF-IDF i CountVectorizer. Następnie stosuje się ensemble learning w formie stackingu, gdzie modele bazowe, takie jak Random Forest i SVM, generują predykcje prawdopodobieństw klas dla danych treningowych za pomocą walidacji krzyżowej. Te predykcje są używane jako meta-cechy do treningu meta-klasyfikatora, którym jest regresja logistyczna. Modele bazowe są następnie trenowane na pełnym zbiorze treningowym, a meta-cechy dla danych testowych są generowane na podstawie ich predykcji. Ostatecznie meta-klasyfikator dokonuje predykcji na meta-cechach testowych, a wyniki są oceniane za pomocą metryk takich jak dokładność i raport klasyfikacji.
 
@@ -192,7 +192,7 @@ Następnie sś generowane meta-cechy dla danych treningowych, czyli \newline\tex
 Po tym kroku modele bazowe \texttt{rf\_model} i \texttt{svc\_model} są trenowane na pełnym zestawie \texttt{X\_train} i \texttt{y\_train}, podobnie jak w artykule, gdzie następuje trening na całym zbiorze treningowym. Dla danych testowych są generowane meta-cechy \texttt{meta\_features\_test}, obliczając \texttt{rf\_preds\_test} i \texttt{svc\_preds\_test} jako predykcje prawdopodobieństw od \texttt{rf\_model} i \texttt{svc\_model} na \texttt{X\_test}, a następnie łącząc je w macierz \texttt{meta\_features\_test}, co odpowiada generowaniu meta-cech testowych w artykule. Ostatecznie \texttt{meta\_model} dokonuje predykcji \texttt{y\_pred} na \texttt{meta\_features\_test}, a wyniki są oceniane za pomocą \texttt{classification\_report} i \texttt{accuracy\_score} na podstawie \texttt{y\_test} (etykiety testowe), co jest wspólnym elementem z artykułem, gdzie również stosowano metryki takie jak dokładność i raport klasyfikacji. Metoda zwraca \texttt{meta\_model}, \texttt{meta\_features\_test} oraz \texttt{y\_test}, co umożliwia dalszą analizę.
 
 \subsection{Modele zoptymalizowane}
-\subsubsection{Metoda7}
+\subsubsection{Heurystyki Random Forest-Monte Carlo Dropout}
 \texttt{Metoda7} - Random Forest z Monte Carlo Dropout i heurystyczną obróbką \newline post-procesową. Metoda7 opiera się na Random Forest jako bazowym klasyfikatorze.
 
 Moja implementacja w \texttt{metoda7} w pełni bazuje na tym podejściu, zachowując jego kluczowe elementy, ale dostosowuje je do dostępnych zasobów. Zamiast ensemble transformerów i NewsBERT, wykorzystując pojedynczy model Random Forest \newline\texttt{RandomForestClassifier}, co wynika z faktu, że dane wejściowe \texttt{X\_train} (cechy treningowe) i \texttt{X\_test} (cechy testowe) są już przekształcone w osadzenia wektorowe, eliminując potrzebę tokenizacji czy generowania cech przez modele językowe.

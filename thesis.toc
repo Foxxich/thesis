@@ -86,20 +86,28 @@
 \contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{70}{chapter.5}%
 \contentsline {section}{\numberline {5.1\relax .\enspace }Analiza wyników dla datasetu \textbf {BuzzFeed}}{71}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Wyniki w trybie klasycznym}{71}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{82}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{93}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu BuzzFeed}{104}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2\relax .\enspace }Analiza wyników dla datasetu \textbf {ISOT}}{108}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1\relax .\enspace }Wyniki w trybie klasycznym}{108}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2\relax .\enspace }Wyniki w trybie few-shot}{119}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3\relax .\enspace }Wyniki w trybie one-shot}{130}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu ISOT}{141}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3\relax .\enspace }Analiza wyników dla datasetu \textbf {WELFake}}{146}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1\relax .\enspace }Wyniki w trybie klasycznym}{146}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2\relax .\enspace }Wyniki w trybie few-shot}{158}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3\relax .\enspace }Wyniki w trybie one-shot}{169}{subsection.5.3.3}%
-\contentsline {subsection}{\numberline {5.3.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu WELFake}{180}{subsection.5.3.4}%
-\contentsline {chapter}{\numberline {6\relax .\enspace }Podsumowanie}{186}{chapter.6}%
-\contentsline {chapter}{Bibliografia}{187}{chapter*.168}%
-\contentsline {chapter}{Spis rysunk\'ow}{190}{chapter*.169}%
-\contentsline {chapter}{Dodatki}{192}{section*.170}%
+\contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{74}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{77}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu BuzzFeed}{80}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5\relax .\enspace }Podsumowanie wniosków}{82}{subsection.5.1.5}%
+\contentsline {section}{\numberline {5.2\relax .\enspace }Analiza wyników dla datasetu \textbf {ISOT}}{83}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1\relax .\enspace }Wyniki w trybie klasycznym}{83}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2\relax .\enspace }Wyniki w trybie few-shot}{86}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3\relax .\enspace }Wyniki w trybie one-shot}{89}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu ISOT}{92}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5\relax .\enspace }Podsumowanie wniosków}{94}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3\relax .\enspace }Analiza wyników dla datasetu \textbf {WELFake}}{95}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1\relax .\enspace }Wyniki w trybie klasycznym}{95}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2\relax .\enspace }Wyniki w trybie few-shot}{98}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3\relax .\enspace }Wyniki w trybie one-shot}{101}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4\relax .\enspace }Dodatkowa analiza wyników dla datasetu WELFake}{104}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5\relax .\enspace }Podsumowanie wniosków}{106}{subsection.5.3.5}%
+\contentsline {chapter}{\numberline {6\relax .\enspace }Podsumowanie}{108}{chapter.6}%
+\contentsline {section}{\numberline {6.1\relax .\enspace }Główne osiągnięcia}{108}{section.6.1}%
+\contentsline {section}{\numberline {6.2\relax .\enspace }Optymalny tryb uczenia dla metod 17--20}{109}{section.6.2}%
+\contentsline {section}{\numberline {6.3\relax .\enspace }Wnioski i znaczenie pracy}{109}{section.6.3}%
+\contentsline {section}{\numberline {6.4\relax .\enspace }Ograniczenia i dalsze kierunki badań}{110}{section.6.4}%
+\contentsline {section}{\numberline {6.5\relax .\enspace }Podsumowanie}{110}{section.6.5}%
+\contentsline {chapter}{Bibliografia}{112}{chapter*.136}%
+\contentsline {chapter}{Spis rysunk\'ow}{115}{chapter*.137}%
+\contentsline {chapter}{Dodatki}{117}{section*.138}%

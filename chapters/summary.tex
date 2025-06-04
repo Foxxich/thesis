@@ -1,1 +1,71 @@
 \chapter{Podsumowanie}
+
+Niniejsza praca magisterska koncentruje się na analizie skuteczności metod uczenia maszynowego w zadaniu wykrywania fałszywych wiadomości na podstawie trzech zbiorów danych: WELFake, ISOT oraz BuzzFeed. Badanie obejmuje zarówno proste modele, jak i zaawansowane techniki ensemble, takie jak VotingClassifier, stacking z CatBoost oraz LightGBM, w połączeniu z nowoczesnymi embeddingami językowymi: BERT, RoBERTa i SBERT. Analiza została przeprowadzona w trzech trybach uczenia: klasycznym, few-shot oraz one-shot, z uwzględnieniem kluczowych metryk, takich jak dokładność (Accuracy), F1-Score oraz ROC-AUC.
+
+\section{Główne osiągnięcia}
+
+Badanie wykazało, że zaawansowane modele ensemble, w szczególności metody 17, 18, 19 i 20, osiągają najwyższą skuteczność w trybie one-shot, zwłaszcza w połączeniu z embeddingami SBERT i RoBERTa. W trybie tym, gdzie dostępny jest tylko jeden przykład na klasę, metody te osiągają niemal perfekcyjne wyniki klasyfikacji, przewyższając wyniki uzyskane w trybach klasycznym i few-shot. Kluczowe wnioski obejmują:
+
+\begin{itemize}
+	\item \textbf{Wysoka skuteczność w trybie one-shot:} W trybie one-shot metody 17, 18, 19 i 20, w połączeniu z embeddingami SBERT i RoBERTa, osiągają dokładność i F1-Score bliskie 100\% na wszystkich analizowanych zbiorach danych. Na przykład, w zbiorze WELFake metoda 17 z SBERT oraz metoda 19 z BERT osiągają dokładność 100\%, podczas gdy w trybie klasycznym maksymalna dokładność wynosi 95\%.
+	\item \textbf{Znaczenie embeddingów językowych:} Embeddingi SBERT i RoBERTa wykazują wyższą zdolność do generalizacji w porównaniu z BERT, szczególnie w trybie one-shot. Na przykład, w zbiorze ISOT metoda 18 z SBERT osiąga ROC-AUC $\sim$1.0, a metoda 17 z RoBERTa $\sim$0.95.
+	\item \textbf{Wpływ konfiguracji modelu:} Precyzyjne dostrajanie hiperparametrów jest kluczowe dla uzyskania optymalnych wyników. Na przykład, metoda 17 (VotingClassifier) osiąga słabe wyniki dla BERT i RoBERTa w trybie one-shot z powodu nieoptymalnych wag, podczas gdy dla SBERT jest skuteczna.
+	\item \textbf{Separowalność klas:} Wysoka separowalność klas w analizowanych zbiorach danych ułatwia klasyfikację, ale wymaga starannego projektowania modeli, szczególnie w trudniejszych scenariuszach, takich jak tryb one-shot.
+	\item \textbf{Analiza porównawcza:} Systematyczne porównanie metod i embeddingów dostarcza praktycznych wskazówek dotyczących wyboru odpowiednich technik w zależności od dostępnych danych i zasobów obliczeniowych.
+\end{itemize}
+
+\section{Optymalny tryb uczenia dla metod 17--20}
+
+Po szczegółowej analizie wyników dla zbiorów danych WELFake, ISOT i BuzzFeed, stwierdzono, że tryb one-shot jest optymalnym trybem uczenia dla metod 17, 18, 19 i 20, umożliwiającym osiągnięcie najwyższych wyników w zadaniu wykrywania fałszywych wiadomości. Poniżej przedstawiono szczegółowe wyniki dla każdego zbioru danych:
+
+\begin{itemize}
+	\item \textbf{WELFake:} W trybie one-shot metoda 17 z embeddingiem SBERT oraz metoda 19 z embeddingiem BERT osiągają dokładność 100\% oraz F1-Score 100\%, przewyższając wyniki w trybie klasycznym 95\% i few-shot. Metoda 18 z SBERT również wykazuje wysoką skuteczność, podczas gdy metoda 20 z BERT osiąga dobre wyniki w trybie one-shot, ale jest mniej skuteczna w innych trybach z powodu braku balansowania klas.
+	\item \textbf{ISOT:} W trybie one-shot metoda 18 z SBERT osiąga ROC-AUC $\sim$1.0, a metoda 17 z RoBERTa $\sim$0.95, co wskazuje na doskonałą zdolność rozróżniania klas. Metoda 19 z RoBERTa oraz metoda 20 z BERT osiągają umiarkowane wyniki w trybie one-shot, ale są mniej skuteczne w porównaniu z SBERT.
+	\item \textbf{BuzzFeed:} W trybie one-shot metoda 20 z BERT oraz metoda 19 z RoBERTa osiągają dokładność 100\% oraz F1-Score 100\%, co potwierdza skuteczność tych metod w warunkach ograniczonych danych. Metoda 17 i 18 są mniej skuteczne dla BERT, ale osiągają dobre wyniki z RoBERTa i SBERT.
+\end{itemize}
+
+Tabela \ref{tab:optimal_mode} przedstawia podsumowanie najlepszych wyników uzyskanych w trybie one-shot dla każdego zbioru danych.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		\textbf{Zbiór danych} & \textbf{Metoda} & \textbf{Embedding} & \textbf{Dokładność} & \textbf{F1-Score} & \textbf{ROC-AUC} \\
+		\hline
+		WELFake               & 17              & SBERT              & $\sim$100\%         & $\sim$100\%       & $\sim$1.0        \\
+		WELFake               & 19              & BERT               & $\sim$100\%         & $\sim$100\%       & $\sim$1.0        \\
+		ISOT                  & 18              & SBERT              & Wysoka              & Wysoka            & $\sim$1.0        \\
+		ISOT                  & 17              & RoBERTa            & Wysoka              & Wysoka            & $\sim$0.95       \\
+		BuzzFeed              & 20              & BERT               & 100\%               & 100\%             & Wysoka           \\
+		BuzzFeed              & 19              & RoBERTa            & 100\%               & 100\%             & Wysoka           \\
+		\hline
+	\end{tabular}
+	\caption{Najlepsze wyniki metod 17--20 w trybie one-shot dla różnych zbiorów danych.}
+	\label{tab:optimal_mode}
+\end{table}
+
+\section{Wnioski i znaczenie pracy}
+
+Wyniki badania wskazują, że tryb one-shot, wspierany przez zaawansowane embeddingi językowe, takie jak SBERT i RoBERTa, umożliwia metodom 17, 18, 19 i 20 osiągnięcie wyjątkowej skuteczności w wykrywaniu fałszywych wiadomości, nawet przy minimalnej liczbie danych treningowych. To odkrycie ma istotne znaczenie dla rzeczywistych zastosowań, gdzie dostęp do oznakowanych danych może być ograniczony. Praca wnosi wkład do dziedziny przetwarzania języka naturalnego poprzez:
+
+\begin{itemize}
+	\item \textbf{Kompleksową analizę porównawczą:} Systematyczna ocena różnych metod i embeddingów na trzech różnych zbiorach danych dostarcza praktycznych wskazówek dla badaczy i praktyków w wyborze odpowiednich technik.
+	\item \textbf{Zastosowanie nowoczesnych embeddingów:} Wykorzystanie BERT, RoBERTa i SBERT w różnych trybach uczenia podkreśla ich potencjał w zadaniach wykrywania fałszywych wiadomości.
+	\item \textbf{Wgląd w scenariusze z małą ilością danych:} Badanie pokazuje, że zaawansowane modele ensemble mogą osiągać wysoką skuteczność w trybie one-shot, co jest istotne w warunkach ograniczonych zasobów danych.
+	\item \textbf{Rola konfiguracji modelu:} Wyniki podkreślają konieczność precyzyjnego dostrajania hiperparametrów, aby zmaksymalizować wydajność modeli, szczególnie w trudniejszych scenariuszach uczenia.
+\end{itemize}
+
+\section{Ograniczenia i dalsze kierunki badań}
+
+Pomimo uzyskanych wyników, badanie ma pewne ograniczenia. Analiza koncentruje się na trzech konkretnych zbiorach danych, które mogą nie odzwierciedlać pełnego spektrum rzeczywistych danych. Ponadto, niektóre metody, takie jak metoda 17, wymagałyby dalszej optymalizacji, aby osiągnąć spójne wyniki dla wszystkich embeddingów. W przyszłości badania mogłyby obejmować:
+
+\begin{itemize}
+	\item Testowanie metod na bardziej zróżnicowanych zbiorach danych, w tym na danych wielojęzycznych lub pochodzących z różnych źródeł.
+	\item Rozwój automatycznych technik dostrajania hiperparametrów w celu poprawy wydajności modeli ensemble.
+	\item Integrację nowych embeddingów językowych lub modeli generatywnych, takich jak GPT, w celu dalszego zwiększenia skuteczności.
+	\item Badanie wpływu szumu w danych na wydajność modeli w trybie one-shot.
+\end{itemize}
+
+\section{Podsumowanie}
+
+Niniejsza praca magisterska stanowi istotny krok w kierunku doskonalenia metod wykrywania fałszywych wiadomości poprzez systematyczną ocenę zaawansowanych technik uczenia maszynowego w różnych trybach uczenia. Wyniki wskazują, że tryb one-shot, w połączeniu z potężnymi embeddingami językowymi, takimi jak SBERT i RoBERTa, umożliwia metodom 17, 18, 19 i 20 osiągnięcie najwyższych wyników w zakresie dokładności, F1-Score i ROC-AUC. Te odkrycia podkreślają potencjał tych metod w rzeczywistych zastosowaniach, gdzie dane treningowe mogą być ograniczone, oraz dostarczają praktycznych wskazówek dla dalszych badań w tej dziedzinie.
