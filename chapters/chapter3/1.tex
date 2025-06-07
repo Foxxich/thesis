@@ -1,11 +1,11 @@
-\chapter{Własne metody}
-Autorskie metody powstały w oparciu o szkielet oraz koncepcje metod, które w badaniach wykazały najlepsze rezultaty. Krótko się przejrzałem wynikom w \ref{text:results}. Wykorzystując wnioski płynące z analizy ich wzorców, opracowując nowatorskie podejścia, które skutecznie łączą precyzję z wydajnością. Rozwiązania te zostały starannie dostosowane do wymagań i złożoności problematyki wykrywania \textbf{fake news}, gwarantując wysoką jakość i efektywność.
+\chapter{Autorskie algorytmy}
+Autorskie algorytmy powstały w oparciu o koncepcje metod, które w badaniach wykazały najlepsze rezultaty. Krótko się przejrzałem wynikom w \ref{text:results}. Wykorzystując wnioski z analizy ich wzorców, opracowując autorskie podejścia, które skutecznie łączą precyzję z wydajnością. Rozwiązania te zostały starannie dostosowane do wymagań i złożoności problematyki wykrywania \textbf{fake news}, gwarantując wysoką jakość i efektywność.
 
 \section{Pierwsza metoda (\textbf{Metoda17})}
-\textbf{Metoda17} jest modelem zespołowym, który łączy predykcje trzech różnych klasyfikatorów: wielowarstwowego perceptronu (\texttt{MLPClassifier}), regresji logistycznej \newline(\texttt{LogisticRegression}) i XGBoosta (\texttt{XGBClassifier}) za pomocą miękkiego głosowania. Inspiracją dla tej metody jest \textbf{Metoda10}, która również wykorzystuje \texttt{VotingClassifier} do łączenia różnych modeli. Kluczowym ulepszeniem w \textbf{Metoda17} jest zastosowanie optymalizacji hiperparametrów (przynajmniej dla regresji logistycznej) oraz skalowania cech dla każdego z bazowych klasyfikatorów przed ich połączeniem. Celem jest wykorzystanie komplementarnych mocnych stron różnych algorytmów i poprawa ogólnej wydajności predykcyjnej poprzez dostrojenie parametrów i ujednolicenie skali danych wejściowych.
+\textbf{Metoda17} jest modelem zespołowym, który łączy predykcje trzech różnych klasyfikatorów: wielowarstwowego perceptronu (\textbf{MLPClassifier}), regresji logistycznej \newline(\textbf{LogisticRegression}) i XGBoosta (\textbf{XGBClassifier}) za pomocą miękkiego głosowania. Inspiracją dla tej metody jest \textbf{Metoda10}, która również wykorzystuje \textbf{VotingClassifier} do łączenia różnych modeli. Kluczowym ulepszeniem w \textbf{Metoda17} jest zastosowanie optymalizacji hiperparametrów (przynajmniej dla regresji logistycznej) oraz skalowania cech dla każdego z bazowych klasyfikatorów przed ich połączeniem. Celem jest wykorzystanie komplementarnych mocnych stron różnych algorytmów i poprawa ogólnej wydajności predykcyjnej poprzez dostrojenie parametrów i ujednolicenie skali danych wejściowych.
 
 \subsection{Wejściowe parametry}
-Metoda \texttt{metoda17} przyjmuje następujące parametry wejściowe:
+Metoda \textbf{metoda17} przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
@@ -20,7 +20,7 @@ Metoda zwraca następujące elementy:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item \textbf{voting\_clf\_final}: Wytrenowany model \texttt{VotingClassifier} po optymalizacji.
+	\item \textbf{voting\_clf\_final}: Wytrenowany model \textbf{VotingClassifier} po optymalizacji.
 	\item \textbf{X\_test\_scaled}: Przeskalowane cechy zbioru testowego.
 	\item \textbf{y\_test}: Wektor etykiet testowych.
 \end{enumerate}
@@ -32,16 +32,16 @@ Metoda zwraca następujące elementy:
 	      Przygotowanie i trenowanie modeli bazowych:
 	      \begin{itemize}
 		      \item
-		            \textbf{Wielowarstwowy Perceptron (MLPClassifier)}: Inicjalizuje się model MLP. Tworzy się potok (\texttt{Pipeline}) ze skalowaniem cech (\texttt{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
+		            \textbf{Wielowarstwowy Perceptron (MLPClassifier)}: Inicjalizuje się model MLP. Tworzy się potok (\textbf{Pipeline}) ze skalowaniem cech (\textbf{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
 		      \item
-		            \textbf{Regresja Logistyczna (LogisticRegression)}: Tworzy się potok (\texttt{Pipeline}) ze skalowaniem cech (\texttt{StandardScaler}) i regresją logistyczną. Definiuje się przestrzeń hiperparametrów i przeprowadza optymalizację za pomocą \texttt{GridSearchCV} na \textbf{X\_train} i \textbf{y\_train}. Wybiera się najlepszy model.
+		            \textbf{Regresja Logistyczna (LogisticRegression)}: Tworzy się potok (\textbf{Pipeline}) ze skalowaniem cech (\textbf{StandardScaler}) i regresją logistyczną. Definiuje się przestrzeń hiperparametrów i przeprowadza optymalizację za pomocą \textbf{GridSearchCV} na \textbf{X\_train} i \textbf{y\_train}. Wybiera się najlepszy model.
 		      \item
-		            \textbf{XGBoost (XGBClassifier)}: Inicjalizuje się model XGBoost. Tworzy się potok (\texttt{Pipeline}) ze skalowaniem cech (\texttt{StandardScaler}) i trenuje na \newline\textbf{X\_train} i \textbf{y\_train}.
+		            \textbf{XGBoost (XGBClassifier)}: Inicjalizuje się model XGBoost. Tworzy się potok (\textbf{Pipeline}) ze skalowaniem cech (\textbf{StandardScaler}) i trenuje na \newline\textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Stworzenie i trenowanie modelu głosującego:
 	      \begin{itemize}
-		      \item Łączy się wytrenowane modele bazowe (MLP, zoptymalizowana regresja logistyczna, XGBoost) w model zespołowy (\texttt{VotingClassifier}) z miękkim głosowaniem.
+		      \item Łączy się wytrenowane modele bazowe (MLP, zoptymalizowana regresja logistyczna, XGBoost) w model zespołowy (\textbf{VotingClassifier}) z miękkim głosowaniem.
 		      \item Trenuje się model głosujący na \textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
@@ -68,7 +68,7 @@ Szczegółowy schemat \textbf{metoda17} jest pokazany na \ref{fig:diagram_metoda
 	\def\labelenumi{\arabic{enumi}.}
 	\item \textbf{Efektywność}: Łączenie różnych modeli i optymalizacja hiperparametrów regresji logistycznej ma na celu poprawę dokładności predykcji. Skalowanie cech zapewnia, że wszystkie algorytmy bazowe operują na danych o podobnej skali.
 	\item \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów modeli (liniowy, nieliniowy oparty na sieci neuronowej, oparty na drzewach decyzyjnych) pozwala na uwzględnienie różnych wzorców w danych.
-	\item \textbf{Optymalizacja}: Optymalizacja hiperparametrów regresji logistycznej za pomocą \texttt{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
+	\item \textbf{Optymalizacja}: Optymalizacja hiperparametrów regresji logistycznej za pomocą \textbf{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
 	\item \textbf{Skalowalność}: Metoda może być stosowana do problemów z wieloma cechami i próbkami, jednak czas treningu może być znaczący ze względu na optymalizację hiperparametrów i trening wielu modeli.
 	\item \textbf{Złożoność}: Złożoność obliczeniowa zależy od złożoności każdego z bazowych modeli oraz od procesu optymalizacji hiperparametrów: liczby przeszukiwanych kombinacji parametrów i liczby foldów walidacji krzyżowej.
 \end{enumerate}

@@ -2,44 +2,44 @@
 
 Proces przygotowania danych wejściowych stanowi wspólny etap dla wszystkich implementowanych rozwiązań metod uczenia zespołowego, niezależnie od tego, czy śa opisane implementacje z naukowych artykułów, czy autorskie metody. Proces przygotowania danych został zaimplementowany w skrypcie głównym i obejmuje kilka kluczowych kroków, które zapewniają spójną bazę danych dla dalszego przetwarzania klasyfikacyjnego.
 
-Pierwszym krokiem jest wczytanie danych przy użyciu funkcji \newline \texttt{load\_and\_preprocess\_data}. Moja implementacja wykorzystuje pliki \texttt{Fake.csv}, zawierający fałszywe wiadomości, oraz \texttt{True.csv}, który obejmuje prawdziwe wiadomości. Funkcja \texttt{load\_and\_preprocess\_data} wczytuje oba zbiory, a następnie nadaje im binarne etykiety: 0 dla fałszywych wiadomości i 1 dla prawdziwych, co odpowiada zadaniu klasyfikacji binarnej w wykrywaniu fake newsów. Zwracam uwagę, że dataset musi zawierać obowiązkowe kolumny: \texttt{title}, \texttt{text}, \texttt{subject}. Kolejnym etapem jest połączenie tych zbiorów w jedną tabelę danych. Na koniec dane tekstowe, oznaczone jako \texttt{X}, oraz etykiety, oznaczone jako \texttt{y}, są przygotowywane do dalszej analizy.
+Pierwszym krokiem jest wczytanie danych przy użyciu funkcji \newline \textbf{load\_and\_preprocess\_data}. Moja implementacja wykorzystuje pliki \textbf{Fake.csv}, zawierający fałszywe wiadomości, oraz \textbf{True.csv}, który obejmuje prawdziwe wiadomości. Funkcja \textbf{load\_and\_preprocess\_data} wczytuje oba zbiory, a następnie nadaje im binarne etykiety: 0 dla fałszywych wiadomości i 1 dla prawdziwych, co odpowiada zadaniu klasyfikacji binarnej w wykrywaniu fake newsów. Zwracam uwagę, że dataset musi zawierać obowiązkowe kolumny: \textbf{title}, \textbf{text}, \textbf{subject}. Kolejnym etapem jest połączenie tych zbiorów w jedną tabelę danych. Na koniec dane tekstowe, oznaczone jako \textbf{X}, oraz etykiety, oznaczone jako \textbf{y}, są przygotowywane do dalszej analizy.
 
 Następnym krokiem jest tworzenie reprezentacji kontekstowej, realizowane przez funkcję
-\texttt{get\_embeddings}.
+\textbf{get\_embeddings}.
 Do dyspozycji są dostępne trzy możliwe opcje, przedstawione poniżej:
 \begin{itemize}
 	\item \textbf{BERT}: funkcja
-	      \texttt{get\_bert\_embeddings}
-	      tokenizuje teksty przy użyciu
-	      \texttt{BertTokenizer},
-	      a następnie generuje osadzenia w partiach (\texttt{batch\_size=32}) za pomocą modelu \newline \texttt{TFBertForSequenceClassification}.
+	      \textbf{get\_bert\_embeddings}
+	      przekształca ciąg znaków w sekwencję tokenów przy użyciu
+	      \textbf{BertTokenizer},
+	      a następnie generuje osadzenia w zestawach treningowych po 32 elementy za pomocą modelu \newline \textbf{TFBertForSequenceClassification}.
 	\item \textbf{RoBERTa}: funkcja
-	      \texttt{get\_roberta\_embeddings}
-	      tokenizuje teksty przy użyciu
-	      \newline \texttt{RobertaTokenizer}, a następnie generuje osadzenia w partiach (\texttt{batch\_size=32}) za pomocą modelu \texttt{TFRobertaForSequenceClassification}.
+	      \textbf{get\_roberta\_embeddings}
+	      przekształca ciąg znaków w sekwencję tokenów przy użyciu
+	      \newline \textbf{RobertaTokenizer}, a następnie generuje osadzenia w zestawach treningowych po 32 elementy za pomocą modelu \textbf{TFRobertaForSequenceClassification}.
 	\item \textbf{Sentence Transformers}: funkcja
-	      \texttt{get\_transformer\_embeddings}
+	      \textbf{get\_transformer\_embeddings}
 	      wykorzystuje model
-	      \texttt{all-MiniLM-L6-v2}
+	      \textbf{all-MiniLM-L6-v2}
 	      do generowania osadzeń.
 \end{itemize}
-Alternatywnie, jeśli wybrano wektoryzację TF-IDF, funkcja \texttt{vectorize\_data} \newline
+Alternatywnie, jeśli wybrano wektoryzację TF-IDF, funkcja \textbf{vectorize\_data} \newline
 przekształca dane tekstowe na wektor cech TF-IDF, z maksymalną liczbą cech ustawioną na
-\texttt{max\_features=5000},
-uwzględniając bigramy i usuwając stopwords.
+\textbf{max\_features=5000},
+z uwzględnieniem bigramów i eliminacją słów nieistotnych (stop words),
 
 Ostatnim krokiem jest podział danych na zbiory treningowe i testowe, realizowany przez jedną z poniższych funkcji:
 \begin{itemize}
 	\item \textbf{split\_data}:
-	      wykonuje klasyczny podział w proporcji 80:20 (z \texttt{test\_size=0.2}) z zachowaniem losowości (\texttt{random\_state=42}).
+	      wykonuje klasyczny podział w proporcji 80:20 (z \textbf{test\_size=0.2}) z ustaloną wartością generatora losowego (\textbf{random\_state=42}).
 	\item \textbf{split\_data\_one\_shot}:
 	      wybiera dokładnie jeden przykład na klasę do zbioru testowego, a resztę danych przypisuje do zbioru treningowego, co jest przydatne w scenariuszach z ograniczoną liczbą danych.
-	\item \textbf{split\_data\_few\_shot}: wybiera kilka przykładów na klasę (\texttt{few\_shot\_examples=5}),\newline co pozwala na symulację scenariuszy z małą liczbą przykładów treningowych.
+	\item \textbf{split\_data\_few\_shot}: wybiera 5 przykładów, co pozwala na symulację scenariuszy z małą liczbą przykładów treningowych.
 \end{itemize}
 Wszystkie te kroki przygotowują dane do dalszego etapu przetwarzania klasyfikacyjnego, opisanego w kolejnych sekcjach, gdzie są wykorzystywane przez każdą metodę jako:
 \begin{itemize}
-	\item \textbf{X\_train} - tablica \texttt{ndarray} przechowująca cechy zbioru treningowego, takie jak wektory TF-IDF lub osadzenia kontekstowe z BERT, RoBERTa czy Sentence Transformers, wykorzystywane do trenowania modelu klasyfikacyjnego.
-	\item \textbf{y\_train} - lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru treningowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe.
-	\item \textbf{X\_test} - tablica \texttt{ndarray} przechowująca cechy zbioru testowego, w formacie analogicznym do \texttt{X\_train}, używane do ewaluacji skuteczności modelu.
-	\item \textbf{y\_test} - lista lub tablica \texttt{ndarray} zawierająca etykiety binarne zbioru testowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe, służące jako punkt odniesienia dla predykcji modelu.
+	\item \textbf{X\_train} - tablica przechowująca cechy zbioru treningowego, takie jak wektory TF-IDF lub osadzenia kontekstowe z \textbf{BERT}, \textbf{RoBERTa} czy \textbf{SBERT}, wykorzystywane do trenowania modelu klasyfikacyjnego.
+	\item \textbf{y\_train} - lista lub tablica zawierająca etykiety binarne zbioru treningowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe.
+	\item \textbf{X\_test} - tablica przechowująca cechy zbioru testowego, w formacie analogicznym do \textbf{X\_train}, używane do ewaluacji skuteczności modelu.
+	\item \textbf{y\_test} - lista lub tablica zawierająca etykiety binarne zbioru testowego, gdzie 0 oznacza fałszywe wiadomości, a 1 oznacza prawdziwe, służące jako punkt odniesienia dla predykcji modelu.
 \end{itemize}

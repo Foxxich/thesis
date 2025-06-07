@@ -1,137 +1,85 @@
 \section{Wprowadzenie do metod zespołowych}
 
-\subsection{Wyjaśnienie idei za tymi technikami}
+\subsection{Zasada działania technik}
 Rozszerzając wiedzę na temat technik metod zespołowego uczenia
 maszynowego, szeroko opisanych w artykule \cite{metoda8}, można
 zauważyć ich uniwersalność i znaczenie w różnych zastosowaniach. Jak
 wskazano w artykule, sukces tych metod wynika z ich zdolności do
-redukowania błędów systematycznych (bias) i wariancji, efektywnego
+redukowania błędów systematycznych i wariancji, efektywnego
 wykorzystania zasobów obliczeniowych oraz umiejętności reprezentowania
-bardziej złożonych zależności w danych. W praktyce metody ensemble
+bardziej złożonych zależności w danych. W praktyce metody uczenia zespołowego
 znajdują zastosowanie w wielu dziedzinach, takich jak diagnostyka
 medyczna, analiza obrazów, wykrywanie anomalii czy przewidywanie awarii
-urządzeń. Autorzy podkreślają również ich skuteczność w rozwiązywaniu
-problemów nierównowagi klas, co jest szczególnie istotne w zadaniach,
-gdzie jedna klasa danych jest znacząco mniej reprezentowana.
+urządzeń.
 
 Dzięki integracji z modelami głębokiego uczenia, metody zespołowe łączą
 zdolność do hierarchicznego uczenia reprezentacji z większą precyzją
-predykcji. Jednocześnie rozwój tych modeli wymaga rozwiązywania wyzwań,
+predykcji. Jednocześnie rozwój tych modeli wymaga pokonania wyzwań,
 takich jak wysoki koszt obliczeniowy oraz konieczność zapewnienia
 różnorodności pomiędzy modelami bazowymi, co pozwala na ich skuteczne
 wykorzystanie w praktyce.
 
-\subsubsection{Bagging (Bootstrap Aggregating)}
-\textbf{Bagging}, znany także jako bootstrap aggregating, to metoda
+\subsubsection{Agregacja metodą bootstrap (bagging)}
+\textbf{Agregacja metodą bootstrap (bagging)}, znana także jako bootstrap aggregating, to metoda
 redukująca wariancję modeli bazowych poprzez trenowanie ich na różnych,
-losowych próbkach danych wybranych z zamianą (bootstrap). Jak wspomniano
-w artykule, bagging polega na tworzeniu wielu niezależnych modeli
-bazowych, których wyniki są następnie łączone poprzez głosowanie
-większościowe (w przypadku klasyfikacji) lub uśrednianie (w przypadku
-regresji).
+losowych próbkach wybranych danych. Jak wspomniano
+w artykule \cite{Bagging}, agregacja polega na tworzeniu wielu niezależnych modeli
+bazowych, których wyniki są następnie łączone poprzez wybór większościowy w przypadku klasyfikacji lub uśrednianie w przypadku
+regresji.
 
-Przykładem zastosowania baggingu jest \textbf{Random Forest}, w którym
+Przykładem zastosowania takiej agregacji jest \textbf{Losowy las (Random Forest)}, w którym
 dodatkowo losowo wybierane są podzbiory cech na każdym etapie budowania
 drzewa decyzyjnego. W ten sposób zwiększa się różnorodność modeli
 bazowych, zmniejszając jednocześnie ryzyko nadmiernego dopasowania i
 poprawiając stabilność wyników.
 
-\subsubsection{Boosting}
-Boosting to metoda polegająca na iteracyjnym trenowaniu modeli, gdzie
+\subsubsection{Uczenie wzmacniające (boosting)}
+\textbf{Uczenie wzmacniające (boosting)} to metoda polegająca na iteracyjnym trenowaniu modeli, gdzie
 każdy kolejny model skupia się na przykładach trudnych do
-sklasyfikowania przez poprzedników. W artykule podkreślono, że proces
-ten umożliwia tworzenie silnych klasyfikatorów zdolnych do radzenia
-sobie z bardziej złożonymi problemami.
+sklasyfikowania przez poprzedników. W artykule \cite{metoda8} podkreślono, że ten proces umożliwia tworzenie klasyfikatorów zdolnych do rozwizania bardziej złożonych problemów.
 
 Przykładem jest \textbf{AdaBoost}, który nadaje większe wagi błędnie
 sklasyfikowanym przykładom w kolejnych iteracjach, minimalizując funkcję
-błędu eksponencjalnego. Natomiast \textbf{Gradient Boosting} rozszerza
-to podejście, optymalizując dowolną różniczkowalną funkcję błędu.
-Boosting efektywnie redukuje błąd systematyczny (bias) i wariancję, co
+błędu eksponencjalnego. Natomiast \textbf{Gradient Boosting} efektywnie redukuje błąd systematyczny i wariancję, co
 prowadzi do lepszych wyników.
 
-\subsubsection{Stacking (Stacked Generalization)}
-\textbf{Stacking}, czyli uogólnione zestawianie (stacked
-generalization), to metoda zespołowa, w której różne modele bazowe są
+\subsubsection{Warstwowe łączenie modeli (stacking)}
+\textbf{Warstwowe łączenie modeli (stacking)} to metoda zespołowa, w której różne modele bazowe są
 łączone za pomocą meta-modelu. Meta-model uczy się, jak najlepiej łączyć
 prognozy modeli bazowych, korzystając z ich wyników jako danych
 wejściowych.
 
-Jak podano w artykule, stacking pozwala na łączenie różnych typów modeli
-(drzewa decyzyjne, sieci neuronowe, SVM), co czyni go bardziej
-elastycznym i zdolnym do generalizacji. W literaturze metoda ta jest
-również stosowana w złożonych problemach, takich jak klasyfikacja
-obrazów czy przewidywanie trendów.
-
-\subsubsection{Negative Correlation Learning (NCL)}
-W technice \textbf{Negative Correlation Learning} (NCL) dąży się do
-zwiększenia różnorodności wśród modeli bazowych poprzez wprowadzenie
-funkcji kosztu, która karze zbyt podobne prognozy między modelami. W
-artykule podkreślono, że metoda ta jest szczególnie skuteczna w
-problemach wymagających wysokiej zdolności do generalizacji.
-
-Przykładem zastosowania NCL są zadania regresyjne i klasyfikacyjne, w
-których różnorodność modeli poprawia ogólną wydajność zespołu.
-
-\subsubsection{Homogeniczne i heterogeniczne zespoły}
-\begin{itemize}
-	\item
-	      \textbf{Homogeniczne zespoły}: Wykorzystują jeden typ klasyfikatorów
-	      ( drzewa decyzyjne w Random Forest). Kluczowym wyzwaniem jest
-	      wprowadzenie różnorodności, poprzez losowe próbkowanie danych
-	      treningowych lub cech.
-	\item
-	      \textbf{Heterogeniczne zespoły}: Łączą różne typy modeli ( sieci
-	      neuronowe, SVM, regresję logistyczną). Są bardziej elastyczne i zdolne
-	      do uchwycenia różnych cech danych, co czyni je użytecznymi w złożonych
-	      problemach, takich jak analiza tekstu czy przewidywanie awarii.
-\end{itemize}
-
-\subsection{Dlaczego są skuteczne w wykrywaniu fake newsów?}
-\subsubsection{Bagging (Bootstrap Aggregating)}
-Bagging zwiększa stabilność modeli w sytuacjach, gdy dane są niestabilne
-lub różnorodne -- co jest powszechne w zadaniach wykrywania fake news.
-Przykładem jest Random Forest, który dzięki losowemu wyborowi podzbiorów
+\subsection{Skuteczność technik}
+\subsubsection{Agregacja metodą bootstrap (bagging)}
+\textbf{Agregacja metodą bootstrap (bagging)} zwiększa stabilność modeli w sytuacjach, gdy dane są niestabilne
+lub różnorodne - co jest powszechne w zadaniach wykrywania \textbf{fałszywych nowości}.
+Przykładem jest \textbf{Losowy las}, który dzięki losowemu wyborowi podzbiorów
 cech i danych jest odporny na przetrenowanie, co pozwala mu skutecznie
 radzić sobie z różnymi rodzajami tekstów. Redukcja wariancji umożliwia bardziej spójne
 klasyfikowanie nawet w przypadku danych zawierających subtelne różnice.
 
-\subsubsection{Boosting}
-Boosting koncentruje się na trudno klasyfikowalnych przykładach, które
-są częste w zbiorach danych dotyczących fake news. Fałszywe informacje
+\subsubsection{Uczenie wzmacniające (boosting)}
+\textbf{Uczenie wzmacniające (boosting)} koncentruje się na trudno klasyfikowalnych przykładach, które
+są częste w zbiorach danych dotyczących \textbf{fałszywych nowości}. Fałszywe informacje
 często charakteryzują się subtelnymi manipulacjami w języku, co wymaga
-modeli zdolnych do uchwycenia takich szczegółów. Boosting, w formie
-Gradient Boostingu lub XGBoost, jest w stanie modelować złożone
+modeli zdolnych do uchwycenia takich szczegółów. \textbf{Uczenie wzmacniające} w formie
+\textbf{Gradient Boostingu, XGBoost}, jest w stanie modelować złożone
 zależności między cechami, co prowadzi do wyższej dokładności w
 identyfikowaniu fałszywych wiadomości.
 
-\subsubsection{Stacking (Stacked Generalization)}
-Stacking umożliwia łączenie różnych metod analizy tekstu, takich jak
+\subsubsection{Warstwowe łączenie modeli (stacking)}
+\textbf{Warstwowe łączenie modeli (stacking)} umożliwia łączenie różnych metod analizy tekstu, takich jak
 modele oparte na n-gramach, TF-IDF, czy głębokie sieci neuronowe. Dzięki
 temu można wykorzystać mocne strony każdego z tych podejść, jednocześnie
-minimalizując ich słabości. W zadaniach wykrywania fake news stacking
-pozwala połączyć modele bazujące na różnych źródłach danych (tekst,
-metadane, analiza kontekstu), co daje bardziej kompleksowy obraz
+minimalizując ich słabości. \textbf{Łączenie modeli} w zadaniach wykrywania \textbf{fałszywych nowości}
+pozwala połączyć modele bazujące na różnych źródłach danych: tekst,
+metadane, analiza kontekstu, dając bardziej kompleksowy obraz
 problemu.
-
-\subsubsection{Negative Correlation Learning (NCL)}
-NCL zwiększa różnorodność modeli bazowych, co sprawdza się w wykrywaniu
-fake news, gdzie dane są niejednorodne i zawierają różnorodne wzorce.
-Dzięki promowaniu różnorodności w predykcjach, modele uczą się
-szerokiego zakresu cech, co prowadzi do lepszego uogólnienia wyników na
-danych testowych.
-
-\subsubsection{Homogeniczne i heterogeniczne zespoły}
-Homogeniczne zespoły, dobrze radzą sobie z dużą liczbą cech tekstowych i
-ich interakcjami. Z kolei heterogeniczne zespoły, łączące różne typy
-modeli, pozwalają lepiej uchwycić różnorodne cechy danych fake news,
-takie jak manipulacyjny język, brak źródeł czy określone wzorce
-emocjonalne w tekstach.
 
 \subsection{Ważne pojęcia}
 
-\textbf{Binarna entropia krzyżowa} (Binary Cross-Entropy) to sposób mierzenia, jak dobrze coś jest klasyfikowane na dwie grupy, na przykład czy wiadomość jest prawdziwa, czy fałszywa. W praktyce pomaga sprawdzić, czy moje przewidywania są bliskie rzeczywistości - im mniejszy błąd, tym lepiej rozróżniamy te dwie kategorie, co jest kluczowe w analizie wiarygodności treści.
+\textbf{Binarna entropia krzyżowa} (Binary Cross-Entropy) to sposób mierzenia, jak dobrze coś jest klasyfikowane na dwie grupy, na przykład czy wiadomość jest prawdziwa, czy fałszywa. W praktyce pomaga sprawdzić, czy przewidywania są bliskie rzeczywistości - im mniejszy błąd, tym lepiej rozróżniamy te dwie kategorie, co jest kluczowe w analizie wiarygodności treści.
 
 \textbf{Metoda wczesnego zatrzymania} (Early Stopping Rounds) to technika, która pozwala zatrzymać proces uczenia, gdy dalsze próby nie przynoszą poprawy. Wyobraźmy sobie, że uczymy się rozpoznawać fałszywe wiadomości: jeśli po kilku rundach nie robimy postępów, przerywamy, aby nie tracić czasu i nie skupiać się za bardzo na szczegółach, które mogą być mylące w nowych sytuacjach.
 
-\textbf{Losowy wybór} (Random State) zapewnia, że losowe wybory, na przykład podział danych na grupy do analizy, są zawsze takie same. Dzięki temu wyniki badań są powtarzalne - jeśli analizując wiadomości, możemy być pewni, że za każdym razem pracujemy na tych samych zestawach, co ułatwia porównanie i zapewnia spójność.
+\textbf{Parametr zapewniający powtarzalność wyników} (Random State) zapewnia, że podział danych na grupy do analizy jest zawsze taki sam. Dzięki temu wyniki badań są powtarzalne. Analizując wiadomości, możemy być pewni, że za każdym razem pracujemy na tych samych zestawach, co ułatwia porównanie i zapewnia spójność.

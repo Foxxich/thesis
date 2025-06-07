@@ -1,10 +1,10 @@
 \section{Druga metoda (\textbf{Metoda18})}
-\textbf{Metoda18} integracja \texttt{Gradient Boosting} i \texttt{CatBoost} została wzbogacona o meta-model w postaci regresji logistycznej. Metoda ta jest wynikiem kombinacji idei pochodzących z \textbf{Metoda12} oraz \textbf{Metoda13}. \textbf{Metoda13} została zaimplementowana przy użyciu \textit{stacking}, gdzie \texttt{Gradient Boosting}, \texttt{XGBoost} i \texttt{Random Forest} były łączone przy użyciu regresji logistycznej jako meta-modelu. \textbf{Metoda12} natomiast wykorzystywała wyłącznie \texttt{CatBoost}, co pokazało jego dużą skuteczność w pracy z danymi kategorialnymi i nierównomiernymi, co również wpłynęło na wybór tego modelu w obecnym podejściu.
+\textbf{Metoda18} integracja \textbf{Gradient Boosting} i \textbf{CatBoost} została wzbogacona o meta-model w postaci regresji logistycznej. Metoda ta jest wynikiem kombinacji idei pochodzących z \textbf{Metoda12} oraz \textbf{Metoda13}. \textbf{Metoda13} została zaimplementowana przy użyciu \textit{stacking}, gdzie \textbf{Gradient Boosting}, \textbf{XGBoost} i \textbf{Random Forest} były łączone przy użyciu regresji logistycznej jako meta-modelu. \textbf{Metoda12} natomiast wykorzystywała wyłącznie \textbf{CatBoost}, co pokazało jego dużą skuteczność w pracy z danymi kategorialnymi i nierównomiernymi, co również wpłynęło na wybór tego modelu w obecnym podejściu.
 
-\textbf{Metoda18} czerpie z \textbf{Metoda13} mechanizm \textit{stacking}, jednak zamiast wielu modeli bazowych opiera się na dwóch potężnych algorytmach boostingu — \texttt{Gradient Boosting} i \texttt{CatBoost}. Wybór tych modeli wynika z ich zdolności do radzenia sobie z różnymi typami danych i ich nierównowagą. Regresja logistyczna jako meta-model umożliwia skuteczną integrację wyników, co zostało wcześniej zademonstrowane w \textbf{Metoda13}.
+\textbf{Metoda18} czerpie z \textbf{Metoda13} mechanizm \textit{stacking}, jednak zamiast wielu modeli bazowych opiera się na dwóch potężnych algorytmach boostingu — \textbf{Gradient Boosting} i \textbf{CatBoost}. Wybór tych modeli wynika z ich zdolności do radzenia sobie z różnymi typami danych i ich nierównowagą. Regresja logistyczna jako meta-model umożliwia skuteczną integrację wyników, co zostało wcześniej zademonstrowane w \textbf{Metoda13}.
 
 \subsection{Wejściowe parametry}
-Metoda \texttt{train\_run18} przyjmuje następujące parametry wejściowe:
+Metoda \textbf{train\_run18} przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}

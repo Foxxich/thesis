@@ -1,7 +1,10 @@
 \section{Wstępna analiza wyników}
 \label{text:results}
 
-W niniejszym podrozdziale przeprowadzam wstępną analizę wyników, koncentrując się wyłącznie na zbiorze danych ISOT Fake News Dataset, który posłuży jako baza do przykładów inspirujących moje autorskie metody. Szczegółowe omówienie wyników na tych danych umożliwi nam wypracowanie i implementację innowacyjnych podejść, otwierając drogę do przełomowych rozwiązań. Skupiam się na dokładnym opisie wyników z wykorzystaniem paradygmatów few-shot learning oraz Sentence-BERT (SBERT). Wybór few-shot wynika z jego zdolności do efektywnego uczenia się na małej liczbie przykładów, co jest kluczowe w dynamicznie zmieniającym się środowisku dezinformacji, w przeciwieństwie do no-shot czy one-shot, które nie zapewniają odpowiedniej elastyczności. Z kolei SBERT został wybrany ze względu na jego zaawansowane możliwości semantycznego modelowania tekstu, przewyższające tradycyjne modele jak BERT czy RoBERTa, szczególnie w zadaniach wymagających analizy kontekstowej i porównawczej.
+W niniejszym podrozdziale przeprowadzam wstępną analizę wyników, koncentrując się wyłącznie na zbiorze danych \textbf{ISOT}. Szczegółowe omówienie wyników na tych danych pozwoli zaimplementować autorskie podejścia. Skupiam się na dokładnym opisie wyników dla uczenia na kilku przykładach (Few-Shot Learning) oraz \textbf{SBERT}. Wybór takiego uczenia wynika z jego zdolności do efektywnego uczenia się na większej liczbie przykładów, co jest kluczowe do zapewnienia odpowiedniej elastyczności. Z kolei \textbf{SBERT} został wybrany ze względu na zaawansowane możliwości semantycznego modelowania tekstu, przewyższające tradycyjne modele, takie jak \textbf{BERT} czy \textbf{RoBERTa}, szczególnie w zadaniach wymagających analizy kontekstowej i porównawczej.
+
+
+
 
 \subsection{Dokładność (Accuracy)}
 W tej analizie oceniam dokładność (Accuracy), której proponuję się przejrzeć na rysunku \ref{fig:accuracy_isot}. Najwyższe wyniki, osiągające wartość 1.0, zanotowały metody \textbf{metoda2}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda9}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda13}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16}, \textbf{metoda12\_catboost}, co dowodzi ich wyjątkowej skuteczności w zadaniu klasyfikacji. Z kolei najgorzej wypadła \textbf{metoda4}, uzyskując wyniki w przedziale 0.4--0.6, co wskazuje na jej niską efektywność i konieczność dalszej poprawy. Pozostałe rozwiązania prezentują się dość przeciętnie. Te wnioski motywują nas do projektowania nowatorskich podejść, które będą czerpały z metod osiągających najlepszą dokładność.
@@ -111,7 +114,7 @@ Dodatkowo w tabeli \ref{tab:method_comparison} symbol "x" przy danej metodzie w 
 
 \begin{table}[h!]
 	\centering
-	\scriptsize % Jeszcze mniejsza czcionka niż \small
+	\scriptsize
 	\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
 		Metoda             & \rotatebox{90}{Dokładność} & \rotatebox{90}{Precyzja} & \rotatebox{90}{Recall} & \rotatebox{90}{F1-Score} & \rotatebox{90}{Log-Loss} & \rotatebox{90}{MCC} & \rotatebox{90}{ROC-AUC} & \rotatebox{90}{Cohen's Kappa} & \rotatebox{90}{Średnia} & \rotatebox{90}{Czas wykonania} & \rotatebox{90}{Najlepsze dopasowanie} \\

@@ -1,85 +1,47 @@
-\section{Reprezentacje semantyczne tekstu}
-W ostatnich latach modele głębokiego uczenia, w szczególności te oparte
-na architekturze transformatorowej, zrewolucjonizowały przetwarzanie
-języka naturalnego (NLP). W kontekście generowania osadzeń tekstowych,
+\section{Semantyczne reprezentacje tekstu}
+W ostatnich latach modele głębokiego uczenia zrewolucjonizowały przetwarzanie
+języka naturalnego. W kontekście generowania osadzeń tekstowych,
 technologie te umożliwiły znaczący postęp w jakości reprezentacji
 semantycznych zdań. Poniżej przedstawiono szczegółowy opis trzech
 kluczowych metod omawianych w artykule \cite{DBLP_Gurevych}, z uwzględnieniem ich zalet, ograniczeń oraz zastosowań.
 
 \subsection{BERT (Bidirectional Encoder Representations from Transformers)}
-Model BERT stanowi przełom w NLP dzięki dwukierunkowemu przetwarzaniu
+Model \textbf{BERT} stanowi przełom dzięki dwukierunkowemu przetwarzaniu
 tekstu, co umożliwia pełne uchwycenie kontekstu zdania. Dzięki warstwom
-transformatorowym BERT ustanowił nowe standardy w takich zadaniach jak
-klasyfikacja zdań czy analiza podobieństwa tekstowego (STS). Jego
+transformatorowym \textbf{BERT} ustanowił nowe standardy w takich zadaniach jak
+klasyfikacja zdań czy analiza podobieństwa tekstowego. Jego
 zastosowanie wymaga jednak jednoczesnego podania obu zdań do sieci, co
-prowadzi do ogromnych kosztów obliczeniowych. Przykładowo, analiza 10 000 zdań za pomocą BERT wymaga przeprowadzenia około 50 milionów
-obliczeń (\textasciitilde65 godzin na nowoczesnej GPU).
+prowadzi do ogromnych kosztów obliczeniowych.
 
-Pomimo sukcesów, BERT nie generuje osadzeń zdań w sposób natywny.
-Stosowane podejścia, takie jak uśrednianie wyjść z warstwy końcowej
-(average pooling) czy wykorzystanie tokenu (CLS), często prowadzą do
-wyników gorszych od metod tradycyjnych, takich jak GloVe. Zastosowanie
-BERT w zadaniach takich jak klasteryzacja czy wyszukiwanie semantyczne
+Dodatkowo \textbf{BERT} nie generuje osadzeń zdań w sposób natywny.
+Stosowane podejścia, takie jak uśrednianie danych wyjściowych z warstwy końcowej, często prowadzą do
+wyników gorszych od metod tradycyjnych, takich jak \textbf{GloVe}. Zastosowanie
+\textbf{BERT} w zadaniach takich jak klasteryzacja czy wyszukiwanie semantyczne
 jest ograniczone ze względu na niską jakość generowanych osadzeń oraz
 bardzo wysokie wymagania obliczeniowe.
 
 \subsection{RoBERTa (Robustly Optimized BERT Approach)}
-RoBERTa to ulepszona wersja BERT, zoptymalizowana pod kątem wydajności w
+\textbf{RoBERTa} to ulepszona wersja \textbf{BERT}, zoptymalizowana pod kątem wydajności w
 zadaniach z nadzorem. Dzięki dłuższemu treningowi, większej ilości
-danych i lepszej optymalizacji hiperparametrów, RoBERTa osiąga lepsze
-wyniki w zadaniach klasyfikacyjnych. Usunięcie tokenów (SEP) i
-(CLS) w procesie pretreningu pozwoliło na zwiększenie efektywności
+danych i lepszej optymalizacji hiperparametrów, \textbf{RoBERTa} osiąga lepsze
+wyniki w zadaniach klasyfikacyjnych. Usunięcie tokenów w procesie pretreningu pozwoliło na zwiększenie efektywności
 modelu.
 
-Jednak w kontekście generowania osadzeń zdań RoBERTa wykazuje wyniki
-porównywalne z BERT. W implementacji SBERT (jako SRoBERTa) nie
-przyniosła istotnej przewagi nad standardowym SBERT. RoBERTa pozostaje
-bardziej wydajna w zadaniach klasyfikacyjnych, lecz jej zastosowanie w
-klasteryzacji czy wyszukiwaniu semantycznym jest ograniczone podobnie
-jak w przypadku BERT.
+Jednak w kontekście generowania osadzeń zdań \textbf{RoBERTa} wykazuje wyniki
+porównywalne z \textbf{BERT}.
 
 \subsection{Sentence-BERT (SBERT)}
-SBERT stanowi odpowiedź na ograniczenia BERT w generowaniu osadzeń zdań.
-Wykorzystuje sieci syjamskie (Siamese Networks), które umożliwiają
-jednoczesne przetwarzanie dwóch zdań za pomocą identycznych wag modelu
-BERT. Wynikowe osadzenia są porównywane przy użyciu miar, takich jak
-kosinusowe podobieństwo, co pozwala na szybkie określenie relacji
+\textbf{SBERT} unika ograniczenia \textbf{BERT} w generowaniu osadzeń zdań.
+Wykorzystuje sieci, które umożliwiają jednoczesne przetwarzanie dwóch zdań za pomocą wag modelu. Osadzenia do wyników są porównywalne, co pozwala na szybkie określenie relacji
 semantycznych między zdaniami.
 
-Jednym z kluczowych usprawnień SBERT jest wprowadzenie warstwy
-"pooling", która uśrednia wartości tokenów (MEAN), wybiera wartości
-maksymalne (MAX) lub wykorzystuje token (CLS). Model ten został
-przeszkolony na zbiorach NLI (Natural Language Inference) oraz STS.
-Dzięki temu SBERT znacząco redukuje czas obliczeń -- analiza 10 000 zdań
-zajmuje wieloktornie szybciej w porównaniu do BERT.
+Jednym z kluczowych usprawnień \textbf{SBERT} jest wprowadzenie \textbf{warstwy łączącej}, która uśrednia wartości tokenów, wybiera wartości
+maksymalne. Ten model został trzenerowany na zbiorach NLI (Natural Language Inference) oraz STS.
+Dzięki temu \textbf{SBERT} znacząco redukuje czas obliczeń -- analiza 10 000 zdań
+zajmuje wieloktornie szybciej w porównaniu do \textbf{BERT}.
 
-SBERT przewyższa jakością osadzenia generowane przez BERT, Universal
-Sentence Encoder czy InferSent. Na przykład w zadaniach STS osiągnął
-średnią poprawę o 11.7 punktów w porównaniu do InferSent i 5.5 punktów w
-stosunku do Universal Sentence Encoder.
-
-\subsection{Porównanie wspomnianych reprezentacji}
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\textbf{Metoda} & \textbf{Opis} & \textbf{Zalety} & \textbf{Ograniczenia} \\ \hline
-BERT & Generuje osadzenia tokenów dla klasyfikacji zdań i STS. &
-Dwukierunkowe przetwarzanie, wszechstronność, nowe standardy NLP. &
-Nie generuje samodzielnych osadzeń, wysokie koszty obliczeń. \\ \hline
-RoBERTa & Ulepszony BERT do zadań nadzorowanych NLP. &
-Lepsza wydajność w klasyfikacji, usunięcie ograniczeń BERT. &
-Brak poprawy jakości osadzeń względem BERT, wymagania obliczeniowe. \\ \hline
-SBERT & Syjamskie sieci BERT do semantycznych osadzeń zdań. &
-Wysokiej jakości osadzenia, szybka analiza, wszechstronność. &
-Wymaga dodatkowego treningu, zależność od jakości danych. \\ \hline
-\end{tabular}
-\caption{Porównanie metod osadzeń tekstowych.}
-\label{tab:porownanie_metod}
-\end{table}
-
-SBERT to istotny krok naprzód w generowaniu osadzeń zdań, który łączy
-precyzję i elastyczność modelu BERT z wysoką efektywnością obliczeniową.
-Dzięki zdolności do szybkiego tworzenia wysokiej jakości osadzeń, SBERT
+\textbf{SBERT} przewyższa jakością osadzenia generowane przez \textbf{BERT}, łącząc
+precyzję i elastyczność modelu \textbf{BERT} z wysoką efektywnością obliczeniową.
+Dzięki zdolności do szybkiego tworzenia wysokiej jakości osadzeń, \textbf{SBERT}
 znajduje zastosowanie w zadaniach takich jak klasteryzacja, wyszukiwanie
 semantyczne oraz analiza podobieństwa tekstowego.

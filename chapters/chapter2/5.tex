@@ -1,36 +1,18 @@
 \section{Techniki uczenia w różnych kontekstach danych}
-One-Shot Learning (OSL) i Few-Shot Learning (FSL) różnią się podejściem
-do problemu ograniczonych danych treningowych, a wybór odpowiedniej
-metody zależy od konkretnego przypadku użycia.
-
-\subsection{One-Shot Learning (OSL)}
-OSL wyróżnia się błyskawiczną adaptacją do nowych klas, co
-czyni ją idealnym wyborem w sytuacjach, gdzie czas reakcji ma kluczowe
-znaczenie, przykładowo przy identyfikacji nowo pojawiających się form fake news.
+\subsection{Uczenie jednokrotne (One-Shot Learning)}
+Uczenie jednokrotne (One-Shot Learning) wyróżnia się adaptacją do nowych klas, co
+czyni go idealnym wyborem w sytuacjach, gdzie czas reakcji ma kluczowe
+znaczenie, przykładowo przy identyfikacji nowo pojawiających się form \textbf{fałszywych nowości}.
 Jest to rozwiązanie szybkie i skuteczne, szczególnie w sytuacjach, gdzie
 dostępny jest tylko jeden przykład.
 
-\subsection{Few-Shot Learning (FSL)}
-FSL, dzięki wykorzystaniu większej liczby przykładów, oferuje
+\subsection{Uczenie na kilku przykładach (Few-Shot Learning)}
+Uczenie na kilku przykładach (Few-Shot Learning) dzięki wykorzystaniu większej liczby przykładów, oferuje
 większą elastyczność i dokładność. To podejście sprawdzi się lepiej w
 scenariuszach, gdzie dostęp do kilku przykładów nowych klas jest
 możliwy, a kluczowa jest stabilność i precyzja modelu.
 
 \subsection{Porównanie technik uczenia w różnych kontekstach danych}
-W artykule \cite{articleUnified} szczegółowo opisano
-metodę CAPD, która łączy zalety obu podejść. CAPD umożliwia dynamiczną
-adaptację modeli w obu przypadkach, dzięki czemu stanowi uniwersalne
-rozwiązanie dla problemów związanych z ograniczoną dostępnością danych.
+W artykule \cite{articleUnified} opisano innowacyjną metodę, która integruje zalety uczenia jednokrotnego i uczenia na kilku przykładach. Podejście to umożliwia dynamiczną adaptację modeli w obu scenariuszach, oferując wszechstronne rozwiązanie dla problemów związanych z ograniczoną dostępnością danych.
 
-Na podstawie analizy przeprowadzonej w artykule można stwierdzić, że
-\textbf{FSL jest bardziej uniwersalne} i lepiej dostosowane do
-długoterminowych scenariuszy, gdzie jakość klasyfikacji i stabilność
-modelu mają kluczowe znaczenie. Niemniej jednak, \textbf{OSL pozostaje
-niezastąpione w sytuacjach krytycznych}, gdy czas reakcji ma większe
-znaczenie niż precyzja.
-
-Dzięki innowacyjnemu podejściu opartemu na CAPD, zarówno \textbf{OSL}, jak i \textbf{FSL}
-mogą zostać zoptymalizowane pod kątem dynamicznego środowiska, takiego
-jak wykrywanie fake news, co zostało szczegółowo omówione w artykule.
-CAPD wykorzystuje zarówno minimalne dane OSL, jak i większe zbiory
-treningowe FSL, aby zwiększyć zdolności adaptacyjne modelu.
+Na podstawie analizy przedstawionej w artykule można stwierdzić, że \textbf{uczenie na kilku przykładach (Few-Shot Learning)} jest bardziej uniwersalne i lepiej sprawdza się w długoterminowych zastosowaniach, gdzie kluczowe są jakość klasyfikacji i stabilność modelu. Z kolei \textbf{uczenie jednokrotne (One-Shot Learning)} pozostaje niezastąpione w sytuacjach krytycznych, gdy priorytetem jest szybki czas reakcji, nawet kosztem nieco niższej precyzji. Wspominane uczenia danych mogą być zoptymalizowane do działania w dynamicznych środowiskach, efektywnie wykorzystując mniej danych lub większe zbiory treningowe, co znacząco zwiększa zdolności adaptacyjne modelu.

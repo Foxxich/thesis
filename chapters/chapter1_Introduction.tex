@@ -4,14 +4,13 @@
 \chapter{Wstęp}
 
 Tematem niniejszej pracy magisterskiej jest \emph{Wykrywanie Fake News
-	przy użyciu metod zespołowego uczenia maszynowego}. Problem
-dezinformacji, w tym tak zwanego fake news, jest jednym z
+	przy użyciu metod zespołowego uczenia maszynowego}. Problem \textbf{rozpoznawania fałszywych nowości} jest jednym z
 najpoważniejszych wyzwań współczesnego społeczeństwa informacyjnego.
 
 Motywacja do podjęcia tego tematu wynika z realnych zagrożeń, jakie
 niesie za sobą dezinformacja oraz potrzeby opracowania skutecznych
 narzędzi do jej zwalczania. W ostatnich latach zaobserwowano liczne
-przypadki wpływu \textbf{fake news} na wyniki wyborów, podziały
+przypadki wpływu \textbf{fałszywych nowości} na wyniki wyborów, podziały
 społeczne czy reakcje na kryzysy zdrowotne, takie jak pandemia COVID-19.
 Informacje nieprawdziwe, ale celowo rozpowszechniane, potrafią wywoływać
 panikę, dezinformować w kluczowych sprawach publicznych, a nawet
@@ -20,36 +19,26 @@ rola zaawansowanych technologii informatycznych w przeciwdziałaniu tym
 zjawiskom staje się kluczowa.
 
 Dodatkową motywacją do podjęcia tematu jest rosnące zainteresowanie
-zastosowaniem sztucznej inteligencji w analizie danych tekstowych oraz
+zastosowaniem sztucznej inteligencji w analizie danych oraz
 ciągła potrzeba udoskonalania istniejących rozwiązań. Współczesne
-systemy detekcji \textbf{fake news} często bazują na standardowych
+systemy detekcji \textbf{fałszywych nowości} często bazują na standardowych
 algorytmach, które, mimo wysokiej popularności, nie zawsze radzą sobie w
 sytuacjach wymagających analizy danych o dużej zmienności, nierównowadze
 klas czy subtelnych różnicach semantycznych. Opracowanie nowych metod,
 które potrafią efektywnie radzić sobie z tymi wyzwaniami, może znacząco
-przyczynić się do zwiększenia skuteczności detekcji \textbf{fake news}.
+przyczynić się do zwiększenia skuteczności detekcji \textbf{fałszywych nowości}.
 
 W odpowiedzi na te wyzwania, dziedzina sztucznej inteligencji, a w
 szczególności uczenie maszynowe, oferuje zaawansowane narzędzia
 umożliwiające skuteczne wykrywanie i klasyfikację dezinformacji. Wśród
 tych narzędzi szczególną rolę odgrywają metody zespołowego
-\textbf{uczenia maszynowego} (\emph{ensemble learning}), które dzięki
+\textbf{uczenia maszynowego}, które dzięki
 integracji wyników wielu modeli bazowych, pozwalają na osiąganie wyższej
-dokładności predykcji i większej stabilności wyników. Techniki te, takie
-jak \textbf{bagging}, \textbf{boosting} czy \textbf{stacking}, zdobyły
-uznanie dzięki swojej skuteczności w rozwiązywaniu problemów
+dokładności predykcji i większej stabilności wyników. \textbf{Agregacja metodą bootstrap (bagging)}, \textbf{uczenie wzmacniające (boosting)} czy \textbf{warstwowe łączenie modeli (stacking)} są znane dzięki swojej skuteczności w rozwiązywaniu problemów
 nierównowagi klas oraz w zadaniach wymagających analizy dużych i
 zróżnicowanych zbiorów danych.
 
-\textbf{Celem niniejszej pracy} jest opracowanie i implementacja
-autorskich metod zespołowego uczenia maszynowego dedykowanych do
-detekcji \textbf{fake news} oraz analiza ich skuteczności w porównaniu z
-tradycyjnymi podejściami. Praca koncentruje się na tworzeniu
-innowacyjnych rozwiązań, które wykraczają poza standardowe techniki.
-Szczególny nacisk położono na projektowanie algorytmów i użycie modeli
-które łączą w sobie nowoczesne podejścia do przetwarzania języka
-naturalnego z zaawansowanymi technikami optymalizacji wyników
-klasyfikacji.
+\textbf{Celem pracy} jest analiza tradycyjnych technik uczenia maszynowego oraz nowoczesnych metod, ze szczególnym uwzględnieniem badania semantycznych reprezentacji tekstu, przygotowania danych, wpływu różnych strategii preprocessingu na jakość klasyfikacji, a także zbadanie, które podejścia w ramach metod zespołowych okazują się najskuteczniejsze w detekcji dezinformacji oraz jak innowacyjne rozwiązania mogą zwiększyć efektywność takich systemów, co pozwala lepiej zrozumieć, jak poprawić skuteczność identyfikacji \textbf{fałszywych nowości}. Po przeprowadzeniu wszystkich etapów ustalono kluczowe zależności i warunki do stworzenia skutecznej procedury wykrywania \textbf{fałszywych nowości}, wzbogacając wiedzę teoretyczną oraz dostarczając praktyczne narzędzia dla badań naukowych.
 
 Główne założenia pracy obejmują:
 
@@ -59,12 +48,10 @@ Główne założenia pracy obejmują:
 	      Opracowanie nowych metod zespołowych wykorzystujących.
 	\item
 	      Analizę efektywności autorskich rozwiązań w kontekście kluczowych
-	      miar, takich jak \textbf{Log Loss}, \textbf{Accuracy} i
-	      \textbf{Execution Time}.
+	      miar.
 	\item
 	      Praktyczne zastosowanie proponowanych metod na różnych zbiorach danych
 	      zawierających fałszywe i prawdziwe wiadomości, w tym na benchmarkowych
-	      zestawach, takich jak ISOT Fake News Dataset i innych.
+	      zestawach, takich jak \textbf{ISOT Fake News Dataset} i innych.
 \end{enumerate}
 
-Celem pracy jest analiza tradycyjnych technik uczenia maszynowego oraz nowoczesnych metod, ze szczególnym uwzględnieniem badania semantycznych reprezentacji tekstu, przygotowania danych, wpływu różnych strategii preprocessingu na jakość klasyfikacji, a także zbadanie, które podejścia w ramach metod zespołowych okazują się najskuteczniejsze w detekcji dezinformacji oraz jak innowacyjne rozwiązania mogą zwiększyć efektywność takich systemów, co pozwala lepiej zrozumieć, jak poprawić skuteczność identyfikacji \textbf{fake news}. Po przeprowadzeniu wszystkich etapów ustalono kluczowe zależności i warunki do stworzenia skutecznej procedury wykrywania \textbf{fake news}, wzbogacając wiedzę teoretyczną oraz dostarczając praktyczne narzędzia dla badań naukowych.

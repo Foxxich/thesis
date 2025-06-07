@@ -1,26 +1,26 @@
-\section{Opis zestawów danych użytych w eksperymentach}
+\section{Zestawy danych do eksperymentów}
 
-W moich badaniach postanowiłem skupić się na trzech zbiorach danych: BuzzFeed News Dataset, ISOT Fake News Dataset oraz WELFake Dataset. Wybór tych zbiorów został podyktowany ich popularnością w literaturze naukowej, dostępnością odpowiednich danych oraz ich przydatnością do zadania wykrywania fałszywych informacji. Warto również wspomnieć, że rozważałem użycie zbioru LIAR Dataset, który jest często wykorzystywany w badaniach nad fałszywymi informacjami, szczególnie w kontekście analizy wypowiedzi politycznych. Jednak LIAR Dataset nie został ostatecznie wybrany, ponieważ brakowało w nim kluczowych kolumn, takich jak pełne teksty artykułów czy metadane dotyczące źródeł publikacji, co czyniło go nieodpowiednim do moich potrzeb eksperymentalnych, które wymagały szczegółowych danych tekstowych i kontekstowych.
+W moich badaniach postanowiłem skupić się na trzech zbiorach danych: \textbf{BuzzFeed News Dataset, ISOT Fake News Dataset} oraz \textbf{WELFake}. Wybór tych zbiorów został podyktowany ich popularnością w literaturze naukowej, dostępnością odpowiednich danych oraz ich przydatnością do zadania wykrywania fałszywych informacji. Warto również wspomnieć, że rozważałem użycie zbioru LIAR Dataset, który jest często wykorzystywany w badaniach nad fałszywymi informacjami, szczególnie w kontekście analizy wypowiedzi politycznych. Jednak \textbf{LIAR Dataset} nie został ostatecznie wybrany, ponieważ brakowało w nim kluczowych kolumn, takich jak pełne teksty artykułów czy metadane dotyczące źródeł publikacji, co czyniło go nieodpowiednim do moich potrzeb eksperymentalnych, które wymagały szczegółowych danych tekstowych i kontekstowych.
 
 \subsection{ISOT Fake News Dataset}
-Zbiór danych dotyczących fałszywych wiadomości ISOT jest jednym z najczęściej wykorzystywanych zbiorów danych w badaniach nad wykrywaniem fałszywych wiadomości, szczególnie w analizie tekstów i klasyfikacji wiadomości. Ten zbiór jest popularny ze względu na swój duży rozmiar, zrównoważoną strukturę. Szczegółowy opis użycia tego zbioru danych jest wspominany w podanym artykule \cite{ISOT}, w którym autorzy analizują różne podejścia do wykrywania fake newsów, w tym metody oparte na uczeniu maszynowym i głębokim uczeniu, takie jak LSTM lub modele hybrydowe, co potwierdza znaczenie starannie przygotowanych zbiorów danych, takich jak ISOT, w tego typu badaniach. Dlatego też ISOT stał się podstawowym zbiorem danych, w którym przeprowadzam większość moich eksperymentów i służy jako punkt odniesienia umożliwiający porównywanie wyników z innymi zbiorami danych.
+Zbiór danych dotyczących fałszywych wiadomości \textbf{ISOT} jest jednym z najczęściej wykorzystywanych zbiorów danych w badaniach nad wykrywaniem fałszywych wiadomości, szczególnie w analizie tekstów i klasyfikacji wiadomości. Ten zbiór jest popularny ze względu na swój duży rozmiar, zrównoważoną strukturę. Szczegółowy opis użycia tego zbioru danych jest wspominany w podanym artykule \cite{ISOT}, w którym autorzy analizują różne podejścia do wykrywania \textbf{fałszywych nowości}, w tym metody oparte na uczeniu maszynowym i głębokim uczeniu, co potwierdza znaczenie starannie przygotowanych zbiorów danych w tego typu badaniach. Dlatego \textbf{ISOT} został podstawowym zbiorem danych, w którym przeprowadzam większość moich eksperymentów i służy jako punkt odniesienia umożliwiający porównywanie wyników z innymi zbiorami danych.
 
-Zbiór ISOT jest szczególnie ceniony za swoje cechy rzeczywistych scenariuszy dezinformacji, co pozwala na testowanie modeli w warunkach zbliżonych do tych, z jakimi spotykam się w mediach społecznościowych czy portalach informacyjnych. W kontekście badań nad fałszywymi wiadomościami, takich jak te opisane w \cite{ISOT}, ISOT umożliwia analizę zarówno lingwistycznych, jak i kontekstowych cech fałszywych wiadomości, co czyni go idealnym narzędziem do rozwijania zaawansowanych algorytmów wykrywania dezinformacji.
+Zbiór \textbf{ISOT} jest szczególnie ceniony za swoje cechy rzeczywistych scenariuszy dezinformacji, co pozwala na testowanie modeli w warunkach zbliżonych do tych, z jakimi spotykam się w mediach społecznościowych czy portalach informacyjnych. \textbf{ISOT} umożliwia analizę zarówno lingwistycznych, jak i kontekstowych cech fałszywych wiadomości, co czyni go idealnym narzędziem do rozwijania zaawansowanych algorytmów wykrywania dezinformacji.
 
 \subsubsection{Struktura zbioru danych}
-ISOT Fake News Dataset składa się z dwóch głównych kategorii danych:
+\textbf{ISOT} składa się z dwóch głównych kategorii danych:
 \begin{itemize}
 	\item \textbf{Fake News}: Zawiera artykuły sklasyfikowane jako fałszywe informacje, których celem jest wprowadzanie w błąd lub manipulacja opinią publiczną. Źródła tych artykułów pochodzą głównie z witryn internetowych znanych z publikowania niesprawdzonych, sensacyjnych lub celowo wprowadzających w błąd treści. Często charakteryzują się emocjonalnym językiem, prowokacyjnymi nagłówkami i brakiem wiarygodnych źródeł.
 	\item \textbf{True News}: Zawiera artykuły uznane za prawdziwe, publikowane przez renomowane agencje informacyjne, takie jak Associated Press, Reuters czy BBC. Są to treści oparte na rzetelnym dziennikarstwie, w których stosuje się wiarygodne źródła i odpowiednie standardy edytorskie.
 \end{itemize}
 
 \subsubsection{Szczegóły struktury danych}
-Każdy rekord w zbiorze ISOT zawiera następujące pola:
+Każdy rekord w zbiorze \textbf{ISOT} zawiera następujące pola:
 \begin{itemize}
-	\item \texttt{title}: Tytuł artykułu, który zawiera główny nagłówek publikacji.
-	\item \texttt{text}: Pełna treść artykułu, obejmująca cały tekst publikacji.
-	\item \texttt{subject}: Kategoria tematyczna artykułu, polityka, gospodarka, co pozwala na analizę kontekstu tematycznego.
-	\item \texttt{date}: Data publikacji artykułu, umożliwiająca analizę temporalną i chronologiczną.
+	\item \textbf{title}: Tytuł artykułu, który zawiera główny nagłówek publikacji.
+	\item \textbf{text}: Pełna treść artykułu, obejmująca cały tekst publikacji.
+	\item \textbf{subject}: Kategoria tematyczna artykułu, polityka, gospodarka, co pozwala na analizę kontekstu tematycznego.
+	\item \textbf{date}: Data publikacji artykułu, umożliwiająca analizę temporalną i chronologiczną.
 \end{itemize}
 Taka struktura danych pozwala na kompleksową analizę artykułów pod kątem ich treści, kontekstu tematycznego oraz ram czasowych.
 
@@ -31,31 +31,31 @@ Zbiór zawiera około \textbf{40 000 artykułów}, podzielonych równomiernie mi
 Próbki zostały przetworzone w formie wektorów cech, co pozwala na uchwycenie znaczenia słów w kontekście dokumenty.
 
 \subsection{WELFake Dataset}
-Zbiór danych WELFake został stworzony w celu analizowania i wykrywania fałszywych wiadomości, zwłaszcza w kontekście mediów społecznościowych, gdzie szybkie rozprzestrzenianie się informacji ułatwia rozprzestrzenianie się fałszywych informacji. Zostało to szczegółowo opisane w pracy \cite{WELFake}, w której autorzy zaproponowali model WELFake bazujący na osadzeniach słów i cechach językowych, służący do klasyfikowania fałszywych wiadomości za pomocą uczenia maszynowego. Zbiór danych WELFake powstał w wyniku połączenia czterech istniejących zbiorów danych: Kaggle Fake News, McIntire, Reuters i BuzzFeed. Każda z tych kolekcji zawiera różnorodne źródła danych, co sprawia, że WELFake jest szczególnie cenny w badaniach nad dezinformacją. Na przykład dane Kaggle obejmują szeroki zakres fałszywych i prawdziwych artykułów, podczas gdy zbiór danych BuzzFeed dostarcza dane specyficzne dla mediów społecznościowych, które umożliwiają analizę różnych kontekstów i stylów tekstu.
+Zbiór danych \textbf{WELFake} został stworzony w celu analizowania i wykrywania fałszywych wiadomości, zwłaszcza w kontekście mediów społecznościowych, gdzie szybkie rozprzestrzenianie się informacji ułatwia rozprzestrzenianie się fałszywych informacji. Zostało to szczegółowo opisane w pracy \cite{WELFake}, w której autorzy zaproponowali model \textbf{WELFake} bazujący na osadzeniach słów i cechach językowych, służący do klasyfikowania fałszywych wiadomości za pomocą uczenia maszynowego. Zbiór danych \textbf{WELFake} powstał w wyniku połączenia czterech istniejących zbiorów danych: Kaggle Fake News, McIntire, Reuters i BuzzFeed. Każda z tych kolekcji zawiera różnorodne źródła danych, co sprawia, że \textbf{WELFake} jest szczególnie cenny w badaniach nad dezinformacją. Na przykład dane Kaggle obejmują szeroki zakres fałszywych i prawdziwych artykułów, podczas gdy zbiór danych BuzzFeed dostarcza dane specyficzne dla mediów społecznościowych, które umożliwiają analizę różnych kontekstów i stylów tekstu.
 
 \subsubsection{Struktura zbioru danych}
-Zbiór WELFake składa się z dwóch głównych kategorii:
+Zbiór \textbf{WELFake} składa się z dwóch głównych kategorii:
 \begin{itemize}
 	\item \textbf{Fake News}: Artykuły fałszywe, często o charakterze manipulacyjnym, pochodzące z różnych niesprawdzonych źródeł, takich jak strony internetowe znane z publikowania clickbaitów lub treści dezinformujących.
 	\item \textbf{True News}: Artykuły prawdziwe, oparte na wiarygodnych źródłach, takich jak renomowane portale informacyjne, które stosują standardy dziennikarskie.
 \end{itemize}
 
 \subsubsection{Przetwarzanie danych}
-Dane w zbiorze WELFake wymagały dodatkowego przetworzenia, aby dostosować je do moich potrzeb. Struktura tekstu została zmodyfikowana w następujący sposób: usunięto nadmiarowe spacje, problematyczne symbole (znaki specjalne, które mogłyby zakłócać przetwarzanie tekstu), a także ustalono jednolite kodowanie UTF-8 dla wszystkich próbek. Ostateczna struktura danych została zdefiniowana w następujący sposób:
+Dane w zbiorze \textbf{WELFake} wymagały dodatkowego przetworzenia, aby dostosować je do moich potrzeb. Struktura tekstu została zmodyfikowana w następujący sposób: usunięto nadmiarowe spacje, problematyczne symbole (znaki specjalne, które mogłyby zakłócać przetwarzanie tekstu), a także ustalono jednolite kodowanie UTF-8 dla wszystkich próbek. Ostateczna struktura danych została zdefiniowana w następujący sposób:
 \begin{itemize}
-	\item \texttt{title}: Tytuł artykułu, pochodzący z oryginalnego pola \texttt{row['title']}.
-	\item \texttt{text}: Treść artykułu, nabyta z pola \texttt{row['text']}.
-	\item \texttt{subject}: Kategoria tematyczna, ustawiona na stałą wartość \texttt{'news'}.
-	\item \texttt{date}: Data publikacji.
+	\item \textbf{title}: Tytuł artykułu, pochodzący z oryginalnego pola \textbf{row['title']}.
+	\item \textbf{text}: Treść artykułu, nabyta z pola \textbf{row['text']}.
+	\item \textbf{subject}: Kategoria tematyczna, ustawiona na stałą wartość \textbf{'news'}.
+	\item \textbf{date}: Data publikacji.
 \end{itemize}
 
 \subsubsection{Liczba próbek}
-Zbiór WELFake zawiera dokładnie \textbf{72 134 artykuły}, z podziałem na kategorie fałszywych i prawdziwych wiadomości, jak podano w \cite{WELFake}. Ta duża liczba próbek czyni WELFake jednym z największych zbiorów danych użytych w moich eksperymentach, co pozwala na skuteczne trenowanie i testowanie modeli.
+Zbiór \textbf{WELFake} zawiera dokładnie \textbf{72 134 artykuły}, z podziałem na kategorie fałszywych i prawdziwych wiadomości, jak podano w \cite{\textbf{WELFake}}. Ta duża liczba próbek czyni \textbf{WELFake} jednym z największych zbiorów danych użytych w moich eksperymentach, co pozwala na skuteczne trenowanie i testowanie modeli.
 
 \subsection{BuzzFeed News Dataset}
-BuzzFeed News Dataset został stworzony w 2016 roku przez zespół BuzzFeed News w celu analizy wpływu fałszywych i prawdziwych wiadomości na zaangażowanie użytkowników w mediach społecznościowych, w szczególności w kontekście wyborów prezydenckich w USA w 2016 roku. Szczegółowy opis jest w artykule \cite{BuzzFace}, w którym autorzy przeanalizowali, jak hiperpartyjne i fałszywe wiadomości rozprzestrzeniały się na platformie Facebook w kluczowych miesiącach przed wyborami. Dane zostały zebrane z dziewięciu stron na Facebooku, należących do trzech kategorii: popularnych mediów (CNN, The New York Times), stron lewicowych (Addicting Info) oraz stron prawicowych (Eagle Rising). Dodatkowo, autorzy zidentyfikowali strony znane z publikowania fałszywych wiadomości, takie jak Ending the Fed, które były odpowiedzialne za znaczną część najbardziej angażujących treści w okresie wyborczym. Zbiór ten zawiera 2 282 posty z tych stron, opublikowane między 20 a 27 września 2016 roku, które następnie zostały powiązane z pełnymi artykułami, jeśli linki były dostępne.
+\textbf{BuzzFeed News Dataset} został stworzony w 2016 roku przez zespół \textbf{BuzzFeed News} w celu analizy wpływu fałszywych i prawdziwych wiadomości na zaangażowanie użytkowników w mediach społecznościowych, w szczególności w kontekście wyborów prezydenckich w USA w 2016 roku. Szczegółowy opis jest w artykule \cite{BuzzFace}, w którym autorzy przeanalizowali, jak hiperpartyjne i fałszywe wiadomości rozprzestrzeniały się na platformie Facebook w kluczowych miesiącach przed wyborami. Dane zostały zebrane z dziewięciu stron na Facebooku, należących do trzech kategorii: popularnych mediów, stron lewicowych oraz stron prawicowych.
 
-Badanie \cite{BuzzFace} wykazało, że fałszywe wiadomości generowały znacznie większe zaangażowanie na Facebooku w porównaniu z treściami popularnymi, co podkreśla istotność analizy takich danych w kontekście zrozumienia dynamiki dezinformacji w mediach społecznościowych. Zbiór BuzzFeed News Dataset jest szczególnie wartościowy, ponieważ koncentruje się na zaangażowaniu użytkowników, co pozwala na analizę nie tylko treści artykułów, ale także ich wpływu społecznego. W moim badaniu wykorzystałem ten zbiór do analizy różnic między fałszywymi a prawdziwymi wiadomościami pod kątem ich cech tekstowych i wpływu na odbiorców, co czyni go cennym uzupełnieniem dla większych zbiorów, takich jak ISOT czy WELFake.
+Badanie \cite{BuzzFace} wykazało, że fałszywe wiadomości generowały znacznie większe zaangażowanie na Facebooku w porównaniu z treściami popularnymi, co podkreśla istotność analizy takich danych w kontekście zrozumienia dynamiki dezinformacji w mediach społecznościowych. Zbiór \textbf{BuzzFeed News Dataset} jest szczególnie wartościowy, ponieważ koncentruje się na zaangażowaniu użytkowników, co pozwala na analizę nie tylko treści artykułów, ale także ich wpływu społecznego. W moim badaniu wykorzystałem ten zbiór do analizy różnic między fałszywymi a prawdziwymi wiadomościami pod kątem ich cech tekstowych i wpływu na odbiorców, co czyni go cennym uzupełnieniem dla większych zbiorów, takich jak ISOT czy \textbf{WELFake}.
 
 \subsubsection{Struktura zbioru danych}
 Zbiór składa się z dwóch głównych kategorii:
@@ -65,17 +65,17 @@ Zbiór składa się z dwóch głównych kategorii:
 \end{itemize}
 
 \subsubsection{Przetwarzanie danych}
-Dane w zbiorze BuzzFeed zostały przetworzone w celu ujednolicenia ich struktury. Stworzono nową ramkę danych (\texttt{new\_df}) w następujący sposób:
+Dane w zbiorze \textbf{BuzzFeed} zostały przetworzone w celu ujednolicenia ich struktury. Stworzono nową ramkę danych (\textbf{new\_df}) w następujący sposób:
 \begin{itemize}
-	\item \texttt{title}: Tytuł artykułu, pochodzący z oryginalnego pola \texttt{df['title']}.
-	\item \texttt{text}: Treść artykułu, nabyta z pola \texttt{df['text']}.
-	\item \texttt{subject}: Informacje o kategorii tematycznej, pobrane z pola \texttt{df['meta\_data']}, które zawierało dodatkowe metadane, takie jak informacje o źródle publikacji.
-	\item \texttt{date}: Data publikacji, nabyta z pola \texttt{df['publish\_date']}.
+	\item \textbf{title}: Tytuł artykułu, pochodzący z oryginalnego pola \textbf{df['title']}.
+	\item \textbf{text}: Treść artykułu, nabyta z pola \textbf{df['text']}.
+	\item \textbf{subject}: Informacje o kategorii tematycznej, pobrane z pola \textbf{df['meta\_data']}, które zawierało dodatkowe metadane, takie jak informacje o źródle publikacji.
+	\item \textbf{date}: Data publikacji, nabyta z pola \textbf{df['publish\_date']}.
 \end{itemize}
 Taki format pozwolił na łatwe wykorzystanie danych w dalszych eksperymentach, zachowując kluczowe informacje o artykułach.
 
 \subsubsection{Liczba próbek}
-Zbiór BuzzFeed zawiera \textbf{2 282 artykuły}, z podziałem na kategorie fałszywych i prawdziwych wiadomości, co zgadza się z liczbą postów podaną w \cite{BuzzFace}. Choć jest to zbiór mniejszy niż ISOT czy WELFake, jego specyfika (skupienie na mediach społecznościowych i zaangażowaniu użytkowników) czyni go wartościowym w kontekście moich badań.
+Zbiór \textbf{BuzzFeed} zawiera \textbf{2 282 artykuły}, z podziałem na kategorie fałszywych i prawdziwych wiadomości, co zgadza się z liczbą postów podaną w \cite{BuzzFace}. Choć jest to zbiór mniejszy niż \textbf{ISOT} czy \textbf{WELFake}, jego specyfika (skupienie na mediach społecznościowych i zaangażowaniu użytkowników) czyni go wartościowym w kontekście moich badań.
 
 \FloatBarrier
 \subsection{Porównanie zbiorów danych}
@@ -85,14 +85,14 @@ Poniższa tabela przedstawia porównanie trzech analizowanych zbiorów danych po
 	\raggedright
 	\begin{tabular}{|p{2.5cm}|p{3.5cm}|p{2.5cm}|p{3cm}|p{2.5cm}|p{2.5cm}|}
 		\hline
-		\textbf{Cecha}  & \textbf{BuzzFeed}                                                                                                     & \textbf{ISOT}                                                                                                             & \textbf{WELFake}                                                                                                              \\ \hline
+		\textbf{Cecha}  & \textbf{BuzzFeed}                                                                                                     & \textbf{ISOT}                                                                                                             & \textbf{\textbf{WELFake}}                                                                                                     \\ \hline
 		Liczba próbek   & $\sim$2 282                                                                                                           & $\sim$40 000                                                                                                              & $\sim$72 134                                                                                                                  \\ \hline
 		Źródła danych   & BuzzFeed News, Facebook                                                                                               & University of Victoria                                                                                                    & Kaggle, McIntire, Reuters, BuzzFeed                                                                                           \\ \hline
 		Główny cel      & Analiza wiadomości w mediach społecznościowych                                                                        & Klasyfikacja fałszywych wiadomości                                                                                        & Wykrywanie fałszywych informacji                                                                                              \\ \hline
 		Wpływ na wyniki & Dobre wyniki w analizie zaangażowania i emocjonalnego języka, ale ograniczona generalizacja z powodu małego rozmiaru. & Wysoka dokładność w klasyfikacji dzięki dużej liczbie próbek i równowadze klas; dobrze wspiera modele głębokiego uczenia. & Bardzo wysoka dokładność dzięki różnorodności źródeł i dużej liczbie próbek; idealny dla modeli opartych na osadzeniach słów. \\ \hline
 		Ograniczenia    & Mały rozmiar i specyfika mediów społecznościowych ograniczają uniwersalność; brak aktualizacji danych.                & Ograniczone do starszych danych, co może wpływać na skuteczność w nowych kontekstach.                                     & Wymaga intensywnego przetwarzania wstępnego; niektóre źródła mogą wprowadzać szum.                                            \\ \hline
 	\end{tabular}
-	\caption{Porównanie zbiorów danych: BuzzFeed, ISOT i WELFake pod kątem wpływu na wyniki.}
+	\caption{Porównanie zbiorów danych: BuzzFeed, ISOT i \textbf{WELFake} pod kątem wpływu na wyniki.}
 	\label{tab:porownanie_zbiorow}
 \end{table}
 

@@ -4,7 +4,7 @@
 W \textbf{Metoda19} łączy się Random Forest, oparty na agregacji wielu losowych predyktorów, XGBoost, wykorzystujący technikę gradientowego wzmacniania, oraz Gradient Boosting, który sekwencyjnie buduje modele korygujące błędy poprzedników. Inspiracją z \textbf{Metoda5} jest zastosowanie regresji logistycznej jako meta-modelu, który skutecznie integruje predykcje tych trzech różnorodnych algorytmów. Wykorzystanie wielu, różniących się w swoim działaniu, modeli bazowych ma na celu zwiększenie ogólnej dokładności i stabilności predykcji.
 
 \subsection{Wejściowe dane}
-Metoda \texttt{train\_run19} przyjmuje następujące parametry wejściowe:
+Metoda \textbf{train\_run19} przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
@@ -35,7 +35,7 @@ Metoda zwraca następujące elementy:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      Skalowanie danych: Przeprowadza się przeskalowanie \textbf{X\_train} i \textbf{X\_test} za pomocą \texttt{StandardScaler}.
+	      Skalowanie danych: Przeprowadza się przeskalowanie \textbf{X\_train} i \textbf{X\_test} za pomocą \textbf{StandardScaler}.
 	\item
 	      Inicjalizacja i optymalizacja modeli bazowych:
 	      \begin{itemize}
@@ -47,7 +47,7 @@ Metoda zwraca następujące elementy:
 	\item
 	      Generowanie meta-cech za pomocą walidacji krzyżowej (StratifiedKFold z 5 podziałami):
 	      \begin{itemize}
-		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego modelu bazowego na \textbf{X\_train\_scaled} za pomocą \texttt{cross\_val\_predict}.
+		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego modelu bazowego na \textbf{X\_train\_scaled} za pomocą \textbf{cross\_val\_predict}.
 		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_train} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting}.
 	      \end{itemize}
 	\item
