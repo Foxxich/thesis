@@ -13,7 +13,7 @@ W niniejszej sekcji omówiono technologie wykorzystane w projekcie. Aplikacja zo
 	\item \textbf{numpy} to biblioteka do obliczeń numerycznych w Pythonie, oferująca funkcje do operacji na tablicach i obliczeń matematycznych. \textbf{Użyta wersja: '1.26.4'}.
 	\item \textbf{matplotlib} to biblioteka do wizualizacji danych w postaci wykresów i diagramów. W projekcie używana do przedstawiania wyników graficznie. \textbf{Użyta wersja: '3.9.2'}.
 	\item \textbf{seaborn} to rozszerzenie dla matplotlib, umożliwiające tworzenie wykresów statystycznych. W projekcie używana do generowania wykresów danych. \textbf{Użyta wersja: '0.13.2'}.
-	\item \textbf{transformers} to biblioteka do przetwarzania języka naturalnego (NLP) zawierająca modele takie jak BERT, GPT i RoBERTa. W projekcie wykorzystana do klasyfikacji tekstu. \textbf{Użyta wersja: '4.46.2'}.
+	\item \textbf{transformers} to biblioteka do przetwarzania języka naturalnego zawierająca modele takie jak BERT, GPT i RoBERTa. W projekcie wykorzystana do klasyfikacji tekstu. \textbf{Użyta wersja: '4.46.2'}.
 	\item \textbf{torch} (PyTorch) to biblioteka do głębokiego uczenia z dynamicznym definiowaniem sieci neuronowych. W projekcie używana do tworzenia modeli i obliczeń tensorowych. \textbf{Użyta wersja: '2.5.1'}.
 \end{itemize}
 
@@ -99,13 +99,13 @@ Ocena skuteczności modeli przeprowadzana jest za pomocą funkcji \textbf{evalua
 	\item Log Loss,
 	\item Cohen's Kappa.
 \end{itemize}
-Dodatkowo obliczane są metryki walidacji krzyżowej (CV Accuracy). Wyniki zapisywane są w osobnych plikach \textbf{runX\_dataset\_results.csv} i \textbf{runX\_dataset\_pr\_curve.csv} w folderach \textbf{results\_X\_Y}, gdzie \textbf{X} określa typ reprezentacji, a \textbf{Y} tryb podziału danych, przykładowo \textbf{results\_3\_few\_shot}. Każdy folder przechowuje wyniki specyficzne dla danego eksperymentu.
+Dodatkowo obliczane są metryki walidacji krzyżowej. Wyniki zapisywane są w osobnych plikach \textbf{runX\_dataset\_results.csv} i \textbf{runX\_dataset\_pr\_curve.csv} w folderach \textbf{results\_X\_Y}, gdzie \textbf{X} określa typ reprezentacji, a \textbf{Y} tryb podziału danych, przykładowo \textbf{results\_3\_few\_shot}. Każdy folder przechowuje wyniki specyficzne dla danego eksperymentu.
 
 \subsection{Warstwa Wizualizacji}
 
 Analiza graficzna wyników realizowana jest przez skrypt \textbf{all\_plots.py}, który przetwarza dane z plików CSV zapisanych w folderach \textbf{results\_X\_Y}. Generowane są:
 \begin{itemize}
-	\item Wykresy słupkowe porównujące metryki, takie jak Dokładność, Czas wykonania czy Log Loss oraz inne, dla różnych metod i zbiorów danych (BuzzFeed, ISOT, WELFake).
-	\item Krzywe Precision-Recall dla każdej metody i zbioru danych.
+	\item Wykresy słupkowe porównujące metryki, takie jak \textbf{dokładność, czas wykonania, pole pod krzywą ROC} oraz inne, dla wszystkich metod i zbiorów danych.
+	\item Krzywe Precision-Recall dla wszystkich metod i zbiorów danych.
 \end{itemize}
-Wykresy są zapisywane w folderze \textbf{plots}, zorganizowanym w podfoldery według datasetów i typów eksperymentów, co ułatwia ich przeglądanie.
+Wykresy są zapisywane w folderze \textbf{plots}, posiadającym podfoldery według datasetów i typów eksperymentów, co ułatwia ich przeglądanie.

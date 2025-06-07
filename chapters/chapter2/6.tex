@@ -1,8 +1,8 @@
 \section{Implementacja przygotowania danych}
 
-Proces przygotowania danych wejściowych stanowi wspólny etap dla wszystkich implementowanych rozwiązań metod uczenia zespołowego, niezależnie od tego, czy śa opisane implementacje z naukowych artykułów, czy autorskie metody. Proces przygotowania danych został zaimplementowany w skrypcie głównym i obejmuje kilka kluczowych kroków, które zapewniają spójną bazę danych dla dalszego przetwarzania klasyfikacyjnego.
+Proces przygotowania danych wejściowych stanowi wspólny etap dla wszystkich implementowanych rozwiązań metod uczenia zespołowego, niezależnie od tego, czy są opisane implementacje z naukowych artykułów, czy autorskie metody. Proces przygotowania danych został zaimplementowany w skrypcie głównym i obejmuje kilka kluczowych kroków, które zapewniają spójną bazę danych dla dalszego przetwarzania klasyfikacyjnego.
 
-Pierwszym krokiem jest wczytanie danych przy użyciu funkcji \newline \textbf{load\_and\_preprocess\_data}. Moja implementacja wykorzystuje pliki \textbf{Fake.csv}, zawierający fałszywe wiadomości, oraz \textbf{True.csv}, który obejmuje prawdziwe wiadomości. Funkcja \textbf{load\_and\_preprocess\_data} wczytuje oba zbiory, a następnie nadaje im binarne etykiety: 0 dla fałszywych wiadomości i 1 dla prawdziwych, co odpowiada zadaniu klasyfikacji binarnej w wykrywaniu fake newsów. Zwracam uwagę, że dataset musi zawierać obowiązkowe kolumny: \textbf{title}, \textbf{text}, \textbf{subject}. Kolejnym etapem jest połączenie tych zbiorów w jedną tabelę danych. Na koniec dane tekstowe, oznaczone jako \textbf{X}, oraz etykiety, oznaczone jako \textbf{y}, są przygotowywane do dalszej analizy.
+Pierwszym krokiem jest wczytanie danych przy użyciu funkcji \newline \textbf{load\_and\_preprocess\_data}. Moja implementacja wykorzystuje pliki \textbf{Fake.csv}, zawierające fałszywe wiadomości, oraz \textbf{True.csv}, które obejmuje prawdziwe wiadomości. Funkcja \textbf{load\_and\_preprocess\_data} wczytuje oba zbiory, a następnie nadaje im binarne etykiety: 0 dla fałszywych wiadomości i 1 dla prawdziwych, co odpowiada zadaniu klasyfikacji binarnej w wykrywaniu fake newsów. Zwracam uwagę, że dataset musi zawierać obowiązkowe kolumny: \textbf{title}, \textbf{text}, \textbf{subject}. Kolejnym etapem jest połączenie tych zbiorów w jedną tabelę danych. Na koniec dane tekstowe, oznaczone jako \textbf{X}, oraz etykiety, oznaczone jako \textbf{y}, są przygotowywane do dalszej analizy.
 
 Następnym krokiem jest tworzenie reprezentacji kontekstowej, realizowane przez funkcję
 \textbf{get\_embeddings}.
@@ -17,7 +17,7 @@ Do dyspozycji są dostępne trzy możliwe opcje, przedstawione poniżej:
 	      \textbf{get\_roberta\_embeddings}
 	      przekształca ciąg znaków w sekwencję tokenów przy użyciu
 	      \newline \textbf{RobertaTokenizer}, a następnie generuje osadzenia w zestawach treningowych po 32 elementy za pomocą modelu \textbf{TFRobertaForSequenceClassification}.
-	\item \textbf{Sentence Transformers}: funkcja
+	\item \textbf{SBERT (Sentence Transformers)}: funkcja
 	      \textbf{get\_transformer\_embeddings}
 	      wykorzystuje model
 	      \textbf{all-MiniLM-L6-v2}

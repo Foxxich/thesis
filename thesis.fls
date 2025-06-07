@@ -491,7 +491,6 @@ INPUT chapters\chapter2\6.tex
 INPUT .\chapters\chapter2\7.tex
 INPUT .\chapters\chapter2\7.tex
 INPUT chapters\chapter2\7.tex
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
 INPUT .\img\diagrams\metoda15.drawio.png
 INPUT .\img\diagrams\metoda15.drawio.png
 INPUT .\img\diagrams\metoda15.drawio.png
@@ -585,13 +584,6 @@ INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
 INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
 INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
 INPUT .\img\best_results\best_Cohen's Kappa_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
-INPUT .\img\best_results\best_CV Accuracy (Mean)_comparison.png
 INPUT .\img\best_results\best_Execution Time (s)_comparison.png
 INPUT .\img\best_results\best_Execution Time (s)_comparison.png
 INPUT .\img\best_results\best_Execution Time (s)_comparison.png
@@ -680,6 +672,7 @@ INPUT chapters\chapter5_Tests_Results.tex
 INPUT .\chapters\chapter5\1.tex
 INPUT .\chapters\chapter5\1.tex
 INPUT chapters\chapter5\1.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png

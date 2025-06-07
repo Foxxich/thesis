@@ -3,19 +3,18 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Schemat metody 15.}}{20}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Schemat metody 2.}}{21}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Schemat metody 3.}}{23}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Schemat metody 5.}}{25}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Porównanie Accuracy dla ISOT Fake News Dataset dla różnych uruchomień metod.}}{41}{figure.caption.41}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Porównanie Precision dla ISOT dla różnych uruchomień metod.}}{42}{figure.caption.42}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Porównanie Recall dla ISOT dla różnych uruchomień metod.}}{43}{figure.caption.43}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Porównanie F1-Score dla ISOT dla różnych uruchomień metod.}}{43}{figure.caption.44}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Porównanie Log-Loss dla ISOT dla różnych uruchomień metod.}}{44}{figure.caption.45}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Porównanie MCC dla ISOT dla różnych uruchomień metod.}}{45}{figure.caption.46}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Porównanie ROC-AUC dla ISOT dla różnych uruchomień metod.}}{45}{figure.caption.47}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Porównanie Cohen's Kappa dla ISOT dla różnych uruchomień metod.}}{46}{figure.caption.48}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Porównanie Mean dla ISOT dla różnych uruchomień metod.}}{47}{figure.caption.49}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Porównanie Execution Time dla ISOT dla różnych uruchomień metod.}}{48}{figure.caption.50}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Schemat metody 2.}}{22}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Schemat metody 3.}}{24}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Schemat metody 5.}}{26}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Porównanie dokładności dla zbioru ISOT Fake News Dataset.}}{42}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Porównanie precyzji dla zbioru ISOT Fake News Dataset.}}{43}{figure.caption.43}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Porównanie czułości dla zbioru ISOT Fake News Dataset.}}{44}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Porównanie miary F1 dla zbioru ISOT Fake News Dataset.}}{44}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Porównanie straty logarytmicznej dla zbioru ISOT Fake News Dataset.}}{45}{figure.caption.46}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Porównanie współczynnika korelacji Matthewsa dla zbioru ISOT Fake News Dataset.}}{46}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Porównanie pola pod krzywą ROC dla zbioru ISOT Fake News Dataset.}}{46}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Porównanie współczynnik Kappa Cohena dla zbioru ISOT Fake News Dataset.}}{47}{figure.caption.49}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Porównanie czasu wykonania dla zbioru ISOT Fake News Dataset.}}{48}{figure.caption.50}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Schemat metody 17.}}{52}{figure.caption.52}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Schemat metody 18.}}{55}{figure.caption.53}%

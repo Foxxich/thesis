@@ -1,7 +1,7 @@
 \section{Kluczowe modele}
 \subsection{Regresja logistyczna}
 
-\textbf{Regresja logistyczna} jest klasycznym modelem statystycznym wykorzystywanym głównie w klasyfikacji binarnej, bazującym się na funkcji sigmoidalnej, która przekształca liniową kombinację cech wejściowych w wartości prawdopodobieństwa przynależności do jednej z dwóch klas. Dzięki swojej budowie oraz interpretowalności, gdzie współczynniki regresji informują o kierunku i sile wpływu zmiennych, model jest powszechnie stosowany w naukach społecznych, biomedycynie czy analizie danych politycznych.
+\textbf{Regresja logistyczna} jest klasycznym modelem statystycznym wykorzystywanym głównie w klasyfikacji binarnej. \textbf{Regresja logistyczna} bazuje się na funkcji sigmoidalnej, która przekształca liniową kombinację cech wejściowych w wartości prawdopodobieństwa przynależności do jednej z dwóch klas. Dzięki swojej budowie oraz interpretowalności, gdzie współczynniki regresji informują o kierunku i sile wpływu zmiennych, model jest powszechnie stosowany w naukach społecznych, biomedycynie czy analizie danych politycznych.
 
 Przykładowe zastosowania regresji logistycznej obejmują:
 
@@ -38,7 +38,7 @@ Pomimo wysokiej skuteczności, dla \textbf{Losowego las} trudniej jest jednoznac
 \subsection{Uczenie wzmacniające (boosting): AdaBoost i Gradient Boosting}
 \begin{itemize}
 	\item
-	      \textbf{AdaBoost} wykorzystuje klasyfikatory bazowe, takie jak drzewa o małej głębokości. Modele w kolejnych iteracjach przywiązują większą wagę do przykładów trudnych do sklasyfikowania. Algorytm ten jest szczególnie skuteczny w warunkach małego szumu i został zastosowany między innym w:
+	      \textbf{AdaBoost} wykorzystuje klasyfikatory bazowe, takie jak drzewa o małej głębokości. Modele w kolejnych iteracjach przywiązują większą wagę do przykładów trudnych do sklasyfikowania. Algorytm ten jest szczególnie skuteczny w warunkach małego szumu i został zastosowany między innymi w:
 
 	      \begin{itemize}
 		      \item
@@ -92,7 +92,7 @@ Oba modele osiągają wysoką dokładność i są powszechnie stosowane w rozwi�
 	      \textbf{Zwiększenie skuteczności poprzez integrację różnych podejść.}
 \end{itemize}
 
-\textbf{Warstwowe łączenie modeli (stacking)} jest szczególnie efektywny w zadaniach, gdzie dane mają skomplikowaną strukturę, a różne modele bazowe mogą uchwycić różne cechy, o czym się wspominało w \cite{liang2021stacking}. Zastosowania obejmują:
+\textbf{Warstwowe łączenie modeli (stacking)} jest szczególnie efektywne w zadaniach, gdzie dane mają skomplikowaną strukturę, a różne modele bazowe mogą uchwycić różne cechy, o czym się wspominało w \cite{liang2021stacking}. Zastosowania obejmują:
 \begin{itemize}
 	\item
 	      \textbf{Przewidywanie fenotypów na podstawie danych genomów}, przykładowo w analizie cech roślin lub zwierząt w badaniach genetycznych.
@@ -132,7 +132,7 @@ Oba modele osiągają wysoką dokładność i są powszechnie stosowane w rozwi�
 \end{itemize}
 
 \subsection{Modele z post-processingiem}
-\textbf{Modele z post-processingiem} to rozwiązania, które wzbogaca klasyfikację o dodatkowe kroki korygujące oparte na heurystykach lub analizie niepewności. Pozwalają na:
+\textbf{Modele z post-processingiem} to rozwiązania, które wzbogacają klasyfikację o dodatkowe kroki korygujące. Pozwalają na:
 \begin{itemize}
 	\item
 	      \textbf{Poprawę precyzji predykcji dzięki dodatkowym informacjom kontekstowym,}
@@ -155,7 +155,7 @@ Są one szczególnie przydatne w specyficznych zadaniach, gdzie standardowa klas
 	\item
 	      \textbf{Wysoką dokładność dzięki gradientowemu podejściu do optymalizacji.}
 \end{itemize}
-\textbf{Algorytm CatBoost} sprawdza się w zadaniach z heterogenicznymi danymi \cite{CatBoost}. Obiekt do klasyfikacji, wektor cech z danymi kategorycznymi, jest analizowany przez moduł oparty na drzewach decyzyjnych, a wynikiem jest etykieta binarna określająca grupę. Zastosowania obejmują:
+\textbf{Algorytm CatBoost} sprawdza się w zadaniach ze zróżnicowanymi danymi \cite{CatBoost}. Obiekt do klasyfikacji, wektor cech z danymi kategorycznymi, jest analizowany przez moduł oparty na drzewach decyzyjnych, a wynikiem jest etykieta binarna określająca grupę. Zastosowania obejmują:
 \begin{itemize}
 	\item
 	      \textbf{Przewidywanie niewypłacalności przedsiębiorstw}, w celu oceny ryzyka bankructwa na podstawie danych finansowych.
