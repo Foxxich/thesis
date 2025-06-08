@@ -1,7 +1,7 @@
-\section{Czwarta metoda (\textbf{Metoda20})}
-\textbf{Metoda20} ta powstała na bazie idei integracji wielu modeli, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były również metody stacking, gdzie predykcje modeli bazowych służyły jako cechy dla meta-modelu.
+\section{Czwarty algorytm (\textbf{Metoda20})}
+\textbf{Metoda20} powstała na bazie idei integracji wielu modeli, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były metody \textbf{warstwowego łączenia modeli}, w których predykcje modeli bazowych służą jako cechy dla meta-modelu.
 
-W \textbf{Metoda20} połączono LightGBM, CatBoost, Random Forest i Gradient Boosting. LightGBM i CatBoost to zaawansowane algorytmy boostingowe znane ze swojej szybkości i efektywności. Random Forest jest modelem opartym na zespołach losowo tworzonych predyktorów, a Gradient Boosting sekwencyjnie buduje modele korygujące błędy poprzedników. Regresja logistyczna służy tutaj jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie unikalnych mocnych stron każdego z tych algorytmów, aby osiągnąć wyższą dokładność i bardziej stabilne predykcje.
+W \textbf{Metodzie20} połączono \textbf{LightGBM}, \textbf{CatBoost}, \textbf{losowy las} oraz \textbf{wzmacnianie gradientowe}. \textbf{LightGBM} i \textbf{CatBoost} to zaawansowane algorytmy uczenia wzmacniającego, znane ze swojej szybkości i efektywności. \textbf{Regresja logistyczna} służy jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie mocnych stron każdego z algorytmów, aby osiągnąć wyższą \textbf{dokładność} przy mniejszym \textbf{czasie wykonania}.
 
 \subsection{Wejściowe dane}
 Metoda \textbf{train\_run20} przyjmuje następujące parametry wejściowe:
@@ -9,9 +9,9 @@ Metoda \textbf{train\_run20} przyjmuje następujące parametry wejściowe:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
+	      \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zwykle liczbowe.
 	\item
-	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: \textbf{n}, gdzie n - liczba próbek w danych treningowych.
+	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: n, gdzie n - liczba próbek w danych treningowych.
 	\item
 	      \textbf{X\_test}: Macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
 	\item
@@ -24,7 +24,7 @@ Metoda zwraca następujące elementy:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{meta\_model}: Meta-model (regresja logistyczna) wytrenowany na predykcjach \textbf{LightGBM}, \textbf{CatBoost}, \textbf{Random Forest} i \textbf{Gradient Boosting}.
+	      \textbf{meta\_model}: Meta-model (\textbf{regresja logistyczna}) wytrenowany na predykcjach \textbf{LightGBM}, \textbf{CatBoost}, \textbf{losowego lasu} oraz \textbf{wzmacniania gradientowego}.
 	\item
 	      \textbf{meta\_features\_test}: Macierz meta-cech (predykcje modeli bazowych) dla danych testowych.
 	\item
@@ -39,8 +39,8 @@ Metoda zwraca następujące elementy:
 	      \begin{itemize}
 		      \item Przeprowadza się trening \textbf{LGBMClassifier} na \textbf{X\_train} i \textbf{y\_train}.
 		      \item Przeprowadza się trening \textbf{CatBoostClassifier} na \textbf{X\_train} i \textbf{y\_train}.
-		      \item Przeprowadza się trening \textbf{RandomForestClassifier} na \textbf{X\_train} i \textbf{y\_train}.
-		      \item Przeprowadza się trening \textbf{GradientBoostingClassifier} na \textbf{X\_train} i \textbf{y\_train}.
+		      \item Przeprowadza się trening \textbf{klasyfikatora losowego lasu (\texttt{RandomForestClassifier})} na \textbf{X\_train} i \textbf{y\_train}.
+		      \item Przeprowadza się trening \textbf{klasyfikatora wzmacniania gradientowego (\texttt{GradientBoostingClassifier})} na \textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Generowanie predykcji dla danych treningowych:
@@ -51,18 +51,19 @@ Metoda zwraca następujące elementy:
 	\item
 	      Trenowanie meta-modelu:
 	      \begin{itemize}
-		      \item Przeprowadza się trening \textbf{LogisticRegression} na \textbf{meta\_features\_train} i \textbf{y\_train}.
+		      \item Przeprowadza się trening \textbf{regresji logistycznej} na \textbf{meta\_features\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Generowanie predykcji dla danych testowych:
 	      \begin{itemize}
 		      \item Uzyskuje się probabilistyczne predykcje klasy pozytywnej z każdego wytrenowanego modelu bazowego na \textbf{X\_test}.
-		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test}, analogicznie do treningowej.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test}, analogicznie do macierzy treningowej.
 	      \end{itemize}
 	\item
-	      Zwracanie wyników: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
+	      Zwracanie wyników: Zwracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} oraz \textbf{y\_test}.
 \end{enumerate}
-Szczegółowy schemat \textbf{metoda20} jest pokazany na \ref{fig:diagram_metoda20}. Pomarańczowe prostokąty odpowiadają pomysłom, które się opierały na podejściu z \textbf{metoda18}. Natomiast zielone prostokąty podkreślają zamysł, którym się inspirowałem z \textbf{metoda19}.
+
+Szczegółowy schemat \textbf{metoda20} przedstawiono na diagramie \ref{fig:diagram_metoda20}. Pomarańczowe prostokąty odpowiadają pomysłom opartym na podejściu z \textbf{metoda18}. Zielone prostokąty podkreślają zamysł inspirowany \textbf{metoda19}.
 
 \begin{figure}[H]
 	\centering
@@ -75,13 +76,13 @@ Szczegółowy schemat \textbf{metoda20} jest pokazany na \ref{fig:diagram_metoda
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{Efektywność}: Łączenie predykcji wielu modeli (boostingowych i opartych na zespołach predyktorów) ma na celu zwiększenie dokładności i robustności predykcji.
+	      \textbf{Efektywność}: Łączenie predykcji wielu modeli ma na celu zwiększenie \textbf{dokładności predykcji}.
 	\item
 	      \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów algorytmów pozwala na uwzględnienie różnych aspektów danych i wzorców.
 	\item
-	      \textbf{Meta-model}: Regresja logistyczna skutecznie integruje predykcje modeli bazowych, ucząc się, jak najlepiej je łączyć.
+	      \textbf{Meta-model}: \textbf{Regresja logistyczna} skutecznie integruje predykcje modeli bazowych, ucząc się, jak najlepiej je łączyć.
 	\item
-	      \textbf{Złożoność obliczeniowa}: Trening wielu złożonych modeli bazowych może być kosztowny obliczeniowo, ale predykcja jest stosunkowo szybka.
+	      \textbf{Złożoność obliczeniowa}: Trening wielu złożonych modeli może być kosztowny obliczeniowo, ale predykcja jest stosunkowo szybka.
 	\item
 	      \textbf{Wydajność}: Oczekuje się, że kombinacja tych technik modelowania zapewni wysoką wydajność w zadaniu klasyfikacji.
 \end{enumerate}

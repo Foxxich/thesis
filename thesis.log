@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  7 JUN 2025 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  8 JUN 2025 10:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1118,7 +1118,7 @@ Package pdftex.def Info: img/diagrams/metoda15.drawio.png  used on input line 42
 <img/diagrams/metoda2.drawio.png, id=728, 502.87875pt x 583.17876pt>
 File: img/diagrams/metoda2.drawio.png Graphic file (type png)
 <use img/diagrams/metoda2.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda2.drawio.png  used on input line 83.
+Package pdftex.def Info: img/diagrams/metoda2.drawio.png  used on input line 78.
 (pdftex.def)             Requested size: 256.07741pt x 296.96341pt.
 
 
@@ -1126,7 +1126,7 @@ Package pdftex.def Info: img/diagrams/metoda2.drawio.png  used on input line 83.
 <img/diagrams/metoda3.drawio.png, id=736, 446.66875pt x 633.36626pt>
 File: img/diagrams/metoda3.drawio.png Graphic file (type png)
 <use img/diagrams/metoda3.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda3.drawio.png  used on input line 105.
+Package pdftex.def Info: img/diagrams/metoda3.drawio.png  used on input line 96.
 (pdftex.def)             Requested size: 256.07741pt x 363.11969pt.
 
 
@@ -1136,7 +1136,7 @@ Package pdftex.def Info: img/diagrams/metoda3.drawio.png  used on input line 105
 <img/diagrams/metoda5.drawio.png, id=755, 387.4475pt x 522.95375pt>
 File: img/diagrams/metoda5.drawio.png Graphic file (type png)
 <use img/diagrams/metoda5.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda5.drawio.png  used on input line 128.
+Package pdftex.def Info: img/diagrams/metoda5.drawio.png  used on input line 114.
 (pdftex.def)             Requested size: 256.07741pt x 345.64528pt.
 
 
@@ -1155,8 +1155,8 @@ Package pdftex.def Info: img/diagrams/metoda5.drawio.png  used on input line 128
 [31]
 
 [32]
-Overfull \hbox (99.55971pt too wide) in paragraph at lines 254--255
-\T1/qtm/b/n/12 (-20) test_embeddings \T1/qtm/m/n/12 (-20) s¡ ge-ne-ro-wa-ne za po-mo-c¡ sy-mu-la-cji Mon-te Car-lo Dro-po-ut (\T1/qtm/b/n/12 (-20) monte_carlo_dropout_inference\T1/qtm/m/n/12 (-20) ),
+Overfull \hbox (12.0119pt too wide) in paragraph at lines 203--204
+[]\T1/qtm/m/n/12 (-20) Nast¦pnie ge-ne-ro-wa-ne s¡ meta-cechy dla da-nych tre-nin-go-wych, czy-li \T1/qtm/b/n/12 (-20) me-ta_features_train\T1/qtm/m/n/12 (-20) ,
  []
 
 
@@ -1414,10 +1414,10 @@ Package pdftex.def Info: img/diagrams/metoda18.drawio.png  used on input line 75
 [55 <./img/diagrams/metoda18.drawio.png>]) (chapters/chapter3/3.tex
 
 [56]
-<img/diagrams/metoda19.drawio.png, id=1032, 885.3075pt x 1276.77pt>
+<img/diagrams/metoda19.drawio.png, id=1030, 885.3075pt x 1276.77pt>
 File: img/diagrams/metoda19.drawio.png Graphic file (type png)
 <use img/diagrams/metoda19.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda19.drawio.png  used on input line 73.
+Package pdftex.def Info: img/diagrams/metoda19.drawio.png  used on input line 71.
 (pdftex.def)             Requested size: 422.52577pt x 609.35538pt.
 
 
@@ -1426,10 +1426,28 @@ Package pdftex.def Info: img/diagrams/metoda19.drawio.png  used on input line 73
 [58 <./img/diagrams/metoda19.drawio.png>]) (chapters/chapter3/4.tex
 
 [59]
-<img/diagrams/metoda20.drawio.png, id=1063, 1206.5075pt x 1306.8825pt>
+
+LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
+(Font)              using `T1/cmtt/m/n' instead on input line 42.
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (6.03299pt too wide) in paragraph at lines 42--43
+[]\T1/qtm/m/n/12 (-20) Przeprowadza si¦ tre-ning \T1/qtm/b/n/12 (-20) kla-sy-fi-ka-to-ra lo-so-we-go la-su (\T1/cmtt/m/n/12 RandomForestClassifier\T1/qtm/b/n/12 (-20) )
+ []
+
+
+Overfull \hbox (105.19125pt too wide) in paragraph at lines 43--44
+[]\T1/qtm/m/n/12 (-20) Przeprowadza si¦ tre-ning \T1/qtm/b/n/12 (-20) kla-sy-fi-ka-to-ra wzmac-nia-nia gra-dien-to-we-go (\T1/cmtt/b/n/12 GradientBoostingClassifier\T1/qtm/b/n/12 (-20) )
+ []
+
+<img/diagrams/metoda20.drawio.png, id=1060, 1206.5075pt x 1306.8825pt>
 File: img/diagrams/metoda20.drawio.png Graphic file (type png)
 <use img/diagrams/metoda20.drawio.png>
-Package pdftex.def Info: img/diagrams/metoda20.drawio.png  used on input line 69.
+Package pdftex.def Info: img/diagrams/metoda20.drawio.png  used on input line 70.
 (pdftex.def)             Requested size: 426.79135pt x 462.28143pt.
 
 
@@ -1457,7 +1475,7 @@ Overfull \hbox (13.998pt too wide) in paragraph at lines 39--42
 \T1/qtm/b/n/12 (-20) nazwa\T1/qtm/m/n/12 (-20) . S¡ do-st¦p-ne tyl-ko po-da-ne trzy opcje da-ta-se-tów: \T1/qtm/b/n/12 (-20) WE-LFa-ke_dataset\T1/qtm/m/n/12 (-20) , \T1/qtm/b/n/12 (-20) ISOT_dataset
  []
 
-<img/app/SystemArchitecture.png, id=1099, 717.68124pt x 1358.07375pt>
+<img/app/SystemArchitecture.png, id=1098, 717.68124pt x 1358.07375pt>
 File: img/app/SystemArchitecture.png Graphic file (type png)
 <use img/app/SystemArchitecture.png>
 Package pdftex.def Info: img/app/SystemArchitecture.png  used on input line 59.
@@ -1471,7 +1489,7 @@ Overfull \hbox (7.96892pt too wide) in paragraph at lines 74--76
 []\T1/qtm/m/n/12 (-20) Autorskie al-go-ryt-my (\T1/qtm/b/n/12 (-20) metoda17 \T1/qtm/m/n/12 (-20) do \T1/qtm/b/n/12 (-20) me-to-da20\T1/qtm/m/n/12 (-20) ) s¡ za-im-ple-men-to-wa-ne w pli-ku \T1/qtm/b/n/12 (-20) my_run.py
  []
 
-<img/app/console.png, id=1111, 608.2725pt x 286.82156pt>
+<img/app/console.png, id=1110, 608.2725pt x 286.82156pt>
 File: img/app/console.png Graphic file (type png)
 <use img/app/console.png>
 Package pdftex.def Info: img/app/console.png  used on input line 85.
@@ -1483,11 +1501,6 @@ Package pdftex.def Info: img/app/console.png  used on input line 85.
 [67]
 Rozdzia\PlPrIeC {\l } 5.
 (chapters/chapter5/1.tex
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
 Overfull \hbox (11.15321pt too wide) in paragraph at lines 4--5
 \T1/qtm/b/n/12 (-20) few-shot \T1/qtm/m/n/12 (-20) oraz \T1/qtm/b/n/12 (-20) one-shot\T1/qtm/m/n/12 (-20) . Ana-li-za obej-mu-je klu-czo-we me-try-ki (Ac-cu-ra-cy, F1-Score, ROC-AUC)
  []
@@ -1497,7 +1510,7 @@ Overfull \hbox (11.15321pt too wide) in paragraph at lines 4--5
 [68
 
 ]
-<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png, id=1128, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png, id=1127, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png  used on input line 13.
@@ -1506,20 +1519,20 @@ Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Ac
 
 [69]
 Overfull \hbox (27.00272pt too wide) in paragraph at lines 19--20
-[]\T1/qtm/m/n/12 (-20) Wykresy F1-Score ([]5.2[]) wska-zu-j¡, »e dla BERT \T1/cmtt/m/n/12 Metoda19\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda17\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda12-catboost
+[]\T1/qtm/m/n/12 (-20) Wykresy F1-Score ([]5.2[]) wska-zu-j¡, »e dla BERT \T1/cmtt/b/n/12 Metoda19\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda17\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda12-catboost
  []
 
 
 Overfull \hbox (15.0379pt too wide) in paragraph at lines 19--20
-\T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy naj-wy»-sze war-to-±ci, a \T1/cmtt/m/n/12 Metoda1-2\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda1-5 \T1/qtm/m/n/12 (-20) naj-ni»-sze. Dla Ro-BER-Ta \T1/cmtt/m/n/12 Metoda1-2\T1/qtm/m/n/12 (-20) ,
+\T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy naj-wy»-sze war-to-±ci, a \T1/cmtt/b/n/12 Metoda1-2\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda1-5 \T1/qtm/m/n/12 (-20) naj-ni»-sze. Dla Ro-BER-Ta \T1/cmtt/b/n/12 Metoda1-2\T1/qtm/m/n/12 (-20) ,
  []
 
 
 Overfull \hbox (31.55013pt too wide) in paragraph at lines 19--20
-\T1/cmtt/m/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda12-catboost\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda18\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda19 \T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy wy-so-kie wy-ni-ki, a \T1/cmtt/m/n/12 Metoda1-2
+\T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda12-catboost\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda18\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda19 \T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy wy-so-kie wy-ni-ki, a \T1/cmtt/b/n/12 Metoda1-2
  []
 
-<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png, id=1137, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png, id=1135, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png  used on input line 23.
@@ -1527,7 +1540,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1
 
 
 [70 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png>]
-<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png, id=1146, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png, id=1144, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png  used on input line 33.
@@ -1535,7 +1548,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_RO
 
 
 [71 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png>]
-<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png, id=1155, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png, id=1153, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png  used on input line 45.
@@ -1544,10 +1557,10 @@ Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_
 
 [72 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_ROC-AUC_bar.png>]
 Overfull \hbox (9.76967pt too wide) in paragraph at lines 51--52
-\T1/qtm/m/n/12 (-20) wy»-sze war-to-±ci, a \T1/cmtt/m/n/12 Metoda17 \T1/qtm/m/n/12 (-20) naj-ni»-sze. Dla Ro-BER-Ta \T1/cmtt/m/n/12 Metoda18 \T1/qtm/m/n/12 (-20) by-ªa naj-lep-sza, a \T1/cmtt/m/n/12 Metoda20\T1/qtm/m/n/12 (-20) ,
+\T1/qtm/m/n/12 (-20) wy»-sze war-to-±ci, a \T1/cmtt/b/n/12 Metoda17 \T1/qtm/m/n/12 (-20) naj-ni»-sze. Dla Ro-BER-Ta \T1/cmtt/b/n/12 Metoda18 \T1/qtm/m/n/12 (-20) by-ªa naj-lep-sza, a \T1/cmtt/b/n/12 Metoda20\T1/qtm/m/n/12 (-20) ,
  []
 
-<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png, id=1164, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png, id=1162, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png  used on input line 55.
@@ -1555,7 +1568,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_
 
 
 [73 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png, id=1173, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png, id=1171, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png  used on input line 65.
@@ -1563,7 +1576,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_
 
 
 [74 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png>]
-<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png, id=1183, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png, id=1181, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png  used on input line 77.
@@ -1571,7 +1584,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_
 
 
 [75 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_ROC-AUC_bar.png>]
-<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png, id=1192, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png, id=1190, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png  used on input line 87.
@@ -1579,7 +1592,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_
 
 
 [76 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_ROC-AUC_bar.png, id=1201, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_ROC-AUC_bar.png, id=1199, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_ROC-AUC_bar.png  used on input line 97.
@@ -1588,7 +1601,7 @@ Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_
 
 [77 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>]
 Overfull \hbox (11.2601pt too wide) in paragraph at lines 106--107
-[]\T1/qtm/m/n/12 (-20) Tabela []5.1[] przed-sta-wia wy-ni-ki AUC-PR. Naj-wy»-szy wy-nik (0.7634) osi¡-gn¦-ªa \T1/cmtt/m/n/12 metoda1-2\T1/qtm/m/n/12 (-20) ,
+[]\T1/qtm/m/n/12 (-20) Tabela []5.1[] przed-sta-wia wy-ni-ki AUC-PR. Naj-wy»-szy wy-nik (0.7634) osi¡-gn¦-ªa \T1/cmtt/b/n/12 metoda1-2\T1/qtm/m/n/12 (-20) ,
  []
 
 
@@ -1599,10 +1612,10 @@ Overfull \hbox (11.2601pt too wide) in paragraph at lines 106--107
 
 [80]
 Overfull \hbox (2.69664pt too wide) in paragraph at lines 9--10
-\T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy naj-lep-sze wy-ni-ki ( 0.9), a \T1/cmtt/m/n/12 Metoda20 \T1/qtm/m/n/12 (-20) naj-gor-sze ( 0.6). Dla Ro-BER-Ta \T1/cmtt/m/n/12 Metoda12-rf\T1/qtm/m/n/12 (-20) ,
+\T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy naj-lep-sze wy-ni-ki ( 0.9), a \T1/cmtt/b/n/12 Metoda20 \T1/qtm/m/n/12 (-20) naj-gor-sze ( 0.6). Dla Ro-BER-Ta \T1/cmtt/b/n/12 Metoda12-rf\T1/qtm/m/n/12 (-20) ,
  []
 
-<img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png, id=1232, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png, id=1230, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png  used on input line 13.
@@ -1611,10 +1624,10 @@ Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_b
 
 [81]
 Overfull \hbox (2.1263pt too wide) in paragraph at lines 19--20
-\T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy  0.9, a \T1/cmtt/m/n/12 Metoda20 \T1/qtm/m/n/12 (-20) naj-ni»-sze ( 0.6). Dla Ro-BER-Ta \T1/cmtt/m/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda14\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda19
+\T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy  0.9, a \T1/cmtt/b/n/12 Metoda20 \T1/qtm/m/n/12 (-20) naj-ni»-sze ( 0.6). Dla Ro-BER-Ta \T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda14\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda19
  []
 
-<img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png, id=1241, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png, id=1239, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png  used on input line 23.
@@ -1622,7 +1635,7 @@ Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_b
 
 
 [82 <./img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png>]
-<img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_bar.png, id=1250, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_bar.png, id=1248, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_bar.png  used on input line 33.
@@ -1630,7 +1643,7 @@ Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_ba
 
 
 [83 <./img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png>]
-<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png, id=1259, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png, id=1257, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png  used on input line 45.
@@ -1638,7 +1651,7 @@ Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy
 
 
 [84 <./img/stats/ISOT_classic/ISOT_classic_Combined_ROC-AUC_bar.png>]
-<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png, id=1268, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png, id=1266, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png  used on input line 55.
@@ -1646,7 +1659,7 @@ Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score
 
 
 [85 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_bar.png, id=1277, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_bar.png, id=1275, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_bar.png  used on input line 65.
@@ -1654,7 +1667,7 @@ Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_
 
 
 [86 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png>]
-<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png, id=1287, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png, id=1285, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png  used on input line 77.
@@ -1662,7 +1675,7 @@ Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy
 
 
 [87 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_ROC-AUC_bar.png>]
-<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png, id=1296, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png, id=1294, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png  used on input line 87.
@@ -1670,7 +1683,7 @@ Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score
 
 
 [88 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_bar.png, id=1305, 568.0422pt x 539.1342pt>
+<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_bar.png, id=1303, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_bar.png  used on input line 97.
@@ -1681,7 +1694,7 @@ Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_
 
 [90 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_ROC-AUC_bar.png>]
 Overfull \hbox (19.22064pt too wide) in paragraph at lines 146--147
-\T1/qtm/m/n/12 (-20) (p-value < 0.05), z wy-j¡t-kiem ROC-AUC dla \T1/cmtt/m/n/12 Metoda4 \T1/qtm/m/n/12 (-20) (p-value = 0.0895). Te-sty Kruskal-Wallisa
+\T1/qtm/m/n/12 (-20) (p-value < 0.05), z wy-j¡t-kiem ROC-AUC dla \T1/cmtt/b/n/12 Metoda4 \T1/qtm/m/n/12 (-20) (p-value = 0.0895). Te-sty Kruskal-Wallisa
  []
 
 
@@ -1697,7 +1710,7 @@ Overfull \hbox (11.15321pt too wide) in paragraph at lines 4--5
 \T1/qtm/b/n/12 (-20) few-shot \T1/qtm/m/n/12 (-20) oraz \T1/qtm/b/n/12 (-20) one-shot\T1/qtm/m/n/12 (-20) . Ana-li-za obej-mu-je klu-czo-we me-try-ki (Ac-cu-ra-cy, F1-Score, ROC-AUC)
  []
 
-<img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png, id=1335, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png, id=1333, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png  used on input line 13.
@@ -1705,7 +1718,7 @@ Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_Accu
 
 
 [93]
-<img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png, id=1343, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png, id=1341, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png  used on input line 23.
@@ -1713,7 +1726,7 @@ Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_F1-S
 
 
 [94 <./img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png>]
-<img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_bar.png, id=1352, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_bar.png, id=1350, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_bar.png  used on input line 33.
@@ -1722,10 +1735,10 @@ Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_ROC-
 
 [95 <./img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png>]
 Overfull \hbox (6.10315pt too wide) in paragraph at lines 41--42
-\T1/cmtt/m/n/12 Metoda19 \T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy  0.85, a \T1/cmtt/m/n/12 Metoda16  \T1/qtm/m/n/12 (-20) 0.6. Dla Ro-BER-Ta \T1/cmtt/m/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda16\T1/qtm/m/n/12 (-20) , \T1/cmtt/m/n/12 Metoda19
+\T1/cmtt/b/n/12 Metoda19 \T1/qtm/m/n/12 (-20) osi¡-gn¦-ªy  0.85, a \T1/cmtt/b/n/12 Metoda16  \T1/qtm/m/n/12 (-20) 0.6. Dla Ro-BER-Ta \T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda16\T1/qtm/m/n/12 (-20) , \T1/cmtt/b/n/12 Metoda19
  []
 
-<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png, id=1361, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png, id=1359, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png  used on input line 45.
@@ -1733,7 +1746,7 @@ Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Ac
 
 
 [96 <./img/stats/WELFake_classic/WELFake_classic_Combined_ROC-AUC_bar.png>]
-<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png, id=1370, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png, id=1368, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png  used on input line 55.
@@ -1741,7 +1754,7 @@ Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1
 
 
 [97 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_ROC-AUC_bar.png, id=1379, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_ROC-AUC_bar.png, id=1377, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/WELFake_few_shot/WELFake_few_shot_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_ROC-AUC_bar.png  used on input line 65.
@@ -1749,7 +1762,7 @@ Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_RO
 
 
 [98 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png>]
-<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png, id=1389, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png, id=1387, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png  used on input line 77.
@@ -1757,7 +1770,7 @@ Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Ac
 
 
 [99 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_ROC-AUC_bar.png>]
-<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png, id=1398, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png, id=1396, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png  used on input line 87.
@@ -1765,7 +1778,7 @@ Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1
 
 
 [100 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_ROC-AUC_bar.png, id=1407, 568.0422pt x 539.1342pt>
+<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_ROC-AUC_bar.png, id=1405, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_ROC-AUC_bar.png Graphic file (type png)
 <use img/stats/WELFake_one_shot/WELFake_one_shot_Combined_ROC-AUC_bar.png>
 Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_ROC-AUC_bar.png  used on input line 97.
@@ -1774,7 +1787,7 @@ Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_RO
 
 [101 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png>]
 Overfull \hbox (5.08661pt too wide) in paragraph at lines 106--107
-[]\T1/qtm/m/n/12 (-20) Tabela []5.7[] przed-sta-wia wy-ni-ki AUC-PR. Naj-wy»-szy wy-nik (0.9556) osi¡-gn¦-ªa \T1/cmtt/m/n/12 Metoda13\T1/qtm/m/n/12 (-20) ,
+[]\T1/qtm/m/n/12 (-20) Tabela []5.7[] przed-sta-wia wy-ni-ki AUC-PR. Naj-wy»-szy wy-nik (0.9556) osi¡-gn¦-ªa \T1/cmtt/b/n/12 Metoda13\T1/qtm/m/n/12 (-20) ,
  []
 
 
@@ -1825,7 +1838,7 @@ Overfull \hbox (2.61862pt too wide) in paragraph at lines 53--54
 [115
 
 ] (chapters/appendix1.tex)
-runsystem(latexminted cleantemp  --timestamp 20250607141519 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20250608103624 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -1834,10 +1847,13 @@ L3 programming layer <2025-01-18>
  ***********
 
 
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 4B4D6D8255104E6AC89EF0DA3534EACC;20340.
+(rerunfilecheck)             Checksum: 49409BB2F38E067CBDDCEF4B6B06A4E3;20375.
  )
 (\end occurred inside a group at level 1)
 
@@ -1846,17 +1862,17 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (\end occurred when \ifx on line 53 was incomplete)
 (\end occurred when \ifx on line 53 was incomplete) 
 Here is how much of TeX's memory you used:
- 34760 strings out of 473529
- 688020 string characters out of 5714773
+ 34761 strings out of 473529
+ 688046 string characters out of 5714773
  1354316 words of memory out of 5000000
- 56610 multiletter control sequences out of 15000+600000
- 655431 words of font info for 224 fonts, out of 8000000 for 9000
+ 56613 multiletter control sequences out of 15000+600000
+ 655302 words of font info for 223 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 123i,11n,121p,1690b,913s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (120 pages, 13403921 bytes).
+ 123i,11n,121p,1696b,903s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
+Output written on thesis.pdf (120 pages, 13389409 bytes).
 PDF statistics:
- 1694 PDF objects out of 1728 (max. 8388607)
+ 1693 PDF objects out of 1728 (max. 8388607)
  455 named destinations out of 1000 (max. 500000)
  32859 words of extra memory for PDF output out of 35830 (max. 10000000)
 

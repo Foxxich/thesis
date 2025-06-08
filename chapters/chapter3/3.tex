@@ -1,7 +1,7 @@
-\section{Trzecia metoda (\textbf{Metoda19})}
-\textbf{Metoda19} jest efektem rozwoju pomysłów z \textbf{Metoda5}, która opierała się na łączeniu wyników różnych algorytmów. W \textbf{Metoda5} zastosowano Random Forest i XGBoost jako modele bazowe, które następnie były integrowane za pomocą regresji logistycznej. \textbf{Metoda19} rozwija tę koncepcję, wykorzystując bardziej rozbudowaną architekturę stacking z trzema różnymi modelami bazowymi: Random Forest, XGBoost oraz Gradient Boosting.
+\section{Trzeci algorytm (\textbf{Metoda19})}
+\textbf{Metoda19} jest wynikiem rozwoju \textbf{Metody5}, która opierała się na łączeniu wyników różnych algorytmów. W \textbf{Metodzie5} zastosowano \textbf{losowy las} i \textbf{XGBoost} jako modele bazowe, które następnie były integrowane za pomocą \textbf{regresji logistycznej}. \textbf{Metoda19} rozwija tę koncepcję, wykorzystując bardziej rozbudowaną architekturę \textbf{warstwowego łączenia modeli} z trzema różnymi modelami bazowymi: \textbf{losowym lasem}, \textbf{XGBoostem} oraz \textbf{wzmacnianiem gradientowym (Gradient Boosting)}.
 
-W \textbf{Metoda19} łączy się Random Forest, oparty na agregacji wielu losowych predyktorów, XGBoost, wykorzystujący technikę gradientowego wzmacniania, oraz Gradient Boosting, który sekwencyjnie buduje modele korygujące błędy poprzedników. Inspiracją z \textbf{Metoda5} jest zastosowanie regresji logistycznej jako meta-modelu, który skutecznie integruje predykcje tych trzech różnorodnych algorytmów. Wykorzystanie wielu, różniących się w swoim działaniu, modeli bazowych ma na celu zwiększenie ogólnej dokładności i stabilności predykcji.
+W \textbf{Metodzie19} łączone są \textbf{losowy las}, oparty na agregacji wielu losowych predyktorów, \textbf{XGBoost} oraz \textbf{wzmacnianie gradientowe (Gradient Boosting)}, które w ustalonej kolejności buduje modele korygujące błędy poprzedników. Inspiracją dla \textbf{Metody19} jest zastosowanie \textbf{regresji logistycznej} jako meta-modelu, który skutecznie integruje predykcje tych trzech algorytmów. Wykorzystanie różnorodnych modeli bazowych ma na celu zwiększenie ogólnej dokładności i stabilności predykcji.
 
 \subsection{Wejściowe dane}
 Metoda \textbf{train\_run19} przyjmuje następujące parametry wejściowe:
@@ -9,9 +9,9 @@ Metoda \textbf{train\_run19} przyjmuje następujące parametry wejściowe:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
+	      \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zwykle liczbowe.
 	\item
-	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: \textbf{n}, gdzie n - liczba próbek w danych treningowych.
+	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: n, gdzie n - liczba próbek w danych treningowych.
 	\item
 	      \textbf{X\_test}: Macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
 	\item
@@ -24,7 +24,7 @@ Metoda zwraca następujące elementy:
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{meta\_model}: Meta-model (regresja logistyczna) wytrenowany na danych pochodzących z predykcji modeli \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting}.
+	      \textbf{meta\_model}: Meta-model (\textbf{regresja logistyczna}) wytrenowany na danych pochodzących z predykcji modeli \textbf{losowy las}, \textbf{XGBoost} oraz \textbf{wzmacniania gradientowego}.
 	\item
 	      \textbf{meta\_features\_test}: Macierz meta-cech, zbudowana na podstawie predykcji modeli bazowych dla danych testowych.
 	\item
@@ -39,34 +39,32 @@ Metoda zwraca następujące elementy:
 	\item
 	      Inicjalizacja i optymalizacja modeli bazowych:
 	      \begin{itemize}
-		      \item Inicjalizuje się \textbf{RandomForestClassifier} z \textbf{n\_estimators=200}, \textbf{max\_depth=10} i \textbf{random\_state=42}.
-		      \item Inicjalizuje się \textbf{XGBClassifier} z \textbf{n\_estimators=200}, \textbf{use\_label\_encoder=False},
-		            \newline\textbf{eval\_metric='logloss'},\textbf{learning\_rate=0.05}, \textbf{max\_depth=5} i \textbf{random\_state=42}.
-		      \item Inicjalizuje się \textbf{GradientBoostingClassifier} z \textbf{n\_estimators=100}, \newline\textbf{learning\_rate=0.1}, \textbf{max\_depth=3} i \textbf{random\_state=42}.
+		      \item Inicjalizuje się \textbf{losowy las} skonfigurowany z 200 estymatorami, maksymalną głębokością drzew równą 10 oraz kontrolowaną losowością (\textbf{random\_state=42}).
+		      \item Inicjalizuje się \textbf{XGBClassifier} z ustawionymi 200 estymatorami, wyłączonym automatycznym kodowaniem etykiet, metryką oceny log-loss, tempem uczenia 0.05, głębokością drzew ograniczoną do 5 oraz ziarnem losowości (\textbf{random\_state=42}).
+		      \item Inicjalizuje się \textbf{wzmacnianie gradientowe (GradientBoostingClassifier)} z 100 estymatorami, tempem uczenia 0.1, maksymalną głębokością drzew równą 3 oraz losowością (\textbf{random\_state=42}).
 	      \end{itemize}
 	\item
-	      Generowanie meta-cech za pomocą walidacji krzyżowej (StratifiedKFold z 5 podziałami):
+	      Generowanie meta-cech za pomocą walidacji krzyżowej z 5 podziałami:
 	      \begin{itemize}
 		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego modelu bazowego na \textbf{X\_train\_scaled} za pomocą \textbf{cross\_val\_predict}.
-		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_train} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting}.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_train} z predykcji \textbf{losowego lasu}, \textbf{XGBoost} oraz \textbf{wzmacniania gradientowego}.
 	      \end{itemize}
 	\item
 	      Trenowanie meta-modelu:
 	      \begin{itemize}
-		      \item Inicjalizuje się \textbf{LogisticRegression} z \textbf{solver='liblinear'} i \textbf{random\_state=42}.
+		      \item Inicjalizuje się \textbf{regresję logistyczną (\textbf{LogisticRegression})} z \textbf{solver='liblinear'} i \textbf{random\_state=42}.
 		      \item Przeprowadza się trening meta-modelu na \textbf{meta\_features\_train} i \textbf{y\_train}.
 	      \end{itemize}
-	\item
-	      Generowanie predykcji na zbiorze testowym:
+	\item Generowanie predykcji na zbiorze testowym:
 	      \begin{itemize}
 		      \item Przeprowadza się trening każdego modelu bazowego na całym \textbf{X\_train\_scaled}.
-		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego wytrenowanego modelu bazowego na \textbf{X\_test\_scaled}.
-		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test} z predykcji \textbf{Random Forest}, \textbf{XGBoost} i \textbf{Gradient Boosting} dla zbioru testowego.
+		      \item Uzyskuje się probabilistyczne predykcje dla klasy pozytywnej z każdego wytrenowanego modelu na \textbf{X\_test\_scaled}.
+		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test} z predykcji \textbf{losowego lasu}, \textbf{XGBoost} oraz \textbf{wzmacniania gradientowego} dla danych testowego.
 	      \end{itemize}
-	\item
-	      Zwracanie wyników: Wracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
+	\item Zwracanie wyników: Zwracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} oraz \textbf{y\_test}.
 \end{enumerate}
-Szczegółowy schemat \textbf{metoda19} jest pokazany na \ref{fig:diagram_metoda19}. Pomarańczowe prostokąty odpowiadają pomysłom, które są niepodległe i były dodane do podejścia z \textbf{metoda5}. 
+
+Szczegółowy schemat \textbf{metoda19} przedstawiono na \ref{fig:diagram_metoda19}. Pomarańczowe prostokąty odpowiadają pomysłom, które są niezależne i zostały wprowadzone w stosunku do podejścia z \textbf{metoda5}.
 
 \begin{figure}[H]
 	\centering
@@ -81,22 +79,22 @@ Szczegółowy schemat \textbf{metoda19} jest pokazany na \ref{fig:diagram_metoda
 	\item
 	      \textbf{Efektywność}:
 	      \begin{itemize}
-		      \item Wykorzystanie różnorodnych algorytmów predykcyjnych, w tym opartych na zespołach predyktorów i technikach wzmacniania gradientowego, pozwala na uchwycenie złożonych zależności w danych.
-		      \item Zastosowanie walidacji krzyżowej do generowania meta-cech minimalizuje ryzyko przeuczenia.
-		      \item Meta-model (\textbf{regresja logistyczna}) efektywnie łączy predykcje różnych modeli bazowych.
+		      \item Wykorzystanie różnorodnych algorytmów predykcyjnych, takich jak oparty na zespołach predyktorów \textbf{losowy las} oraz techniki \textbf{wzmacnianie gradientowe} i \textbf{XGBoost}, umożliwia uchwycenie złożonych zależności w danych.
+		      \item Zastosowanie \textbf{walidacji krzyżowej} do generowania meta-cech minimalizuje ryzyko przeuczenia.
+		      \item Meta-model (\textbf{regresja logistyczna}) efektywnie łączy predykcje z różnych modeli bazowych.
 	      \end{itemize}
 	\item
 	      \textbf{Stabilność}:
 	      \begin{itemize}
-		      \item Modele bazowe (Random Forest i Gradient Boosting) są stosunkowo stabilne dzięki swoim mechanizmom agregacji i korekcji błędów.
-		      \item Stacking z walidacją krzyżową pomaga w uzyskaniu bardziej stabilnych predykcji meta-modelu.
+		      \item Modele bazowe: \textbf{losowy las}, \textbf{wzmacnianie gradientowe} i \textbf{XGBoost} są stosunkowo stabilne dzięki swoim mechanizmom agregacji i korekcji błędów.
+		      \item Warstwowe łączenie modeli z walidacją krzyżową pomaga uzyskać bardziej stabilne predykcje meta-modelu.
 	      \end{itemize}
 	\item
 	      \textbf{Złożoność obliczeniowa}:
 	      \begin{itemize}
-		      \item Trening wielu modeli bazowych i meta-modelu zwiększa złożoność obliczeniową w porównaniu do pojedynczych modeli.
+		      \item Trening wielu modeli bazowych i meta-modelu zwiększa złożoność obliczeniową w porównaniu z pojedynczymi modelami.
 		      \item Walidacja krzyżowa dodatkowo wydłuża czas treningu.
 	      \end{itemize}
 	\item
-	      \textbf{Wydajność}: Łączenie mocnych stron różnych algorytmów często prowadzi do wyższej dokładności predykcji niż pojedyncze modele.
+	      \textbf{Wydajność}: Łączenie różnorodnych stron algorytmów często prowadzi do wyższej dokładności predykcji niż pojedyncze modele.
 \end{enumerate}

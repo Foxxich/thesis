@@ -51,22 +51,22 @@
 \contentsline {subsection}{\numberline {2.10.9\relax .\enspace }Czas wykonania}{47}{subsection.2.10.9}%
 \contentsline {subsection}{\numberline {2.10.10\relax .\enspace }Podsumowanie wstępnej analizy wyników metod }{48}{subsection.2.10.10}%
 \contentsline {chapter}{\numberline {3\relax .\enspace }Autorskie algorytmy}{50}{chapter.3}%
-\contentsline {section}{\numberline {3.1\relax .\enspace }Pierwsza metoda (\textbf {Metoda17})}{50}{section.3.1}%
+\contentsline {section}{\numberline {3.1\relax .\enspace }Pierwszy algorytm (\textbf {Metoda17})}{50}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1\relax .\enspace }Wejściowe parametry}{50}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2\relax .\enspace }Wyjściowe parametry}{50}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3\relax .\enspace }Algorytm}{51}{subsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.1.4\relax .\enspace }Właściwości analityczne}{52}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2\relax .\enspace }Druga metoda (\textbf {Metoda18})}{53}{section.3.2}%
+\contentsline {section}{\numberline {3.2\relax .\enspace }Drugi algorytm (\textbf {Metoda18})}{53}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1\relax .\enspace }Wejściowe parametry}{53}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2\relax .\enspace }Wyjściowe parametry}{53}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3\relax .\enspace }Algorytm}{54}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4\relax .\enspace }Właściwości analityczne}{55}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3\relax .\enspace }Trzecia metoda (\textbf {Metoda19})}{56}{section.3.3}%
+\contentsline {section}{\numberline {3.3\relax .\enspace }Trzeci algorytm (\textbf {Metoda19})}{56}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1\relax .\enspace }Wejściowe dane}{56}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2\relax .\enspace }Wyjściowe dane}{57}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3\relax .\enspace }Algorytm}{57}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4\relax .\enspace }Właściwości analityczne}{58}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4\relax .\enspace }Czwarta metoda (\textbf {Metoda20})}{59}{section.3.4}%
+\contentsline {subsection}{\numberline {3.3.4\relax .\enspace }Właściwości analityczne}{59}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4\relax .\enspace }Czwarty algorytm (\textbf {Metoda20})}{59}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1\relax .\enspace }Wejściowe dane}{59}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2\relax .\enspace }Wyjściowe dane}{60}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3\relax .\enspace }Algorytm}{60}{subsection.3.4.3}%

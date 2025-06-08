@@ -633,6 +633,7 @@ INPUT .\img\diagrams\metoda19.drawio.png
 INPUT .\chapters\chapter3\4.tex
 INPUT .\chapters\chapter3\4.tex
 INPUT chapters\chapter3\4.tex
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
 INPUT .\img\diagrams\metoda20.drawio.png
 INPUT .\img\diagrams\metoda20.drawio.png
 INPUT .\img\diagrams\metoda20.drawio.png
@@ -672,7 +673,6 @@ INPUT chapters\chapter5_Tests_Results.tex
 INPUT .\chapters\chapter5\1.tex
 INPUT .\chapters\chapter5\1.tex
 INPUT chapters\chapter5\1.tex
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_Accuracy_bar_chart.png
@@ -893,10 +893,6 @@ INPUT .\thesis.out
 INPUT .\thesis.out
 INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
 INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
