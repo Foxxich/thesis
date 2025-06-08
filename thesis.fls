@@ -694,6 +694,13 @@ INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
@@ -715,6 +722,13 @@ INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
@@ -722,20 +736,18 @@ INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_char
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
 INPUT .\chapters\chapter5\2.tex
 INPUT .\chapters\chapter5\2.tex
 INPUT chapters\chapter5\2.tex
@@ -760,6 +772,13 @@ INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
 INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_Accuracy_bar_chart.png
@@ -781,6 +800,13 @@ INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_few_shot\ISOT_few_shot_Execution Time (s)_comparison.png
 INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
@@ -788,20 +814,18 @@ INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_Accuracy_bar_chart.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\ISOT_one_shot\ISOT_one_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_F1-Score_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\ISOT_classic\ISOT_classic_Execution Time (s)_comparison.png
 INPUT .\chapters\chapter5\3.tex
 INPUT .\chapters\chapter5\3.tex
 INPUT chapters\chapter5\3.tex
@@ -826,6 +850,13 @@ INPUT .\img\stats\WELFake_classic\WELFake_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_classic\WELFake_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_classic\WELFake_classic_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_classic\WELFake_classic_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_classic\WELFake_classic_Execution Time (s)_comparison.png
 INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_Accuracy_bar_chart.png
@@ -847,6 +878,13 @@ INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_few_shot\WELFake_few_shot_Execution Time (s)_comparison.png
 INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_Accuracy_bar_chart.png
@@ -868,6 +906,13 @@ INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_ROC-AUC_bar.png
 INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Combined_ROC-AUC_bar.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
+INPUT .\img\stats\WELFake_one_shot\WELFake_one_shot_Execution Time (s)_comparison.png
 INPUT .\chapters\summary.tex
 INPUT .\chapters\summary.tex
 INPUT .\chapters\summary.tex
@@ -893,6 +938,10 @@ INPUT .\thesis.out
 INPUT .\thesis.out
 INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
 INPUT C:\Users\Vadym\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmb.pfb
