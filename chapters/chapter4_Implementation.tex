@@ -69,9 +69,9 @@ Dane wejściowe są wczytywane z plików CSV: \textbf{Fake.csv}, oznaczonych ety
 \end{itemize}
 
 \subsection{Warstwa Trenowania Modeli}
-Proces uruchamiany jest poprzez skrypt \textbf{main.py} w konsoli. Użytkownik wybiera reprezentację kontekstową: 1 - BERT, 2 - RoBERTa, 3 - Sentence Transformers; lub tryb "all" dla wszystkich opcji. Następnie określa numer metody: od 1 do 20; lub zakres metod, tryb podziału danych: klasyczny, one-shot, few-shot; oraz dataset: ISOT, BuzzFeed, WELFake. Każda implementacja standardowa, od \textbf{metoda1} do \textbf{metoda16}, znajduje się w osobnym folderze \textbf{articleX}, gdzie \textbf{X} to numer metody, co pozwala na ich niezależne rozwijanie.
+Proces uruchamiany jest poprzez skrypt \textbf{main.py} w konsoli. Użytkownik wybiera reprezentację kontekstową: 1 - \textbf{BERT}, 2 - \textbf{RoBERTa}, 3 - \textbf{SBERT}; lub tryb "all" dla wszystkich opcji. Następnie określa numer metody: od 1 do 20; lub zakres metod, tryb podziału danych: \textbf{klasyczny, one-shot, few-shot}; oraz dataset: \textbf{ISOT, BuzzFeed, WELFake}. Każda implementacja standardowa, od \textbf{metody1} do \textbf{metody16}, znajduje się w osobnym folderze \textbf{articleX}, gdzie \textbf{X} to numer metody, co pozwala na ich niezależne rozwijanie.
 
-Autorskie algorytmy (\textbf{metoda17} do \textbf{metoda20}) są zaimplementowane w pliku \textbf{my\_run.py} i dostępne bezpośrednio w głównym katalogu projektu. Modele obejmują:
+Autorskie algorytmy (\textbf{metoda17, metoda18, metoda19, metoda20}) są zaimplementowane w pliku \textbf{my\_run.py} i dostępne bezpośrednio w głównym katalogu projektu. Modele obejmują:
 \begin{itemize}
 	\item Algorytmy uczenia maszynowego, takie jak Gradient Boosting, Random Forest, LightGBM czy CatBoost.
 	\item Sieci neuronowe oparte na TensorFlow z dynamicznym ważeniem próbek.
@@ -88,16 +88,17 @@ Przykładowe uruchomienie pokazano na rysunku \ref{fig:app_start_window}.
 \end{figure}
 
 \subsection{Warstwa Oceny Wyników}
-Ocena skuteczności modeli przeprowadzana jest za pomocą funkcji \textbf{evaluate\_model} z modułu \textbf{common.py}. Funkcja ta oblicza kluczowe metryki, w tym:
+Ocena skuteczności modeli przeprowadzana jest za pomocą funkcji \textbf{evaluate\_model} z modułu \textbf{common.py}. Funkcja oblicza wszystkie metryki oceny, w tym:
 \begin{itemize}
-	\item Dokładność (Accuracy),
-	\item Precyzję (Precision),
-	\item Recall,
-	\item F1-Score,
-	\item ROC-AUC,
-	\item MCC,
-	\item Log Loss,
-	\item Cohen's Kappa.
+	\item Dokładność;
+	\item Precyzję;
+	\item Czułość;
+	\item Miarę F1;
+	\item Obszar pod krzywą precyzja-czułość;
+	\item Obszar pod krzywą ROC;
+	\item Współczynnik korelacji Matthewsa;
+	\item Logarytmiczną stratę;
+	\item Współczynnik Kappa Cohena.
 \end{itemize}
 Dodatkowo obliczane są metryki walidacji krzyżowej. Wyniki zapisywane są w osobnych plikach \textbf{runX\_dataset\_results.csv} i \textbf{runX\_dataset\_pr\_curve.csv} w folderach \textbf{results\_X\_Y}, gdzie \textbf{X} określa typ reprezentacji, a \textbf{Y} tryb podziału danych, przykładowo \textbf{results\_3\_few\_shot}. Każdy folder przechowuje wyniki specyficzne dla danego eksperymentu.
 
@@ -106,6 +107,6 @@ Dodatkowo obliczane są metryki walidacji krzyżowej. Wyniki zapisywane są w os
 Analiza graficzna wyników realizowana jest przez skrypt \textbf{all\_plots.py}, który przetwarza dane z plików CSV zapisanych w folderach \textbf{results\_X\_Y}. Generowane są:
 \begin{itemize}
 	\item Wykresy słupkowe porównujące metryki, takie jak \textbf{dokładność, czas wykonania, pole pod krzywą ROC} oraz inne, dla wszystkich metod i zbiorów danych.
-	\item Krzywe Precision-Recall dla wszystkich metod i zbiorów danych.
+	\item Krzywe \textbf{Precision-Recall} dla wszystkich metod i zbiorów danych.
 \end{itemize}
 Wykresy są zapisywane w folderze \textbf{plots}, posiadającym podfoldery według datasetów i typów eksperymentów, co ułatwia ich przeglądanie.

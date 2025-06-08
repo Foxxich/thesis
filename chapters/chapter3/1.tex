@@ -2,27 +2,27 @@
 Autorskie algorytmy powstały w oparciu o koncepcje metod, które w badaniach wykazały najlepsze rezultaty. Krótko przejrzałem wyniki w \ref{text:results}. Wykorzystując wnioski z analizy ich wzorców, opracowałem autorskie podejścia. Rozwiązania zostały dostosowane do wymagań i złożoności problematyki wykrywania \textbf{fałszywych wiadomości}, gwarantując wysoką jakość i efektywność.
 
 \section{Pierwszy algorytm (\textbf{Metoda17})}
-\textbf{Metoda17} jest modelem zespołowym, który łączy predykcje trzech różnych klasyfikatorów: \textbf{MLPClassifier}, \textbf{regresji logistycznej} i \textbf{XGBClassifier} za pomocą probabilistycznego głosowania. Inspiracją dla tego algorytmu jest \textbf{Metoda10}, która również wykorzystuje \textbf{klasyfikator głosujący (VotingClassifier)} do łączenia różnych modeli. Kluczowym ulepszeniem w \textbf{Metoda17} jest zastosowanie optymalizacji hiperparametrów dla regresji logistycznej oraz skalowania cech dla każdego z bazowych klasyfikatorów przed ich połączeniem. Celem jest wykorzystanie komplementarnych mocnych stron różnych algorytmów i poprawa ogólnej wydajności predykcyjnej poprzez dostrojenie parametrów i ujednolicenie skali danych wejściowych.
+\textbf{Metoda17} jest modelem zespołowym, który łączy predykcje trzech różnych klasyfikatorów: \textbf{MLPClassifier}, \textbf{regresji logistycznej} i \textbf{XGBClassifier} za pomocą probabilistycznego głosowania. Inspiracją dla tego algorytmu jest \textbf{metoda10}, która również wykorzystuje \textbf{klasyfikator głosujący (VotingClassifier)} do łączenia różnych modeli. Kluczowym ulepszeniem w \textbf{metodzie17} jest zastosowanie optymalizacji hiperparametrów dla \textbf{regresji logistycznej} oraz \textbf{skalowania cech} dla każdego z bazowych klasyfikatorów przed ich połączeniem. Celem jest wykorzystanie komplementarnych mocnych stron różnych algorytmów i poprawa ogólnej wydajności predykcyjnej poprzez dostrojenie parametrów i ujednolicenie skali danych wejściowych.
 
 \subsection{Wejściowe parametry}
-Metoda \textbf{metoda17} przyjmuje następujące parametry wejściowe:
+Algorytm przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
-	\item \textbf{y\_train}: Wektor etykiet dla danych treningowych n próbek. Każdy element odpowiada próbce w \textbf{X\_train} i zawiera jej prawdziwą klasę, zazwyczaj 0 lub 1 dla klasyfikacji binarnej, liczby całkowite dla wieloklasowej.
-	\item \textbf{X\_test}: Macierz danych testowych. Struktura podobna do \textbf{X\_train}, używana do oceny modelu po treningu.
-	\item \textbf{y\_test}: Wektor etykiet dla danych testowych. Prawdziwe klasy dla próbek w \textbf{X\_test}, używane do oceny wyników modelu.
+	\item \textbf{X\_train}: macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zazwyczaj liczbowe.
+	\item \textbf{y\_train}: wektor etykiet dla danych treningowych n próbek. Każdy element odpowiada próbce w \textbf{X\_train} i zawiera jej prawdziwą klasę, zazwyczaj 0 lub 1 dla klasyfikacji binarnej, liczby całkowite dla wieloklasowej.
+	\item \textbf{X\_test}: macierz danych testowych. Struktura podobna do \textbf{X\_train}, używana do oceny modelu po treningu.
+	\item \textbf{y\_test}: wektor etykiet dla danych testowych. Prawdziwe klasy dla próbek w \textbf{X\_test}, używane do oceny wyników modelu.
 \end{enumerate}
 
 \subsection{Wyjściowe parametry}
-Metoda zwraca następujące elementy:
+Algorytm zwraca następujące elementy:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item \textbf{voting\_clf\_final}: Wytrenowany model \textbf{VotingClassifier} po optymalizacji.
-	\item \textbf{X\_test\_scaled}: Przeskalowane cechy zbioru testowego.
-	\item \textbf{y\_test}: Wektor etykiet testowych.
+	\item \textbf{voting\_clf\_final}: wytrenowany model \textbf{VotingClassifier} po optymalizacji.
+	\item \textbf{X\_test\_scaled}: przeskalowane cechy zbioru testowego.
+	\item \textbf{y\_test}: wektor etykiet testowych.
 \end{enumerate}
 
 \subsection{Algorytm}
@@ -32,11 +32,11 @@ Metoda zwraca następujące elementy:
 	      Przygotowanie i trenowanie modeli bazowych:
 	      \begin{itemize}
 		      \item
-		            \textbf{Wielowarstwowy model liniowego klasyfikatora (MLPClassifier)}: Inicjalizuje się model MLP. Tworzony jest ciąg operacji przetwarzania danych ze skalowaniem cech (\textbf{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
+		            \textbf{Wielowarstwowy model liniowego klasyfikatora (MLPClassifier)}: inicjalizuje się model MLP. Tworzony jest ciąg operacji przetwarzania danych ze skalowaniem cech (\textbf{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
 		      \item
-		            \textbf{Regresja Logistyczna (LogisticRegression)}: Tworzony jest ciąg operacji przetwarzania danych ze skalowaniem cech (\textbf{StandardScaler}) i \textbf{regresją logistyczną}. Definiuje się przestrzeń hiperparametrów i przeprowadza optymalizację za pomocą \textbf{GridSearchCV} na \textbf{X\_train} i \textbf{y\_train}. Wybiera się najlepszy model.
+		            \textbf{Regresja Logistyczna (LogisticRegression)}: jest tworzony ciąg operacji przetwarzania danych ze skalowaniem cech (\textbf{StandardScaler}) i \textbf{regresją logistyczną}. Definiuje się przestrzeń hiperparametrów i przeprowadza optymalizację za pomocą \textbf{GridSearchCV} na \textbf{X\_train} i \textbf{y\_train}. Wybiera się najlepszy model.
 		      \item
-		            \textbf{XGBoost (XGBClassifier)}: Inicjalizuje się model XGBoost. Tworzony jest ciąg operacji przetwarzania danych ze skalowaniem cech (\textbf{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
+		            \textbf{XGBoost (XGBClassifier)}: inicjalizuje się model XGBoost. Tworzony jest ciąg operacji przetwarzania danych ze skalowaniem cech (\textbf{StandardScaler}) i trenuje na \textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Stworzenie i trenowanie modelu głosującego:
@@ -51,10 +51,10 @@ Metoda zwraca następujące elementy:
 		      \item Ostatecznie może zostać użyte jedno skalowanie dla całego \textbf{X\_test} do oceny modelu głosującego.
 	      \end{itemize}
 	\item
-	      Zwracanie wyników: Zwraca się wytrenowany model głosujący (\textbf{voting\_clf\_final}), przeskalowane cechy zbioru testowego (\textbf{X\_test\_scaled}) oraz oryginalne etykiety testowe (\textbf{y\_test}).
+	      Zwracanie wyników: zwraca się wytrenowany model głosujący (\textbf{voting\_clf\_final}), przeskalowane cechy zbioru testowego (\textbf{X\_test\_scaled}) oraz oryginalne etykiety testowe (\textbf{y\_test}).
 \end{enumerate}
 
-Szczegółowy schemat \textbf{metoda17} przedstawiono na diagramie \ref{fig:diagram_metoda17}. Pomarańczowe prostokąty odpowiadają autorskim pomysłom, które wprowadziłem, tworząc swoje rozwiązanie.
+Szczegółowy schemat \textbf{metody17} przedstawiono na diagramie \ref{fig:diagram_metoda17}. Pomarańczowe prostokąty odpowiadają autorskim pomysłom, które wprowadziłem, tworząc swoje rozwiązanie.
 
 \begin{figure}[H]
 	\centering
@@ -66,9 +66,9 @@ Szczegółowy schemat \textbf{metoda17} przedstawiono na diagramie \ref{fig:diag
 \subsection{Właściwości analityczne}
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
-	\item \textbf{Efektywność}: Łączenie różnych modeli i optymalizacja hiperparametrów regresji logistycznej ma na celu poprawę dokładności predykcji. Skalowanie cech zapewnia, że wszystkie algorytmy bazowe operują na danych o podobnej skali.
-	\item \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów modeli: liniowego, nieliniowego opartego na sieci neuronowej, opartego na drzewach decyzyjnych, co pozwala na uwzględnienie różnych wzorców w danych.
-	\item \textbf{Optymalizacja}: Optymalizacja hiperparametrów regresji logistycznej za pomocą \textbf{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
-	\item \textbf{Skalowalność}: Metoda może być stosowana do problemów z wieloma cechami i próbkami, jednak czas treningu może być znaczący ze względu na optymalizację hiperparametrów i trening wielu modeli.
-	\item \textbf{Złożoność}: Złożoność obliczeniowa zależy od złożoności każdego z bazowych modeli oraz od procesu optymalizacji hiperparametrów: liczby przeszukiwanych kombinacji parametrów i liczby foldów walidacji krzyżowej.
+	\item \textbf{Efektywność}: łączenie różnych modeli i optymalizacja hiperparametrów regresji logistycznej ma na celu poprawę dokładności predykcji. Skalowanie cech zapewnia, że wszystkie algorytmy bazowe operują na danych o podobnej skali.
+	\item \textbf{Wykorzystanie różnorodności modeli}: zastosowanie różnych typów modeli: liniowego, nieliniowego opartego na sieci neuronowej, opartego na drzewach decyzyjnych, co pozwala na uwzględnienie różnych wzorców w danych.
+	\item \textbf{Optymalizacja}: optymalizacja hiperparametrów regresji logistycznej za pomocą \textbf{GridSearchCV} pozwala na znalezienie lepszych ustawień dla tego konkretnego modelu.
+	\item \textbf{Skalowalność}: algorytm może być stosowany do problemów z wieloma cechami i próbkami, jednak czas treningu może być znaczący ze względu na optymalizację hiperparametrów i trening wielu modeli.
+	\item \textbf{Złożoność}: złożoność obliczeniowa zależy od złożoności każdego z bazowych modeli oraz od procesu optymalizacji hiperparametrów: liczby przeszukiwanych kombinacji parametrów i liczby foldów walidacji krzyżowej.
 \end{enumerate}

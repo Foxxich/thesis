@@ -1,34 +1,34 @@
 \section{Czwarty algorytm (\textbf{Metoda20})}
 \textbf{Metoda20} powstała na bazie idei integracji wielu modeli, gdzie różne klasyfikatory były łączone w celu poprawy ogólnej wydajności predykcyjnej. Inspiracją były metody \textbf{warstwowego łączenia modeli}, w których predykcje modeli bazowych służą jako cechy dla meta-modelu.
 
-W \textbf{Metodzie20} połączono \textbf{LightGBM}, \textbf{CatBoost}, \textbf{losowy las} oraz \textbf{wzmacnianie gradientowe}. \textbf{LightGBM} i \textbf{CatBoost} to zaawansowane algorytmy uczenia wzmacniającego, znane ze swojej szybkości i efektywności. \textbf{Regresja logistyczna} służy jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie mocnych stron każdego z algorytmów, aby osiągnąć wyższą \textbf{dokładność} przy mniejszym \textbf{czasie wykonania}.
+W \textbf{metodzie20} połączono \textbf{LightGBM}, \textbf{CatBoost}, \textbf{losowy las} oraz \textbf{wzmacnianie gradientowe}. \textbf{LightGBM} i \textbf{CatBoost} to zaawansowane algorytmy uczenia wzmacniającego, znane ze swojej szybkości i efektywności. \textbf{Regresja logistyczna} służy jako meta-model, integrując probabilistyczne predykcje tych czterech różnorodnych modeli bazowych. Celem jest wykorzystanie mocnych stron każdego z algorytmów, aby osiągnąć wyższą \textbf{dokładność} przy mniejszym \textbf{czasie wykonania}.
 
 \subsection{Wejściowe dane}
-Metoda \textbf{train\_run20} przyjmuje następujące parametry wejściowe:
+Algorytm przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{X\_train}: Macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zwykle liczbowe.
+	      \textbf{X\_train}: macierz danych treningowych dla n próbek, m cech. Każdy wiersz reprezentuje próbkę, a każda kolumna cechę. Wartości w macierzy są zwykle liczbowe.
 	\item
-	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: n, gdzie n - liczba próbek w danych treningowych.
+	      \textbf{y\_train}: wektor etykiet dla danych treningowych. Rozmiar: n, gdzie n - liczba próbek w danych treningowych.
 	\item
-	      \textbf{X\_test}: Macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
+	      \textbf{X\_test}: macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
 	\item
-	      \textbf{y\_test}: Wektor etykiet testowych, odpowiadający danym testowym.
+	      \textbf{y\_test}: wektor etykiet testowych, odpowiadający danym testowym.
 \end{enumerate}
 
 \subsection{Wyjściowe dane}
-Metoda zwraca następujące elementy:
+Algorytm zwraca następujące elementy:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{meta\_model}: Meta-model (\textbf{regresja logistyczna}) wytrenowany na predykcjach \textbf{LightGBM}, \textbf{CatBoost}, \textbf{losowego lasu} oraz \textbf{wzmacniania gradientowego}.
+	      \textbf{meta\_model}: meta-model (\textbf{regresja logistyczna}) wytrenowany na predykcjach \textbf{LightGBM}, \textbf{CatBoost}, \textbf{losowego lasu} oraz \textbf{wzmacniania gradientowego}.
 	\item
-	      \textbf{meta\_features\_test}: Macierz meta-cech (predykcje modeli bazowych) dla danych testowych.
+	      \textbf{meta\_features\_test}: macierz meta-cech (predykcje modeli bazowych) dla danych testowych.
 	\item
-	      \textbf{y\_test}: Wektor etykiet testowych.
+	      \textbf{y\_test}: wektor etykiet testowych.
 \end{enumerate}
 
 \subsection{Algorytm}
@@ -60,10 +60,10 @@ Metoda zwraca następujące elementy:
 		      \item Tworzy się macierz meta-cech \textbf{meta\_features\_test}, analogicznie do macierzy treningowej.
 	      \end{itemize}
 	\item
-	      Zwracanie wyników: Zwracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} oraz \textbf{y\_test}.
+	      Zwracanie wyników: zwracany jest wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} oraz \textbf{y\_test}.
 \end{enumerate}
 
-Szczegółowy schemat \textbf{metoda20} przedstawiono na diagramie \ref{fig:diagram_metoda20}. Pomarańczowe prostokąty odpowiadają pomysłom opartym na podejściu z \textbf{metoda18}. Zielone prostokąty podkreślają zamysł inspirowany \textbf{metoda19}.
+Szczegółowy schemat \textbf{metody20} przedstawiono na diagramie \ref{fig:diagram_metoda20}. Pomarańczowe prostokąty odpowiadają pomysłom opartym na podejściu z \textbf{metody18}. Zielone prostokąty podkreślają zamysł inspirowany \textbf{metodą19}.
 
 \begin{figure}[H]
 	\centering
@@ -76,13 +76,13 @@ Szczegółowy schemat \textbf{metoda20} przedstawiono na diagramie \ref{fig:diag
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{Efektywność}: Łączenie predykcji wielu modeli ma na celu zwiększenie \textbf{dokładności predykcji}.
+	      \textbf{Efektywność}: łączenie predykcji wielu modeli ma na celu zwiększenie \textbf{dokładności predykcji}.
 	\item
-	      \textbf{Wykorzystanie różnorodności modeli}: Zastosowanie różnych typów algorytmów pozwala na uwzględnienie różnych aspektów danych i wzorców.
+	      \textbf{Wykorzystanie różnorodności modeli}: zastosowanie różnych typów algorytmów pozwala na uwzględnienie różnych aspektów danych i wzorców.
 	\item
-	      \textbf{Meta-model}: \textbf{Regresja logistyczna} skutecznie integruje predykcje modeli bazowych, ucząc się, jak najlepiej je łączyć.
+	      \textbf{Meta-model}: \textbf{regresja logistyczna} skutecznie integruje predykcje modeli bazowych, ucząc się, jak najlepiej je łączyć.
 	\item
-	      \textbf{Złożoność obliczeniowa}: Trening wielu złożonych modeli może być kosztowny obliczeniowo, ale predykcja jest stosunkowo szybka.
+	      \textbf{Złożoność obliczeniowa}: trening wielu złożonych modeli może być kosztowny obliczeniowo, ale predykcja jest stosunkowo szybka.
 	\item
-	      \textbf{Wydajność}: Oczekuje się, że kombinacja tych technik modelowania zapewni wysoką wydajność w zadaniu klasyfikacji.
+	      \textbf{Wydajność}: oczekuje się, że kombinacja tych technik modelowania zapewni wysoką wydajność w zadaniu klasyfikacji.
 \end{enumerate}

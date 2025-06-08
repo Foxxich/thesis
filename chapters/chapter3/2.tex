@@ -1,34 +1,34 @@
 \section{Drugi algorytm (\textbf{Metoda18})}
-\textbf{Metoda18} to integracja \textbf{wzmacniania gradientowego (Gradient Boosting)} i \textbf{CatBoost}, wzbogacona o meta-model w postaci \textbf{regresji logistycznej}. Algorytm jest wynikiem połączenia pomysłów pochodzących z \textbf{Metody12} oraz \textbf{Metody13}. \textbf{Metoda13} została zaimplementowana przy użyciu \textbf{warstwowego łączenia modeli}, gdzie \textbf{Gradient Boosting}, \textbf{XGBoost} i \textbf{losowy las (RandomForestClassifier)} były łączone przy użyciu \textbf{regresji logistycznej} jako meta-modelu. \textbf{Metoda12} natomiast wykorzystywała wyłącznie \textbf{CatBoost}, co pokazało jego dużą skuteczność w pracy z danymi kategorialnymi i nierównomiernymi, co również wpłynęło na wybór tego modelu w obecnym podejściu.
+\textbf{Metoda18} to integracja \textbf{wzmacniania gradientowego (Gradient Boosting)} i \textbf{CatBoost}, wzbogacona o meta-model w postaci \textbf{regresji logistycznej}. Algorytm jest wynikiem połączenia pomysłów pochodzących z \textbf{metody12} oraz \textbf{metody13}. \textbf{Metoda13} została zaimplementowana przy użyciu \textbf{warstwowego łączenia modeli}, gdzie \textbf{Gradient Boosting}, \textbf{XGBoost} i \textbf{klasyfikator losowego lasu (RandomForestClassifier)} były łączone przy użyciu \textbf{regresji logistycznej} jako meta-modelu. \textbf{Metoda12} natomiast wykorzystywała wyłącznie \textbf{CatBoost}, co pokazało jego dużą skuteczność w pracy z danymi kategorialnymi i nierównomiernymi, co również wpłynęło na wybór tego modelu w obecnym podejściu.
 
-\textbf{Metoda18} czerpie z \textbf{Metody13} mechanizm \textbf{warstwowego łączenia modeli}, jednak zamiast wielu modeli bazowych, opiera się na dwóch potężnych algorytmach: \textbf{Gradient Boosting} i \textbf{CatBoost}. Wybór tych modeli wynika z ich zdolności do radzenia sobie z różnymi typami danych i ich nierównowagą. \textbf{Regresja logistyczna} jako meta-model umożliwia skuteczną integrację wyników, co zostało wcześniej zademonstrowane w \textbf{Metodzie13}.
+\textbf{Metoda18} implementuje z \textbf{metody13} mechanizm \textbf{warstwowego łączenia modeli}, jednak zamiast wielu modeli bazowych, opiera się na dwóch potężnych algorytmach: \textbf{Gradient Boosting} i \textbf{CatBoost}. Wybór tych modeli wynika z ich zdolności do radzenia sobie z różnymi typami danych i ich nierównowagą. \textbf{Regresja logistyczna} jako meta-model umożliwia skuteczną integrację wyników, co zostało wcześniej zademonstrowane w \textbf{metodzie13}.
 
 \subsection{Wejściowe parametry}
-Metoda \textbf{train\_run18} przyjmuje następujące parametry wejściowe:
+Algorytm przyjmuje następujące parametry wejściowe:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{X\_train}: Macierz danych treningowych, gdzie każdy wiersz to jedna próbka, a kolumny to cechy. Rozmiar: n - liczba próbek, m - liczba cech.
+	      \textbf{X\_train}: macierz danych treningowych, gdzie każdy wiersz to jedna próbka, a kolumny to cechy. Rozmiar: n - liczba próbek, m - liczba cech.
 	\item
-	      \textbf{y\_train}: Wektor etykiet dla danych treningowych. Rozmiar: n, gdzie n - liczba próbek w danych treningowych.
+	      \textbf{y\_train}: wektor etykiet dla danych treningowych. Rozmiar: n, gdzie n - liczba próbek w danych treningowych.
 	\item
-	      \textbf{X\_test}: Macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
+	      \textbf{X\_test}: macierz danych testowych, analogiczna do \textbf{X\_train}, używana do oceny modelu.
 	\item
-	      \textbf{y\_test}: Wektor etykiet testowych, odpowiadający danym testowym.
+	      \textbf{y\_test}: wektor etykiet testowych, odpowiadający danym testowym.
 \end{enumerate}
 
 \subsection{Wyjściowe parametry}
-Metoda zwraca następujące elementy:
+Algorytm zwraca następujące elementy:
 
 \begin{enumerate}
 	\def\labelenumi{\arabic{enumi}.}
 	\item
-	      \textbf{meta\_model}: Meta-model (\textbf{regresja logistyczna}) wytrenowany na danych pochodzących z predykcji modeli \textbf{wzmacniania gradientowego} i \textbf{CatBoost}.
+	      \textbf{meta\_model}: meta-model (\textbf{regresja logistyczna}) wytrenowany na danych pochodzących z predykcji modeli \textbf{wzmacniania gradientowego} i \textbf{CatBoost}.
 	\item
-	      \textbf{meta\_features\_test}: Macierz meta-cech, zbudowana na podstawie predykcji modeli bazowych dla danych testowych.
+	      \textbf{meta\_features\_test}: macierz meta-cech, zbudowana na podstawie predykcji modeli bazowych dla danych testowych.
 	\item
-	      \textbf{y\_test}: Wektor etykiet testowych, identyczny z wejściowym \textbf{y\_test}.
+	      \textbf{y\_test}: wektor etykiet testowych, identyczny z wejściowym \textbf{y\_test}.
 \end{enumerate}
 
 \subsection{Algorytm}
@@ -38,9 +38,9 @@ Metoda zwraca następujące elementy:
 	      Trenowanie modeli bazowych:
 	      \begin{itemize}
 		      \item
-		            \textbf{Gradient Boosting}: Inicjalizuje się \textbf{GradientBoostingClassifier} z liczbą 100 estymatorów i zachowaniem losowości (\textbf{random\_state=42}). Następnie przeprowadza się trenowanie na \textbf{X\_train} i \textbf{y\_train}.
+		            \textbf{Gradient Boosting}: inicjalizuje się \textbf{GradientBoostingClassifier} z liczbą 100 estymatorów i zachowaniem losowości (\textbf{random\_state=42}). Następnie przeprowadza się trenowanie na \textbf{X\_train} i \textbf{y\_train}.
 		      \item
-		            \textbf{CatBoost}: Inicjalizuje się \textbf{CatBoostClassifier} z ustawionymi 100 iteracjami, kontrolowaną losowością (\textbf{random\_state=42}) i wyłączonymi komunikatami. Następnie przeprowadza się trenowanie na \textbf{X\_train} i \textbf{y\_train}.
+		            \textbf{CatBoost}: inicjalizuje się \textbf{CatBoostClassifier} z ustawionymi 100 iteracjami, kontrolowaną losowością (\textbf{random\_state=42}) i wyłączonymi komunikatami. Następnie przeprowadza się trenowanie na \textbf{X\_train} i \textbf{y\_train}.
 	      \end{itemize}
 	\item
 	      Generowanie predykcji dla danych treningowych:
@@ -65,10 +65,10 @@ Metoda zwraca następujące elementy:
 		            Tworzy się macierz meta-cech dla danych testowych, analogicznie do treningowych.
 	      \end{itemize}
 	\item
-	      Zwracanie wyników: Zwraca się wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
+	      Zwracanie wyników: zwraca się wytrenowany \textbf{meta\_model}, \textbf{meta\_features\_test} i \textbf{y\_test}.
 \end{enumerate}
 
-Szczegółowy schemat \textbf{metoda18} przedstawiono na diagramie \ref{fig:diagram_metoda18}. Pomarańczowe prostokąty odpowiadają pomysłom, które opierały się na podejściu z \textbf{metoda13}. Natomiast zielone prostokąty podkreślają zamysł, którym inspirowałem się z \textbf{metoda12}.
+Szczegółowy schemat \textbf{metody18} przedstawiono na diagramie \ref{fig:diagram_metoda18}. Pomarańczowe prostokąty odpowiadają pomysłom, które opierały się na podejściu z \textbf{metody13}. Natomiast zielone prostokąty podkreślają zamysł, którym inspirowałem się z \textbf{metoda12}.
 
 \begin{figure}[H]
 	\centering
@@ -89,9 +89,9 @@ Szczegółowy schemat \textbf{metoda18} przedstawiono na diagramie \ref{fig:diag
 		            Meta-model optymalizuje końcowe wyniki poprzez fuzję predykcji z modeli bazowych.
 	      \end{itemize}
 	\item
-	      \textbf{Elastyczność}: Metoda może być zastosowana w różnych problemach klasyfikacyjnych, szczególnie w przypadkach, gdzie różne modele bazowe wykazują różne mocne strony.
+	      \textbf{Elastyczność}: metoda może być zastosowana w różnych problemach klasyfikacyjnych, szczególnie w przypadkach, gdzie różne modele bazowe wykazują różne mocne strony.
 	\item
-	      \textbf{Stabilność}: Meta-model działa jako mechanizm konsolidujący, zmniejszając wariancję predykcji i poprawiając stabilność wyników.
+	      \textbf{Stabilność}: meta-model działa jako mechanizm konsolidujący, zmniejszając wariancję predykcji i poprawiając stabilność wyników.
 	\item
 	      \textbf{Złożoność obliczeniowa}:
 	      \begin{itemize}

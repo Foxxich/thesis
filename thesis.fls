@@ -687,20 +687,6 @@ INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
 INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png
@@ -715,20 +701,6 @@ INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
 INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_few_shot\BuzzFeed_few_shot_Execution Time (s)_comparison.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
@@ -736,18 +708,13 @@ INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_char
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
 INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_F1-Score_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Combined_ROC-AUC_bar.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
-INPUT .\img\stats\BuzzFeed_classic\BuzzFeed_classic_Execution Time (s)_comparison.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
+INPUT .\img\stats\BuzzFeed_one_shot\BuzzFeed_one_shot_Combined_F1-Score_bar.png
 INPUT .\chapters\chapter5\2.tex
 INPUT .\chapters\chapter5\2.tex
 INPUT chapters\chapter5\2.tex
