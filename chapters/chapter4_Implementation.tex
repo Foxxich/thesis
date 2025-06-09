@@ -37,13 +37,13 @@ Poniżej wymieniono minimalne wymagania dotyczące oprogramowania, niezbędne do
 	\item Zainstalowana najnowsza wersja pip.
 	\item Instalacja bibliotek i frameworków odbywa się za pomocą pliku \textbf{requirements.txt}. Aby zainstalować wszystkie wymagane zależności, należy w terminalu uruchomić polecenie \textbf{pip install -r requirements.txt}.
 	\item Umieszczenie danych testowych w odpowiednim podfolderze projektu:
-	      \textbf{projekt\textbackslash\allowbreak datasets\textbackslash\allowbreak nazwa}. Są dostępne tylko podane trzy opcje datasetów: \textbf{WELFake\_dataset}, \textbf{ISOT\_dataset} oraz \textbf{BuzzFeed\_dataset}.
+	      \textbf{projekt\textbackslash\allowbreak datasets\textbackslash\allowbreak nazwa}. Są dostępne tylko podane trzy opcje zbiorów danych: \textbf{WELFake\_dataset}, \textbf{ISOT\_dataset} oraz \textbf{BuzzFeed\_dataset}.
 	      Dane testowe powinny być zapisane w plikach CSV o następującej strukturze:
 
 	      \begin{itemize}
 		      \item Kolumny: \textbf{title}, \textbf{text}, \textbf{subject}, \textbf{date}.
 	      \end{itemize}
-	\item W folderze każdego datasetu powinny znajdować się dwa pliki danych:
+	\item W folderze każdego zbioru danych powinny znajdować się dwa pliki danych:
 	      \begin{itemize}
 		      \item \textbf{Fake.csv} - zawierający fałszywe wiadomości.
 		      \item \textbf{True.csv} - zawierający prawdziwe wiadomości.
@@ -62,14 +62,14 @@ System został zaprojektowany do analizy i klasyfikacji tekstów wiadomości jak
 \end{figure}
 
 \subsection{Warstwa Przygotowania Danych}
-Dane wejściowe są wczytywane z plików CSV: \textbf{Fake.csv}, oznaczonych etykietą \textbf{0} oraz \textbf{True.csv}, oznaczonych etykietą \textbf{1}, przechowywanych w podfolderach datasetów: \textbf{ISOT\_dataset}, \textbf{BuzzFeed\_dataset}, \textbf{WELFake\_dataset}. Moduł \textbf{common.py} zawiera funkcje takie jak \textbf{load\_and\_preprocess\_data}, które integrują dane i przygotowują je do dalszej obróbki. Podział na zbiory treningowe i testowe realizowany jest za pomocą funkcji \textbf{split\_data}, \textbf{split\_data\_one\_shot} oraz \textbf{split\_data\_few\_shot}, umożliwiając różne strategie podziału danych. Ekstrakcja cech obejmuje:
+Dane wejściowe są wczytywane z plików CSV: \textbf{Fake.csv}, oznaczonych etykietą \textbf{0} oraz \textbf{True.csv}, oznaczonych etykietą \textbf{1}, przechowywanych w podfolderach zbiorów danych: \textbf{ISOT\_dataset}, \textbf{BuzzFeed\_dataset}, \textbf{WELFake\_dataset}. Moduł \textbf{common.py} zawiera funkcje takie jak \textbf{load\_and\_preprocess\_data}, które integrują dane i przygotowują je do dalszej obróbki. Podział na zbiory treningowe i testowe realizowany jest za pomocą funkcji \textbf{split\_data}, \textbf{split\_data\_one\_shot} oraz \textbf{split\_data\_few\_shot}, umożliwiając różne strategie podziału danych. Ekstrakcja cech obejmuje:
 \begin{itemize}
 	\item \textbf{TF-IDF}: przekształca tekst na reprezentacje numeryczne za pomocą wektorów ważonych częstotliwością terminów.
 	\item \textbf{BERT/RoBERTa/Sentence Transformers}: generuje zaawansowane osadzenia kontekstowe tekstu.
 \end{itemize}
 
 \subsection{Warstwa Trenowania Modeli}
-Proces uruchamiany jest poprzez skrypt \textbf{main.py} w konsoli. Użytkownik wybiera reprezentację kontekstową: 1 - \textbf{BERT}, 2 - \textbf{RoBERTa}, 3 - \textbf{SBERT}; lub tryb "all" dla wszystkich opcji. Następnie określa numer metody: od 1 do 20; lub zakres metod, tryb podziału danych: \textbf{klasyczny, one-shot, few-shot}; oraz dataset: \textbf{ISOT, BuzzFeed, WELFake}. Każda implementacja standardowa, od \textbf{metody1} do \textbf{metody16}, znajduje się w osobnym folderze \textbf{articleX}, gdzie \textbf{X} to numer metody, co pozwala na ich niezależne rozwijanie.
+Proces uruchamiany jest poprzez skrypt \textbf{main.py} w konsoli. Użytkownik wybiera reprezentację kontekstową: 1 - \textbf{BERT}, 2 - \textbf{RoBERTa}, 3 - \textbf{SBERT}; lub tryb "all" dla wszystkich opcji. Następnie określa numer metody: od 1 do 20; lub zakres metod, tryb podziału danych: \textbf{klasyczny, one-shot, few-shot}; oraz zestaw danych: \textbf{ISOT, BuzzFeed, WELFake}. Każda implementacja standardowa, od \textbf{metody1} do \textbf{metody16}, znajduje się w osobnym folderze \textbf{articleX}, gdzie \textbf{X} to numer metody, co pozwala na ich niezależne rozwijanie.
 
 Autorskie algorytmy (\textbf{metoda17, metoda18, metoda19, metoda20}) są zaimplementowane w pliku \textbf{my\_run.py} i dostępne bezpośrednio w głównym katalogu projektu. Modele obejmują:
 \begin{itemize}
@@ -109,4 +109,4 @@ Analiza graficzna wyników realizowana jest przez skrypt \textbf{all\_plots.py},
 	\item Wykresy słupkowe porównujące metryki, takie jak \textbf{dokładność, czas wykonania, pole pod krzywą ROC} oraz inne, dla wszystkich metod i zbiorów danych.
 	\item Krzywe \textbf{Precision-Recall} dla wszystkich metod i zbiorów danych.
 \end{itemize}
-Wykresy są zapisywane w folderze \textbf{plots}, posiadającym podfoldery według datasetów i typów eksperymentów, co ułatwia ich przeglądanie.
+Wykresy są zapisywane w folderze \textbf{plots}, posiadającym podfoldery według zbiorów danych i typów eksperymentów, co ułatwia ich przeglądanie.
