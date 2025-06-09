@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex thesis"] 1749494856.77368 "thesis.aux" "thesis.bbl" "thesis" 1749495321.04763 0
+["bibtex thesis"] 1749497025.13435 "thesis.aux" "thesis.bbl" "thesis" 1749497039.5341 0
   "./bibliography.bib" 1749251974 32968 a194fce94053e18e18a447b9eebffae4 ""
   "C:/Users/Vadym/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "thesis.aux" 1749495319 40045 989babc45e9e85ece7c60e9aa757931f "pdflatex"
+  "thesis.aux" 1749497038 40392 fc9856b7e0844691d71ae5b013a17545 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1749495306.26916 "c:/Users/Vadym/Downloads/MasterProject/thesis/thesis.tex" "thesis.pdf" "thesis" 1749495321.0488 0
+["pdflatex"] 1749497025.48236 "c:/Users/Vadym/Downloads/MasterProject/thesis/thesis.tex" "thesis.pdf" "thesis" 1749497039.5351 0
   "C:/Users/Vadym/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1748301156 543780 67c85ab77de439a6d14cdf3f3ed572b6 ""
   "C:/Users/Vadym/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1739820971 12017836 63e59ca2b871be971a9c8fbe4fc5e8a0 ""
   "C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/ly1/texnansi.enc" 1654972639 6938 5135be6a8802f13a7faf296d1959a1ab ""
@@ -260,9 +260,9 @@
   "chapters/chapter3/4.tex" 1749493297 5195 2d76dc267e77fb78c253ad9f745270c4 ""
   "chapters/chapter3_Our_Methods.tex" 1742409566 239 120e6f94f31755e4a2473a6defb1b89c ""
   "chapters/chapter4_Implementation.tex" 1749460847 9152 52e0f6657c247447ba9a32a03d18f862 ""
-  "chapters/chapter5/1.tex" 1749495223 52560 6487218a00c727e6ed81cc190add79a0 ""
+  "chapters/chapter5/1.tex" 1749497007 52560 6487218a00c727e6ed81cc190add79a0 ""
   "chapters/chapter5/2.tex" 1749495270 50302 b4ac1f7b7b912fb920a86350a0b40599 ""
-  "chapters/chapter5/3.tex" 1749495305 50382 b7b1f2091a7bcbb32507975d9d567130 ""
+  "chapters/chapter5/3.tex" 1749497008 50662 07cbc46f90e73f0472c54b46f27ef3c5 ""
   "chapters/chapter5_Tests_Results.tex" 1749425215 2860 8b176e95641f19ac6732a292258031c9 ""
   "chapters/summary.tex" 1749494843 8148 bf632fa83227561d8ea055d0b2eae2a8 ""
   "dyplom.cls" 1739820906 8258 fb72b97f8b1f91f9eb6693f83dd5d9b2 ""
@@ -300,14 +300,15 @@
   "img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png" 1748718758 536154 6e2471126f7ea6432558006c5de33347 ""
   "img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png" 1748718758 534604 7f38c24b7b589a1bfb6394243183482d ""
   "img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png" 1748718758 499943 03a8d97b865b785c63aeef1edc04a9df ""
+  "img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png" 1748718758 501571 3958d4cb722c65647dd3201e8f4b4c9e ""
   "img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png" 1748718758 553971 2ab0a6b71473f297f2cc002170d0d840 ""
   "img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png" 1748718758 550996 c459d6266b714fffbea172c8c7929a11 ""
-  "thesis.aux" 1749495319 40045 989babc45e9e85ece7c60e9aa757931f "pdflatex"
-  "thesis.bbl" 1749494857 7624 99d29931f605110c5b0738ace6835b6e "bibtex thesis"
-  "thesis.lof" 1749495319 5279 07606f3c9e042a30e94df3a0c224f605 "pdflatex"
-  "thesis.out" 1749495319 20514 b8fe1742896f19bf651c003d9ea98997 "pdflatex"
+  "thesis.aux" 1749497038 40392 fc9856b7e0844691d71ae5b013a17545 "pdflatex"
+  "thesis.bbl" 1749497025 7624 99d29931f605110c5b0738ace6835b6e "bibtex thesis"
+  "thesis.lof" 1749497038 5439 2a5daf226c6e63d3ca76882385a2d772 "pdflatex"
+  "thesis.out" 1749497038 20514 9463ebfdd2adac2ac9eb57c69c8db128 "pdflatex"
   "thesis.tex" 1749396780 2646 2cf4af49a20f1d46d01b0f0a47360c90 ""
-  "thesis.toc" 1749495319 12292 1849e11f420646a18327606b76bb0480 "pdflatex"
+  "thesis.toc" 1749497038 12292 198cbffafcdf707bd3a873324c405113 "pdflatex"
   "ugmm8a.pfb" 1739820906 72456 9602ecd7c01388f9218cbdffc3cc9502 ""
   "ugmr8a.pfb" 1739820906 70277 9a929eecdce3adc73595f64fc38d85ed ""
   (generated)
