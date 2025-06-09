@@ -1,4 +1,5 @@
 \section{Trzeci algorytm (\textbf{Metoda19})}
+\label{metoda19_section}
 \textbf{Metoda19} jest wynikiem rozwoju \textbf{metody5}, która opierała się na łączeniu wyników różnych algorytmów. W \textbf{metodzie5} zastosowano \textbf{losowy las} i \textbf{XGBoost} jako modele bazowe, które następnie były integrowane za pomocą \textbf{regresji logistycznej}. \textbf{Metoda19} rozwija tę koncepcję, wykorzystując bardziej rozbudowaną architekturę \textbf{warstwowego łączenia modeli} z trzema różnymi modelami bazowymi: \textbf{losowym lasem}, \textbf{XGBoostem} oraz \textbf{wzmacnianiem gradientowym (Gradient Boosting)}.
 
 W \textbf{metodzie19} łączone są \textbf{losowy las}, oparty na agregacji wielu losowych predyktorów, \textbf{XGBoost} oraz \textbf{wzmacnianie gradientowe (Gradient Boosting)}, które w ustalonej kolejności buduje modele korygujące błędy poprzedników. Inspiracją dla \textbf{metody19} jest zastosowanie \textbf{regresji logistycznej} jako meta-modelu, który skutecznie integruje predykcje tych trzech algorytmów. Wykorzystanie różnorodnych modeli bazowych ma na celu zwiększenie ogólnej dokładności i stabilności predykcji.

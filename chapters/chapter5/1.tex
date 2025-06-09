@@ -55,7 +55,7 @@ Wykresy słupkowe (\ref{fig:buzzfeed_classic_f1}) przedstawiają rozkład warto�
 \end{figure}
 
 \subsubsection{Obszar pod krzywą ROC}
-Tabela \ref{tab:roc_auc_buzzfeed_classic} przedstawia wartości obszaru pod krzywą ROC. Analiza najlepszych i najgorszych wartości obejmuje:
+Tabela \ref{tab:roc_auc_buzzfeed_classic} przedstawia \textbf{wartości obszaru pod krzywą ROC}. Analiza najlepszych i najgorszych wartości obejmuje:
 
 \begin{itemize}
 	\item \textbf{Najlepsze wyniki:}
@@ -66,7 +66,7 @@ Tabela \ref{tab:roc_auc_buzzfeed_classic} przedstawia wartości obszaru pod krzy
 	      \end{itemize}
 	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item \textbf{Metoda17} (0.33 dla \textbf{BERT}) - zaawansowany \textbf{VotingClassifier} z \textbf{MLP}, \textbf{LogisticRegression} i \textbf{XGBoost}, osiąga niskie wartości z powodu niedostatecznej optymalizacji dla \textbf{BERT}, co utrudnia rozróżnianie klas.
+		      \item \textbf{Metoda17} (0.33 dla \textbf{BERT}) - zaawansowany \textbf{VotingClassifier} z \textbf{MLP}, \textbf{regesją logistyczną} i \textbf{XGBoost}, osiąga niskie wartości z powodu niedostatecznej optymalizacji dla \textbf{BERT}, co utrudnia rozróżnianie klas.
 		      \item \textbf{Metoda1-4} (0.35 dla \textbf{BERT}), \textbf{metoda1-1} (0.38 dla \textbf{BERT}) oraz \textbf{metoda1-3} (0.39 dla \textbf{BERT}) wykazują słabe wyniki dla \textbf{BERT} z powodu ograniczeń w architekturze.
 		      \item \textbf{Metoda4} (0.50 dla \textbf{SBERT}), oparta na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, osiąga niskie wyniki z powodu źle skonfigurowanej architektury, która nie wykorzystuje w pełni potencjału \textbf{SBERT}.
 		      \item \textbf{Metoda12-rf} (0.54 dla \textbf{RoBERTa}) oraz \textbf{metoda16} (0.54 dla \textbf{RoBERTa}), oparte na agregacji metodą bootstrap oraz warstwowym łączeniu modeli, uzyskują słabe wyniki dla \textbf{RoBERTa} z powodu trudności w odwzorowaniu granic decyzyjnych przez \textbf{losowy las} lub \textbf{SVC}.
