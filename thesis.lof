@@ -39,8 +39,9 @@
 \contentsline {figure}{\numberline {5.13}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie klasycznym.}}{118}{figure.caption.115}%
 \contentsline {figure}{\numberline {5.14}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie klasycznym.}}{120}{figure.caption.117}%
 \contentsline {figure}{\numberline {5.15}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie few-shot.}}{125}{figure.caption.123}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie one-shot.}}{132}{figure.caption.130}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{134}{figure.caption.132}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{127}{figure.caption.125}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie one-shot.}}{133}{figure.caption.131}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{135}{figure.caption.133}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
