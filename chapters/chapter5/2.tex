@@ -35,7 +35,7 @@ Wśród metod autorskich, \textbf{metoda19} osiąga bardzo dobre wyniki dla osad
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe \textbf{miary F1} (\ref{fig:isot_classic_f1}) przedstawiają następujące obserwacje:
+Wykresy słupkowe \textbf{miary F1} (\ref{fig:isot_classic_f1}) przedstawiają następujące wnioski:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -181,7 +181,7 @@ Tabela \ref{tab:execution_time_classic_isot} przedstawia czasy wykonania predykc
 
 \subsection{Wyniki w trybie few-shot}
 \subsubsection{Dokładność}
-Wykresy słupkowe \textbf{dokładności} (\ref{fig:isot_few_shot_accuracy}) przedstawiają następujące obserwacje:
+Wykresy słupkowe \textbf{dokładności} (\ref{fig:isot_few_shot_accuracy}) przedstawiają następujące wnioski:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -211,7 +211,7 @@ Wykresy słupkowe \textbf{dokładności} (\ref{fig:isot_few_shot_accuracy}) prze
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe \textbf{miary F1} (\ref{fig:isot_few_shot_f1}) przedstawiają następujące obserwacje:
+Wykresy słupkowe \textbf{miary F1} (\ref{fig:isot_few_shot_f1}) przedstawiają następujące wnioski:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -355,7 +355,7 @@ Tabela \ref{tab:execution_time_few_shot_isot} przedstawia czasy wykonania predyk
 
 \subsection{Wyniki w trybie one-shot}
 \subsubsection{Dokładność}
-Wykresy słupkowe \textbf{dokładności} (\ref{fig:isot_one_shot_accuracy}) przedstawiają następujące obserwacje:
+Wykresy słupkowe \textbf{dokładności} (\ref{fig:isot_one_shot_accuracy}) przedstawiają następujące wnioski:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -373,7 +373,7 @@ Wykresy słupkowe \textbf{dokładności} (\ref{fig:isot_one_shot_accuracy}) prze
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
 		      \item Najlepsze wyniki osiągnęły niemal wszystkie metody, ponieważ \textbf{SBERT} generuje osadzenia o wysokiej zawartości informacyjnej semantyczne, które skutecznie uchwytują podobieństwa kontekstowe i strukturalne danych \textbf{ISOT}, umożliwiając precyzyjną klasyfikację nawet w trudnym scenariuszu \textbf{one-shot}.
-		      \item Najgorsze wyniki odnotowano dla \textbf{metoda4} przez jej architekturę, która strasznie ogranicza możliwości \textbf{metody4} do lepszej analizy, dokładności, ale zwiększając czas wykonania.
+		      \item Najgorsze wyniki odnotowano dla \textbf{metody4} przez jej architekturę, która strasznie ogranicza możliwości \textbf{metody4} do lepszej analizy, dokładności, ale zwiększając czas wykonania.
 	      \end{itemize}
 \end{itemize}
 
@@ -437,31 +437,31 @@ Tabela \ref{tab:roc_auc_one_shot_isot} przedstawia następujące obserwacje doty
 		\toprule
 		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & -             & 1.0              & 1.0            \\
-		metoda1-2         & -             & 1.0              & 1.0            \\
-		metoda1-3         & -             & 1.0              & 1.0            \\
-		metoda1-4         & -             & 1.0              & 1.0            \\
-		metoda1-5         & -             & 1.0              & 1.0            \\
-		metoda10          & -             & 1.0              & 1.0            \\
-		metoda11          & -             & 1.0              & 1.0            \\
-		metoda12-catboost & -             & 1.0              & 1.0            \\
-		metoda12-rf       & -             & -                & 1.0            \\
-		metoda13          & -             & -                & 1.0            \\
-		metoda14          & -             & -                & 1.0            \\
-		metoda15          & -             & -                & 1.0            \\
-		metoda16          & -             & -                & 1.0            \\
-		metoda17          & -             & 1.0              & 1.0            \\
-		metoda18          & -             & 1.0              & 1.0            \\
-		metoda19          & -             & -                & 1.0            \\
-		metoda2           & -             & -                & 1.0            \\
-		metoda20          & -             & -                & 1.0            \\
-		metoda3           & -             & 1.0              & 1.0            \\
-		metoda4           & -             & -                & 0.5            \\
-		metoda5           & -             & -                & 1.0            \\
-		metoda6           & -             & -                & 1.0            \\
-		metoda7           & -             & 1.0              & 1.0            \\
-		metoda8           & -             & -                & 1.0            \\
-		metoda9           & -             & 1.0              & 1.0            \\
+		metoda1-1         &   0           & 1.0              & 1.0            \\
+		metoda1-2         &   0           & 1.0              & 1.0            \\
+		metoda1-3         &   0           & 1.0              & 1.0            \\
+		metoda1-4         &   0           & 1.0              & 1.0            \\
+		metoda1-5         &   0           & 1.0              & 1.0            \\
+		metoda10          &   0           & 1.0              & 1.0            \\
+		metoda11          &   0           & 1.0              & 1.0            \\
+		metoda12-catboost &   0           & 1.0              & 1.0            \\
+		metoda12-rf       &   0           &   0              & 1.0            \\
+		metoda13          &   0           &   0              & 1.0            \\
+		metoda14          &   0           &   0              & 1.0            \\
+		metoda15          &   0           &   0              & 1.0            \\
+		metoda16          &   0           &   0              & 1.0            \\
+		metoda17          &   0           & 1.0              & 1.0            \\
+		metoda18          &   0           & 1.0              & 1.0            \\
+		metoda19          &   0           &   0              & 1.0            \\
+		metoda2           &   0           &   0              & 1.0            \\
+		metoda20          &   0           &   0              & 1.0            \\
+		metoda3           &   0           & 1.0              & 1.0            \\
+		metoda4           &   0           &   0              & 0.5            \\
+		metoda5           &   0           &   0              & 1.0            \\
+		metoda6           &   0           &   0              & 1.0            \\
+		metoda7           &   0           & 1.0              & 1.0            \\
+		metoda8           &   0           &   0              & 1.0            \\
+		metoda9           &   0           & 1.0              & 1.0            \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -505,26 +505,26 @@ Tabela \ref{tab:execution_time_one_shot_isot} przedstawia czasy wykonania predyk
 		metoda12-rf       & 7.338         & 8.290            & 96.341         \\
 		metoda13          & 44.029        & 46.605           & 3392.889       \\
 		metoda14          & 533.201       & 616.825          & 2690.891       \\
-		metoda15          & 137.892       & -                & 551.938        \\
+		metoda15          & 137.892       &   0              & 551.938        \\
 		metoda16          & 524.466       & 588.830          & 1788.148       \\
 		metoda17          & 53.756        & 83.912           & 98.361         \\
 		metoda18          & 3.757         & 3.770            & 537.960        \\
 		metoda19          & 10.811        & 11.783           & 107.997        \\
-		metoda2           & 137.892       & -                & 551.938        \\
-		metoda20          & 137.892       & -                & 551.938        \\
+		metoda2           & 137.892       &   0              & 551.938        \\
+		metoda20          & 137.892       &   0              & 551.938        \\
 		metoda3           & 137.892       & 150.287          & 1334.400       \\
-		metoda4           & 137.892       & -                & 1854.387       \\
+		metoda4           & 137.892       &   0              & 1854.387       \\
 		metoda5           & 7.957         & 8.840            & 120.743        \\
-		metoda6           & 137.892       & -                & 551.938        \\
+		metoda6           & 137.892       &   0              & 551.938        \\
 		metoda7           & 0.813         & 0.908            & 8.466          \\
-		metoda8           & 137.892       & -                & 551.938        \\
+		metoda8           & 137.892       &   0              & 551.938        \\
 		metoda9           & 376.312       & 385.596          & 5067.048       \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \subsection{Analiza statystyczna}
-Podobnie jak w analizie dla zestawu danych \textbf{BuzzFeed}, w testach statystycznych dla datasetu \textbf{ISOT} analizowano indywidualne wartości miar (dokładność, precyzja, pełność, F1, obszar pod krzywą ROC, MCC, Kappa Cohena, AUC-PR) dla każdej metody w trybach \textbf{klasycznym}, \textbf{few-shot} i \textbf{one-shot}, bez uśredniania wyników między metodami. Próbki stanowiły wyniki uzyskane dla każdej metody w danym eksperymencie, co pozwalało na bezpośrednie porównanie ich wydajności w kontekście tego samego datasetu i różnych osadzeń (\textbf{BERT}, \textbf{RoBERTa}, \textbf{SBERT}). Na przykład, dla metryki \textbf{dokładności} w trybie \textbf{klasycznym}, test \textbf{Kruskal-Wallis} porównywał rozkłady wartości dokładności dla wszystkich metod (\textbf{metoda1-1}, \textbf{metoda18}) w obrębie jednego typu osadzenia.
+Podobnie jak w analizie dla zestawu danych \textbf{BuzzFeed}, w testach statystycznych dla datasetu \textbf{ISOT} analizowano indywidualne wartości miar dla każdej metody w trybach \textbf{klasycznym}, \textbf{few-shot} i \textbf{one-shot}, bez uśredniania wyników między metodami. Próbki stanowiły wyniki uzyskane dla każdej metody w danym eksperymencie, co pozwalało na bezpośrednie porównanie ich wydajności w kontekście tego samego datasetu i różnych osadzeń (\textbf{BERT}, \textbf{RoBERTa}, \textbf{SBERT}). Na przykład, dla metryki \textbf{dokładności} w trybie \textbf{klasycznym}, test \textbf{Kruskal-Wallis} porównywał rozkłady wartości dokładności dla wszystkich metod (\textbf{metoda1-1}, \textbf{metoda18}) w obrębie jednego typu osadzenia.
 
 Testy \textbf{Shapiro-Wilk} wykazały, że większość miar nie ma rozkładu normalnego, co wskazuje na ich asymetrię. Wyjątkiem jest metryka \textbf{obszaru pod krzywą ROC}, dla której niektóre metody, \textbf{metoda4}, sugerowały możliwość rozkładu normalnego. Dla \textbf{dokładności}, metody takie jak \textbf{metoda1-1}, \textbf{metoda1-2}, \textbf{metoda1-4}, \textbf{metoda12-rf}, \textbf{metoda14}, \textbf{metoda15}, \textbf{metoda16}, \textbf{metoda17}, \textbf{metoda18}, \textbf{metoda20}, \textbf{metoda2}, \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda8} wskazywały na rozkład zbliżony do normalnego.
 

@@ -1,102 +1,86 @@
 \section{Analiza wyników dla zbioru \textbf{WELFake}}
-\label{subsec:welfake_analysis}
-
-W tej sekcji przedstawiono szczegółową analizę wyników uzyskanych dla datasetu \textbf{WELFake} w trzech trybach uczenia: \textbf{klasycznym}, \textbf{few-shot} oraz \textbf{one-shot}. Analiza obejmuje kluczowe metryki wydajności, takie jak \textbf{Dokładność (Accuracy)}, \textbf{Wynik F1 (F1-Score)} oraz \textbf{Pole pod krzywą ROC-AUC (ROC-AUC)}, dla embeddingów językowych \textbf{BERT}, \textbf{RoBERTa} oraz \textbf{SBERT}. Wyniki przedstawiono w formie histogramów ilustrujących rozkłady metryk oraz wykresów liniowych czasu wykonania eksperymentów. Szczególną uwagę poświęcono metodom autorskim (\texttt{Metoda17}, \texttt{Metoda18}, \texttt{Metoda19}, \texttt{Metoda20}), omawiając przyczyny ich wydajności oraz różnice w skuteczności w zależności od typu embeddingu i trybu uczenia. Wnioski podsumowano w osobnej podsekcji, uwzględniając sens stosowania bardziej złożonych metod w kontekście uzyskanych wyników.
-
-
-
+W tej sekcji przedstawiam i opisuję analizę wyników uzyskanych dla zbioru danych \textbf{WELFake} po przeprowadzeniu testów w trzech trybach podziału danych: \textbf{klasycznym}, \textbf{uzeniem na kilku przykładach (few-shot)} oraz \textbf{uczeniem jednokrotnym (one-shot)}. Wyniki zostały uporządkowane w podrozdziałach odpowiadających poszczególnym trybom uczenia, co ułatwia ich analizę i porównanie.
 
 \subsection{Wyniki w trybie klasycznym}
-W trybie \textit{klasycznym} dla zbioru danych \textbf{WELFake} przetestowano różne metody klasyfikacji. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów dla kluczowych metryk oraz wykresu liniowego czasu wykonania eksperymentów, z uwzględnieniem przyczyn zróżnicowania wydajności metod.
-
 \subsubsection{Dokładność}
-Wykresy słupkowe dokładności (\ref{fig:welfake_classic_accuracy}) przedstawiają rozkład wartości dokładności dla wszystkich analizowanych metod w trybie \textit{klasycznym}. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_classic_accuracy}) pozwalają przedstawić następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki, na poziomie około 0.9, osiągnęły \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}), \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC} jako klasyfikatorami bazowymi), \textbf{Metoda16} (model \textit{stackingowy} z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}) oraz autorska \textbf{Metoda19} (model \textit{stackingowy}). Wysoka skuteczność tych metod wskazuje na ich zdolność do efektywnego wykorzystywania bogatych cech danych, co przekłada się na precyzyjną klasyfikację w trybie \textit{klasycznym}.
-		      \item Najgorsze wyniki, na poziomie około 0.6, odnotowano dla autorskiej \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}). Niska dokładność tej metody może wynikać z nieoptymalnego doboru wag głosowania lub klasyfikatorów bazowych, które ograniczyły jej zdolność do skutecznego przetwarzania danych.
+		      \item Najlepsze wyniki, na poziomie 0.69, osiągnęły \textbf{metoda12-rf}, \textbf{metoda14}, \textbf{metoda16} oraz autorska \textbf{metoda19}, dzięki ich zaawansowanym architekturom polegającym na \textbf{łączeniu modeli}, które skutecznie integrują różnorodne meta-cechy, umożliwiając precyzyjne modelowanie złożonych wzorców w danych \textbf{WELFake} dla \textbf{BERT} w trybie klasycznym.
+		      \item Najgorsze wyniki, około 0.594, odnotowano dla autorskiej \textbf{metoda17}, co może wynikać z nieoptymalnej konfiguracji \textbf{VotingClassifier} łączącego \textbf{MLPClassifier} i \textbf{XGBoost}, co skutkuje nieefektywnym wykorzystaniem własności osadzeń \textbf{BERT} dla danych \textbf{WELFake}, prowadząc do słabej generalizacji w trybie klasycznym.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki, na poziomie około 0.95, osiągnęły \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}), \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}) oraz autorska \textbf{Metoda19} (model \textit{stackingowy}). Wysoka skuteczność tych metod sugeruje, że dane są dobrze dopasowane do zaawansowanych technik \textit{ensemble}, takich jak \textit{stacking} i \textbf{Random Forest}, umożliwiając efektywne wykorzystanie złożonych wzorców w danych.
-		      \item Najgorsze wyniki, na poziomie około 0.65, odnotowano dla \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}). Niska dokładność tej metody może wskazywać na trudności w generalizacji dla danych w trybie \textit{klasycznym}, wynikające z nieoptymalnej konfiguracji \textbf{VotingClassifiera}.
+		      \item Najlepsze wyniki, około 0.72, osiągnęły \textbf{metoda12-rf}, \textbf{metoda14}, \textbf{metoda16} oraz autorska \textbf{metoda19}. Widocznym zjawiskiem jest, że w przypadku zestawu \textbf{WELFake} i testowania uczenia klasycznego, niezaleznie od osadzeń, wspominane algorytmy posiadają najlepsze wyniki.
+		      \item Najgorsze wyniki, na poziomie 0.569, odnotowano z powrotem dla \textbf{metoda17}.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Większość metod, w tym autorskie \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}), \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}) oraz \textbf{Metoda20} (oparta na \textbf{LightGBM}), osiągnęła dokładność na poziomie około 0.95. Ten wynik wskazuje, że dane dostarczają wysoce informatywnych cech, które mogą być efektywnie przetwarzane zarówno przez zaawansowane modele \textit{ensemble}, jak i prostsze architektury.
-		      \item Najgorsze wyniki, na poziomie około 0.7, odnotowano dla \textbf{Metoda4} (architektura oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}). Niska dokładność tej metody może sugerować, że jej złożona struktura nie była odpowiednio zoptymalizowana dla danych, co skutkuje słabszą zdolnością klasyfikacji.
+		      \item Większość metod, w tym autorskie \textbf{metoda17}, \textbf{metoda18} oraz \textbf{metoda19}, osiągając dokładność na poziomie od 0.87 do 0.925 dla \textbf{SBERT}. Dzięki dużej ilość informacji, skutecznie wychwytując zróżnicowane wzorce językowe danych \textbf{WELFake}, jest możliwa precyzyjna klasyfikacja w trybie klasycznym. Przypominam, że zbiór \textbf{WELFake} posiada dane z czterech źródeł, co pozwala na analizę zróżnicowanych wzorców językowych.
+		      \item Najgorszy wynik, na poziomie 0.569, odnotowano dla \textbf{metody4}. Jak juz zauważyłem na innych zestawach dannych, \textbf{metoda4} posiada najgorsze wyniki z osadzeniem \textbf{SBERT}, niezależnie od trybu nauki.
 	      \end{itemize}
 \end{itemize}
-
-Analiza wykresów słupkowych dokładności ujawnia, że modele oparte na \textit{ensemble learning}, takie jak \textbf{Metoda12-rf}, \textbf{Metoda14}, \textbf{Metoda16} oraz \textbf{Metoda19}, osiągają wysoką skuteczność w trybie \textit{klasycznym}, szczególnie dla danych BERT i RoBERTa. Autorska \textbf{Metoda19} wyróżnia się jako stabilna i skuteczna dla wszystkich typów danych, co podkreśla potencjał dobrze skonfigurowanych modeli \textit{stackingowych}. Z kolei \textbf{Metoda17} wykazuje słabsze wyniki dla danych BERT i RoBERTa, co może wynikać z nieoptymalnego doboru klasyfikatorów bazowych w \textbf{VotingClassifierze}. \textbf{Metoda18} i \textbf{Metoda20} osiągają dobre wyniki dla danych SBERT, co wskazuje na ich zdolność do efektywnego wykorzystywania informatywnych cech tych danych. Słabsze wyniki \textbf{Metoda20} dla danych BERT mogą wynikać z braku odpowiedniego balansowania klas, co ogranicza jej skuteczność w bardziej złożonych scenariuszach.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\textwidth]{img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png}
-	\caption{Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie \textit{klasycznym}.}
+	\caption{Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie klasycznym.}
 	\label{fig:welfake_classic_accuracy}
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe miary F1 (\ref{fig:welfake_classic_f1}) przedstawiają rozkład wartości miary F1 dla wszystkich analizowanych metod w trybie \textit{klasycznym}. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{miary F1} (\ref{fig:welfake_classic_f1}) przedstawiają rozkład wartości dla wszystkich algorytmów. Na podstawie wykresów można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości miary F1, około 0.9, osiągnęły \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}), \textbf{Metoda16} (model \textit{stackingowy} z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}) oraz autorska \textbf{Metoda19} (model \textit{stackingowy}). Wysoka skuteczność tych metod wskazuje na ich zdolność do efektywnego balansowania precyzji i kompletności, co jest kluczowe w klasyfikacji z danymi BERT.
-		      \item Najniższe wyniki, około 0.6, odnotowano dla \textbf{Metoda1-4} (indywidualna instancja sieci neuronowej). Niska wartość miary F1 może świadczyć o niedostatecznej zdolności tej metody do przetwarzania złożonych cech danych w kontekście \textit{klasycznym}.
+		      \item Najwyższe wartości \textbf{miary F1}, na poziomie 0.735, osiągnęły \textbf{metoda15}, \textbf{metoda12-rf}, \textbf{metoda14}, \textbf{metoda16} oraz autorska \textbf{metoda19}, dzięki wspólnej zdolności ich architektur do efektywnej integracji zróżnicowanych cech predykcyjnych, generowanych przez modele bazowe takie jak \textbf{losowy las}, \textbf{SVC}, \textbf{XGBoost} czy \textbf{Bi-LSTM}, co zapewnia zrównoważoną \textbf{precyzję, czułość} w klasyfikacji danych \textbf{WELFake}.
+		      \item Najniższe wyniki, około 0.6, odnotowano dla \textbf{metoda1\-4}. Niska wartość \textbf{miary F1} świadczy o nieoptymalnych parametrach testowych dla tego przypadku, a mianowicie kombinacji parametrów takich jak \textbf{units1=64}, \textbf{learning\_rate=0.005} i \textbf{dropout=0.3}, która ogranicza zdolność modelu do skutecznego uczenia się złożonych wzorców danych \textbf{WELFake}.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty, około 0.95, osiągnęły \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}), \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}) oraz \textbf{Metoda19} (model \textit{stackingowy}). Wysoka skuteczność tych metod sugeruje, że dane są dobrze dopasowane do zaawansowanych technik \textit{ensemble}, umożliwiając zbalansowane wyniki klasyfikacji.
-		      \item Najsłabsze wyniki, około 0.65, odnotowano dla autorskiej \textbf{Metoda20} (oparta na \textbf{LightGBM}). Niska wartość miary F1 może wskazywać na brak odpowiedniego balansowania klas lub niedostateczną optymalizację hiperparametrów dla danych RoBERTa.
+		      \item Najlepsze rezultaty osiągnęły \textbf{metoda12-rf}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda19}, dzięki ich zaawansowanym architekturom, które efektywnie integrują meta-cechy z modeli bazowych i bardziej są efektywne z osadzeniem \textbf{RoBERTa}. W przeciwieństwie do \textbf{metoda15}, która opiera się na mniej elastycznych modelach \textbf{Bi-LSTM} i posiadała lepsze wyniki dla osadzenia \textbf{BERT}.
+		      \item Najsłabsze, ale dość wysokie wyniki, odnotowano dla autorskiej \textbf{metoda20}, która przypominam jest oparta na \textbf{LightGBM}.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości miary F1, około 0.95, osiągnęły \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}), \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}) oraz większość innych metod. Wysoka skuteczność tych metod wskazuje, że dane dostarczają bardzo informatywnych cech, które umożliwiają zbalansowaną klasyfikację nawet dla prostszych modeli.
-		      \item Najgorsze rezultaty, około 0.7, odnotowano dla \textbf{Metoda4} (architektura oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}). Niska wartość miary F1 może wynikać z trudności w optymalizacji złożonej architektury dla danych SBERT.
+		      \item Najlepsze wartości \textbf{miary F1}, około 0.95, osiągnęły autorskie \textbf{metoda18}, \textbf{metoda17} oraz większość innych metod.
+		      \item Najgorsze rezultaty, na poziomie 0.7, odnotowano dla \textbf{metoda4}, podobnie jak z \textbf{dokładnością}.
 	      \end{itemize}
 \end{itemize}
 
-Analiza wykresów miary F1 dla trybu \textit{klasycznego} potwierdza wysoką skuteczność modeli \textit{ensemble}, takich jak \textbf{Metoda12-rf}, \textbf{Metoda14}, \textbf{Metoda16} oraz \textbf{Metoda19}, szczególnie dla danych BERT i RoBERTa. Autorska \textbf{Metoda19} wyróżnia się jako lider dzięki zdolności do efektywnego łączenia predykcji modeli bazowych. \textbf{Metoda17} i \textbf{Metoda18} osiągają bardzo dobre wyniki dla danych SBERT, co podkreśla ich elastyczność w przetwarzaniu informatywnych cech tych danych. \textbf{Metoda20} wykazuje słabsze wyniki dla danych RoBERTa z powodu braku optymalizacji, co wskazuje na konieczność precyzyjnego dopasowania hiperparametrów dla specyfiki danych.
+Analiza wykresów miary F1 dla trybu \textbf{klasycznego} potwierdza wysoką skuteczność algorytmów, takich jak \textbf{metoda12-rf}, \textbf{metoda14}, \textbf{metoda16} oraz \textbf{metoda19}, szczególnie dla danych \textbf{BERT, RoBERTa}. Autorska \textbf{metoda19} wyróżnia się jako lider dzięki zdolności do efektywnego łączenia predykcji modeli bazowych. \textbf{metoda17} i \textbf{metoda18} osiągają bardzo dobre wyniki dla danych \textbf{SBERT}, co podkreśla ich elastyczność w przetwarzaniu informatywnych cech tych danych. \textbf{metoda20} wykazuje słabsze wyniki dla danych z powodu braku optymalizacji.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\textwidth]{img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png}
-	\caption{Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie \textit{klasycznym}.}
+	\caption{Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie klasycznym.}
 	\label{fig:welfake_classic_f1}
 \end{figure}
 
 \subsubsection{Obszar pod krzywą ROC}
-Wykresy słupkowe \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:welfake_classic_roc} przedstawiają rozkład wartości ROC-AUC dla wszystkich metod. Na podstawie wykresu i danych z tabeli \ref{tab:roc_auc_welfake_classic} można sformułować następujące obserwacje:
+Tabela \ref{tab:roc_auc_welfake_classic} przedstawia następujące obserwacje dotyczące najlepszych i najgorszych wyników:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Najlepsze wyniki:}
 	      \begin{itemize}
-		      \item Najwyższe wartości ROC-AUC osiągnęły \texttt{Metoda12-rf} (1.0) oraz \texttt{Metoda14} (1.0). Ich doskonała skuteczność świadczy o zdolności tych modeli do efektywnego rozróżniania klas na danych z embeddingów \textbf{BERT} w trybie klasycznym. \texttt{Metoda12-rf}, oparta na algorytmie \textbf{Random Forest}, oraz \texttt{Metoda14}, będąca modelem zespołowym stacking z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}, wykazują robustność i umiejętność wyłapywania istotnych wzorców w danych.
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda16} (0.56). Słaby wynik tej metody, będącej modelem zespołowym stacking z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}, sugeruje trudności w efektywnym odróżnieniu klas w kontekście \textbf{BERT}. Może to wynikać z niedopasowania meta-klasyfikatora do specyfiki danych lub problemów z generalizacją na danych \textbf{BERT}.
+		      \item \textbf{Warstwowe łączenie modeli}: autorska \textbf{metoda19} (0.787 dla \textbf{BERT}, 0.808 dla \textbf{RoBERTa}, 0.952 dla \textbf{SBERT}) osiąga najwyższe wartości obszaru. Wysoka skuteczność tej metody wskazuje na jej zdolność do precyzyjnego odwzorowania granic decyzyjnych dla wszystkich typów osadzeń.
+		      \item \textbf{Modele zespołowe}: \textbf{metoda14} (0.770 dla \textbf{BERT}, 0.797 dla \textbf{RoBERTa}, 0.974 dla \textbf{SBERT}) oraz \textbf{metoda16} (0.770 dla \textbf{BERT}, 0.797 dla \textbf{RoBERTa}, 0.974 dla \textbf{SBERT}) wyróżniają się dzięki zaawansowanemu łączeniu modeli oraz meta-cechom z walidacji krzyżowej, co pozwala na doskonałą separację klas, szczególnie dla \textbf{RoBERTa} i \textbf{SBERT}.
+		      \item \textbf{Metoda12-rf} (0.770 dla \textbf{BERT}, 0.791 dla \textbf{RoBERTa}, 0.949 dla \textbf{SBERT}) osiąga wysokie wyniki dzięki efektywności algorytmu \textbf{losowego lasu}.
+		      \item \textbf{Metoda5} (0.766 dla \textbf{BERT}, 0.784 dla \textbf{RoBERTa}, 0.981 dla \textbf{SBERT}) potwierdza skuteczność technik optymalizacji hiperparametrów.
 	      \end{itemize}
-
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskały \texttt{Metoda16} (1.0) oraz \texttt{Metoda19} (1.0). Wysoka wartość ROC-AUC dla tych metod wskazuje na ich efektywność w przetwarzaniu embeddingów \textbf{RoBERTa} i osiąganiu doskonałej zdolności rozróżniania klas. Modele stackingowe, takie jak \texttt{Metoda16} i \texttt{Metoda19}, oparte na \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost} z meta-modelem \textbf{Regresji Logistycznej}, czerpią korzyści z różnorodnych perspektyw modeli bazowych, co prowadzi do lepszej wydajności.
-		      \item Najsłabsze wyniki wykazała \texttt{Metoda17} (0.60). Niska wartość ROC-AUC dla tej metody, będącej zaawansowanym \textbf{VotingClassifierem}, może wskazywać na nieoptymalny dobór klasyfikatorów bazowych lub wag głosowania dla specyfiki embeddingów \textbf{RoBERTa}, co uniemożliwiło jej pełne wykorzystanie potencjału ensemble.
-	      \end{itemize}
-
-	\item \textbf{Wykres dolny (SBERT):}
-	      \begin{itemize}
-		      \item Najlepsze wartości ROC-AUC osiągnęły niemal wszystkie metody, uzyskując wyniki na poziomie 1.0, z wyjątkiem \texttt{Metoda4} i \texttt{Metoda18}. Ten wynik potwierdza, że embeddingi \textbf{SBERT} są wysoce informatywne i ułatwiają klasyfikację dla większości algorytmów w trybie klasycznym, dzięki zdolności do tworzenia spójnych i łatwo separowalnych reprezentacji semantycznych.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda4} (0.50). Niska wartość ROC-AUC dla tej metody, pomimo ogólnie doskonałych wyników dla \textbf{SBERT}, jest zaskakująca. \texttt{Metoda4}, oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, mogła mieć trudności z optymalizacją, co skutkowało słabą zdolnością do rozróżniania klas, nawet przy wysokiej jakości danych wejściowych z \textbf{SBERT}.
+		      \item \textbf{Metoda2}, \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda15}, \textbf{metoda20} (0.680 dla \textbf{BERT}, 0.747 dla \textbf{RoBERTa}, 0.912 dla \textbf{SBERT}) wskazują na niedostateczną optymalizację hiperparametrów do specyfiki osadzeń \textbf{BERT} dla zestawu \textbf{WELFake}. W przypadku \textbf{metoda4} (0.500 dla \textbf{SBERT}), niska wartość sugeruje poważne problemy z architekturą opartą na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, która nie wykorzystuje potencjału osadzeń \textbf{SBERT}.
+		      \item \textbf{Metoda17} (0.642 dla \textbf{BERT}) osiąga stosunkowo niskie wyniki dla \textbf{BERT}, co może wynikać z ograniczonej zdolności \textbf{VotingClassifier} do efektywnego przetwarzania cech w tym kontekście.
 	      \end{itemize}
 \end{itemize}
-
-Analiza wykresów ROC-AUC dla trybu klasycznego ujawnia, że \texttt{Metoda19} i \texttt{Metoda16} są liderami dla \textbf{RoBERTa}, a \texttt{Metoda12-rf} i \texttt{Metoda14} dla \textbf{BERT}, co podkreśla potencjał modeli stackingowych i prostych algorytmów ensemble w wykorzystywaniu złożonych reprezentacji językowych. \texttt{Metoda17} wykazuje słabsze wyniki dla \textbf{RoBERTa} z powodu nieoptymalnej konfiguracji \textbf{VotingClassifiera}, podczas gdy \texttt{Metoda18} osiąga dobre wyniki dla \textbf{BERT} i \textbf{SBERT} dzięki elastyczności i zoptymalizowanym modelom. Słabe wyniki \texttt{Metoda4} dla \textbf{SBERT} wskazują na potrzebę lepszej optymalizacji hiperparametrów dla złożonych architektur głębokiego uczenia, aby w pełni wykorzystać potencjał informatywnych embeddingów \textbf{SBERT}.
 
 \begin{table}[H]
 	\centering
@@ -105,518 +89,456 @@ Analiza wykresów ROC-AUC dla trybu klasycznego ujawnia, że \texttt{Metoda19} i
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
+		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & 0.76          & 0.72             & 1.0            \\
-		metoda1-2         & 0.76          & 0.72             & 0.96           \\
-		metoda1-3         & 0.68          & 0.72             & 1.0            \\
-		metoda1-4         & 0.76          & 0.72             & 1.0            \\
-		metoda1-5         & 0.68          & 0.72             & 1.0            \\
-		metoda10          & 0.80          & 0.84             & 1.0            \\
-		metoda11          & 0.80          & 0.68             & 1.0            \\
-		metoda12-catboost & 0.86          & 0.70             & 1.0            \\
-		metoda12-rf       & 1.0           & 0.82             & 1.0            \\
-		metoda13          & 0.80          & 0.88             & 1.0            \\
-		metoda14          & 1.0           & 0.96             & 1.0            \\
-		metoda15          & 0.68          & 0.80             & 1.0            \\
-		metoda16          & 0.56          & 1.0              & 1.0            \\
-		metoda17          & 0.72          & 0.60             & 1.0            \\
-		metoda18          & 0.84          & 0.76             & 0.96           \\
-		metoda19          & 0.84          & 1.0              & 1.0            \\
-		metoda2           & 0.68          & 0.80             & 1.0            \\
-		metoda20          & 0.68          & 0.80             & 1.0            \\
-		metoda3           & 0.68          & 0.80             & 0.96           \\
-		metoda4           & 0.68          & 0.80             & 0.50           \\
-		metoda5           & 0.88          & 0.92             & 1.0            \\
-		metoda6           & 0.68          & 0.80             & 1.0            \\
-		metoda7           & 0.72          & 0.80             & 1.0            \\
-		metoda8           & 0.68          & 0.80             & 1.0            \\
-		metoda9           & 0.88          & 0.88             & 1.0            \\
+		metoda1-1         & 0.689         & 0.752            & 0.988          \\
+		metoda1-2         & 0.686         & 0.748            & 0.988          \\
+		metoda1-3         & 0.669         & 0.749            & 0.985          \\
+		metoda1-4         & 0.687         & 0.749            & 0.983          \\
+		metoda1-5         & 0.683         & 0.751            & 0.985          \\
+		metoda10          & 0.695         & 0.755            & 0.984          \\
+		metoda11          & 0.695         & 0.762            & 0.971          \\
+		metoda12-catboost & 0.690         & 0.750            & 0.941          \\
+		metoda12-rf       & 0.770         & 0.791            & 0.949          \\
+		metoda13          & 0.749         & 0.772            & 0.983          \\
+		metoda14          & 0.770         & 0.797            & 0.974          \\
+		metoda15          & 0.680         & 0.747            & 0.912          \\
+		metoda16          & 0.770         & 0.797            & 0.974          \\
+		metoda17          & 0.642         & 0.749            & 0.977          \\
+		metoda18          & 0.695         & 0.750            & 0.977          \\
+		metoda19          & 0.787         & 0.808            & 0.952          \\
+		metoda2           & 0.680         & 0.747            & 0.912          \\
+		metoda20          & 0.680         & 0.747            & 0.912          \\
+		metoda3           & 0.680         & 0.747            & 0.862          \\
+		metoda4           & 0.680         & 0.747            & 0.500          \\
+		metoda5           & 0.766         & 0.784            & 0.981          \\
+		metoda6           & 0.680         & 0.747            & 0.912          \\
+		metoda7           & 0.703         & 0.759            & 0.915          \\
+		metoda8           & 0.680         & 0.747            & 0.912          \\
+		metoda9           & 0.705         & 0.757            & 0.972          \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \subsubsection{Czas wykonania}
-Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:welfake_classic_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody dla różnych embeddingów językowych. Na podstawie wykresów i danych z tabeli \ref{tab:execution_time_welfake_classic} można sformułować następujące obserwacje dotyczące efektywności czasowej oraz przyczyn zróżnicowania wyników, z uwzględnieniem zmienności wydajności metod w porównaniu do wcześniejszych eksperymentów:
+Tabela \ref{tab:execution_time_welfake_classic} przedstawia czasy wykonania predykcji. Analiza wyników pozwala na sformułowanie następujących wniosków:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Najlepsze wyniki:}
 	      \begin{itemize}
-		      \item Najdłuższy czas wykonania odnotowano dla \texttt{Metoda14} (1203.618 s), \texttt{Metoda16} (1120.524 s) oraz \texttt{Metoda9} (722.050 s). \texttt{Metoda14}, będąca modelem zespołowym stacking z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}, oraz \texttt{Metoda16}, oparta na stacking z meta-klasyfikatorem \textbf{Regresji Logistycznej}, są czasochłonne z powodu złożonych operacji na meta-cechach i wielokrotnego trenowania modeli bazowych. \texttt{Metoda9}, wykorzystująca iteracyjne algorytmy ensemble (\textbf{Bagging}, \textbf{AdaBoost}) oraz kosztowne operacje \textbf{KNN}, wymaga znacznego czasu obliczeń na danych \textbf{BERT}. Czasy te są wyższe niż w eksperymentach na datasetach ISOT (np. 465.749 s dla \texttt{Metoda14} w trybie few-shot), co sugeruje większą liczbę próbek lub bardziej złożoną strukturę danych w trybie klasycznym dla \textbf{WELFake}.
-		      \item Najkrótszy czas wykonania miały \texttt{Metoda10} (1.427 s), \texttt{Metoda7} (3.088 s) oraz \texttt{Metoda18} (16.284 s). \texttt{Metoda10} i \texttt{Metoda7}, oparte na zoptymalizowanych modelach \textbf{Gradient Boosting} i \textbf{VotingClassifier}, osiągają wysoką efektywność dzięki prostocie i ograniczonej liczbie estymatorów. \texttt{Metoda18}, będąca modelem stackingowym z \textbf{Gradient Boosting} i \textbf{CatBoost}, jest szybsza dzięki zoptymalizowanemu przetwarzaniu cech \textbf{BERT}, co jest spójne z wynikami na ISOT.
+		      \item \textbf{Uczenie wzmacniające}: \textbf{metoda10} (4.327 s dla \textbf{BERT}, 3.280 s dla \textbf{RoBERTa}, 112.807 s dla \textbf{SBERT}) oraz \textbf{metoda7} (6.171 s dla \textbf{BERT}, 7.312 s dla \textbf{RoBERTa}, 39.651 s dla \textbf{SBERT}) osiągają najkrótsze czasy dzięki zoptymalizowanym modelom \textbf{Gradient Boosting} i \textbf{VotingClassifier} z ograniczoną liczbą estymatorów, co redukuje obciążenie obliczeniowe.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda19} (18.427 s dla \textbf{BERT}, 16.416 s dla \textbf{RoBERTa}, 156.455 s dla \textbf{SBERT}) oraz \textbf{metoda5} (13.950 s dla \textbf{BERT}, 11.548 s dla \textbf{RoBERTa}, 145.758 s dla \textbf{SBERT}) wyróżniają się dzięki efektywnemu połączeniu modeli bazowych z meta-modelem \textbf{regresji logistycznej}, co minimalizuje czas obliczeń.
+		      \item \textbf{Metoda12-rf} (22.327 s dla \textbf{BERT}, 19.298 s dla \textbf{RoBERTa}, 243.421 s dla \textbf{SBERT}) osiąga krótkie czasy dzięki przejrzystości algorytmu \textbf{losowego lasu} zoptymalizowanego pod kątem trybu klasycznego.
 	      \end{itemize}
-
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item Najwięcej czasu zajęły \texttt{Metoda16} (1089.022 s), \texttt{Metoda14} (573.769 s) oraz \texttt{Metoda9} (376.510 s). \texttt{Metoda16} i \texttt{Metoda14} wymagają długiego czasu z powodu złożonych operacji stackingowych i trenowania modeli bazowych na danych \textbf{RoBERTa}. \texttt{Metoda9} jest czasochłonna z powodu iteracyjnych algorytmów ensemble i kosztownych operacji \textbf{KNN}. Czasy te są wyższe niż w eksperymentach ISOT (np. 353.404 s dla \texttt{Metoda9} w trybie few-shot), co może wynikać z większej liczby próbek lub bardziej złożonej struktury danych \textbf{RoBERTa} w trybie klasycznym.
-		      \item Najkrótszy czas wykonania miały \texttt{Metoda7} (1.470 s), \texttt{Metoda10} (1.810 s) oraz \texttt{Metoda12-rf} (6.951 s). \texttt{Metoda7} i \texttt{Metoda10}, oparte na prostych modelach \textbf{VotingClassifier} i \textbf{Gradient Boosting}, osiągają wysoką efektywność dzięki minimalizacji operacji obliczeniowych. \texttt{Metoda12-rf}, oparta na \textbf{Random Forest}, jest szybka dzięki prostocie algorytmu, co jest zgodne z wynikami na ISOT.
-	      \end{itemize}
-
-	\item \textbf{Wykres dolny (SBERT):}
-	      \begin{itemize}
-		      \item Najdłuższy czas działania osiągnęły \texttt{Metoda9} (4997.613 s), \texttt{Metoda14} (2776.687 s), \texttt{Metoda4} (2361.724 s) oraz \texttt{Metoda16} (1830.296 s). \texttt{Metoda9} jest wyjątkowo czasochłonna z powodu iteracyjnych algorytmów ensemble i operacji \textbf{KNN} na dużych danych \textbf{SBERT}. \texttt{Metoda14} i \texttt{Metoda16} wymagają długiego czasu z powodu złożonych operacji stackingowych, a \texttt{Metoda4}, oparta na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, jest kosztowna obliczeniowo z powodu głębokich warstw sekwencyjnych i konwolucyjnych. Drastyczny wzrost czasu w porównaniu do eksperymentów ISOT (np. 4074.891 s dla \texttt{Metoda9} w trybie one-shot) sugeruje większą liczbę próbek lub wyższą wymiarowość danych \textbf{SBERT} w trybie klasycznym.
-		      \item Najkrótszy czas uzyskano dla \texttt{Metoda7} (8.282 s) oraz \texttt{Metoda10} (44.649 s). \texttt{Metoda7}, oparta na prostym \textbf{VotingClassifier} z losowymi podzbiorami drzew, oraz \texttt{Metoda10}, wykorzystująca zoptymalizowany \textbf{Gradient Boosting}, osiągają wysoką efektywność dzięki minimalizacji operacji obliczeniowych i skutecznego przetworzenia danych \textbf{SBERT}, co jest spójne z wynikami na ISOT.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda14} (1250.923 s dla \textbf{BERT}, 1305.161 s dla \textbf{RoBERTa}, 11279.360 s dla \textbf{SBERT}) oraz \textbf{metoda16} (963.100 s dla \textbf{BERT}, 984.983 s dla \textbf{RoBERTa}, 6933.520 s dla \textbf{SBERT}) są ekstremalnie czasochłonne z powodu złożonych operacji na meta-cechach oraz wielokrotnego trenowania modeli bazowych.
+		      \item \textbf{Metoda13} (148.424 s dla \textbf{BERT}, 136.908 s dla \textbf{RoBERTa}, 10237.251 s dla \textbf{SBERT}) wymaga długiego czasu z powodu zastosowania \textbf{SMOTETomek} oraz intensywnych obliczeń na modelach, co znacząco zwiększa rozmiar danych i czas wykonania.
+		      \item \textbf{Metoda3} (3932.626 s dla \textbf{SBERT}) oraz \textbf{metoda4} (1498.839 s dla \textbf{SBERT}) osiągają wyjątkowo długie czasy z powodu złożonych architektur.
+		      \item \textbf{Metoda9} (610.465 s dla \textbf{BERT}, 542.158 s dla \textbf{RoBERTa}, 7495.024 s dla \textbf{SBERT}) jest czasochłonna z powodu iteracyjnych algorytmów (\textbf{Bagging}, \textbf{AdaBoost}) oraz kosztownych operacji \textbf{KNN} na dużych danych.
 	      \end{itemize}
 \end{itemize}
 
-Analiza czasów wykresowania pokazuje, że efektywność czasowa metod zależy od ich architektury, specyfiki embeddingów oraz charakterystyki danych w danym eksperymencie. Złożone modele, takie jak \texttt{Metoda9}, \texttt{Metoda14}, \texttt{Metoda16} oraz \texttt{Metoda4}, są czasochłonne z powodu głębokich sieci, iteracyjnych algorytmów ensemble lub dużej liczby próbek, szczególnie dla \textbf{SBERT}. W porównaniu do eksperymentów na ISOT, czasy dla \textbf{SBERT} są znacząco wyższe, co sugeruje wpływ bardziej złożonych danych. Prostsze metody, takie jak \texttt{Metoda7}, \texttt{Metoda10} i \texttt{Metoda18}, osiągają krótsze czasy dzięki zoptymalizowanym modelom i efektywnemu wykorzystaniu cech, szczególnie dla \textbf{BERT} i \textbf{RoBERTa}. Zróżnicowanie czasów wykonania podkreśla konieczność dopasowania architektury modelu i optymalizacji hiperparametrów do specyfiki danych i typu embeddingu, aby zrównoważyć skuteczność i efektywność czasową w kontekście datasetu \textbf{WELFake} w trybie klasycznym.
-
-\begin{table}[t]
+\begin{table}[H]
 	\centering
-	\caption{Czas wykonania predykcji w sekundach dla zestawu danych WELFake w trybie klasycznym.}
+	\caption{Czas wykonania predykcji w sekundach dla zestawu WELFake w trybie klasycznym.}
 	\label{tab:execution_time_welfake_classic}
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
+		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & 327.048       & 211.607          & 243.298        \\
-		metoda1-2         & 327.180       & 211.665          & 243.358        \\
-		metoda1-3         & 327.320       & 211.722          & 243.416        \\
-		metoda1-4         & 327.439       & 211.780          & 243.473        \\
-		metoda1-5         & 327.593       & 211.837          & 243.531        \\
-		metoda10          & 1.427         & 1.810            & 44.649         \\
-		metoda11          & 26.933        & 13.187           & 432.499          \\
-		metoda12-catboost & 14.879        & 6.971            & 94.837         \\
-		metoda12-rf       & 14.841        & 6.951            & 94.772         \\
-		metoda13          & 84.667        & 44.329           & 3324.389       \\
-		metoda14          & 1203.618      & 573.769          & 2776.687       \\
-		metoda15          & 484.174       & 140.099          & 548.514        \\
-		metoda16          & 1120.524      & 1089.022         & 1830.296       \\
-		metoda17          & 259.147       & 270.753          & 207.507        \\
-		metoda18          & 16.284       & 97.331           & 539.661        \\
-		metoda19          & 60.082        & 25.758           & 106.659        \\
-		metoda2           & 484.174       & 140.099          & 548.514        \\
-		metoda20          & 484.174       & 140.099          & 548.514        \\
-		metoda3           & 484.174       & 140.099          & 1378.544       \\
-		metoda4           & 484.174       & 140.099          & 2361.724       \\
-		metoda5           & 17.803        & 6.985            & 103.809        \\
-		metoda6           & 484.174       & 140.099          & 548.514        \\
-		metoda7           & 3.088         & 1.470            & 8.282          \\
-		metoda8           & 484.174       & 140.099          & 548.514        \\
-		metoda9           & 722.621       & 376.510          & 497.613        \\
+		metoda1-1         & 128.890       & 203.180          & 155.084        \\
+		metoda1-2         & 129.301       & 203.642          & 155.566        \\
+		metoda1-3         & 129.739       & 204.100          & 155.993        \\
+		metoda1-4         & 130.165       & 204.581          & 156.444        \\
+		metoda1-5         & 130.584       & 205.032          & 156.874        \\
+		metoda10          & 4.327         & 3.280            & 112.807        \\
+		metoda11          & 35.231        & 34.963           & 1253.586       \\
+		metoda12-catboost & 22.384        & 19.360           & 243.537        \\
+		metoda12-rf       & 22.327        & 19.298           & 243.421        \\
+		metoda13          & 148.424       & 136.908          & 10237.251      \\
+		metoda14          & 1250.923      & 1305.161         & 11279.360      \\
+		metoda15          & 252.534       & 258.058          & 828.017        \\
+		metoda16          & 963.100       & 984.983          & 6933.520       \\
+		metoda17          & 58.195        & 78.617           & 75.687         \\
+		metoda18          & 5.354         & 5.354            & 850.105        \\
+		metoda19          & 18.427        & 16.416           & 156.455        \\
+		metoda2           & 252.534       & 258.058          & 828.017        \\
+		metoda20          & 252.534       & 258.058          & 828.017        \\
+		metoda3           & 252.534       & 258.058          & 3932.626       \\
+		metoda4           & 252.534       & 258.058          & 1498.839       \\
+		metoda5           & 13.950        & 11.548           & 145.758        \\
+		metoda6           & 252.534       & 258.058          & 828.017        \\
+		metoda7           & 6.171         & 7.312            & 39.651         \\
+		metoda8           & 252.534       & 258.058          & 828.017        \\
+		metoda9           & 610.465       & 542.158          & 7495.024       \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-
-
-
-
 \subsection{Wyniki w trybie few-shot}
-W trybie \textit{few-shot} dla zbioru danych \textbf{WELFake} przetestowano różne metody klasyfikacji, wykorzystując ograniczone dane treningowe. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów dla kluczowych metryk oraz wykresu liniowego czasu wykonania eksperymentów.
-
 \subsubsection{Dokładność}
-Wykresy słupkowe dokładności (\ref{fig:welfake_few_shot_accuracy}) przedstawiają rozkład wartości dokładności dla wszystkich analizowanych metod w trybie \textit{few-shot}. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_few_shot_accuracy}) przedstawiają następujące wnioski:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki, na poziomie około 0.85, osiągnęły \textbf{Metoda9}, \textbf{Metoda12-catboost} (oparta na \textbf{CatBoost}) oraz \textbf{Metoda19} (model \textit{stackingowy}). Wysoka dokładność tych metod wskazuje na skuteczne wykorzystanie cech danych w scenariuszu \textit{few-shot}, dzięki zbalansowanym architekturom lub zaawansowanym technikom \textit{ensemble}.
-		      \item Najgorsze wyniki, na poziomie około 0.6, odnotowano dla \textbf{Metoda16} (model \textit{stackingowy} z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}). Niska dokładność może wynikać z trudności w adaptacji meta-klasyfikatora do ograniczonej liczby danych.
+		      \item Najlepsze wyniki, od 0.8 do 1.0, osiągnęły \textbf{metoda9}, \textbf{metoda12-catboost}, \textbf{metoda7}, \textbf{metoda5}, \textbf{metoda13} oraz autorska \textbf{metoda19}, dzięki doskonałej optymalizacji pod ograniczone dane z osadzeniem \textbf{BERT}, co pozwala na precyzyjną klasyfikację w porównaniu do następujących wyników tych samych metod.
+		      \item Najgorsze wyniki, około 0.3--0.4, odnotowano dla \textbf{metoda16} oraz \textbf{metoda14}, co wskazuje na słabą adaptację do małej liczby przykładów.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze wyniki, na poziomie około 0.9, osiągnęły \textbf{Metoda13} (wykorzystująca \textbf{SMOTETomek} oraz \textit{stacking} z \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost}), \textbf{Metoda16} (model \textit{stackingowy} z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}) oraz \textbf{Metoda19} (model \textit{stackingowy}). Wysoka skuteczność tych metod sugeruje, że dane są dobrze dopasowane do zaawansowanych technik \textit{ensemble} w trybie \textit{few-shot}, umożliwiając efektywne wykorzystanie złożonych wzorców.
-		      \item Najgorsze wyniki, na poziomie około 0.65, odnotowano dla \textbf{Metoda1-1} (indywidualna instancja sieci neuronowej). Niska dokładność może wskazywać na trudności prostej architektury w generalizacji dla danych w trybie \textit{few-shot}.
+		      \item Najlepsze wyniki, powyżej 0.8, osiągnęły \textbf{metoda13} oraz \textbf{metoda16}, dzięki wysokiej zdolności generalizacji na danych \textbf{RoBERTa}, co kontrastuje z ich zróżnicowaną skutecznością dla \textbf{BERT}, jak słabe wartości \textbf{metoda16}.
+		      \item Najgorsze wyniki, około 0.2, odnotowano dla \textbf{metoda1-1}, co sugeruje brak optymalizacji pod złożone osadzenia \textbf{RoBERTa}, podobnie jak w przypadku \textbf{SBERT}.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Wszystkie metody, w tym \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}), \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}), \textbf{Metoda19} (model \textit{stackingowy}) oraz \textbf{Metoda20} (oparta na \textbf{LightGBM}), osiągnęły dokładność na poziomie około 0.95. Ten wynik potwierdza, że dane są maksymalnie informatywne w trybie \textit{few-shot}, umożliwiając precyzyjną klasyfikację dla większości algorytmów.
-		      \item Najgorsze wyniki, na poziomie około 0.7, odnotowano dla \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}). Niska dokładność może wynikać z nieoptymalnej konfiguracji modelu \textit{stackingowego} dla danych w tym scenariuszu.
+		      \item \textbf{Metoda19} osiągnęła najlepszy wynik, 1.0, dzięki wyjątkowej optymalizacji do informatywnych osadzeń \textbf{SBERT}, przewyższając wyniki dla \textbf{BERT} i \textbf{RoBERTa}.
+		      \item Najgorsze wyniki, około 0.7, odnotowano dla \textbf{metoda1}, co odzwierciedla jej trudności w adaptacji do \textbf{SBERT}, podobnie jak słabe wyniki \textbf{metoda1-1} dla \textbf{RoBERTa}.
 	      \end{itemize}
 \end{itemize}
-
-Analiza wykresów dokładności dla trybu \textit{few-shot} pokazuje, że \textbf{Metoda19} jest liderem dla wszystkich typów danych, co podkreśla jej elastyczność i skuteczność w zoptymalizowanym \textit{stackingu}. \textbf{Metoda17} i \textbf{Metoda18} osiągają bardzo dobre wyniki dla danych SBERT dzięki odpowiednio skonfigurowanemu \textbf{VotingClassifierowi} i \textit{stackingowi}. \textbf{Metoda20} jest skuteczna dla danych SBERT dzięki zoptymalizowanemu \textbf{LightGBM}, co pozwala na efektywne wykorzystanie informatywnych cech. Słabsze wyniki \textbf{Metoda16} dla danych BERT oraz \textbf{Metoda14} dla danych SBERT wskazują na konieczność precyzyjnej optymalizacji tych modeli pod kątem specyfiki danych w trybie \textit{few-shot}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\textwidth]{img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png}
-	\caption{Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie \textit{few-shot}.}
+	\caption{Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie few-shot.}
 	\label{fig:welfake_few_shot_accuracy}
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe miary F1 (\ref{fig:welfake_few_shot_f1}) przedstawiają rozkład wartości miary F1 dla wszystkich analizowanych metod w trybie \textit{few-shot}. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{miary F1} (\ref{fig:welfake_few_shot_f1}) ilustrują poniższe zależności:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Najwyższe wartości miary F1, około 0.86, osiągnęły \textbf{Metoda19} (model \textit{stackingowy}), \textbf{Metoda13} (wykorzystująca \textbf{SMOTETomek} oraz \textit{stacking} z \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost}) oraz \textbf{Metoda9}. Ich skuteczność wskazuje na zdolność do zbalansowanego przetwarzania cech danych, osiągając wysoki balans między precyzją a kompletnością w scenariuszu \textit{few-shot}.
-		      \item Najniższe wyniki, około 0.52, odnotowano dla \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}) oraz \textbf{Metoda16} (model \textit{stackingowy} z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}). Słabe wyniki mogą wynikać z trudności w adaptacji tych modeli do ograniczonej liczby danych.
+		      \item Najwyższe wartości miary F1, około 1.0, osiągnęła \textbf{metoda9}, zasługując na pochwałę za precyzyjne wykorzystanie \textbf{VotingClassifier} z \textbf{RandomForest}, \textbf{Bagging}, \textbf{AdaBoost} i \textbf{KNN} w trybie \textbf{few-shot}. Wyniki na poziomie dość wysokim, ale nie maksymalnym, w okolicach 0.8 do 0.89, osiągnęły: \textbf{metoda12\-catboost}, \textbf{metoda13}, \textbf{metoda19}, \textbf{metoda5} oraz \textbf{metoda7}.
+		            item Najniższy wynik, około 0.364, odnotowano dla \textbf{metoda16}, co rozczarowuje z powodu słabej adaptacji z połaczeniem modeli \textbf{losowego lasu}, \textbf{SVC} do tak obszernego zbioru \textbf{WELFake}.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty, około 0.45, osiągnęły \textbf{Metoda10}, \textbf{Metoda9} oraz \textbf{Metoda19} (model \textit{stackingowy}). Umiarkowane wyniki wskazują na wyzwania w trybie \textit{few-shot} dla danych RoBERTa, gdzie nawet zaawansowane modele osiągają stosunkowo niskie wartości miary F1, co może wynikać z trudności w generalizacji przy ograniczonej liczbie przykładów.
-		      \item Najsłabsze wyniki, około 0.4, odnotowano dla \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}). Niska wartość miary F1 może wynikać z niedopasowania \textbf{VotingClassifiera} do specyfiki danych RoBERTa w trybie \textit{few-shot}.
+		      \item Najlepszy rezultat, około 1.0, osiągnęła \textbf{metoda13}, co było niespotykane poprzednio. Wśród faworytów wyników są: \textbf{metoda9}, \textbf{metoda13}, \textbf{metoda16} oraz \textbf{metoda19}, ponieważ posiadają wartości w zakresie 0.73 -- 0.83. Umiarkowane wyniki wskazują na wyzwania w trybie \textbf{few-shot} dla osadzeń \textbf{RoBERTa}, gdzie nawet zaawansowane modele osiągają stosunkowo niskie wartości \textbf{miary F1}, co może wynikać z trudności w generalizacji przy ograniczonej liczbie przykładów.
+		      \item Najsłabsze wyniki, w postaci 0, odnotowano dla \textbf{metoda17}, co wynika z nieoptymalnego doboru wag w \textbf{VotingRegressor} łączącym \textbf{MLPRegressor}, \textbf{regresję logistyczną} i \textbf{XGBoost}, co ogranicza skuteczność klasyfikacji złożonych cech danych \textbf{WELFake}.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Najlepsze wartości miary F1, około 0.95, osiągnęły \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}) oraz \textbf{Metoda19} (model \textit{stackingowy}). Wysoka skuteczność tych metod potwierdza informatywność danych SBERT, umożliwiającą zbalansowaną klasyfikację w trybie \textit{few-shot}.
-		      \item Najgorsze rezultaty, około 0.7, odnotowano dla \textbf{Metoda4} (architektura oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}) oraz \textbf{Metoda12-catboost} (oparta na \textbf{CatBoost}). Słabe wyniki mogą wynikać z trudności w optymalizacji złożonych architektur dla danych SBERT przy ograniczonej liczbie przykładów.
+		      \item Najlepsze wartości \textbf{miary F1}, około 1.0, osiągnęły \textbf{metoda12-rf}, \textbf{metoda16} oraz \textbf{metoda19}, dzięki efektywnemu wykorzystaniu informatywnych osadzeń \textbf{SBERT}, które precyzyjnie modelują semantyczne zależności danych \textbf{WELFake} w trybie \textbf{few-shot}, przewyższając \textbf{BERT} i \textbf{RoBERTa} dzięki lepszej reprezentacji podobieństw kontekstowych.
+		      \item Najgorsze rezultaty, około 0.667, odnotowano dla \textbf{metoda4} oraz \textbf{metoda12\-catboost}, co wynika z trudności \textbf{metoda4} w optymalizacji złożonej architektury oraz z nieoptymalnego doboru hiperparametrów do \textbf{CatBoost} w \textbf{metoda12\-catboost}, co ogranicza skuteczność w porównaniu do \textbf{BERT} i \textbf{RoBERTa}.
 	      \end{itemize}
 \end{itemize}
 
 \subsubsection{Obszar pod krzywą ROC}
-Wykresy słupkowe \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:welfake_few_shot_roc} przedstawiają rozkład wartości ROC-AUC dla wszystkich metod. Na podstawie wykresu i danych z tabeli \ref{tab:roc_auc_welfake_few_shot} można sformułować następujące obserwacje:
+Tabela \ref{tab:roc_auc_few_shot_welfake} przedstawia następujące obserwacje dotyczące najlepszych i najgorszych wyników:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Najlepsze wyniki:}
 	      \begin{itemize}
-		      \item Najwyższe wartości ROC-AUC osiągnęły \texttt{Metoda12-rf} (1.0) oraz \texttt{Metoda14} (1.0). Ich doskonała skuteczność świadczy o zdolności tych modeli do efektywnego rozróżniania klas na danych z embeddingów \textbf{BERT} w trybie few-shot. \texttt{Metoda12-rf}, oparta na algorytmie \textbf{Random Forest}, oraz \texttt{Metoda14}, będąca modelem zespołowym stacking z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}, wykazują robustność i umiejętność wyłapywania istotnych wzorców w danych, nawet przy ograniczonej liczbie przykładów.
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda16} (0.56). Słaby wynik tej metody, będącej modelem zespołowym stacking z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}, sugeruje trudności w adaptacji meta-klasyfikatora do specyfiki danych \textbf{BERT} w trybie few-shot. Może to wynikać z niedopasowania meta-modelu lub problemów z generalizacją na małej liczbie przykładów.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda19} (0.92 dla \textbf{BERT}, 0.68 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) osiąga najwyższe wartości obszaru dla \textbf{BERT} i \textbf{SBERT}. Wysoka skuteczność tej metody wskazuje na jej zdolność do precyzyjnego odwzorowania granic decyzyjnych w uczeniu \textbf{few-shot}.
+		      \item \textbf{Modele zespołowe}: \textbf{metoda13} (0.96 dla \textbf{BERT}, 1.0 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) oraz \textbf{metoda16} (0.28 dla \textbf{BERT}, 1.0 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) wyróżniają się dzięki zaawansowanemu łączeniu modeli oraz meta-cechom z walidacji krzyżowej, co pozwala na doskonałą separację klas, szczególnie dla \textbf{RoBERTa} i \textbf{SBERT}.
+		      \item \textbf{Metoda12-catboost} (1.0 dla \textbf{BERT}, 0.48 dla \textbf{RoBERTa}, 0.8 dla \textbf{SBERT}) oraz \textbf{metoda9} (1.0 dla \textbf{BERT}, 0.8 dla \textbf{RoBERTa}, 0.96 dla \textbf{SBERT}) osiągają wysokie wyniki dzięki efektywności algorytmów \textbf{CatBoost} i optymalizacji hiperparametrów.
+		      \item \textbf{Metoda12-rf} (0.84 dla \textbf{BERT}, 0.8 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) potwierdza skuteczność algorytmu \textbf{losowego lasu} w trybie \textbf{few-shot}.
 	      \end{itemize}
-
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskały \texttt{Metoda16} (1.0) oraz \texttt{Metoda19} (1.0). Wysoka wartość ROC-AUC dla tych metod wskazuje na ich efektywność w przetwarzaniu embeddingów \textbf{RoBERTa} i osiąganiu doskonałej zdolności rozróżniania klas w trybie few-shot. Modele stackingowe, takie jak \texttt{Metoda16} i \texttt{Metoda19}, oparte na \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost} z meta-modelem \textbf{Regresji Logistycznej}, czerpią korzyści z różnorodnych perspektyw modeli bazowych, co prowadzi do lepszej wydajności.
-		      \item Najsłabsze wyniki wykazała \texttt{Metoda17} (0.60). Niska wartość ROC-AUC dla tej metody, będącej zaawansowanym \textbf{VotingClassifierem}, może wskazywać na nieoptymalny dobór klasyfikatorów bazowych lub wag głosowania dla specyfiki embeddingów \textbf{RoBERTa}, co uniemożliwiło jej pełne wykorzystanie potencjału ensemble w trybie few-shot.
-	      \end{itemize}
-
-	\item \textbf{Wykres dolny (SBERT):}
-	      \begin{itemize}
-		      \item Większość metod osiągnęła ROC-AUC na poziomie 1.0, w tym \texttt{Metoda17}, \texttt{Metoda19} oraz \texttt{Metoda20}, z wyjątkiem \texttt{Metoda4} i \texttt{Metoda18}. Ten wynik potwierdza, że embeddingi \textbf{SBERT} są wysoce informatywne i ułatwiają klasyfikację dla większości algorytmów w trybie few-shot, dzięki zdolności do tworzenia spójnych i łatwo separowalnych reprezentacji semantycznych.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda4} (0.50). Niska wartość ROC-AUC dla tej metody, pomimo ogólnie doskonałych wyników dla \textbf{SBERT}, jest zaskakująca. \texttt{Metoda4}, oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, mogła mieć trudności z optymalizacją w trybie few-shot, gdzie ograniczona liczba przykładów uniemożliwia skuteczne trenowanie tak złożonej architektury, skutkując słabą zdolnością do rozróżniania klas.
+		      \item \textbf{Metoda2}, \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda6}, \textbf{metoda8}, \textbf{metoda15}, \textbf{metoda20} (0.84 dla \textbf{BERT}, 0.64 dla \textbf{RoBERTa}, 0.8-0.88 dla \textbf{SBERT}) wskazują na niedostateczną optymalizację hiperparametrów do specyfiki osadzeń \textbf{RoBERTa} dla zestawu \textbf{WELFake} w uczeniu \textbf{few-shot}. W przypadku \textbf{metoda4} (0.5 dla \textbf{SBERT}), niska wartość sugeruje poważne problemy z architekturą opartą na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, która nie wykorzystuje potencjału osadzeń \textbf{SBERT}.
+		      \item \textbf{Metoda14} (0.40 dla \textbf{BERT}) oraz \textbf{metoda17} (0.44 dla \textbf{RoBERTa}) osiągają stosunkowo niskie wyniki, co może wynikać z ograniczonej zdolności modeli do efektywnego przetwarzania cech w kontekście niewielkiej liczby danych treningowych.
 	      \end{itemize}
 \end{itemize}
-
-Analiza ROC-AUC dla trybu few-shot pokazuje, że \texttt{Metoda19} jest skuteczna dla \textbf{RoBERTa} i \textbf{SBERT}, a \texttt{Metoda17} i \texttt{Metoda20} osiągają wysokie wyniki dla \textbf{SBERT} dzięki elastycznym modelom ensemble. \texttt{Metoda12-rf} i \texttt{Metoda14} dominują dla \textbf{BERT}, co podkreśla potencjał prostych i zaawansowanych modeli ensemble w wykorzystywaniu złożonych reprezentacji językowych. Słabe wyniki \texttt{Metoda16} dla \textbf{BERT} i \texttt{Metoda17} dla \textbf{RoBERTa} wskazują na potrzebę lepszej optymalizacji meta-modeli lub klasyfikatorów bazowych, podczas gdy \texttt{Metoda4} dla \textbf{SBERT} podkreśla trudności w trenowaniu złożonych architektur głębokiego uczenia w trybie few-shot.
 
 \begin{table}[H]
 	\centering
 	\caption{Wartości obszaru pod krzywą ROC dla zestawu WELFake w trybie few-shot.}
-	\label{tab:roc_auc_welfake_few_shot}
+	\label{tab:roc_auc_few_shot_welfake}
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
+		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & 0.76          & 0.72             & 1.0            \\
-		metoda1-2         & 0.76          & 0.72             & 0.96           \\
-		metoda1-3         & 0.68          & 0.72             & 1.0            \\
-		metoda1-4         & 0.76          & 0.72             & 1.0            \\
-		metoda1-5         & 0.68          & 0.72             & 1.0            \\
-		metoda10          & 0.80          & 0.84             & 1.0            \\
-		metoda11          & 0.80          & 0.68             & 1.0            \\
-		metoda12-catboost & 0.86          & 0.70             & 1.0            \\
-		metoda12-rf       & 1.0           & 0.82             & 1.0            \\
-		metoda13          & 0.80          & 0.88             & 1.0            \\
-		metoda14          & 1.0           & 0.96             & 1.0            \\
-		metoda15          & 0.68          & 0.80             & 1.0            \\
-		metoda16          & 0.56          & 1.0              & 1.0            \\
-		metoda17          & 0.72          & 0.60             & 1.0            \\
-		metoda18          & 0.84          & 0.76             & 0.960          \\
-		metoda19          & 0.84          & 1.0              & 1.0            \\
-		metoda2           & 0.68          & 0.80             & 1.0            \\
-		metoda20          & 0.68          & 0.80             & 1.0            \\
-		metoda3           & 0.68          & 0.80             & 0.96           \\
-		metoda4           & 0.68          & 0.80             & 0.50           \\
-		metoda5           & 0.88          & 0.92             & 1.0            \\
-		metoda6           & 0.68          & 0.80             & 1.0            \\
-		metoda7           & 0.72          & 0.80             & 1.0            \\
-		metoda8           & 0.68          & 0.80             & 1.0            \\
-		metoda9           & 0.88          & 0.88             & 1.0            \\
+		metoda1-1         & 0.80          & 0.28             & 0.88           \\
+		metoda1-2         & 0.72          & 0.28             & 0.88           \\
+		metoda1-3         & 0.76          & 0.28             & 0.88           \\
+		metoda1-4         & 0.68          & 0.32             & 0.84           \\
+		metoda1-5         & 0.80          & 0.28             & 0.96           \\
+		metoda10          & 0.56          & 0.76             & 1.00           \\
+		metoda11          & 0.48          & 0.56             & 0.92           \\
+		metoda12-catboost & 1.00          & 0.48             & 0.80           \\
+		metoda12-rf       & 0.84          & 0.80             & 1.00           \\
+		metoda13          & 0.96          & 1.00             & 1.00           \\
+		metoda14          & 0.40          & 0.68             & 0.96           \\
+		metoda15          & 0.84          & 0.64             & 0.80           \\
+		metoda16          & 0.28          & 1.00             & 1.00           \\
+		metoda17          & 0.52          & 0.44             & 1.00           \\
+		metoda18          & 0.64          & 0.68             & 1.00           \\
+		metoda19          & 0.92          & 0.68             & 1.00           \\
+		metoda2           & 0.84          & 0.64             & 0.80           \\
+		metoda20          & 0.84          & 0.64             & 1.00           \\
+		metoda3           & 0.84          & 0.64             & 0.88           \\
+		metoda4           & 0.84          & 0.64             & 0.50           \\
+		metoda5           & 0.84          & 0.68             & 1.00           \\
+		metoda6           & 0.84          & 0.64             & 0.80           \\
+		metoda7           & 0.84          & 0.64             & 1.00           \\
+		metoda8           & 0.84          & 0.64             & 0.80           \\
+		metoda9           & 1.00          & 0.80             & 0.96           \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \subsubsection{Czas wykonania}
-Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:welfake_few_shot_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody dla różnych embeddingów językowych. Na podstawie wykresów i danych z tabeli \ref{tab:execution_time_welfake_few_shot} można sformułować następujące obserwacje dotyczące efektywności czasowej oraz przyczyn zróżnicowania wyników, z uwzględnieniem zmienności wydajności metod w porównaniu do wcześniejszych eksperymentów:
+Tabela \ref{tab:execution_time_few_shot_welfake} przedstawia czasy wykonania predykcji. Analiza wyników pozwala na sformułowanie następujących wniosków:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Najlepsze wyniki:}
 	      \begin{itemize}
-		      \item Najdłuższy czas wykonania odnotowano dla \texttt{Metoda14} (1203.618 s), \texttt{Metoda16} (1120.524 s) oraz \texttt{Metoda9} (722.050 s). \texttt{Metoda14}, będąca modelem zespołowym stacking z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}, oraz \texttt{Metoda16}, oparta na stacking z meta-klasyfikatorem \textbf{Regresji Logistycznej}, są czasochłonne z powodu złożonych operacji na meta-cechach i wielokrotnego trenowania modeli bazowych. \texttt{Metoda9}, wykorzystująca iteracyjne algorytmy ensemble (\textbf{Bagging}, \textbf{AdaBoost}) oraz kosztowne operacje \textbf{KNN}, wymaga znacznego czasu obliczeń na danych \textbf{BERT}. Czasy te są wyższe niż w eksperymentach dla trybu klasycznego WELFake (np. 465.749 s dla \texttt{Metoda14}), co sugeruje większą liczbę próbek lub bardziej złożoną strukturę danych w trybie few-shot.
-		      \item Najkrótszy czas wykonania miały \texttt{Metoda10} (1.427 s), \texttt{Metoda7} (3.088 s) oraz \texttt{Metoda18} (16.284 s). \texttt{Metoda10} i \texttt{Metoda7}, oparte na zoptymalizowanych modelach \textbf{Gradient Boosting} i \textbf{VotingClassifier}, osiągają wysoką efektywność dzięki prostocie i ograniczonej liczbie estymatorów. \texttt{Metoda18}, będąca modelem stackingowym z \textbf{Gradient Boosting} i \textbf{CatBoost}, jest szybsza dzięki zoptymalizowanemu przetwarzaniu cech \textbf{BERT}, co jest spójne z wynikami dla trybu klasycznego.
+		      \item \textbf{Uczenie wzmacniające}: \textbf{metoda10} (2.279 s dla \textbf{BERT}, 4.379 s dla \textbf{RoBERTa}, 68.330 s dla \textbf{SBERT}) oraz \textbf{metoda7} (1.965 s dla \textbf{BERT}, 2.671 s dla \textbf{RoBERTa}, 14.849 s dla \textbf{SBERT}) osiągają najkrótsze czasy dzięki zoptymalizowanym modelom \textbf{Gradient Boosting} i \textbf{VotingClassifier} z ograniczoną liczbą estymatorów, co redukuje obciążenie obliczeniowe.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda19} (19.542 s dla \textbf{BERT}, 27.426 s dla \textbf{RoBERTa}, 6424.637 s dla \textbf{SBERT}) oraz \textbf{metoda5} (15.039 s dla \textbf{BERT}, 20.632 s dla \textbf{RoBERTa}, 186.783 s dla \textbf{SBERT}) wyróżniają się dzięki efektywnemu połączeniu modeli bazowych z meta-modelem \textbf{regresji logistycznej}, co minimalizuje czas obliczeń.
+		      \item \textbf{Metoda12-rf} (13.727 s dla \textbf{BERT}, 19.075 s dla \textbf{RoBERTa}, 249.429 s dla \textbf{SBERT}) osiąga krótkie czasy dzięki przejrzystości algorytmu \textbf{losowego lasu} zoptymalizowanego pod kątem trybu few-shot.
 	      \end{itemize}
-
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item Najwięcej czasu zajęły \texttt{Metoda16} (1089.022 s), \texttt{Metoda14} (573.769 s) oraz \texttt{Metoda9} (376.510 s). \texttt{Metoda16} i \texttt{Metoda14} wymagają długiego czasu z powodu złożonych operacji stackingowych i trenowania modeli bazowych na danych \textbf{RoBERTa}. \texttt{Metoda9} jest czasochłonna z powodu iteracyjnych algorytmów ensemble i kosztownych operacji \textbf{KNN}. Czasy te są wyższe niż w trybie klasycznym WELFake (np. 353.404 s dla \texttt{Metoda9}), co może wynikać z większej liczby próbek lub bardziej złożonej struktury danych \textbf{RoBERTa} w trybie few-shot.
-		      \item Najkrótszy czas wykonania miały \texttt{Metoda7} (1.470 s), \texttt{Metoda10} (1.810 s) oraz \texttt{Metoda12-rf} (6.951 s). \texttt{Metoda7} i \texttt{Metoda10}, oparte na prostych modelach \textbf{VotingClassifier} i \textbf{Gradient Boosting}, osiągają wysoką efektywność dzięki minimalizacji operacji obliczeniowych. \texttt{Metoda12-rf}, oparta na \textbf{Random Forest}, jest szybka dzięki prostocie algorytmu, co jest zgodne z wynikami dla trybu klasycznego.
-	      \end{itemize}
-
-	\item \textbf{Wykres dolny (SBERT):}
-	      \begin{itemize}
-		      \item Najdłuższy czas działania osiągnęły \texttt{Metoda9} (4997.613 s), \texttt{Metoda14} (2776.687 s), \texttt{Metoda4} (2361.724 s) oraz \texttt{Metoda16} (1830.296 s). \texttt{Metoda9} jest wyjątkowo czasochłonna z powodu iteracyjnych algorytmów ensemble i operacji \textbf{KNN} na dużych danych \textbf{SBERT}. \texttt{Metoda14} i \texttt{Metoda16} wymagają długiego czasu z powodu złożonych operacji stackingowych, a \texttt{Metoda4}, oparta na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, jest kosztowna obliczeniowo z powodu głębokich warstw sekwencyjnych i konwolucyjnych. Drastyczny wzrost czasu w porównaniu do trybu klasycznego WELFake (np. 4074.060 s dla \texttt{Metoda9}) sugeruje większą liczbę próbek lub wyższą wymiarowość danych \textbf{SBERT} w trybie few-shot.
-		      \item Najkrótszy czas uzyskano dla \texttt{Metoda7} (8.282 s) oraz \texttt{Metoda10} (44.649 s). \texttt{Metoda7}, oparta na prostym \textbf{VotingClassifier} z losowymi podzbiorami drzew, oraz \texttt{Metoda10}, wykorzystująca zoptymalizowany \textbf{Gradient Boosting}, osiągają wysoką efektywność dzięki minimalizacji operacji obliczeniowych i skutecznemu przetwarzaniu cech \textbf{SBERT}, co jest spójne z wynikami dla trybu klasycznego.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda14} (1475.203 s dla \textbf{BERT}, 2199.586 s dla \textbf{RoBERTa}, 12101.253 s dla \textbf{SBERT}) oraz \textbf{metoda16} (1437.196 s dla \textbf{BERT}, 2069.380 s dla \textbf{RoBERTa}, 10257.607 s dla \textbf{SBERT}) są ekstremalnie czasochłonne z powodu złożonych operacji na meta-cechach oraz wielokrotnego trenowania modeli bazowych.
+		      \item \textbf{Metoda13} (94.867 s dla \textbf{BERT}, 124.416 s dla \textbf{RoBERTa}, 6741.633 s dla \textbf{SBERT}) wymaga długiego czasu z powodu zastosowania \textbf{SMOTETomek} oraz intensywnych obliczeń na modelach, co znacząco zwiększa rozmiar danych i czas wykonania.
+		      \item \textbf{Metoda3} (5027.795 s dla \textbf{SBERT}) oraz \textbf{metoda4} (3994.834 s dla \textbf{SBERT}) osiągają wyjątkowo długie czasy z powodu złożonych architektur.
+		      \item \textbf{Metoda9} (608.951 s dla \textbf{BERT}, 860.128 s dla \textbf{RoBERTa}, 9163.697 s dla \textbf{SBERT}) jest czasochłonna z powodu iteracyjnych algorytmów (\textbf{Bagging}, \textbf{AdaBoost}) oraz kosztownych operacji \textbf{algorytmu K najbliższych sąsiadów} na dużych danych.
 	      \end{itemize}
 \end{itemize}
-
-Analiza czasów wykonania dla trybu few-shot pokazuje, że złożone modele, takie jak \texttt{Metoda9}, \texttt{Metoda14}, \texttt{Metoda16} oraz \texttt{Metoda4}, są czasochłonne z powodu głębokich sieci, iteracyjnych algorytmów ensemble lub dużej liczby próbek, szczególnie dla \textbf{SBERT}. W porównaniu do trybu klasycznego WELFake, czasy dla \textbf{SBERT} są znacząco wyższe, co sugeruje wpływ bardziej złożonych danych. Prostsze metody, takie jak \texttt{Metoda7}, \texttt{Metoda10} i \texttt{Metoda18}, osiągają krótsze czasy dzięki zoptymalizowanym modelom i efektywnemu wykorzystaniu cech, szczególnie dla \textbf{BERT} i \textbf{RoBERTa}. Zróżnicowanie czasów wykonania podkreśla konieczność dopasowania architektury modelu i optymalizacji hiperparametrów do specyfiki danych i typu embeddingu, aby zrównoważyć skuteczność i efektywność czasową w kontekście datasetu \textbf{WELFake} w trybie few-shot.
 
 \begin{table}[H]
 	\centering
 	\caption{Czas wykonania predykcji w sekundach dla zestawu WELFake w trybie few-shot.}
-	\label{tab:execution_time_welfake_few_shot}
+	\label{tab:execution_time_few_shot_welfake}
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
+		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & 327.048       & 211.607          & 243.298        \\
-		metoda1-2         & 327.180       & 211.665          & 243.358        \\
-		metoda1-3         & 327.320       & 211.722          & 243.416        \\
-		metoda1-4         & 327.439       & 211.780          & 243.473        \\
-		metoda1-5         & 327.593       & 211.837          & 243.531        \\
-		metoda10          & 1.427         & 1.810            & 44.649         \\
-		metoda11          & 26.933        & 13.417           & 432.499        \\
-		metoda12-catboost & 14.879        & 6.971            & 94.837         \\
-		metoda12-rf       & 14.841        & 6.951            & 94.772         \\
-		metoda13          & 84.667        & 44.329           & 3324.389       \\
-		metoda14          & 1203.618      & 573.769          & 2776.687       \\
-		metoda15          & 484.174       & 140.099          & 548.514        \\
-		metoda16          & 1120.524      & 1089.022         & 1830.296       \\
-		metoda17          & 259.147       & 270.753          & 207.507        \\
-		metoda18          & 16.284        & 12.331           & 539.661        \\
-		metoda19          & 60.082        & 25.758           & 106.659        \\
-		metoda2           & 484.174       & 140.099          & 548.514        \\
-		metoda20          & 484.174       & 140.099          & 548.514        \\
-		metoda3           & 484.174       & 140.099          & 1378.544       \\
-		metoda4           & 484.174       & 140.099          & 2361.724       \\
-		metoda5           & 17.803        & 6.985            & 103.809        \\
-		metoda6           & 484.174       & 140.099          & 548.514        \\
-		metoda7           & 3.088         & 1.470            & 8.282          \\
-		metoda8           & 484.174       & 140.099          & 548.514        \\
-		metoda9           & 722.050       & 376.510          & 4997.613       \\
+		metoda1-1         & 228.051       & 275.112          & 295.218        \\
+		metoda1-2         & 228.185       & 275.207          & 295.273        \\
+		metoda1-3         & 228.244       & 275.287          & 295.327        \\
+		metoda1-4         & 228.302       & 275.363          & 295.382        \\
+		metoda1-5         & 228.361       & 275.458          & 295.436        \\
+		metoda10          & 2.279         & 4.379            & 68.330         \\
+		metoda11          & 23.641        & 31.814           & 1001.074       \\
+		metoda12-catboost & 13.754        & 19.122           & 249.569        \\
+		metoda12-rf       & 13.727        & 19.075           & 249.429        \\
+		metoda13          & 94.867        & 124.416          & 6741.633       \\
+		metoda14          & 1475.203      & 2199.586         & 12101.253      \\
+		metoda15          & 413.110       & 607.201          & 970.959        \\
+		metoda16          & 1437.196      & 2069.380         & 10257.607      \\
+		metoda17          & 82.408        & 139.387          & 813.004        \\
+		metoda18          & 6.606         & 8.315            & 987.960        \\
+		metoda19          & 19.542        & 27.426           & 6424.637       \\
+		metoda2           & 413.110       & 607.201          & 970.959        \\
+		metoda20          & 413.110       & 607.201          & 1197.218       \\
+		metoda3           & 413.110       & 607.201          & 5027.795       \\
+		metoda4           & 413.110       & 607.201          & 3994.834       \\
+		metoda5           & 15.039        & 20.632           & 186.783        \\
+		metoda6           & 413.110       & 607.201          & 970.959        \\
+		metoda7           & 1.965         & 2.671            & 14.849         \\
+		metoda8           & 413.110       & 607.201          & 970.959        \\
+		metoda9           & 608.951       & 860.128          & 9163.697       \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-
 \subsection{Wyniki w trybie one-shot}
-\subsection{Wyniki w trybie one-shot}
-W trybie \textit{one-shot} dla zbioru danych \textbf{WELFake} przetestowano różne metody klasyfikacji na pojedynczych przykładach treningowych. Poniżej przedstawiono szczegółowy opis wyników w formie histogramów dla kluczowych metryk oraz wykresu liniowego czasu wykonania eksperymentów.
-
 \subsubsection{Dokładność}
-Wykresy słupkowe dokładności (\ref{fig:welfake_one_shot_accuracy}) przedstawiają rozkład wartości dokładności dla wszystkich analizowanych metod w trybie \textit{one-shot}. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_one_shot_accuracy}) wskazują na następujące fakty:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		      \item Większość metod, w tym \textbf{Metoda1} (indywidualne instancje sieci neuronowych), \textbf{Metoda12-catboost} (oparta na \textbf{CatBoost}), \textbf{Metoda13} (wykorzystująca \textbf{SMOTETomek} oraz \textit{stacking} z \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost}), \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}), \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}) oraz \textbf{Metoda20} (oparta na \textbf{LightGBM}), osiągnęła dokładność około 1.0. Wynik ten wskazuje na wysoką separowalność klas w danych, umożliwiającą precyzyjną klasyfikację z pojedynczego przykładu.
-		      \item Najgorsze wyniki, na poziomie około 0.5, odnotowano dla \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}) oraz \textbf{Metoda11} (model zespołowy z \textbf{VotingClassifier} zawierającym \textbf{Random Forest}, \textbf{Regresję Logistyczną} i \textbf{AdaBoost}). Słabe wyniki \textbf{Metoda17} mogą wynikać z nieoptymalnych wag głosowania w \textbf{VotingClassifierze}, ograniczających zdolność do generalizacji w trybie \textit{one-shot}.
+		      \item Większość metod osiągnęła dokładność około 1.0, co świadczy o wyjątkowej zdolności osadzeń \textbf{BERT} do tworzenia rozróżnialnych reprezentacji danych \textbf{WELFake} w trybie \textbf{one-shot}, gdzie pojedynczy przykład wystarcza do uchwycenia unikalnych cech zestawu.
+		      \item Najgorsze wyniki, na poziomie około 0.5, odnotowano dla \textbf{metoda17} oraz \textbf{metoda11}, co wynika z ich nieoptymalnej adaptacji do \newline\textbf{one\-shot}, ograniczając generalizację w porównaniu do bardziej elastycznych metod.
 	      \end{itemize}
 
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Wszystkie metody, w tym \textbf{Metoda1}, \textbf{Metoda9}, \textbf{Metoda10}, \textbf{Metoda13}, \textbf{Metoda19} (model \textit{stackingowy}) oraz \textbf{Metoda20}, osiągnęły umiarkowaną dokładność, około 0.6. Wynik ten wskazuje na trudności w generalizacji z pojedynczego przykładu, co może wynikać z subtelniejszych cech danych w trybie \textit{one-shot}.
-		      \item Brak wyraźnych liderów sugeruje, że dane są mniej separowalne w tym scenariuszu, co utrudnia precyzyjną klasyfikację dla wszystkich metod.
+		      \item Na wykresie dla osadzeń \textbf{RoBERTa} widoczne jest nietypowe zjawisko - wszystkie przewidywane prawdopodobieństwa koncentrują się wokół wartości 0.5. Może to wskazywać na to, że żaden model nie nauczył się skutecznie rozróżniać klas i waha się w decyzjach, traktując niemal każdy przypadek jako niepewny. Potencjalną przyczyną są źle dobrane hiperparametry: zbyt niski learning rate, problemy z warstwą klasyfikującą, która jest niedostosowana do liczby klas.
 	      \end{itemize}
+
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Większość metod, w tym \textbf{Metoda1}, \textbf{Metoda10}, \textbf{Metoda14}, \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}), \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}) oraz \textbf{Metoda20} (oparta na \textbf{LightGBM}), osiągnęła dokładność około 1.0. Wynik ten potwierdza wysoką informatywność danych, umożliwiającą precyzyjną klasyfikację w trybie \textit{one-shot}.
-		      \item Najgorsze wyniki, na poziomie około 0.5, odnotowano dla \textbf{Metoda3} (dwupoziomowy model zespołowy z \textbf{VotingClassifier} i \textbf{Bagging}/\textbf{AdaBoost}), \textbf{Metoda4} (architektura oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}), \textbf{Metoda7}, \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}) oraz \textbf{Metoda19} (model \textit{stackingowy}). Słabe wyniki \textbf{Metoda19} mogą wynikać z braku optymalizacji modelu \textit{ensemble} dla danych w tym scenariuszu.
+		      \item Większość metod osiągnęła bardzo wysoką dokładność, bliską 1.0. Oznacza to, że osadzenia \textbf{SBERT} dobrze reprezentują znaczenie semantyczne i pomagają modelom łatwo odróżnić prawdziwe wiadomości od fałszywych. Nawet w trudniejszych warunkach, jak przy bardzo małej liczbie przykładów, \textbf{SBERT} daje wystarczająco dobre dane wejściowe. Słabsze wyniki (około 0.5) w kilku przypadkach - jak \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda7}, \textbf{metoda12-rf} czy \textbf{metoda19} - mogą wynikać ze zbyt skomplikowanej architektury albo nieumiejętnego wykorzystania tych osadzeń.
 	      \end{itemize}
 \end{itemize}
-
-Analiza wykresów dokładności dla trybu \textit{one-shot} pokazuje, że dane BERT i SBERT umożliwiają perfekcyjne wyniki dla wielu metod, co potwierdza ich wysoką separowalność klas. Dane RoBERTa osiągają umiarkowane wyniki (około 0.6), co wskazuje na większe trudności w generalizacji z pojedynczego przykładu z powodu subtelniejszych cech. Autorskie metody, takie jak \textbf{Metoda18} i \textbf{Metoda20}, osiągają doskonałe wyniki dla danych SBERT, podczas gdy \textbf{Metoda17} i \textbf{Metoda19} wykazują słabsze wyniki dla odpowiednio danych BERT i SBERT, co podkreśla konieczność precyzyjnej optymalizacji ich architektur \textit{ensemble} dla specyfiki danych w trybie \textit{one-shot}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\textwidth]{img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png}
-	\caption{Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie \textit{one-shot}.}
+	\caption{Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie one-shot.}
 	\label{fig:welfake_one_shot_accuracy}
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe miary F1 (\ref{fig:welfake_one_shot_f1}) przedstawiają rozkład wartości miary F1 dla wszystkich analizowanych metod w trybie \textit{one-shot}. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{miary F1} (\ref{fig:welfake_one_shot_f1}) ujawniają następujące cechy:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
 	      \begin{itemize}
-		    %   \item Większość metod, w tym \textbf{Metoda1} (indywidualne instancje sieci neuronowych), \textbf{Metoda12-catboost} (oparta na \textbf{CatBoost}), \textbf{Metoda13} (wykorzystująca \textbf{SMOTETomek} oraz \textit{stacking} z \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost}), \textbf{Metoda14} (model \textit{stackingowy} z \textbf{Random Forest}.
-System: \textbf{AdaBoost} i \textbf{SVC}, \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}) oraz \textbf{Metoda20} (oparta na \textbf{LightGBM}), osiągnęła miarę F1 około 1.0. Wynik ten potwierdza wysoką separowalność klas w danych, umożliwiającą zbalansowaną klasyfikację z pojedynczego przykładu.
-		      \item Najniższe wyniki, około 0.5, odnotowano dla \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}) oraz \textbf{Metoda11} (model zespołowy z \textbf{VotingClassifier} zawierającym \textbf{Random Forest}, \textbf{Regresję Logistyczną} i \textbf{AdaBoost}). Słabe wyniki \textbf{Metoda17} mogą wynikać z niedopasowania \textbf{VotingClassifiera} do specyfiki danych w trybie \textit{one-shot}, co ogranicza jego zdolność do efektywnego balansowania precyzji i kompletności.
+		      \item Najwyższe wartości miary F1, około 1.0, osiągnęła większość metod, ponieważ osadzenia \textbf{BERT} wyjątkowo dobrze separują klasy, wychwytując kluczowe wzorce semantyczne nawet z pojedynczego przykładu, co prowadzi do tej anomalii perfekcyjnych wyników. Taki wynik potwierdza wysoką separowalność klas w danych, umożliwiającą zbalansowaną klasyfikację z pojedynczego przykładu.
+		      \item Najniższe wyniki, około 0.5, odnotowano dla \textbf{metoda17} oraz \textbf{metoda11}. Słabe rezultaty mogą wynikać z niedopasowania do specyfiki danych w trybie, co ogranicza zdolność do efektywnego balansowania.
 	      \end{itemize}
-
 	\item \textbf{Wykres środkowy (RoBERTa):}
 	      \begin{itemize}
-		      \item Większość metod, w tym \textbf{Metoda1} (indywidualne instancje sieci neuronowych), \textbf{Metoda9}, \textbf{Metoda10}, \textbf{Metoda13} (wykorzystująca \textbf{SMOTETomek} oraz \textit{stacking}), oraz \textbf{Metoda19} (model \textit{stackingowy}), osiągnęła miarę F1 około 0.7. Wynik ten wskazuje na trudności w trybie \textit{one-shot} dla danych RoBERTa, co może wynikać z subtelniejszych cech utrudniających zbalansowaną klasyfikację z pojedynczego przykładu.
-		      \item Najsłabsze wyniki, około 0.5, odnotowano dla \textbf{Metoda1-5} (indywidualna instancja sieci neuronowej), \textbf{Metoda13} oraz \textbf{Metoda19} (model \textit{stackingowy}). Słabe wyniki \textbf{Metoda19} mogą wynikać z braku optymalizacji modelu \textit{ensemble} dla danych w tym scenariuszu.
+		      \item Najlepsze rezultaty, około 0.67, osiągnęła większość metod. Wynik wskazuje na trudności w trybie \textbf{one-shot} dla osadzeń \textbf{RoBERTa}, co może wynikać z mniej oczywistych cech utrudniających zbalansowaną klasyfikację z pojedynczego przykładu.
+		      \item Najsłabsze wyniki, około 0.0, odnotowano dla \textbf{metoda1-5}, \textbf{metoda13} oraz \textbf{metoda19}, co może wynikać z niedostatecznej zdolności tych modeli do efektywnego uczenia się z ograniczonych danych wejściowych w trybie \textbf{one-shot}.
 	      \end{itemize}
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
-		      \item Większość metod, w tym \textbf{Metoda1}, \textbf{Metoda10}, \textbf{Metoda14}, \textbf{Metoda17} (zaawansowany \textbf{VotingClassifier}), \textbf{Metoda18} (model \textit{stackingowy} z \textbf{GradientBoosting} i \textbf{CatBoost}) oraz \textbf{Metoda20} (oparta na \textbf{LightGBM}), osiągnęła miarę F1 około 1.0. Wynik ten potwierdza wysoką informatywność danych, umożliwiającą zbalansowaną klasyfikację w trybie \textit{one-shot}.
-		      \item Najgorsze rezultaty, około 0.5, odnotowano dla \textbf{Metoda3} (dwupoziomowy model zespołowy z \textbf{VotingClassifier} i \textbf{Bagging}/\textbf{AdaBoost}), \textbf{Metoda4} (architektura oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}), \textbf{Metoda7}, \textbf{Metoda12-rf} (oparta na \textbf{Random Forest}) oraz \textbf{Metoda19} (model \textit{stackingowy}). Słabe wyniki \textbf{Metoda19} wskazują na potrzebę lepszej optymalizacji modelu \textit{ensemble} dla danych SBERT w trybie \textit{one-shot}.
+		      \item Najlepsze wartości miary F1, około 1.0, osiągnęła większość metod. Takie obserwacje potwierdzają wysoką informatywność danych, umożliwiającą zbalansowaną klasyfikację w trybie \textbf{one-shot}.
+		      \item Najgorsze rezultaty, około 0.5, odnotowano dla \textbf{metoda3}, \textbf{metoda4}, \textbf{metoda7}, \textbf{metoda12-rf} oraz \textbf{metoda19}. Autorska \textbf{metoda19} osiągnęła najgorsze rezultaty, około 0.5, ponieważ jej meta-model \textbf{regrsji logistycznej} nieefektywnie integruje meta-cechy z \textbf{losowego lasu}, \textbf{XGBoost} i \textbf{GradientBoosting}, tracąc zdolność do precyzyjnego wykorzystania osadzeń \textbf{SBERT}.
 	      \end{itemize}
 \end{itemize}
-
-Analiza wykresów miary F1 dla trybu \textit{one-shot} potwierdza wysoką skuteczność danych BERT i SBERT, które umożliwiają osiągnięcie niemal perfekcyjnej wartości miary F1 dla wielu metod, co świadczy o ich zdolności do generowania spójnych i łatwo separowalnych cech. Dane RoBERTa wymagają precyzyjniejszej optymalizacji, ponieważ większość metod osiąga umiarkowane wyniki (około 0.7), co wskazuje na trudności w generalizacji z pojedynczego przykładu z powodu subtelniejszych cech. Autorskie metody, takie jak \textbf{Metoda18} i \textbf{Metoda20}, osiągają doskonałe wyniki dla danych SBERT, potwierdzając ich elastyczność w przetwarzaniu informatywnych cech. Słabsze wyniki \textbf{Metoda17} dla danych BERT oraz \textbf{Metoda19} dla danych RoBERTa i SBERT wskazują na konieczność precyzyjnej optymalizacji ich architektur \textit{ensemble} dla specyfiki danych w trybie \textit{one-shot}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.99\textwidth]{img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png}
-	\caption{Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie \textit{one-shot}.}
+	\caption{Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}
 	\label{fig:welfake_one_shot_f1}
 \end{figure}
 
-
 \subsubsection{Obszar pod krzywą ROC}
-Wykresy słupkowe \textbf{Pola pod krzywą ROC-AUC (ROC-AUC)} \ref{fig:welfake_one_shot_roc} przedstawiają rozkład wartości ROC-AUC dla wszystkich metod. Na podstawie wykresu i danych z tabeli \ref{tab:roc_auc_welfake_one_shot} można sformułować następujące obserwacje:
+Tabela \ref{tab:roc_auc_one_shot_welfake} przedstawia następujące obserwacje dotyczące najlepszych i najgorszych wyników:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Najlepsze wyniki:}
 	      \begin{itemize}
-		      \item Najwyższe wartości ROC-AUC osiągnęły \texttt{Metoda12-rf} (1.0) oraz \texttt{Metoda14} (1.0). Ich doskonała skuteczność świadczy o zdolności tych modeli do efektywnego rozróżniania klas na danych z embeddingów \textbf{BERT} w trybie one-shot, mimo ekstremalnie ograniczonej liczby przykładów. \texttt{Metoda12-rf}, oparta na algorytmie \textbf{Random Forest}, oraz \texttt{Metoda14}, będąca modelem zespołowym stacking z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}, wykazują robustność i umiejętność wyłapywania istotnych wzorców w danych.
-		      \item Najniższe wyniki odnotowano dla \texttt{Metoda16} (0.56). Słaby wynik tej metody, będącej modelem zespołowym stacking z meta-klasyfikatorem opartym na \textbf{Regresji Logistycznej}, sugeruje trudności w adaptacji meta-klasyfikatora do specyfiki danych \textbf{BERT} w trybie one-shot. Może to wynikać z niedopasowania meta-modelu lub problemów z generalizacją na pojedynczym przykładzie.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda19} (1.0 dla \textbf{BERT}, 1.0 dla \textbf{SBERT}) osiąga najwyższe wartości obszaru, co wskazuje na doskonałą zdolność do precyzyjnego odwzorowania granic decyzyjnych w trybie one-shot dla osadzeń \textbf{BERT} i \textbf{SBERT}.
+		      \item \textbf{Modele zespołowe}: \textbf{metoda13} (1.0 dla \textbf{BERT}, 1.0 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) oraz \textbf{metoda14} (1.0 dla \textbf{BERT}, 1.0 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) wyróżniają się dzięki zaawansowanemu łączeniu modeli, co pozwala na doskonałą separację klas dla wszystkich typów osadzeń.
+		      \item \textbf{Metoda12-rf} (1.0 dla \textbf{BERT}, 1.0 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) oraz \textbf{metoda9} (1.0 dla \textbf{BERT}, 1.0 dla \textbf{RoBERTa}, 1.0 dla \textbf{SBERT}) osiągają maksymalne wyniki dzięki efektywności algorytmu \textbf{losowego lasu} i optymalizacji hiperparametrów.
+		      \item \textbf{Metoda1-1} do \textbf{metoda1-5}, \textbf{metoda10}, \textbf{metoda11}, \textbf{metoda12-catboost}, \textbf{metoda15}, \textbf{metoda16}, \textbf{metoda17}, \textbf{metoda18}, \textbf{metoda2}, \textbf{metoda3}, \textbf{metoda5}, \textbf{metoda6}, \textbf{metoda7}, \textbf{metoda8} (1.0 dla \textbf{BERT} i/lub \textbf{SBERT}) potwierdzają skuteczność tych metod w trybie one-shot.
 	      \end{itemize}
-
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item Najlepsze rezultaty uzyskały \texttt{Metoda16} (1.0) oraz \texttt{Metoda19} (1.0). Wysoka wartość ROC-AUC dla tych metod wskazuje na ich efektywność w przetwarzaniu embeddingów \textbf{RoBERTa} i osiąganiu doskonałej zdolności rozróżniania klas w trybie one-shot. Modele stackingowe, takie jak \texttt{Metoda16} i \texttt{Metoda19}, oparte na \textbf{Random Forest}, \textbf{Gradient Boosting} i \textbf{XGBoost} z meta-modelem \textbf{Regresji Logistycznej}, czerpią korzyści z różnorodnych perspektyw modeli bazowych, co prowadzi do lepszej wydajności w trudnym scenariuszu one-shot.
-		      \item Najsłabsze wyniki wykazała \texttt{Metoda17} (0.60). Niska wartość ROC-AUC dla tej metody, będącej zaawansowanym \textbf{VotingClassifierem}, może wskazywać na nieoptymalny dobór klasyfikatorów bazowych lub wag głosowania dla specyfiki embeddingów \textbf{RoBERTa}, co uniemożliwiło jej pełne wykorzystanie potencjału ensemble w trybie one-shot.
-	      \end{itemize}
-
-	\item \textbf{Wykres dolny (SBERT):}
-	      \begin{itemize}
-		      \item Większość metod osiągnęła ROC-AUC na poziomie 1.0, w tym \texttt{Metoda17}, \texttt{Metoda19} oraz \texttt{Metoda20}, z wyjątkiem \texttt{Metoda4} i \texttt{Metoda18}. Ten wynik potwierdza, że embeddingi \textbf{SBERT} są wysoce informatywne i ułatwiają klasyfikację dla większości algorytmów w trybie one-shot, dzięki zdolności do tworzenia spójnych i łatwo separowalnych reprezentacji semantycznych, nawet przy pojedynczym przykładzie.
-		      \item Najgorsze rezultaty zaobserwowano dla \texttt{Metoda4} (0.50). Niska wartość ROC-AUC dla tej metody, pomimo ogólnie doskonałych wyników dla \textbf{SBERT}, jest zaskakująca. \texttt{Metoda4}, oparta na zespole sieci \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, mogła mieć trudności z optymalizacją w trybie one-shot, gdzie pojedynczy przykład uniemożliwia skuteczne trenowanie tak złożonej architektury, skutkując słabą zdolnością do rozróżniania klas.
+		      \item \textbf{Metoda4} (0.5 dla \textbf{SBERT}) osiąga najniższą wartość, co sugeruje poważne problemy z architekturą opartą na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, która nie wykorzystuje potencjału osadzeń \textbf{SBERT} w trybie one-shot.
 	      \end{itemize}
 \end{itemize}
-
-Analiza ROC-AUC dla trybu one-shot pokazuje, że \textbf{BERT} i \textbf{SBERT} umożliwiają wysokie wyniki dla wielu metod, z perfekcyjnymi rezultatami dla \texttt{Metoda12-rf} i \texttt{Metoda14} w przypadku \textbf{BERT} oraz większości metod dla \textbf{SBERT}. \textbf{RoBERTa} wymaga lepszej optymalizacji dla niektórych metod, takich jak \texttt{Metoda17}, ale \texttt{Metoda16} i \texttt{Metoda19} osiągają doskonałe wyniki. \texttt{Metoda19} wyróżnia się dla \textbf{RoBERTa} i \textbf{SBERT}, a \texttt{Metoda17} i \texttt{Metoda20} dla \textbf{SBERT}, co podkreśla potencjał elastycznych modeli ensemble. Słabe wyniki \texttt{Metoda4} dla \textbf{SBERT} oraz \texttt{Metoda16} dla \textbf{BERT} wskazują na konieczność precyzyjnej optymalizacji hiperparametrów i dostosowania architektury modelu do specyfiki embeddingu i wyzwań one-shot learningu.
 
 \begin{table}[H]
 	\centering
 	\caption{Wartości obszaru pod krzywą ROC dla zestawu WELFake w trybie one-shot.}
-	\label{tab:roc_auc_welfake_one_shot}
+	\label{tab:roc_auc_one_shot_welfake}
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
+		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & 0.76          & 0.72             & 1.0            \\
-		metoda1-2         & 0.76          & 0.72             & 0.96           \\
-		metoda1-3         & 0.68          & 0.72             & 1.0            \\
-		metoda1-4         & 0.76          & 0.72             & 1.0            \\
-		metoda1-5         & 0.68          & 0.72             & 1.0            \\
-		metoda10          & 0.80          & 0.84             & 1.0            \\
-		metoda11          & 0.80          & 0.68             & 1.0            \\
-		metoda12-catboost & 0.86          & 0.70             & 1.0            \\
-		metoda12-rf       & 1.0           & 0.82             & 1.0            \\
-		metoda13          & 0.80          & 0.88             & 1.0            \\
-		metoda14          & 1.0           & 0.96             & 1.0            \\
-		metoda15          & 0.68          & 0.80             & 1.0            \\
-		metoda16          & 0.56          & 1.0              & 1.0            \\
-		metoda17          & 0.72          & 0.60             & 1.0            \\
-		metoda18          & 0.84          & 0.76             & 0.96           \\
-		metoda19          & 0.84          & 1.0              & 1.0            \\
-		metoda2           & 0.68          & 0.80             & 1.0            \\
-		metoda20          & 0.68          & 0.80             & 1.0            \\
-		metoda3           & 0.68          & 0.80             & 0.96           \\
-		metoda4           & 0.68          & 0.80             & 0.50           \\
-		metoda5           & 0.88          & 0.92             & 1.0            \\
-		metoda6           & 0.68          & 0.80             & 1.0            \\
-		metoda7           & 0.72          & 0.80             & 1.0            \\
-		metoda8           & 0.68          & 0.80             & 1.0            \\
-		metoda9           & 0.88          & 0.88             & 1.0            \\
+		metoda1-1         & 1.0           &   0              & 1.0            \\
+		metoda1-2         & 1.0           &   0              & 1.0            \\
+		metoda1-3         & 1.0           &   0              & 1.0            \\
+		metoda1-4         & 1.0           &   0              & 1.0            \\
+		metoda1-5         & 1.0           &   0              & 1.0            \\
+		metoda10          & 1.0           &   0              & 1.0            \\
+		metoda11          & 1.0           &   0              & 1.0            \\
+		metoda12-catboost & 1.0           &   0              & 1.0            \\
+		metoda12-rf       & 1.0           & 1.0              & 1.0            \\
+		metoda13          & 1.0           & 1.0              & 1.0            \\
+		metoda14          & 1.0           & 1.0              & 1.0            \\
+		metoda15          & 1.0           &   0              & 1.0            \\
+		metoda16          & 1.0           & 1.0              & 1.0            \\
+		metoda17          & 1.0           & 1.0              & 1.0            \\
+		metoda18          & 1.0           & 1.0              & 1.0            \\
+		metoda19          & 1.0           &   0              & 1.0            \\
+		metoda2           & 1.0           &   0              & 1.0            \\
+		metoda20          & 1.0           &   0              & 1.0            \\
+		metoda3           & 1.0           &   0              & 1.0            \\
+		metoda4           & 1.0           &   0              & 0.5            \\
+		metoda5           & 1.0           & 1.0              & 1.0            \\
+		metoda6           & 1.0           &   0              & 1.0            \\
+		metoda7           & 1.0           &   0              & 1.0            \\
+		metoda8           & 1.0           &   0              & 1.0            \\
+		metoda9           & 1.0           & 1.0              & 1.0            \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \subsubsection{Czas wykonania}
-Wykres liniowy \textbf{Czasu wykonania (Execution Time)} \ref{fig:welfake_one_shot_prcurve} przedstawia porównanie czasu potrzebnego na wykonanie predykcji przez poszczególne metody dla różnych embeddingów językowych. Na podstawie wykresów i danych z tabeli \ref{tab:execution_time_welfake_one_shot} można sformułować następujące obserwacje dotyczące efektywności czasowej oraz przyczyn zróżnicowania wyników, z uwzględnieniem zmienności wydajności metod w porównaniu do wcześniejszych eksperymentów:
+Tabela \ref{tab:execution_time_one_shot_welfake} przedstawia czasy wykonania predykcji. Analiza wyników pozwala na sformułowanie następujących wniosków:
 
 \begin{itemize}
-	\item \textbf{Wykres górny (BERT):}
+	\item \textbf{Najlepsze wyniki:}
 	      \begin{itemize}
-		      \item Najdłuższy czas wykonania odnotowano dla \texttt{Metoda14} (1203.618 s), \texttt{Metoda16} (1120.524 s) oraz \texttt{Metoda9} (722.050 s). \texttt{Metoda14}, będąca modelem zespołowym stacking z \textbf{Random Forest}, \textbf{AdaBoost} i \textbf{SVC}, oraz \texttt{Metoda16}, oparta na stacking z meta-klasyfikatorem \textbf{Regresji Logistycznej}, są czasochłonne z powodu złożonych operacji na meta-cechach i wielokrotnego trenowania modeli bazowych. \texttt{Metoda9}, wykorzystująca iteracyjne algorytmy ensemble (\textbf{Bagging}, \textbf{AdaBoost}) oraz kosztowne operacje \textbf{KNN}, wymaga znacznego czasu obliczeń na danych \textbf{BERT}. Czasy te są wyższe niż w trybie few-shot WELFake (np. 465.749 s dla \texttt{Metoda14}), co sugeruje większą liczbę próbek lub bardziej złożoną strukturę danych w trybie one-shot.
-		      \item Najkrótszy czas wykonania miały \texttt{Metoda10} (1.427 s), \texttt{Metoda7} (3.088 s) oraz \texttt{Metoda18} (16.284 s). \texttt{Metoda10} i \texttt{Metoda7}, oparte na zoptymalizowanych modelach \textbf{Gradient Boosting} i \textbf{VotingClassifier}, osiągają wysoką efektywność dzięki prostocie i ograniczonej liczbie estymatorów. \texttt{Metoda18}, będąca modelem stackingowym z \textbf{Gradient Boosting} i \textbf{CatBoost}, jest szybsza dzięki zoptymalizowanemu przetwarzaniu cech \textbf{BERT}, co jest spójne z wynikami dla trybu few-shot.
+		      \item \textbf{Uczenie wzmacniające}: \textbf{metoda10} (3.268 s dla \textbf{BERT}, 1.334 s dla \textbf{RoBERTa}, 65.474 s dla \textbf{SBERT}) oraz \textbf{metoda7} (1.983 s dla \textbf{BERT}, 1.293 s dla \textbf{RoBERTa}, 14.441 s dla \textbf{SBERT}) osiągają najkrótsze czasy dzięki zoptymalizowanym modelom \textbf{Gradient Boosting} i \textbf{VotingClassifier} z ograniczoną liczbą estymatorów, co redukuje obciążenie obliczeniowe.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda19} (28.988 s dla \textbf{BERT}, 23.313 s dla \textbf{RoBERTa}, 203.505 s dla \textbf{SBERT}) oraz \textbf{metoda5} (20.882 s dla \textbf{BERT}, 17.385 s dla \textbf{RoBERTa}, 190.299 s dla \textbf{SBERT}) wyróżniają się dzięki efektywnemu połączeniu modeli bazowych z meta-modelem \textbf{regresji logistycznej}, co minimalizuje czas obliczeń.
+		      \item \textbf{Metoda12-rf} (18.889 s dla \textbf{BERT}, 15.704 s dla \textbf{RoBERTa}, 166.457 s dla \textbf{SBERT}) osiąga krótkie czasy dzięki prostocie algorytmu \textbf{losowego lasu} zoptymalizowanego pod kątem trybu one-shot.
 	      \end{itemize}
-
-	\item \textbf{Wykres środkowy (RoBERTa):}
+	\item \textbf{Najgorsze wyniki:}
 	      \begin{itemize}
-		      \item Najwięcej czasu zajęły \texttt{Metoda16} (1089.022 s), \texttt{Metoda14} (573.769 s) oraz \texttt{Metoda9} (376.510 s). \texttt{Metoda16} i \texttt{Metoda14} wymagają długiego czasu z powodu złożonych operacji stackingowych i trenowania modeli bazowych na danych \textbf{RoBERTa}. \texttt{Metoda9} jest czasochłonna z powodu iteracyjnych algorytmów ensemble i kosztownych operacji \textbf{KNN}. Czasy te są wyższe niż w trybie few-shot WELFake (np. 353.404 s dla \texttt{Metoda9}), co może wynikać z większej liczby próbek lub bardziej złożonej struktury danych \textbf{RoBERTa} w trybie one-shot.
-		      \item Najkrótszy czas wykonania miały \texttt{Metoda7} (1.470 s), \texttt{Metoda10} (1.810 s) oraz \texttt{Metoda12-rf} (6.951 s). \texttt{Metoda7} i \texttt{Metoda10}, oparte na prostych modelach \textbf{VotingClassifier} i \textbf{Gradient Boosting}, osiągają wysoką efektywność dzięki minimalizacji operacji obliczeniowych. \texttt{Metoda12-rf}, oparta na \textbf{Random Forest}, jest szybka dzięki prostocie algorytmu, co jest zgodne z wynikami dla trybu few-shot.
-	      \end{itemize}
-
-	\item \textbf{Wykres dolny (SBERT):}
-	      \begin{itemize}
-		      \item Najdłuższy czas działania osiągnęły \texttt{Metoda9} (4997.613 s), \texttt{Metoda14} (2776.687 s), \texttt{Metoda4} (2361.724 s) oraz \texttt{Metoda16} (1830.296 s). \texttt{Metoda9} jest wyjątkowo czasochłonna z powodu iteracyjnych algorytmów ensemble i operacji \textbf{KNN} na dużych danych \textbf{SBERT}. \texttt{Metoda14} i \texttt{Metoda16} wymagają długiego czasu z powodu złożonych operacji stackingowych, a \texttt{Metoda4}, oparta na \textbf{Bi-LSTM}, \textbf{CNN} i \textbf{MLP}, jest kosztowna obliczeniowo z powodu głębokich warstw sekwencyjnych i konwolucyjnych. Drastyczny wzrost czasu w porównaniu do trybu few-shot WELFake (np. 4074.060 s dla \texttt{Metoda9}) sugeruje większą liczbę próbek lub wyższą wymiarowość danych \textbf{SBERT} w trybie one-shot.
-		      \item Najkrótszy czas uzyskano dla \texttt{Metoda7} (8.282 s) oraz \texttt{Metoda10} (44.649 s). \texttt{Metoda7}, oparta na prostym \textbf{VotingClassifier} z losowymi podzbiorami drzew, oraz \texttt{Metoda10}, wykorzystująca zoptymalizowany \textbf{Gradient Boosting}, osiągają wysoką efektywność dzięki minimalizacji operacji obliczeniowych i skutecznemu przetwarzaniu cech \textbf{SBERT}. \texttt{Metoda19} (106.659 s) również wykazuje relatywnie krótki czas, co jest spójne z jej efektywnością w trybie few-shot.
+		      \item \textbf{Warstwowe łączenie modeli}: \textbf{metoda14} (2374.905 s dla \textbf{BERT}, 1469.761 s dla \textbf{RoBERTa}, 11969.576 s dla \textbf{SBERT}) oraz \textbf{metoda16} (2207.588 s dla \textbf{BERT}, 1468.490 s dla \textbf{RoBERTa}, 11242.780 s dla \textbf{SBERT}) są ekstremalnie czasochłonne z powodu złożonych operacji na meta-cechach oraz wielokrotnego trenowania modeli bazowych.
+		      \item \textbf{Metoda13} (128.247 s dla \textbf{BERT}, 98.577 s dla \textbf{RoBERTa}, 6549.581 s dla \textbf{SBERT}) wymaga długiego czasu z powodu zastosowania \textbf{SMOTETomek} oraz intensywnych obliczeń na modelach, co znacząco zwiększa rozmiar danych i czas wykonania.
+		      \item \textbf{Metoda3} (5053.132 s dla \textbf{SBERT}) oraz \textbf{metoda4} (1714.632 s dla \textbf{SBERT}) osiągają wyjątkowo długie czasy z powodu złożonych architektur.
+		      \item \textbf{Metoda9} (860.925 s dla \textbf{BERT}, 654.859 s dla \textbf{RoBERTa}, 9097.104 s dla \textbf{SBERT}) jest czasochłonna z powodu iteracyjnych algorytmów (\textbf{Bagging}, \textbf{AdaBoost}) oraz kosztownych operacji \textbf{KNN} na dużych danych.
 	      \end{itemize}
 \end{itemize}
-
-Analiza czasów wykonania dla trybu one-shot pokazuje, że złożone modele, takie jak \texttt{Metoda9}, \texttt{Metoda14}, \texttt{Metoda16} oraz \texttt{Metoda4}, są czasochłonne z powodu głębokich sieci, iteracyjnych algorytmów ensemble lub dużej liczby próbek, szczególnie dla \textbf{SBERT}. W porównaniu do trybu few-shot WELFake, czasy dla \textbf{SBERT} są znacząco wyższe, co sugeruje wpływ bardziej złożonych danych. Prostsze metody, takie jak \texttt{Metoda7}, \texttt{Metoda10} i \texttt{Metoda18}, osiągają krótsze czasy dzięki zoptymalizowanym modelom i efektywnemu wykorzystaniu cech, szczególnie dla \textbf{BERT} i \textbf{RoBERTa}. \texttt{Metoda19} wykazuje wysoką efektywność czasową dla \textbf{SBERT}, co potwierdza jej potencjał w trudnych scenariuszach. Zróżnicowanie czasów wykonania podkreśla konieczność dopasowania architektury modelu i optymalizacji hiperparametrów do specyfiki danych i typu embeddingu, aby zrównoważyć skuteczność i efektywność czasową w kontekście datasetu \textbf{WELFake} w trybie one-shot.
 
 \begin{table}[H]
 	\centering
 	\caption{Czas wykonania predykcji w sekundach dla zestawu WELFake w trybie one-shot.}
-	\label{tab:execution_time_welfake_one_shot}
+	\label{tab:execution_time_one_shot_welfake}
 	\small
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
+		\textbf{metoda}   & \textbf{BERT} & \textbf{RoBERTa} & \textbf{SBERT} \\
 		\midrule
-		metoda1-1         & 327.048       & 211.607          & 243.298        \\
-		metoda1-2         & 327.180       & 211.665          & 243.358        \\
-		metoda1-3         & 327.320       & 211.722          & 243.416        \\
-		metoda1-4         & 327.439       & 211.780          & 243.473        \\
-		metoda1-5         & 327.593       & 211.837          & 243.531        \\
-		metoda10          & 1.427         & 1.810            & 44.649         \\
-		metoda11          & 26.933        & 13.417           & 432.499        \\
-		metoda12-catboost & 14.879        & 6.971            & 94.837         \\
-		metoda12-rf       & 14.841        & 6.951            & 94.772         \\
-		metoda13          & 84.667        & 44.329           & 3324.389       \\
-		metoda14          & 1203.618      & 573.769          & 2776.687       \\
-		metoda15          & 484.174       & 140.099          & 548.514        \\
-		metoda16          & 1120.524      & 1089.022         & 1830.296       \\
-		metoda17          & 259.147       & 270.753          & 207.507        \\
-		metoda18          & 16.284        & 12.331           & 539.661        \\
-		metoda19          & 60.082        & 25.758           & 106.659        \\
-		metoda2           & 484.174       & 140.099          & 548.514        \\
-		metoda20          & 484.174       & 140.099          & 548.514        \\
-		metoda3           & 484.174       & 140.099          & 1378.544       \\
-		metoda4           & 484.174       & 140.099          & 2361.724       \\
-		metoda5           & 17.803        & 6.985            & 103.809        \\
-		metoda6           & 484.174       & 140.099          & 548.514        \\
-		metoda7           & 3.088         & 1.470            & 8.282          \\
-		metoda8           & 484.174       & 140.099          & 548.514        \\
-		metoda9           & 722.050       & 376.510          & 4997.613       \\
+		metoda1-1         & 192.363       & 181.455          & 181.700        \\
+		metoda1-2         & 192.421       & 181.503          & 181.752        \\
+		metoda1-3         & 192.478       & 181.555          & 181.805        \\
+		metoda1-4         & 192.542       & 181.605          & 181.858        \\
+		metoda1-5         & 192.596       & 181.655          & 181.911        \\
+		metoda10          & 3.268         & 1.334            & 65.474         \\
+		metoda11          & 30.280        & 22.470           & 789.193        \\
+		metoda12-catboost & 18.905        & 15.715           & 166.472        \\
+		metoda12-rf       & 18.889        & 15.704           & 166.457        \\
+		metoda13          & 128.247       & 98.577           & 6549.581       \\
+		metoda14          & 2374.905      & 1469.761         & 11969.576      \\
+		metoda15          & 566.922       &   0              & 972.617        \\
+		metoda16          & 2207.588      & 1468.490         & 11242.780      \\
+		metoda17          & 129.300       & 94.772           & 116.809        \\
+		metoda18          & 9.407         & 6.279            & 987.411        \\
+		metoda19          & 28.988        & 23.313           & 203.505        \\
+		metoda2           & 566.922       &   0              & 972.617        \\
+		metoda20          & 566.922       &   0              & 972.617        \\
+		metoda3           & 566.922       & 383.194          & 5053.132       \\
+		metoda4           & 566.922       &   0              & 1714.632       \\
+		metoda5           & 20.882        & 17.385           & 190.299        \\
+		metoda6           & 566.922       &   0              & 972.617        \\
+		metoda7           & 1.983         & 1.293            & 14.441         \\
+		metoda8           & 566.922       &   0              & 972.617        \\
+		metoda9           & 860.925       & 654.859          & 9097.104       \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
+\subsection{Analiza statystyczna}
 
+Podobnie jak w analizie dla innych zestawów danych, w testach statystycznych dla zbioru \textbf{WELFake} analizowano indywidualne wartości miar dla każdej metody w trybie \textbf{klasycznym}, bez uśredniania wyników między metodami. Próbki stanowiły wyniki uzyskane dla każdej metody w danym eksperymencie, co umożliwiało bezpośrednie porównanie ich wydajności w kontekście tego samego zestawu danych i różnych osadzeń (\textbf{BERT}, \textbf{RoBERTa}, \textbf{SBERT}). Na przykład, dla metryki \textbf{dokładności} w trybie \textbf{klasycznym}, test \textbf{Kruskal-Wallis} porównywał rozkłady wartości dokładności dla wszystkich metod (\textbf{metoda13}, \textbf{metoda18}) w obrębie jednego typu osadzenia.
 
-\subsection{Dodatkowa analiza wyników dla datasetu WELFake}
+Testy \textbf{Shapiro-Wilk} wykazały, że większość miar ma rozkład normalny, z wyjątkiem \textbf{dokładności} dla \textbf{metoda17}, co sugeruje możliwość odchyleń od normalności dla tej metody. Testy \textbf{Kruskal-Wallis} nie wykazały istotnych statystycznie różnic między metodami dla żadnej miary, przy czym najwyższe wartości p-value uzyskano dla \textbf{F1}. Wynik ten wskazuje, że w trybie \textbf{klasycznym} nie ma statystycznie istotnych różnic w wydajności między metodami, w tym między prostszymi (\textbf{metoda9}) a bardziej złożonymi metodami autorskimi. Brak różnic sugeruje, że w tym scenariuszu prostsze metody mogą być równie skuteczne, choć w trybach \textbf{few-shot} i \textbf{one-shot} metody autorskie wykazują przewagę, co omówiono poniżej.
 
-% Podsekcja dla testów normalności i analiz statystycznych
-\subsubsection{Testy normalności i analizy statystyczne}
-
-% Wyjaśnienie próbek danych użytych w testach
-W testach statystycznych, takich jak \textbf{Kruskal-Wallis} i \textbf{Shapiro-Wilk}, analizowano indywidualne wartości \textbf{miar} (dokładność, precyzja, pełność, F1, obszar pod krzywą ROC, MCC, Kappa Cohena, AUC-PR) dla każdej metody w ramach datasetu \textbf{WELFake}, w trybie \textbf{klasycznym}, bez uśredniania wyników między metodami. Próbki stanowią wyniki uzyskane dla każdej metody w danym eksperymencie, umożliwiając bezpośrednie porównanie ich wydajności w kontekście tego samego datasetu i osadzenia (\textbf{BERT}, \textbf{RoBERTa}, \textbf{SBERT}). Na przykład, dla metryki \textbf{dokładności} w trybie \textbf{klasycznym}, test \textbf{Kruskal-Wallis} porównuje rozkłady wartości dokładności dla wszystkich metod (np. \textbf{Metoda13}, \textbf{Metoda18}) w obrębie jednego typu osadzenia.
-
-% Prezentacja wyników testów normalności
-Testy \textbf{Shapiro-Wilk} wykazały, że większość \textbf{miar} (dokładność, precyzja, pełność, F1, obszar pod krzywą ROC, MCC, Kappa Cohena, AUC-PR) ma rozkład normalny (p-value > 0,05), z wyjątkiem \textbf{dokładności} dla \textbf{Metoda17} (p-value = 0,0065). Testy \textbf{Kruskal-Wallis} nie wykazały istotnych statystycznych różnic między metodami dla żadnej \textbf{miary} (p-value > 0,05), z najwyższym p-value dla \textbf{F1} (0,9669). Wynik ten sugeruje, że w trybie \textbf{klasycznym} prostsze metody, takie jak \textbf{Metoda9}, mogą być równie skuteczne jak bardziej złożone metody autorskie, ale złożone metody oferują przewagę w trudniejszych scenariuszach, takich jak \textbf{few-shot} i \textbf{one-shot}.
-
-% Podsekcja dla analizy korelacji
 \subsubsection{Analiza korelacji}
 
-% Prezentacja wyników analizy korelacji
-Macierze korelacji \textbf{Pearsona} i \textbf{Spearmana} ujawniły silne dodatnie zależności między \textbf{miarami}. Najsilniejsze korelacje w macierzy \textbf{Pearsona} zaobserwowano między \textbf{dokładnością} a \textbf{Kappa Cohena} (0,9990), \textbf{dokładnością} a \textbf{MCC} (0,9972) oraz \textbf{obszarem pod krzywą ROC} a \textbf{AUC-PR} (0,9689). W macierzy \textbf{Spearmana} korelacje te wynoszą odpowiednio 0,9900, 0,9815 oraz 0,9691. Brak silnych ujemnych korelacji wskazuje na zgodność \textbf{miar} w ocenie wydajności modeli.
+Macierze korelacji \textbf{Pearsona} i \textbf{Spearmana} ujawniły silne zależności między miarami, co ułatwia zrozumienie powiązań między różnymi miarami wydajności. Najsilniejsze korelacje dodatnie w macierzy \textbf{Pearsona} zaobserwowano między \textbf{dokładnością} a \textbf{Kappa Cohena}, \textbf{dokładnością} a \textbf{MCC} oraz \textbf{obszarem pod krzywą ROC} a \textbf{AUC-PR}. W macierzy \textbf{Spearmana} korelacje te pozostają bardzo silne, szczególnie między \textbf{dokładnością} a \textbf{Kappa Cohena}, \textbf{dokładnością} a \textbf{MCC} oraz \textbf{obszarem pod krzywą ROC} a \textbf{AUC-PR}. Brak silnych ujemnych korelacji wskazuje na brak wyraźnych kompromisów między miarami, a wysokie korelacje między \textbf{dokładnością}, \textbf{MCC} i \textbf{Kappa Cohena} potwierdzają ich wzajemną zgodność w ocenie wydajności modeli.
 
 \begin{table}[H]
 	\centering
 	\caption{Kluczowe współczynniki korelacji Pearsona.}
 	\label{tab:welfake_pearson_correlations}
-	\begin{tabular}{l r l}
+	\begin{tabular}{l c l}
 		\toprule
-		\textbf{Para metryk}       & \textbf{Współczynnik Pearsona} & \textbf{Interpretacja} \\
+		\textbf{Para metryk}            & \textbf{Współczynnik Pearsona} & \textbf{Interpretacja} \\
 		\midrule
-		Dokładność -- Kappa Cohena & 0.9990                         & Bardzo silna dodatnia  \\
-		Dokładność -- MCC          & 0.9972                         & Bardzo silna dodatnia  \\
-		MCC -- Kappa Cohena        & 0.9969                         & Bardzo silna dodatnia  \\
-		Precyzja -- F1             & 0.7951                         & Silna dodatnia         \\
-		Pełność -- F1              & 0.5878                         & Umiarkowana dodatnia   \\
-		Obszar pod krzywą ROC -- AUC-PR & 0.9689                    & Bardzo silna dodatnia  \\
+		Dokładność -- Kappa Cohena      & Bardzo wysoki                  & Bardzo silna dodatnia  \\
+		Dokładność -- MCC               & Bardzo wysoki                  & Bardzo silna dodatnia  \\
+		MCC -- Kappa Cohena             & Bardzo wysoki                  & Bardzo silna dodatnia  \\
+		Precyzja -- F1                  & Wysoki                         & Silna dodatnia         \\
+		Pełność -- F1                   & Umiarkowany                    & Umiarkowana dodatnia   \\
+		Obszar pod krzywą ROC -- AUC-PR & Bardzo wysoki                  & Bardzo silna dodatnia  \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -625,21 +547,20 @@ Macierze korelacji \textbf{Pearsona} i \textbf{Spearmana} ujawniły silne dodatn
 	\centering
 	\caption{Kluczowe współczynniki korelacji Spearmana.}
 	\label{tab:welfake_spearman_correlations}
-	\begin{tabular}{l r l}
+	\begin{tabular}{l c l}
 		\toprule
-		\textbf{Para metryk}       & \textbf{Współczynnik Spearmana} & \textbf{Interpretacja} \\
+		\textbf{Para metryk}            & \textbf{Współczynnik Spearmana} & \textbf{Interpretacja} \\
 		\midrule
-		Dokładność -- Kappa Cohena & 0.9900                          & Bardzo silna dodatnia  \\
-		Dokładność -- MCC          & 0.9815                          & Bardzo silna dodatnia  \\
-		MCC -- Kappa Cohena        & 0.9707                          & Bardzo silna dodatnia  \\
-		Precyzja -- F1             & 0.6672                          & Silna dodatnia         \\
-		Pełność -- F1              & 0.5145                          & Umiarkowana dodatnia   \\
-		Obszar pod krzywą ROC -- AUC-PR & 0.9691                     & Bardzo silna dodatnia  \\
+		Dokładność -- Kappa Cohena      & Bardzo wysoki                   & Bardzo silna dodatnia  \\
+		Dokładność -- MCC               & Bardzo wysoki                   & Bardzo silna dodatnia  \\
+		MCC -- Kappa Cohena             & Bardzo wysoki                   & Bardzo silna dodatnia  \\
+		Precyzja -- F1                  & Wysoki                          & Silna dodatnia         \\
+		Pełność -- F1                   & Umiarkowany                     & Umiarkowana dodatnia   \\
+		Obszar pod krzywą ROC -- AUC-PR & Bardzo wysoki                   & Bardzo silna dodatnia  \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-% Podsekcja dla wniosków
 \subsubsection{Wnioski}
 
-Analiza wyników dla datasetu \textbf{WELFake} wykazała, że \textbf{Metoda13} osiągnęła najwyższe \textbf{AUC-PR} (0,9556), a wśród metod autorskich \textbf{Metoda18} (0,8932) była najskuteczniejsza. \textbf{Testy Shapiro-Wilk} wskazały, że większość \textbf{miar} ma rozkład normalny, z wyjątkiem \textbf{dokładności} dla \textbf{Metoda17}. \textbf{Testy Kruskal-Wallis} nie wykazały istotnych różnic między metodami w trybie \textbf{klasycznym} (p-value > 0,05), sugerując porównywalną skuteczność prostszych i złożonych metod. Jednak metody autorskie (\textbf{Metoda17}, \textbf{Metoda18}, \textbf{Metoda19}, \textbf{Metoda20}) przewyższają prostsze w trybach \textbf{few-shot} i \textbf{one-shot}, wykazując stabilność i skuteczność. Silne korelacje między \textbf{dokładnością}, \textbf{MCC} i \textbf{Kappa Cohena} potwierdzają spójność tych \textbf{miar} w ocenie wydajności.
+Analiza wyników dla zabioru \textbf{WELFake} wykazała, że \textbf{metoda13} osiągnęła najwyższe wartości dla \textbf{AUC-PR}, a wśród metod autorskich \textbf{metoda18} była najskuteczniejsza. Testy \textbf{Shapiro-Wilk} potwierdziły, że większość miar ma rozkład normalny, z wyjątkiem \textbf{dokładności} dla \textbf{metoda17}. Testy \textbf{Kruskal-Wallis} nie wykazały istotnych różnic między metodami w trybie \textbf{klasycznym}, co sugeruje porównywalną skuteczność prostszych i bardziej złożonych metod. Jednak metody autorskie (\textbf{metoda17}, \textbf{metoda18}, \textbf{metoda19}, \textbf{metoda20}) przewyższają prostsze w trybach \textbf{few-shot} i \textbf{one-shot}, wykazując stabilność i skuteczność. Silne korelacje między \textbf{dokładnością}, \textbf{MCC} i \textbf{Kappa Cohena} potwierdzają spójność tych miar w ocenie wydajności.

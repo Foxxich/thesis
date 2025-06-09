@@ -1,71 +1,80 @@
 \chapter{Podsumowanie}
+Przeprowadzone badania nad detekcją \textbf{fałszywych wiadomości} z wykorzystaniem różnorodnych metod uczenia maszynowego i \textbf{osadzeń semantycznych}, dostarczyły cenne wnioski dotyczące skuteczności poszczególnych podejść w zależności od charakterystyki zbiorów danych oraz trybu uczenia. Analiza wyników dla trzech zbiorów: \textbf{ISOT}, \textbf{WELFake} i \textbf{BuzzFeed} pozwala na sformułowanie kompleksowych wniosków i rekomendacji.
 
-Niniejsza praca magisterska koncentruje się na analizie skuteczności metod uczenia maszynowego w zadaniu wykrywania fałszywych wiadomości na podstawie trzech zbiorów danych: WELFake, ISOT oraz BuzzFeed. Badanie obejmuje zarówno proste modele, jak i zaawansowane techniki ensemble, takie jak VotingClassifier, stacking z CatBoost oraz LightGBM, w połączeniu z nowoczesnymi embeddingami językowymi: BERT, RoBERTa i SBERT. Analiza została przeprowadzona w trzech trybach uczenia: klasycznym, few-shot oraz one-shot, z uwzględnieniem kluczowych metryk, takich jak dokładność (Accuracy), F1-Score oraz ROC-AUC.
+\section{Charakterystyka zbiorów danych}
+Zbiór \textbf{ISOT} okazał się najbardziej odpowiedni do przeprowadzenia testów porównawczych metod detekcji \textbf{fałszywych wiadomości}. Wykazał on najwyższą stabilność wyników i brak znaczących anomalii, co czyni go idealnym punktem odniesienia dla oceny skuteczności różnych podejść metodologicznych. Zbiór ten charakteryzuje się wysoką jakością danych oraz równomiernym rozkładem klas, co przekłada się na wiarygodne i powtarzalne wyniki eksperymentów. W przeciwieństwie do \textbf{ISOT}, zbiory \textbf{WELFake} i \textbf{BuzzFeed} wykazywały większą zmienność wyników, co może wynikać z ich specyficznej struktury i charakterystyki lingwistycznej. Zbiór \textbf{BuzzFeed} charakteryzował się szczególnie wysoką separowalnością klas w trybie \textbf{one-shot}, gdzie wyniki osiągały wartości bliskie 100\% lub 50\%, co sugeruje wyraźną dychotomię w reprezentacji prawdziwych i \textbf{fałszywych wiadomości}.
 
-\section{Główne osiągnięcia}
+\section{Analiza skuteczności osadzeń semantycznych}
+Przeprowadzona analiza wykazała istotne różnice w skuteczności poszczególnych typów osadzeń semantycznych:
 
-Badanie wykazało, że zaawansowane modele ensemble, w szczególności metody 17, 18, 19 i 20, osiągają najwyższą skuteczność w trybie one-shot, zwłaszcza w połączeniu z embeddingami SBERT i RoBERTa. W trybie tym, gdzie dostępny jest tylko jeden przykład na klasę, metody te osiągają niemal perfekcyjne wyniki klasyfikacji, przewyższając wyniki uzyskane w trybach klasycznym i few-shot. Kluczowe wnioski obejmują:
+\subsection{SBERT}
+Osadzenia \textbf{SBERT} konsekwentnie osiągały najwyższe wyniki we wszystkich trybach testowych, szczególnie w scenariuszach z ograniczonymi danymi treningowymi (\textbf{few-shot} i \textbf{one-shot}). W zbiorze \textbf{ISOT} większość metod z osadzeniami \textbf{SBERT} osiągnęła wysoką dokładność 0.87-0.925, z \textbf{metodą19} uzyskującą najwyższy \textbf{obszar pod krzywą ROC} wynoszący 0.979. Podobnie w zbiorze \textbf{WELFake}, osadzenia \textbf{SBERT} zapewniły stabilnie wysokie wyniki, z \textbf{metodą17}, \textbf{metodą18} i \textbf{metodą19} osiągającymi dokładność powyżej 0.87. Przewaga \textbf{SBERT} wynika z jego architektury zaprojektowanej specjalnie do generowania wysokiej jakości reprezentacji semantycznych na poziomie zdań, co jest kluczowe w zadaniach analizy tekstów o różnorodnej długości i strukturze, charakterystycznych dla artykułów. \textbf{SBERT} modeluje najskuteczniejsze osadzenie.
 
+\subsection{RoBERTa}
+Osadzenia \textbf{RoBERTa} wykazywały szczególnie wysoką skuteczność w \textbf{trybie klasycznym}, osiągając porównywalne wyniki w porównaniu do SBERT. W zbiorze \textbf{ISOT} metoda \textbf{Metoda19} z osadzeniami \textbf{RoBERTa} osiągnęła wysoką dokładność dzięki efektywnemu uchwyceniu cech semantycznych. Jednak w trybach z ograniczonymi danymi, textbf{RoBERTa} wykazywała większą wrażliwość na rozmiar zbioru treningowego. \textbf{RoBERTa} posiada wysokie wyniki tylko przy \textbf{trybie klasycznym}.
+
+\subsection{BERT}
+Osadzenia \textbf{BERT}, choć zapewniały stabilne wyniki we wszystkich trybach, nie osiągały najwyższych wartości metryk. W trybie \textbf{one-shot} dla zbioru \textbf{ISOT} większość metod z BERT osiągnęła niskie wyniki (0.45-0.5), co wskazuje na ograniczoną zdolność tego modelu do generalizacji przy minimalnej ilości danych treningowych. \textbf{BERT} jest stabilny, ale cały czas na jego osadzeniach wyniki są zbyt niskie.
+
+\section{Analiza trybów uczenia}
+\subsection{Tryb klasyczny}
+W \textbf{trybie klasycznym} najskuteczniejsze okazały się algorytmy wykorzystujące warstwowe łączenie modeli, szczególnie \textbf{Metoda19}.
+
+\subsection{Tryb few-shot}
+Tryb \textbf{few-shot} wykazał największą wrażliwość na wybór metody i typu osadzeń. Metody autorskie konsekwentnie przewyższały prostsze podejścia, osiągając wysokie wyniki przy ograniczonej ilości danych treningowych. \textbf{Metoda19} osiągnęła szczególnie imponujące wyniki \textbf{obszaru pod krzywą ROC} (0.84-1.0) we wszystkich zbiorach danych.
+
+\subsection{Tryb one-shot}
+Tryb \textbf{one-shot} ujawnił największe różnice między metodami i typami osadzeń. Osadzenia \textbf{SBERT} wykazywały najwyższą skuteczność, z większością metod osiągającą wyniki bliskie perfekcyjnym. \textbf{Metoda19} konsekwentnie osiągała dobrych wyników dla osadzeń \textbf{SBERT, RoBERTa}, co wskazuje na doskonałą rozróżnialność klas.
+
+\section{Propozycje podejścia badawczego}
+\subsection{Optymalna konfiguracja}
+Na podstawie przeprowadzonej analizy, \textbf{optymalna konfiguracja} dla zadań detekcji \textbf{fałszywych wiadomości} składa się z:
+\begin{enumerate}
+	\item \textbf{Osadzenia}: \textbf{SBERT} - zapewniające najwyższą jakość reprezentacji semantycznej;
+	\item \textbf{Tryb}: \textbf{few-shot} - oferujący najlepszy balans między dostępnością danych a skutecznością klasyfikacji;
+	\item \textbf{Metoda}: \textbf{Metoda19} - najskuteczniejsza spośród autorskich algorytmów.
+\end{enumerate}
+
+\subsection{Ranking autorskich algorytmów}
+Analiza skuteczności autorskich algorytmów pozwala na ustalenie następującego rankingu:
+\begin{enumerate}
+	\item \textbf{Metoda19} - najwyższa skuteczność we wszystkich trybach i zbiorach danych
+	      \begin{itemize}
+		      \item ROC-AUC: 0.761-0.979 (ISOT), 0.787-0.952 (WELFake), 0.57-0.92 (BuzzFeed);
+		      \item Konsekwentnie wysokie wyniki \textbf{F1} i \textbf{dokładności};
+		      \item Stabilność w różnych konfiguracjach textbf{osadzeń}.
+	      \end{itemize}
+	\item \textbf{Metoda18} - druga najskuteczniejsza, szczególnie efektywna czasowo
+	      \begin{itemize}
+		      \item Najkrótsze czasy wykonania wśród metod autorskich;
+		      \item Wysokie wyniki AUC-PR w zbiorze \textbf{ISOT};
+		      \item Dobra wydajność w trybach \textbf{few-shot, one-shot}.
+	      \end{itemize}
+	\item \textbf{Metoda17} - najskuteczniejsza w zbiorze \textbf{BuzzFeed}
+	      \begin{itemize}
+		      \item Specjalizacja w specyficznych typach danych;
+		      \item Przewaga w trybach z ograniczonymi danymi.
+	      \end{itemize}
+	\item \textbf{Metoda20} - najsłabsza spośród metod autorskich
+	      \begin{itemize}
+		      \item Nieoptymalny dobór hiperparametrów;
+		      \item Tendencja do przeuczenia w \textbf{trybie klasycznym};
+	      \end{itemize}
+\end{enumerate}
+
+\section{Wnioski końcowe}
+Przeprowadzone badania potwierdzają skuteczność zaproponowanych metod autorskich w zadaniach detekcji \textbf{fałszywych wiadomości}. \textbf{Metoda19} wykazuje najwyższą uniwersalność i skuteczność, szczególnie w połączeniu z osadzeniami \textbf{SBERT} w trybie \textbf{few-shot}. Kluczowe cechy charakterystyczne najskuteczniejszych metod obejmują:
 \begin{itemize}
-	\item \textbf{Wysoka skuteczność w trybie one-shot:} W trybie one-shot metody 17, 18, 19 i 20, w połączeniu z embeddingami SBERT i RoBERTa, osiągają dokładność i F1-Score bliskie 100\% na wszystkich analizowanych zbiorach danych. Na przykład, w zbiorze WELFake metoda 17 z SBERT oraz metoda 19 z BERT osiągają dokładność 100\%, podczas gdy w trybie klasycznym maksymalna dokładność wynosi 95\%.
-	\item \textbf{Znaczenie embeddingów językowych:} Embeddingi SBERT i RoBERTa wykazują wyższą zdolność do generalizacji w porównaniu z BERT, szczególnie w trybie one-shot. Na przykład, w zbiorze ISOT metoda 18 z SBERT osiąga ROC-AUC $\sim$1.0, a metoda 17 z RoBERTa $\sim$0.95.
-	\item \textbf{Wpływ konfiguracji modelu:} Precyzyjne dostrajanie hiperparametrów jest kluczowe dla uzyskania optymalnych wyników. Na przykład, metoda 17 (VotingClassifier) osiąga słabe wyniki dla BERT i RoBERTa w trybie one-shot z powodu nieoptymalnych wag, podczas gdy dla SBERT jest skuteczna.
-	\item \textbf{Separowalność klas:} Wysoka separowalność klas w analizowanych zbiorach danych ułatwia klasyfikację, ale wymaga starannego projektowania modeli, szczególnie w trudniejszych scenariuszach, takich jak tryb one-shot.
-	\item \textbf{Analiza porównawcza:} Systematyczne porównanie metod i embeddingów dostarcza praktycznych wskazówek dotyczących wyboru odpowiednich technik w zależności od dostępnych danych i zasobów obliczeniowych.
+	\item \textbf{Wykorzystanie warstwowego łączenia modeli} dla zwiększenia odporności;
+	\item \textbf{Optymalizację hiperparametrów} dostosowaną do specyfiki zadania;
+	\item \textbf{Adaptacyjność do różnych rozmiarów zbiorów treningowych}
 \end{itemize}
 
-\section{Optymalny tryb uczenia dla metod 17--20}
-
-Po szczegółowej analizie wyników dla zbiorów danych WELFake, ISOT i BuzzFeed, stwierdzono, że tryb one-shot jest optymalnym trybem uczenia dla metod 17, 18, 19 i 20, umożliwiającym osiągnięcie najwyższych wyników w zadaniu wykrywania fałszywych wiadomości. Poniżej przedstawiono szczegółowe wyniki dla każdego zbioru danych:
-
+Negatywne cechy metod o niskiej skuteczności obejmują:
 \begin{itemize}
-	\item \textbf{WELFake:} W trybie one-shot metoda 17 z embeddingiem SBERT oraz metoda 19 z embeddingiem BERT osiągają dokładność 100\% oraz F1-Score 100\%, przewyższając wyniki w trybie klasycznym 95\% i few-shot. Metoda 18 z SBERT również wykazuje wysoką skuteczność, podczas gdy metoda 20 z BERT osiąga dobre wyniki w trybie one-shot, ale jest mniej skuteczna w innych trybach z powodu braku balansowania klas.
-	\item \textbf{ISOT:} W trybie one-shot metoda 18 z SBERT osiąga ROC-AUC $\sim$1.0, a metoda 17 z RoBERTa $\sim$0.95, co wskazuje na doskonałą zdolność rozróżniania klas. Metoda 19 z RoBERTa oraz metoda 20 z BERT osiągają umiarkowane wyniki w trybie one-shot, ale są mniej skuteczne w porównaniu z SBERT.
-	\item \textbf{BuzzFeed:} W trybie one-shot metoda 20 z BERT oraz metoda 19 z RoBERTa osiągają dokładność 100\% oraz F1-Score 100\%, co potwierdza skuteczność tych metod w warunkach ograniczonych danych. Metoda 17 i 18 są mniej skuteczne dla BERT, ale osiągają dobre wyniki z RoBERTa i SBERT.
+	\item \textbf{Złożoną, nieoptymalną architekturę}, tak jak dla kombinacji Bi-LSTM, CNN, MLP;
+	\item \textbf{Problemy z optymalizacją} w scenariuszach z ograniczonymi danymi;
+	\item \textbf{Brak efektywnego wykorzystania} potencjału osadzeń semantycznych.
 \end{itemize}
 
-Tabela \ref{tab:optimal_mode} przedstawia podsumowanie najlepszych wyników uzyskanych w trybie one-shot dla każdego zbioru danych.
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|c|c|}
-		\hline
-		\textbf{Zbiór danych} & \textbf{Metoda} & \textbf{Embedding} & \textbf{Dokładność} & \textbf{F1-Score} & \textbf{ROC-AUC} \\
-		\hline
-		WELFake               & 17              & SBERT              & $\sim$100\%         & $\sim$100\%       & $\sim$1.0        \\
-		WELFake               & 19              & BERT               & $\sim$100\%         & $\sim$100\%       & $\sim$1.0        \\
-		ISOT                  & 18              & SBERT              & Wysoka              & Wysoka            & $\sim$1.0        \\
-		ISOT                  & 17              & RoBERTa            & Wysoka              & Wysoka            & $\sim$0.95       \\
-		BuzzFeed              & 20              & BERT               & 100\%               & 100\%             & Wysoka           \\
-		BuzzFeed              & 19              & RoBERTa            & 100\%               & 100\%             & Wysoka           \\
-		\hline
-	\end{tabular}
-	\caption{Najlepsze wyniki metod 17--20 w trybie one-shot dla różnych zbiorów danych.}
-	\label{tab:optimal_mode}
-\end{table}
-
-\section{Wnioski i znaczenie pracy}
-
-Wyniki badania wskazują, że tryb one-shot, wspierany przez zaawansowane embeddingi językowe, takie jak SBERT i RoBERTa, umożliwia metodom 17, 18, 19 i 20 osiągnięcie wyjątkowej skuteczności w wykrywaniu fałszywych wiadomości, nawet przy minimalnej liczbie danych treningowych. To odkrycie ma istotne znaczenie dla rzeczywistych zastosowań, gdzie dostęp do oznakowanych danych może być ograniczony. Praca wnosi wkład do dziedziny przetwarzania języka naturalnego poprzez:
-
-\begin{itemize}
-	\item \textbf{Kompleksową analizę porównawczą:} Systematyczna ocena różnych metod i embeddingów na trzech różnych zbiorach danych dostarcza praktycznych wskazówek dla badaczy i praktyków w wyborze odpowiednich technik.
-	\item \textbf{Zastosowanie nowoczesnych embeddingów:} Wykorzystanie BERT, RoBERTa i SBERT w różnych trybach uczenia podkreśla ich potencjał w zadaniach wykrywania fałszywych wiadomości.
-	\item \textbf{Wgląd w scenariusze z małą ilością danych:} Badanie pokazuje, że zaawansowane modele ensemble mogą osiągać wysoką skuteczność w trybie one-shot, co jest istotne w warunkach ograniczonych zasobów danych.
-	\item \textbf{Rola konfiguracji modelu:} Wyniki podkreślają konieczność precyzyjnego dostrajania hiperparametrów, aby zmaksymalizować wydajność modeli, szczególnie w trudniejszych scenariuszach uczenia.
-\end{itemize}
-
-\section{Ograniczenia i dalsze kierunki badań}
-
-Pomimo uzyskanych wyników, badanie ma pewne ograniczenia. Analiza koncentruje się na trzech konkretnych zbiorach danych, które mogą nie odzwierciedlać pełnego spektrum rzeczywistych danych. Ponadto, niektóre metody, takie jak metoda 17, wymagałyby dalszej optymalizacji, aby osiągnąć spójne wyniki dla wszystkich embeddingów. W przyszłości badania mogłyby obejmować:
-
-\begin{itemize}
-	\item Testowanie metod na bardziej zróżnicowanych zbiorach danych, w tym na danych wielojęzycznych lub pochodzących z różnych źródeł.
-	\item Rozwój automatycznych technik dostrajania hiperparametrów w celu poprawy wydajności modeli ensemble.
-	\item Integrację nowych embeddingów językowych lub modeli generatywnych, takich jak GPT, w celu dalszego zwiększenia skuteczności.
-	\item Badanie wpływu szumu w danych na wydajność modeli w trybie one-shot.
-\end{itemize}
-
-\section{Podsumowanie}
-
-Niniejsza praca magisterska stanowi istotny krok w kierunku doskonalenia metod wykrywania fałszywych wiadomości poprzez systematyczną ocenę zaawansowanych technik uczenia maszynowego w różnych trybach uczenia. Wyniki wskazują, że tryb one-shot, w połączeniu z potężnymi embeddingami językowymi, takimi jak SBERT i RoBERTa, umożliwia metodom 17, 18, 19 i 20 osiągnięcie najwyższych wyników w zakresie dokładności, F1-Score i ROC-AUC. Te odkrycia podkreślają potencjał tych metod w rzeczywistych zastosowaniach, gdzie dane treningowe mogą być ograniczone, oraz dostarczają praktycznych wskazówek dla dalszych badań w tej dziedzinie.
+Uzyskane wyniki potwierdzają hipotezę badawczą o przewadze metod autorskich nad prostymi podejściami z naukowych artykułów w zadaniach detekcji \textbf{fałszywych wiadomości}, szczególnie w realistycznych scenariuszach z ograniczoną dostępnością danych treningowych. Zbiór \textbf{ISOT} stanowi rekomendowany punkt odniesienia dla przyszłych badań w tej dziedzinie ze względu na swoją stabilność i brak anomalii.

@@ -1,48 +1,48 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
-I found no \citation commands---while reading file thesis.aux
-I found no \bibdata command---while reading file thesis.aux
-I found no \bibstyle command---while reading file thesis.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            83 strings with 486 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Database file #1: bibliography.bib
+You've used 31 entries,
+            2118 wiz_defined-function locations,
+            702 strings with 10034 characters,
+and the built_in function-call counts, 10771 in all, are:
+= -- 1000
+> -- 655
 < -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 267
+- -- 226
+* -- 873
+:= -- 1902
+add.period$ -- 92
+call.type$ -- 31
+change.case$ -- 206
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 31
+duplicate$ -- 331
+empty$ -- 737
+format.name$ -- 226
+if$ -- 2138
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+int.to.str$ -- 31
+missing$ -- 30
+newline$ -- 157
+num.names$ -- 62
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 175
 quote$ -- 0
-skip$ -- 0
+skip$ -- 227
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 603
+swap$ -- 31
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 124
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+while$ -- 89
+width$ -- 33
+write$ -- 338
