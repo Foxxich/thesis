@@ -82,7 +82,7 @@
 \contentsline {subsection}{\numberline {4.3.3\relax .\enspace }Warstwa Oceny Wyników}{66}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4\relax .\enspace }Warstwa Wizualizacji}{67}{subsection.4.3.4}%
 \contentsline {chapter}{\numberline {5\relax .\enspace }Badania eksperymentalne}{68}{chapter.5}%
-\contentsline {section}{\numberline {5.1\relax .\enspace }Analiza wyników dla datasetu \textbf {BuzzFeed}}{68}{section.5.1}%
+\contentsline {section}{\numberline {5.1\relax .\enspace }Analiza wyników dla datasetu \textbf {BuzzFeed}}{69}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1\relax .\enspace }Wyniki w trybie klasycznym}{69}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2\relax .\enspace }Wyniki w trybie few-shot}{75}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.1.3\relax .\enspace }Wyniki w trybie one-shot}{82}{subsection.5.1.3}%

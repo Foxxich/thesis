@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  9 JUN 2025 01:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  9 JUN 2025 02:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1553,21 +1553,21 @@ Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_
 <img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png, id=1218, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>
-Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png  used on input line 376.
+Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png  used on input line 373.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[84]
+[84 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>]
 
-[85 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>]
-
-[86]
-<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png, id=1237, 568.0422pt x 539.1342pt>
+[85]
+<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png, id=1232, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>
-Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png  used on input line 411.
+Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png  used on input line 408.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
+
+[86]
 
 [87 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>]
 
@@ -2018,7 +2018,7 @@ Dodatek A.
 [168
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20250609011349 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+runsystem(latexminted cleantemp  --timestamp 20250609020349 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -2047,7 +2047,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  123i,11n,121p,1698b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (173 pages, 12465920 bytes).
+Output written on thesis.pdf (173 pages, 12464307 bytes).
 PDF statistics:
  1966 PDF objects out of 2073 (max. 8388607)
  526 named destinations out of 1000 (max. 500000)

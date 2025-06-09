@@ -28,7 +28,7 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie klasycznym.}}{71}{figure.caption.61}%
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie few-shot.}}{77}{figure.caption.67}%
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie few-shot.}}{78}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie \textbf {one-shot}.}}{85}{figure.caption.75}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie \textbf {one-shot}.}}{84}{figure.caption.75}%
 \contentsline {figure}{\numberline {5.6}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie \textbf {one-shot}.}}{87}{figure.caption.77}%
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Histogram rozkładu \textbf {Dokładności (Accuracy)}.}}{95}{figure.caption.88}%
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Histogram rozkładu \textbf {Wyniku F1 (F1-Score)}.}}{98}{figure.caption.90}%
