@@ -3,7 +3,7 @@ W tej sekcji przedstawiam i opisuję analizę wyników uzyskanych dla zbioru dan
 
 \subsection{Wyniki w trybie klasycznym}
 \subsubsection{Dokładność}
-Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_classic_accuracy}) pozwalają przedstawić następujące obserwacje:
+Wykresy słupkowe \textbf{dokładności} na rysunku (\ref{fig:welfake_classic_accuracy}) pozwalają przedstawić następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -33,7 +33,7 @@ Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_classic_accuracy}) po
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe \textbf{miary F1} (\ref{fig:welfake_classic_f1}) przedstawiają rozkład wartości dla wszystkich algorytmów. Na podstawie wykresów można sformułować następujące obserwacje:
+Wykresy słupkowe \textbf{miary F1} na rysunku (\ref{fig:welfake_classic_f1}) przedstawiają rozkład wartości dla wszystkich algorytmów. Na podstawie wykresów można sformułować następujące obserwacje:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -179,7 +179,7 @@ Tabela \ref{tab:execution_time_welfake_classic} przedstawia czasy wykonania pred
 
 \subsection{Wyniki w trybie few-shot}
 \subsubsection{Dokładność}
-Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_few_shot_accuracy}) przedstawiają następujące wnioski:
+Wykresy słupkowe \textbf{dokładności} na rysunku (\ref{fig:welfake_few_shot_accuracy}) prezentują następujące wnioski:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -209,7 +209,7 @@ Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_few_shot_accuracy}) p
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe \textbf{miary F1} (\ref{fig:welfake_few_shot_f1}) ilustrują poniższe zależności:
+Wykresy słupkowe \textbf{miary F1} na rysunku (\ref{fig:welfake_few_shot_f1}) ilustrują poniższe zależności:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -352,7 +352,7 @@ Tabela \ref{tab:execution_time_few_shot_welfake} przedstawia czasy wykonania pre
 
 \subsection{Wyniki w trybie one-shot}
 \subsubsection{Dokładność}
-Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_one_shot_accuracy}) wskazują na następujące fakty:
+Wykresy słupkowe \textbf{dokładności} na rysunku (\ref{fig:welfake_one_shot_accuracy}) wskazują na następujące fakty:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}
@@ -365,7 +365,6 @@ Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_one_shot_accuracy}) w
 	      \begin{itemize}
 		      \item Na wykresie dla osadzeń \textbf{RoBERTa} widoczne jest nietypowe zjawisko - wszystkie przewidywane prawdopodobieństwa koncentrują się wokół wartości 0.5. Może to wskazywać na to, że żaden model nie nauczył się skutecznie rozróżniać klas i waha się w decyzjach, traktując niemal każdy przypadek jako niepewny. Potencjalną przyczyną są źle dobrane hiperparametry: zbyt niski learning rate, problemy z warstwą klasyfikującą, która jest niedostosowana do liczby klas.
 	      \end{itemize}
-
 
 	\item \textbf{Wykres dolny (SBERT):}
 	      \begin{itemize}
@@ -381,7 +380,7 @@ Wykresy słupkowe \textbf{dokładności} (\ref{fig:welfake_one_shot_accuracy}) w
 \end{figure}
 
 \subsubsection{Miara F1}
-Wykresy słupkowe \textbf{miary F1} (\ref{fig:welfake_one_shot_f1}) ujawniają następujące cechy:
+Wykresy słupkowe \textbf{miary F1} na rysunku (\ref{fig:welfake_one_shot_f1}) ujawniają następujące cechy:
 
 \begin{itemize}
 	\item \textbf{Wykres górny (BERT):}

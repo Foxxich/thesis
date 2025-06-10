@@ -63,6 +63,12 @@ Analiza skuteczności autorskich algorytmów pozwala na ustalenie następująceg
 \end{enumerate}
 
 \section{Wnioski końcowe}
+W niniejszej pracy przeprowadzono kompleksowe badania nad wykrywaniem \textbf{fałszywych wiadomości} przy użyciu \textbf{metod zespołowego} uczenia maszynowego. \textbf{Głównym celem} pracy była analiza tradycyjnych technik uczenia maszynowego oraz nowoczesnych metod, ze szczególnym uwzględnieniem badania semantycznych reprezentacji tekstu i wpływu różnych strategii na jakość klasyfikacji. W ramach realizacji tego celu zaimplementowano i przetestowano łącznie \textbf{20 różnych metod}: 16 standardowych podejść zaczerpniętych z literatury naukowej oraz 4 autorskie algorytmy (\textbf{metoda17}, \textbf{metoda18}, \textbf{metoda19}, \textbf{metoda20}).
+
+Wszystkie metody zostały systematycznie ocenione w trzech trybach uczenia: \textbf{klasycznym}, \textbf{few-shot} oraz \textbf{one-shot}, z wykorzystaniem trzech różnych typów osadzeń semantycznych (\textbf{BERT}, \textbf{SBERT}, \textbf{RoBERTa}) na trzech zbiorach danych (\textbf{BuzzFeed}, \textbf{ISOT}, \textbf{WELFake}). Przeprowadzone eksperymenty obejmowały również szczegółowe analizy statystyczne, w tym testy \textbf{Shapiro-Wilka, korelacje Pearsona} i \textbf{Spearmana} oraz testy \textbf{Kruskal-Wallis}, które potwierdziły spójność metryk oraz zbliżoną wydajność metod.
+
+\textbf{Cel pracy został w pełni osiągnięty} - udało się nie tylko opracować zaawansowane eksperymentalne rozwiązania zespołowe wykorzystujące modele semantyczne do przygotowania danych, ale również przeprowadzić kompleksową analizę ich efektywności w kontekście kluczowych miar wydajności: \textbf{dokładności}, \textbf{mairy F1}, \textbf{obszaru pod krzywą ROC} oraz \textbf{czasu wykonania}. Zaproponowane autorskie metody wykazały przewagę nad standardowymi podejściami, szczególnie w realistycznych scenariuszach z ograniczoną dostępnością danych treningowych.
+
 Przeprowadzone badania potwierdzają skuteczność zaproponowanych metod autorskich w zadaniach detekcji \textbf{fałszywych wiadomości}. \textbf{Metoda19} wykazuje najwyższą uniwersalność i skuteczność, szczególnie w połączeniu z osadzeniami \textbf{SBERT} w trybie \textbf{few-shot}. Kluczowe cechy charakterystyczne najskuteczniejszych metod obejmują:
 \begin{itemize}
 	\item \textbf{Wykorzystanie warstwowego łączenia modeli} dla zwiększenia odporności;
@@ -77,4 +83,4 @@ Negatywne cechy metod o niskiej skuteczności obejmują:
 	\item \textbf{Brak efektywnego wykorzystania} potencjału osadzeń semantycznych.
 \end{itemize}
 
-Uzyskane wyniki potwierdzają hipotezę badawczą o przewadze metod autorskich nad prostymi podejściami z naukowych artykułów w zadaniach detekcji \textbf{fałszywych wiadomości}, szczególnie w realistycznych scenariuszach z ograniczoną dostępnością danych treningowych. Zbiór \textbf{ISOT} stanowi rekomendowany punkt odniesienia dla przyszłych badań w tej dziedzinie ze względu na swoją stabilność i brak anomalii.
+Uzyskane wyniki potwierdzają hipotezę badawczą o przewadze metod autorskich nad prostymi podejściami z naukowych artykułów w zadaniach detekcji \textbf{fałszywych wiadomości}, szczególnie w realistycznych scenariuszach z ograniczoną dostępnością danych treningowych. Praktyczne zastosowanie proponowanych metod zostało potwierdzone na benchmarkowych zbiorach danych, co wzbogaca wiedzę teoretyczną oraz dostarcza praktyczne narzędzia dla badań naukowych. Zbiór \textbf{ISOT} stanowi rekomendowany punkt odniesienia dla przyszłych badań w tej dziedzinie ze względu na swoją stabilność i brak anomalii.

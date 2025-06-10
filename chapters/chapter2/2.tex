@@ -36,7 +36,7 @@ poprawiając stabilność wyników.
 \subsubsection{Uczenie wzmacniające (boosting)}
 \textbf{Uczenie wzmacniające (boosting)} to metoda polegająca na iteracyjnym trenowaniu modeli, gdzie
 każdy kolejny model skupia się na przykładach trudnych do
-sklasyfikowania przez poprzedników. W artykule \cite{metoda8} podkreślono, że ten proces umożliwia tworzenie klasyfikatorów zdolnych do rozwiązywania bardziej złożonych problemów.
+sklasyfikowania przez poprzednie modele. W artykule \cite{metoda8} podkreślono, że ten proces umożliwia tworzenie klasyfikatorów zdolnych do rozwiązywania bardziej złożonych problemów.
 
 Przykładem jest \textbf{AdaBoost}, który nadaje większe wagi błędnie
 sklasyfikowanym przykładom w kolejnych iteracjach, minimalizując funkcję
@@ -52,11 +52,11 @@ wejściowych.
 \subsection{Skuteczność technik}
 \subsubsection{Agregacja metodą bootstrap (bagging)}
 \textbf{Agregacja metodą bootstrap (bagging)} zwiększa stabilność modeli w sytuacjach, gdy dane są niestabilne
-lub różnorodne - co jest powszechne w zadaniach wykrywania \textbf{fałszywych nowości}.
+lub różnorodne, co jest powszechne w zadaniach wykrywania \textbf{fałszywych nowości}.
 Przykładem jest \textbf{Losowy las}, który dzięki losowemu wyborowi podzbiorów
 cech i danych jest odporny na przetrenowanie, co pozwala mu skutecznie
 radzić sobie z różnymi rodzajami tekstów. Redukcja wariancji umożliwia bardziej spójne
-klasyfikowanie nawet w przypadku danych zawierających subtelne różnice.
+klasyfikowanie nawet w przypadku danych zawierających istotne różnice.
 
 \subsubsection{Uczenie wzmacniające (boosting)}
 \textbf{Uczenie wzmacniające (boosting)} koncentruje się na trudno klasyfikowalnych przykładach, które

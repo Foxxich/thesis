@@ -817,13 +817,6 @@ INPUT .\thesis.lof
 INPUT .\thesis.lof
 INPUT thesis.lof
 OUTPUT thesis.lof
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmr.tfm
-INPUT C:\Users\Vadym\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ec-qtmb.tfm
-INPUT .\chapters\appendix1.tex
-INPUT .\chapters\appendix1.tex
-INPUT .\chapters\appendix1.tex
-INPUT .\chapters\appendix1.tex
-INPUT chapters\appendix1.tex
 INPUT thesis.aux
 INPUT .\thesis.out
 INPUT .\thesis.out

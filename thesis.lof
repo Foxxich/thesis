@@ -3,45 +3,45 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Schemat metody 15.}}{20}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Schemat metody 2.}}{22}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Schemat metody 3.}}{24}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Schemat metody 5.}}{26}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Porównanie dokładności dla zbioru ISOT Fake News Dataset.}}{42}{figure.caption.42}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Porównanie precyzji dla zbioru ISOT Fake News Dataset.}}{43}{figure.caption.43}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Porównanie czułości dla zbioru ISOT Fake News Dataset.}}{44}{figure.caption.44}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Porównanie miary F1 dla zbioru ISOT Fake News Dataset.}}{44}{figure.caption.45}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Porównanie straty logarytmicznej dla zbioru ISOT Fake News Dataset.}}{45}{figure.caption.46}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Porównanie współczynnika korelacji Matthewsa dla zbioru ISOT Fake News Dataset.}}{46}{figure.caption.47}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Porównanie obszaru pod krzywą ROC dla zbioru ISOT Fake News Dataset.}}{46}{figure.caption.48}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Porównanie współczynnik Kappa Cohena dla zbioru ISOT Fake News Dataset.}}{47}{figure.caption.49}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Porównanie czasu wykonania dla zbioru ISOT Fake News Dataset.}}{48}{figure.caption.50}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Schemat metody 2.}}{21}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Schemat metody 3.}}{23}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Schemat metody 5.}}{25}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Porównanie dokładności dla zbioru ISOT Fake News Dataset.}}{41}{figure.caption.41}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Porównanie precyzji dla zbioru ISOT Fake News Dataset.}}{42}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Porównanie czułości dla zbioru ISOT Fake News Dataset.}}{43}{figure.caption.43}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Porównanie miary F1 dla zbioru ISOT Fake News Dataset.}}{43}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Porównanie straty logarytmicznej dla zbioru ISOT Fake News Dataset.}}{44}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Porównanie współczynnika korelacji Matthewsa dla zbioru ISOT Fake News Dataset.}}{45}{figure.caption.46}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Porównanie obszaru pod krzywą ROC dla zbioru ISOT Fake News Dataset.}}{45}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Porównanie współczynnik Kappa Cohena dla zbioru ISOT Fake News Dataset.}}{46}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Porównanie czasu wykonania dla zbioru ISOT Fake News Dataset.}}{47}{figure.caption.49}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Schemat metody 17.}}{52}{figure.caption.52}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Schemat metody 18.}}{55}{figure.caption.53}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Schemat metody 19.}}{58}{figure.caption.54}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Schemat metody 20.}}{61}{figure.caption.55}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Schemat metody 17.}}{51}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Schemat metody 18.}}{54}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Schemat metody 19.}}{57}{figure.caption.53}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Schemat metody 20.}}{60}{figure.caption.54}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram architektury systemu.}}{65}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Przykładowe uruchomienie aplikacji.}}{66}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagram architektury systemu.}}{64}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Przykładowe uruchomienie aplikacji.}}{65}{figure.caption.56}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Wykresy słupkowe dokładności dla zestawu BuzzFeed w trybie klasycznym.}}{70}{figure.caption.59}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie klasycznym.}}{71}{figure.caption.61}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie few-shot.}}{77}{figure.caption.67}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie few-shot.}}{78}{figure.caption.69}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie one-shot.}}{84}{figure.caption.75}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie one-shot.}}{86}{figure.caption.77}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu ISOT w trybie klasycznym.}}{94}{figure.caption.87}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu ISOT w trybie klasycznym.}}{96}{figure.caption.89}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu ISOT w trybie few-shot.}}{102}{figure.caption.95}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu ISOT w trybie few-shot.}}{103}{figure.caption.97}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu ISOT w trybie one-shot.}}{109}{figure.caption.103}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu ISOT w trybie one-shot.}}{110}{figure.caption.105}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie klasycznym.}}{118}{figure.caption.115}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie klasycznym.}}{120}{figure.caption.117}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie few-shot.}}{125}{figure.caption.123}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{127}{figure.caption.125}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie one-shot.}}{133}{figure.caption.131}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{135}{figure.caption.133}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Wykresy słupkowe dokładności dla zestawu BuzzFeed w trybie klasycznym.}}{69}{figure.caption.58}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie klasycznym.}}{70}{figure.caption.60}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie few-shot.}}{76}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie few-shot.}}{78}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu BuzzFeed w trybie one-shot.}}{84}{figure.caption.74}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu BuzzFeed w trybie one-shot.}}{86}{figure.caption.76}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu ISOT w trybie klasycznym.}}{94}{figure.caption.86}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu ISOT w trybie klasycznym.}}{96}{figure.caption.88}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu ISOT w trybie few-shot.}}{102}{figure.caption.94}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu ISOT w trybie few-shot.}}{103}{figure.caption.96}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu ISOT w trybie one-shot.}}{109}{figure.caption.102}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu ISOT w trybie one-shot.}}{110}{figure.caption.104}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie klasycznym.}}{118}{figure.caption.114}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie klasycznym.}}{120}{figure.caption.116}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie few-shot.}}{125}{figure.caption.122}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{127}{figure.caption.124}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Wykresy słupkowe rozkładu dokładności dla zestawu WELFake w trybie one-shot.}}{133}{figure.caption.130}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Wykresy słupkowe rozkładu miary F1 dla zestawu WELFake w trybie one-shot.}}{135}{figure.caption.132}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
