@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  10 JUN 2025 21:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.17)  12 JUN 2025 00:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1297,144 +1297,150 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--93
 \T1/qtm/m/n/12 (+20) wpro-wa-dza¢
  []
 
-) (chapters/chapter2/9.tex
 
-[37]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[37]) (chapters/chapter2/9.tex
 
 [38]
 
 [39]) (chapters/chapter2/10.tex
 
 [40]
-<img/best_results/best_Accuracy_comparison.png, id=895, 722.7pt x 433.62pt>
+<img/best_results/best_Accuracy_comparison.png, id=901, 722.7pt x 433.62pt>
 File: img/best_results/best_Accuracy_comparison.png Graphic file (type png)
 <use img/best_results/best_Accuracy_comparison.png>
 Package pdftex.def Info: img/best_results/best_Accuracy_comparison.png  used on input line 16.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
-<img/best_results/best_Precision_comparison.png, id=897, 722.7pt x 433.62pt>
+
+
+[41]
+<img/best_results/best_Precision_comparison.png, id=908, 722.7pt x 433.62pt>
 File: img/best_results/best_Precision_comparison.png Graphic file (type png)
 <use img/best_results/best_Precision_comparison.png>
 Package pdftex.def Info: img/best_results/best_Precision_comparison.png  used on input line 26.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
 
 
-[41 <./img/best_results/best_Accuracy_comparison.png>]
-<img/best_results/best_Recall_comparison.png, id=905, 722.7pt x 433.62pt>
+[42 <./img/best_results/best_Accuracy_comparison.png> <./img/best_results/best_Precision_comparison.png>]
+<img/best_results/best_Recall_comparison.png, id=917, 722.7pt x 433.62pt>
 File: img/best_results/best_Recall_comparison.png Graphic file (type png)
 <use img/best_results/best_Recall_comparison.png>
 Package pdftex.def Info: img/best_results/best_Recall_comparison.png  used on input line 44.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
-
-
-[42 <./img/best_results/best_Precision_comparison.png>]
-<img/best_results/best_F1-Score_comparison.png, id=913, 722.7pt x 433.62pt>
+<img/best_results/best_F1-Score_comparison.png, id=919, 722.7pt x 433.62pt>
 File: img/best_results/best_F1-Score_comparison.png Graphic file (type png)
 <use img/best_results/best_F1-Score_comparison.png>
 Package pdftex.def Info: img/best_results/best_F1-Score_comparison.png  used on input line 53.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
-<img/best_results/best_Log Loss_comparison.png, id=915, 722.7pt x 433.62pt>
+
+
+[43 <./img/best_results/best_Recall_comparison.png>]
+<img/best_results/best_Log Loss_comparison.png, id=928, 722.7pt x 433.62pt>
 File: img/best_results/best_Log Loss_comparison.png Graphic file (type png)
 <use img/best_results/best_Log Loss_comparison.png>
 Package pdftex.def Info: img/best_results/best_Log Loss_comparison.png  used on input line 62.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
-
-
-[43 <./img/best_results/best_Recall_comparison.png> <./img/best_results/best_F1-Score_comparison.png>]
-<img/best_results/best_MCC_comparison.png, id=924, 722.7pt x 433.62pt>
+<img/best_results/best_MCC_comparison.png, id=930, 722.7pt x 433.62pt>
 File: img/best_results/best_MCC_comparison.png Graphic file (type png)
 <use img/best_results/best_MCC_comparison.png>
 Package pdftex.def Info: img/best_results/best_MCC_comparison.png  used on input line 72.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
 
 
-[44 <./img/best_results/best_Log Loss_comparison.png>]
-<img/best_results/best_ROC-AUC_comparison.png, id=934, 722.7pt x 433.62pt>
+[44 <./img/best_results/best_F1-Score_comparison.png> <./img/best_results/best_Log Loss_comparison.png>]
+<img/best_results/best_ROC-AUC_comparison.png, id=940, 722.7pt x 433.62pt>
 File: img/best_results/best_ROC-AUC_comparison.png Graphic file (type png)
 <use img/best_results/best_ROC-AUC_comparison.png>
 Package pdftex.def Info: img/best_results/best_ROC-AUC_comparison.png  used on input line 82.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
 
 
-[45 <./img/best_results/best_MCC_comparison.png> <./img/best_results/best_ROC-AUC_comparison.png>]
-<img/best_results/best_Cohen's Kappa_comparison.png, id=943, 722.7pt x 433.62pt>
+[45 <./img/best_results/best_MCC_comparison.png>]
+<img/best_results/best_Cohen's Kappa_comparison.png, id=949, 722.7pt x 433.62pt>
 File: img/best_results/best_Cohen's Kappa_comparison.png Graphic file (type png)
 <use img/best_results/best_Cohen's Kappa_comparison.png>
 Package pdftex.def Info: img/best_results/best_Cohen's Kappa_comparison.png  used on input line 97.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
-<img/best_results/best_Execution Time (s)_comparison.png, id=945, 722.7pt x 433.62pt>
+
+
+[46 <./img/best_results/best_ROC-AUC_comparison.png>]
+<img/best_results/best_Execution Time (s)_comparison.png, id=957, 722.7pt x 433.62pt>
 File: img/best_results/best_Execution Time (s)_comparison.png Graphic file (type png)
 <use img/best_results/best_Execution Time (s)_comparison.png>
 Package pdftex.def Info: img/best_results/best_Execution Time (s)_comparison.png  used on input line 107.
 (pdftex.def)             Requested size: 384.1096pt x 230.46591pt.
 
 
-[46 <./img/best_results/best_Cohen's Kappa_comparison.png>]
+[47 <./img/best_results/best_Cohen's Kappa_comparison.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )) (chapters/chapter3_Our_Methods.tex (chapters/chapter3/1.tex
 
-[47 <./img/best_results/best_Execution Time (s)_comparison.png>]
+[48 <./img/best_results/best_Execution Time (s)_comparison.png>]
 
-[48]
+[49]
 Rozdzia\PlPrIeC {\l } 3.
 
 
-[49
+[50
 
 ]
-<img/diagrams/metoda17.drawio.png, id=975, 835.12pt x 1086.0575pt>
+<img/diagrams/metoda17.drawio.png, id=987, 835.12pt x 1086.0575pt>
 File: img/diagrams/metoda17.drawio.png Graphic file (type png)
 <use img/diagrams/metoda17.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda17.drawio.png  used on input line 61.
 (pdftex.def)             Requested size: 422.52577pt x 549.49045pt.
 
 
-[50]
+[51]
 
-[51 <./img/diagrams/metoda17.drawio.png>]) (chapters/chapter3/2.tex
+[52 <./img/diagrams/metoda17.drawio.png>]) (chapters/chapter3/2.tex
 
-[52]
-<img/diagrams/metoda18.drawio.png, id=1008, 574.145pt x 1076.02pt>
+[53]
+<img/diagrams/metoda18.drawio.png, id=1019, 574.145pt x 1076.02pt>
 File: img/diagrams/metoda18.drawio.png Graphic file (type png)
 <use img/diagrams/metoda18.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda18.drawio.png  used on input line 75.
 (pdftex.def)             Requested size: 298.75264pt x 559.91127pt.
 
 
-[53]
+[54]
 
-[54 <./img/diagrams/metoda18.drawio.png>]) (chapters/chapter3/3.tex
+[55 <./img/diagrams/metoda18.drawio.png>]) (chapters/chapter3/3.tex
 
-[55]
-<img/diagrams/metoda19.drawio.png, id=1041, 885.3075pt x 1276.77pt>
+[56]
+<img/diagrams/metoda19.drawio.png, id=1053, 885.3075pt x 1276.77pt>
 File: img/diagrams/metoda19.drawio.png Graphic file (type png)
 <use img/diagrams/metoda19.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda19.drawio.png  used on input line 72.
 (pdftex.def)             Requested size: 422.52577pt x 609.35538pt.
 
 
-[56]
+[57]
 
-[57 <./img/diagrams/metoda19.drawio.png>]) (chapters/chapter3/4.tex
+[58 <./img/diagrams/metoda19.drawio.png>]) (chapters/chapter3/4.tex
 
-[58]
-<img/diagrams/metoda20.drawio.png, id=1072, 1206.5075pt x 1306.8825pt>
+[59]
+<img/diagrams/metoda20.drawio.png, id=1083, 1206.5075pt x 1306.8825pt>
 File: img/diagrams/metoda20.drawio.png Graphic file (type png)
 <use img/diagrams/metoda20.drawio.png>
 Package pdftex.def Info: img/diagrams/metoda20.drawio.png  used on input line 70.
 (pdftex.def)             Requested size: 426.79135pt x 462.28143pt.
 
 
-[59]
+[60]
 
-[60 <./img/diagrams/metoda20.drawio.png>])) (chapters/chapter4_Implementation.tex
+[61 <./img/diagrams/metoda20.drawio.png>])) (chapters/chapter4_Implementation.tex
 
-[61]
+[62]
 Rozdzia\PlPrIeC {\l } 4.
 
 
-[62
+[63
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 25.
@@ -1445,108 +1451,106 @@ Overfull \hbox (4.21486pt too wide) in paragraph at lines 39--42
 []\T1/qtm/m/n/12 (-20) Umieszczenie da-nych te-sto-wych w od-po-wied-nim pod-fol-de-rze pro-jek-tu: \T1/qtm/b/n/12 (-20) pro-jekt\datasets\
  []
 
-<img/app/SystemArchitecture.png, id=1109, 717.68124pt x 1358.07375pt>
+<img/app/SystemArchitecture.png, id=1120, 717.68124pt x 1358.07375pt>
 File: img/app/SystemArchitecture.png Graphic file (type png)
 <use img/app/SystemArchitecture.png>
 Package pdftex.def Info: img/app/SystemArchitecture.png  used on input line 59.
 (pdftex.def)             Requested size: 256.07741pt x 484.57518pt.
 
 
-[63{C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+[64{C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 
-[64 <./img/app/SystemArchitecture.png (PNG copy)>]
-<img/app/console.png, id=1121, 608.2725pt x 286.82156pt>
+[65 <./img/app/SystemArchitecture.png (PNG copy)>]
+<img/app/console.png, id=1132, 608.2725pt x 286.82156pt>
 File: img/app/console.png Graphic file (type png)
 <use img/app/console.png>
 Package pdftex.def Info: img/app/console.png  used on input line 85.
 (pdftex.def)             Requested size: 304.13551pt x 143.41042pt.
 
 
-[65 <./img/app/console.png>]) (chapters/chapter5_Tests_Results.tex
+[66 <./img/app/console.png>]) (chapters/chapter5_Tests_Results.tex
 
-[66]
+[67]
 Rozdzia\PlPrIeC {\l } 5.
 (chapters/chapter5/1.tex
 
-[67
+[68
 
 ]
-<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png, id=1137, 568.0422pt x 539.1342pt>
+<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png, id=1149, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png  used on input line 28.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[68]
+[69]
 
-[69 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png>]
-<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png, id=1153, 568.0422pt x 539.1342pt>
+[70 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_Accuracy_bar_chart.png>]
+<img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png, id=1164, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png  used on input line 52.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[70 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png>]
-
-[71]
+[71 <./img/stats/BuzzFeed_classic/BuzzFeed_classic_Combined_F1-Score_bar.png>]
 
 [72]
 
 [73]
 
 [74]
-<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png, id=1185, 568.0422pt x 539.1342pt>
+
+[75]
+<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png, id=1196, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png  used on input line 195.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[75]
+[76]
 
-[76 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png, id=1198, 568.0422pt x 539.1342pt>
+[77 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_Accuracy_bar_chart.png>]
+<img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png, id=1209, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png  used on input line 222.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[77]
+[78]
 
-[78 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png>]
-
-[79]
+[79 <./img/stats/BuzzFeed_few_shot/BuzzFeed_few_shot_Combined_F1-Score_bar.png>]
 
 [80]
 
 [81]
 
 [82]
-<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png, id=1234, 568.0422pt x 539.1342pt>
+
+[83]
+<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png, id=1245, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png  used on input line 367.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[83]
+[84]
 
-[84 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png, id=1248, 568.0422pt x 539.1342pt>
+[85 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_Accuracy_bar_chart.png>]
+<img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png, id=1259, 568.0422pt x 539.1342pt>
 File: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png  used on input line 400.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[85]
+[86]
 
-[86 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>]
-
-[87]
+[87 <./img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_F1-Score_bar.png>]
 
 [88]
 
@@ -1554,94 +1558,96 @@ Package pdftex.def Info: img/stats/BuzzFeed_one_shot/BuzzFeed_one_shot_Combined_
 
 [90]
 
-[91]) (chapters/chapter5/2.tex
+[91]
 
-[92]
-<img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png, id=1298, 568.0422pt x 539.1342pt>
+[92]) (chapters/chapter5/2.tex
+
+[93]
+<img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png, id=1309, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png  used on input line 32.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[93]
+[94]
 
-[94 <./img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png>]
-<img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png, id=1311, 568.0422pt x 539.1342pt>
+[95 <./img/stats/ISOT_classic/ISOT_classic_Combined_Accuracy_bar_chart.png>]
+<img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png, id=1322, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png  used on input line 64.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[95]
+[96]
 
-[96 <./img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png>]
-
-[97]
+[97 <./img/stats/ISOT_classic/ISOT_classic_Combined_F1-Score_bar.png>]
 
 [98]
 
 [99]
 
 [100]
-<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png, id=1347, 568.0422pt x 539.1342pt>
+
+[101]
+<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png, id=1358, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png  used on input line 208.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[101]
+[102]
 
-[102 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png, id=1360, 568.0422pt x 539.1342pt>
+[103 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_Accuracy_bar_chart.png>]
+<img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png, id=1371, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png  used on input line 238.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[103 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png>]
-
-[104]
+[104 <./img/stats/ISOT_few_shot/ISOT_few_shot_Combined_F1-Score_bar.png>]
 
 [105]
 
 [106]
 
 [107]
-<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png, id=1392, 568.0422pt x 539.1342pt>
+
+[108]
+<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png, id=1403, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png  used on input line 382.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[108]
+[109]
 
-[109 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png, id=1405, 568.0422pt x 539.1342pt>
+[110 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_Accuracy_bar_chart.png>]
+<img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png, id=1417, 568.0422pt x 539.1342pt>
 File: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png  used on input line 410.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[110 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png>]
+[111 <./img/stats/ISOT_one_shot/ISOT_one_shot_Combined_F1-Score_bar.png>]
 Overfull \hbox (0.86482pt too wide) in paragraph at lines 422--423
 []\T1/qtm/b/n/12 (-20) Modele ze-spo-ªo-we\T1/qtm/m/n/12 (-20) : \T1/qtm/b/n/12 (-20) me-to-da14 \T1/qtm/m/n/12 (-20) (1.0 dla \T1/qtm/b/n/12 (-20) SBERT\T1/qtm/m/n/12 (-20) ) oraz \T1/qtm/b/n/12 (-20) metoda12-rf \T1/qtm/m/n/12 (-20) (1.0 dla \T1/qtm/b/n/12 (-20) SBERT\T1/qtm/m/n/12 (-20) )
  []
 
 
 
-[111]
-
 [112]
 
 [113]
 
 [114]
+
+[115]
 Overfull \hbox (12.12065pt too wide) in paragraph at lines 541--553
  [][] 
  []
@@ -1653,94 +1659,94 @@ Overfull \hbox (23.82066pt too wide) in paragraph at lines 559--571
 
 
 
-[115]) (chapters/chapter5/3.tex
+[116]) (chapters/chapter5/3.tex
 
-[116]
-<img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png, id=1450, 568.0422pt x 539.1342pt>
+[117]
+<img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png, id=1461, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png  used on input line 30.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[117]
+[118]
 Overfull \hbox (7.79854pt too wide) in paragraph at lines 41--42
 []\T1/qtm/m/n/12 (-20) Najwy»sze war-to-±ci \T1/qtm/b/n/12 (-20) mia-ry F1\T1/qtm/m/n/12 (-20) , na po-zio-mie 0.735, osi¡-gn¦-ªy \T1/qtm/b/n/12 (-20) me-to-da15\T1/qtm/m/n/12 (-20) , \T1/qtm/b/n/12 (-20) metoda12-rf\T1/qtm/m/n/12 (-20) ,
  []
 
 
 
-[118 <./img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png>]
-<img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png, id=1463, 568.0422pt x 539.1342pt>
+[119 <./img/stats/WELFake_classic/WELFake_classic_Combined_Accuracy_bar_chart.png>]
+<img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png, id=1474, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png  used on input line 62.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[119]
+[120]
 
-[120 <./img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png>]
-
-[121]
+[121 <./img/stats/WELFake_classic/WELFake_classic_Combined_F1-Score_bar.png>]
 
 [122]
 
 [123]
 
 [124]
-<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png, id=1499, 568.0422pt x 539.1342pt>
+
+[125]
+<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png, id=1510, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png  used on input line 206.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[125 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png, id=1506, 568.0422pt x 539.1342pt>
+[126 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_Accuracy_bar_chart.png>]
+<img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png, id=1517, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png  used on input line 235.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[126]
+[127]
 
-[127 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png>]
-
-[128]
+[128 <./img/stats/WELFake_few_shot/WELFake_few_shot_Combined_F1-Score_bar.png>]
 
 [129]
 
 [130]
 
 [131]
-<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png, id=1544, 568.0422pt x 539.1342pt>
+
+[132]
+<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png, id=1555, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png Graphic file (type png)
 <use img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png>
 Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png  used on input line 377.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[132]
+[133]
 
-[133 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png>]
-<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png, id=1557, 568.0422pt x 539.1342pt>
+[134 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_Accuracy_bar_chart.png>]
+<img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png, id=1569, 568.0422pt x 539.1342pt>
 File: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png Graphic file (type png)
 <use img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png>
 Package pdftex.def Info: img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png  used on input line 406.
 (pdftex.def)             Requested size: 422.52577pt x 401.02615pt.
 
 
-[134]
+[135]
 
-[135 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png>]
-
-[136]
+[136 <./img/stats/WELFake_one_shot/WELFake_one_shot_Combined_F1-Score_bar.png>]
 
 [137]
 
 [138]
+
+[139]
 Overfull \hbox (18.27661pt too wide) in paragraph at lines 537--549
  [][] 
  []
@@ -1752,31 +1758,51 @@ Overfull \hbox (29.97662pt too wide) in paragraph at lines 555--567
 
 
 
-[139])) (chapters/summary.tex
+[140])) (chapters/summary.tex
 
-[140]
+[141]
 Rozdzia\PlPrIeC {\l } 6.
 
 
-[141
+[142
 
 ]
 
-[142]
+[143]
 
-[143]) (thesis.bbl
+[144]) (thesis.bbl
 
-[144]
+[145]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
-[145
+
+[146
 
 ]
+Underfull \hbox (badness 3291) in paragraph at lines 177--182
+[]\T1/qtm/m/n/10.95 (+20) ISOT Re-se-arch Lab.  Isot fa-ke news de-tec-tion da-ta-sets, 2022.  URL: []$\T1/cmtt/m/n/10.95 https :
+ []
 
-[146])
 
-[147] (thesis.lof
+Underfull \hbox (badness 10000) in paragraph at lines 177--182
+\T1/cmtt/m/n/10.95 / / onlineacademiccommunity\OML/cmm/m/it/10.95 :\T1/cmtt/m/n/10.95 uvic\OML/cmm/m/it/10.95 :\T1/cmtt/m/n/10.95 ca / isot / 2022 / 11 / 27 / fake -[] news -[] detection -[]
+ []
 
-[148
+
+
+[147]
+Underfull \hbox (badness 1107) in paragraph at lines 205--210
+[]\T1/qtm/m/n/10.95 (+20) Konrad Ba-na-che-wicz.  Buz-z-fe-ed news 2018-2023 da-ta-set, 2023.  URL: []$\T1/cmtt/m/n/10.95 https : / /
+ []
+
+)
+
+[148] (thesis.lof
+
+[149
 
 ])
 \tf@lof=\write7
@@ -1784,8 +1810,8 @@ Rozdzia\PlPrIeC {\l } 6.
 
 
 
-[149]
-runsystem(latexminted cleantemp  --timestamp 20250610212814 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
+[150]
+runsystem(latexminted cleantemp  --timestamp 20250612001525 2EF71E68B4AD97F630480BCEBC1842FB)...disabled (restricted).
 
  (thesis.aux)
  ***********
@@ -1793,26 +1819,20 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: CD3FB00827B5567FC06F03131D3EF0AF;20431.
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 53 ({)
-### bottom level
-(\end occurred when \ifx on line 53 was incomplete)
-(\end occurred when \ifx on line 53 was incomplete) 
+(rerunfilecheck)             Checksum: B042C59E55FD4857018B2BE58ACB60CA;20411.
+ ) 
 Here is how much of TeX's memory you used:
- 34727 strings out of 473529
- 683614 string characters out of 5714773
- 1354316 words of memory out of 5000000
- 56536 multiletter control sequences out of 15000+600000
- 648849 words of font info for 216 fonts, out of 8000000 for 9000
+ 34761 strings out of 473529
+ 684114 string characters out of 5714773
+ 1354314 words of memory out of 5000000
+ 56545 multiletter control sequences out of 15000+600000
+ 650338 words of font info for 227 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 123i,11n,121p,1698b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
-Output written on thesis.pdf (154 pages, 9422049 bytes).
+ 123i,11n,121p,1698b,741s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Vadym\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmb.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/Vadym/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmri.pfb><./ugmm8a.pfb><./ugmr8a.pfb>
+Output written on thesis.pdf (155 pages, 9449918 bytes).
 PDF statistics:
- 1822 PDF objects out of 2073 (max. 8388607)
- 510 named destinations out of 1000 (max. 500000)
- 28238 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 1896 PDF objects out of 2073 (max. 8388607)
+ 514 named destinations out of 1000 (max. 500000)
+ 28750 words of extra memory for PDF output out of 29859 (max. 10000000)
 

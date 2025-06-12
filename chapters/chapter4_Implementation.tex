@@ -94,8 +94,8 @@ Ocena skuteczności modeli przeprowadzana jest za pomocą funkcji \textbf{evalua
 	\item Precyzję;
 	\item Czułość;
 	\item Miarę F1;
-	\item Obszar pod krzywą precyzja-czułość;
-	\item Obszar pod krzywą ROC;
+	\item Obszar pod krzywą precyzja-czułość (AUC-PR);
+	\item Obszar pod krzywą ROC (ROC-AUC);
 	\item Współczynnik korelacji Matthewsa;
 	\item Logarytmiczną stratę;
 	\item Współczynnik Kappa Cohena.
@@ -106,7 +106,7 @@ Dodatkowo obliczane są metryki walidacji krzyżowej. Wyniki zapisywane są w os
 
 Analiza graficzna wyników realizowana jest przez skrypt \textbf{all\_plots.py}, który przetwarza dane z plików CSV zapisanych w folderach \textbf{results\_X\_Y}. Generowane są:
 \begin{itemize}
-	\item Wykresy słupkowe porównujące metryki, takie jak \textbf{dokładność, czas wykonania, pole pod krzywą ROC} oraz inne, dla wszystkich metod i zbiorów danych.
+	\item Wykresy słupkowe porównujące metryki, takie jak \textbf{dokładność, czas wykonania, obszar pod krzywą ROC} oraz inne, dla wszystkich metod i zbiorów danych.
 	\item Krzywe \textbf{Precision-Recall} dla wszystkich metod i zbiorów danych.
 \end{itemize}
 Wykresy są zapisywane w folderze \textbf{plots}, posiadającym podfoldery według zbiorów danych i typów eksperymentów, co ułatwia ich przeglądanie.

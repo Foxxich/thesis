@@ -1,194 +1,220 @@
 \begin{thebibliography}{10}
 
-\bibitem{metoda12}
-Adedoyin~S. Adeyemi, Sunday~O. Asakpa, Kehinde~H. Bello, Olajide~N. Saliu,
-  Olabisi~M. Olaoye, and Nike~T. Toye.
-\newblock Fake news detection using ensemble methods: an empirical evaluation
-  of bagging and boosting algorithms.
-\newblock {\em International Journal of Advances in Engineering and Management
-  (IJAEM)}, pages 317--325, 2024.
+\bibitem{metoda13}
+Azal~Ahmad Khan, Omkar Chaudhari, i Rohitash Chandra.
+\newblock A review of ensemble learning and data augmentation models for class
+  imbalanced problems: Combination, implementation and evaluation.
+\newblock {\em Expert Systems with Applications}, strona 122778, 2024.
 
-\bibitem{metoda9}
-Iftikhar Ahmad, Muhammad Yousaf, Suhail Yousaf, and Muhammad~Ovais Ahmad.
-\newblock Fake news detection using machine learning ensemble methods.
-\newblock {\em Complexity}, pages 1--11, 2020.
-
-\bibitem{metoda1}
-Abdullah~Marish Ali, Fuad~A. Ghaleb, Bander Ali~Saleh Al-Rimy, Fawaz~Jaber
-  Alsolami, and Asif~Irshad Khan.
-\newblock Deep ensemble fake news detection model using sequential deep
-  learning technique.
-\newblock {\em Sensors}, page 6970, 2022.
-
-\bibitem{CatBoost}
-Sami Ben~Jabeur, Cheima Gharib, Salma Mefteh-Wali, and Wissal Ben~Arfi.
-\newblock Catboost model and artificial intelligence techniques for corporate
-  failure prediction.
-\newblock {\em Technological Forecasting and Social Change}, page 120658, 2021.
+\bibitem{metoda8}
+M.A. Ganaie, Minghui Hu, A.K. Malik, M.~Tanveer, i P.N. Suganthan.
+\newblock Ensemble deep learning: A review.
+\newblock {\em Engineering Applications of Artificial Intelligence}, strona
+  105151, 2022.
 
 \bibitem{Bagging}
 Leo Breiman.
 \newblock Bagging predictors.
-\newblock {\em Machine Learning}, pages 123--140, 1996.
-
-\bibitem{Random_forest}
-Adele Cutler, David Cutler, and John Stevens.
-\newblock Random forests.
-\newblock {\em Machine Learning - ML}, pages 157--176, 2011.
-
-\bibitem{Frost2016photon}
-Jarvist~M Frost, Pooya Azarhoosh, Scott McKechnie, Mark van Schilfgaarde, and
-  Aron Walsh.
-\newblock A photon ratchet route to high-efficiency hybrid halide perovskite
-  intermediate band solar cells.
-\newblock {\em arXiv}, 2016.
-\newblock Dostęp: 10 czerwca 2025.
-
-\bibitem{metoda8}
-M.A. Ganaie, Minghui Hu, A.K. Malik, M.~Tanveer, and P.N. Suganthan.
-\newblock Ensemble deep learning: A review.
-\newblock {\em Engineering Applications of Artificial Intelligence}, page
-  105151, 2022.
-
-\bibitem{metoda6}
-Alireza Ghorbanali, Mohammad~Karim Sohrabi, and Farzin Yaghmaee.
-\newblock Ensemble transfer learning-based multimodal sentiment analysis using
-  weighted convolutional neural networks.
-\newblock {\em Information Processing and Management}, page 102929, 2022.
-
-\bibitem{metoda5}
-Saqib Hakak, Mamoun Alazab, Suleman Khan, Thippa~Reddy Gadekallu, Praveen
-  Kumar~Reddy Maddikunta, and Wazir~Zada Khan.
-\newblock An ensemble machine learning approach through effective feature
-  extraction to classify fake news.
-\newblock {\em Future Generation Computer Systems}, pages 47--58, 2021.
-
-\bibitem{metoda13}
-Azal~Ahmad Khan, Omkar Chaudhari, and Rohitash Chandra.
-\newblock A review of ensemble learning and data augmentation models for class
-  imbalanced problems: Combination, implementation and evaluation.
-\newblock {\em Expert Systems with Applications}, page 122778, 2024.
-
-\bibitem{metoda14}
-Junaed~Younus Khan, Md. Tawkat~Islam Khondaker, Sadia Afroz, Gias Uddin, and
-  Anindya Iqbal.
-\newblock A benchmark study of machine learning models for online fake news
-  detection.
-\newblock {\em Machine Learning with Applications}, page 100032, 2021.
+\newblock {\em Machine Learning}, strony 123--140, 1996.
 
 \bibitem{Regresja_logistyczna}
-Gary King and Langche Zeng.
+Gary King i Langche Zeng.
 \newblock Logistic regression in rare events data.
-\newblock {\em Political Analysis}, pages 137--163, 2001.
+\newblock {\em Political Analysis}, strony 137--163, 2001.
+
+\bibitem{Random_forest}
+Adele Cutler, David Cutler, i John Stevens.
+\newblock Random forests.
+\newblock {\em Machine Learning - ML}, strony 157--176, 2011.
+
+\bibitem{Gradient_boosting}
+Alexey Natekin i Alois Knoll.
+\newblock Gradient boosting machines, a tutorial.
+\newblock {\em Frontiers in Neurorobotics}, strona~21, 2013.
+
+\bibitem{XGBoost_LightGBM}
+Weizhang Liang, Suizhi Luo, Guoyan Zhao, i Hao Wu.
+\newblock Predicting hard rock pillar stability using gbdt, xgboost, and
+  lightgbm algorithms.
+\newblock {\em Mathematics}, strona 765, 2020.
 
 \bibitem{liang2021stacking}
 Mang Liang, Tianpeng Chang, Bingxing An, Xinghai Duan, Lili Du, Xiaoqiao Wang,
-  Jian Miao, Lingyang Xu, Xue Gao, Lupei Zhang, Junya Li, and Huijiang Gao.
+  Jian Miao, Lingyang Xu, Xue Gao, Lupei Zhang, Junya Li, i Huijiang Gao.
 \newblock A stacking ensemble learning framework for genomic prediction.
-\newblock {\em Frontiers in Genetics}, page 600040, 2021.
+\newblock {\em Frontiers in Genetics}, strona 600040, 2021.
 
-\bibitem{XGBoost_LightGBM}
-Weizhang Liang, Suizhi Luo, Guoyan Zhao, and Hao Wu.
-\newblock Predicting hard rock pillar stability using gbdt, xgboost, and
-  lightgbm algorithms.
-\newblock {\em Mathematics}, page 765, 2020.
+\bibitem{NeuralNetworks}
+Jürgen Schmidhuber.
+\newblock Deep learning in neural networks: An overview.
+\newblock {\em Neural Networks}, strony 85--117, 2015.
+
+\bibitem{VotingClassifier}
+Muhammad Saqlain, Bilguun Jargalsaikhan, i Jong~Yun Lee.
+\newblock A voting ensemble classifier for wafer map defect patterns
+  identification in semiconductor manufacturing.
+\newblock {\em IEEE Transactions on Semiconductor Manufacturing}, strony
+  171--182, 2019.
+
+\bibitem{postprocessing}
+Yi~Zhou i Naman Goel.
+\newblock A post-processing-based fair federated learning framework.
+\newblock {\em arXiv}, 2025.
+\newblock URL: \url{https://arxiv.org/abs/2501.15318}.
+\newblock Dostęp: 10 czerwca 2025.
+
+\bibitem{CatBoost}
+Sami Ben~Jabeur, Cheima Gharib, Salma Mefteh-Wali, i Wissal Ben~Arfi.
+\newblock Catboost model and artificial intelligence techniques for corporate
+  failure prediction.
+\newblock {\em Technological Forecasting and Social Change}, strona 120658,
+  2021.
+
+\bibitem{DBLP_Gurevych}
+Nils Reimers i Iryna Gurevych.
+\newblock Sentence-bert: Sentence embeddings using siamese bert-networks.
+\newblock {\em arXiv}, 2019.
+\newblock URL: \url{http://arxiv.org/abs/1908.10084}.
+\newblock Dostęp: 10 czerwca 2025.
+
+\bibitem{articleUnified}
+Shafin Rahman, Salman Khan, i Fatih Porikli.
+\newblock A unified approach for conventional zero-shot, generalized zero-shot,
+  and few-shot learning.
+\newblock {\em IEEE Transactions on Image Processing}, 2017.
+
+\bibitem{metoda12}
+Adedoyin~S. Adeyemi, Sunday~O. Asakpa, Kehinde~H. Bello, Olajide~N. Saliu,
+  Olabisi~M. Olaoye, i Nike~T. Toye.
+\newblock Fake news detection using ensemble methods: an empirical evaluation
+  of bagging and boosting algorithms.
+\newblock {\em International Journal of Advances in Engineering and Management
+  (IJAEM)}, strony 317--325, 2024.
+
+\bibitem{metoda1}
+Abdullah~Marish Ali, Fuad~A. Ghaleb, Bander Ali~Saleh Al-Rimy, Fawaz~Jaber
+  Alsolami, i Asif~Irshad Khan.
+\newblock Deep ensemble fake news detection model using sequential deep
+  learning technique.
+\newblock {\em Sensors}, strona 6970, 2022.
+
+\bibitem{metoda4}
+Arjun Roy, Kingshuk Basak, Asif Ekbal, i Pushpak Bhattacharyya.
+\newblock A deep ensemble framework for fake news detection and classification,
+  2018.
+\newblock URL: \url{https://arxiv.org/abs/1811.04670}.
+\newblock Dostęp: 10 czerwca 2025.
+
+\bibitem{metoda15}
+K~V, B~B Al-onazi, V~Simic, E~B Tirkolaee, i C~Jana.
+\newblock Deepfnd: An ensemble-based deep learning approach for the
+  optimization and improvement of fake news detection in digital platform.
+\newblock {\em PeerJ Computer Science}, strona e1666, 2023.
+
+\bibitem{metoda2}
+Amit~Neil Ramkissoon i Wayne Goodridge.
+\newblock Enhancing the predictive performance of credibility-based fake news
+  detection using ensemble learning.
+\newblock {\em The Review of Socionetwork Strategies}, strony 259--289, 2022.
+
+\bibitem{metoda3}
+Pawan Verma, Prateek Agrawal, Ivone Amorim, i Radu Prodan.
+\newblock Welfake: Word embedding over linguistic features for fake news
+  detection.
+\newblock {\em IEEE Transactions on Computational Social Systems}, strony
+  1--13, 2021.
+
+\bibitem{metoda5}
+Saqib Hakak, Mamoun Alazab, Suleman Khan, Thippa~Reddy Gadekallu, Praveen
+  Kumar~Reddy Maddikunta, i Wazir~Zada Khan.
+\newblock An ensemble machine learning approach through effective feature
+  extraction to classify fake news.
+\newblock {\em Future Generation Computer Systems}, strony 47--58, 2021.
+
+\bibitem{metoda6}
+Alireza Ghorbanali, Mohammad~Karim Sohrabi, i Farzin Yaghmaee.
+\newblock Ensemble transfer learning-based multimodal sentiment analysis using
+  weighted convolutional neural networks.
+\newblock {\em Information Processing and Management}, strona 102929, 2022.
+
+\bibitem{metoda9}
+Iftikhar Ahmad, Muhammad Yousaf, Suhail Yousaf, i Muhammad~Ovais Ahmad.
+\newblock Fake news detection using machine learning ensemble methods.
+\newblock {\em Complexity}, strony 1--11, 2020.
 
 \bibitem{metoda10}
 Atik Mahabub.
 \newblock A robust technique of fake news detection using ensemble voting
   classifier and comparison with other classifiers.
-\newblock {\em SN Applied Sciences}, page 525, 2020.
-
-\bibitem{ISOT}
-Shubha Mishra, Piyush Shukla, and Ratish Agarwal.
-\newblock Analyzing machine learning enabled fake news detection techniques for
-  diversified datasets.
-\newblock {\em Wireless Communications and Mobile Computing}, page 1575365,
-  2022.
-
-\bibitem{Gradient_boosting}
-Alexey Natekin and Alois Knoll.
-\newblock Gradient boosting machines, a tutorial.
-\newblock {\em Frontiers in Neurorobotics}, 2013.
-
-\bibitem{metoda16}
-Parth Patel, Shubham Patel, and Yashkumar Patel.
-\newblock Ensemble based approach for fake news detection.
-\newblock {\em International Research Journal of Engineering and Technology
-  (IRJET)}, page 2732, 2021.
-
-\bibitem{articleUnified}
-Shafin Rahman, Salman Khan, and Fatih Porikli.
-\newblock A unified approach for conventional zero-shot, generalized zero-shot,
-  and few-shot learning.
-\newblock {\em IEEE Transactions on Image Processing}, 2017.
-
-\bibitem{metoda2}
-Amit~Neil Ramkissoon and Wayne Goodridge.
-\newblock Enhancing the predictive performance of credibility-based fake news
-  detection using ensemble learning.
-\newblock {\em The Review of Socionetwork Strategies}, pages 259--289, 2022.
+\newblock {\em SN Applied Sciences}, strona 525, 2020.
 
 \bibitem{metoda11}
-Harita Reddy, Namratha Raj, Manali Gala, and Annappa Basava.
+Harita Reddy, Namratha Raj, Manali Gala, i Annappa Basava.
 \newblock Text-mining-based fake news detection using ensemble methods.
-\newblock {\em Machine Intelligence Research}, pages 210--221, 2020.
+\newblock {\em Machine Intelligence Research}, strony 210--221, 2020.
 
-\bibitem{DBLP_Gurevych}
-Nils Reimers and Iryna Gurevych.
-\newblock Sentence-bert: Sentence embeddings using siamese bert-networks.
-\newblock {\em arXiv}, 2019.
-\newblock Dostęp: 10 czerwca 2025.
+\bibitem{metoda14}
+Junaed~Younus Khan, Md. Tawkat~Islam Khondaker, Sadia Afroz, Gias Uddin, i
+  Anindya Iqbal.
+\newblock A benchmark study of machine learning models for online fake news
+  detection.
+\newblock {\em Machine Learning with Applications}, strona 100032, 2021.
 
-\bibitem{metoda4}
-Arjun Roy, Kingshuk Basak, Asif Ekbal, and Pushpak Bhattacharyya.
-\newblock A deep ensemble framework for fake news detection and classification,
-  2018.
-\newblock Dostęp: 10 czerwca 2025.
+\bibitem{metoda16}
+Parth Patel, Shubham Patel, i Yashkumar Patel.
+\newblock Ensemble based approach for fake news detection.
+\newblock {\em International Research Journal of Engineering and Technology
+  (IRJET)}, strona 2732, 2021.
+
+\bibitem{ISOT}
+Shubha Mishra, Piyush Shukla, i Ratish Agarwal.
+\newblock Analyzing machine learning enabled fake news detection techniques for
+  diversified datasets.
+\newblock {\em Wireless Communications and Mobile Computing}, strona 1575365,
+  2022.
+
+\bibitem{isot_fake_news_dataset}
+ISOT~Research Lab.
+\newblock Isot fake news detection datasets, 2022.
+\newblock URL:
+  \url{https://onlineacademiccommunity.uvic.ca/isot/2022/11/27/fake-news-detection-datasets/}.
+\newblock Dostęp: 11 czerwca 2025.
+
+\bibitem{WELFake}
+Pawan~Kumar Verma, Prateek Agrawal, Ivone Amorim, i Radu Prodan.
+\newblock Welfake: Word embedding over linguistic features for fake news
+  detection.
+\newblock {\em IEEE Transactions on Computational Social Systems}, strony
+  881--893, 2021.
+
+\bibitem{welfake_fake_news_classification}
+Saurabh Shahane.
+\newblock Welfake: Fake news classification dataset, 2021.
+\newblock URL:
+  \url{https://www.kaggle.com/datasets/saurabhshahane/fake-news-classification}.
+\newblock Dostęp: 11 czerwca 2025.
 
 \bibitem{BuzzFace}
-Giovanni Santia and Jake Williams.
+Giovanni Santia i Jake Williams.
 \newblock Buzzface: A news veracity dataset with facebook user commentary and
   egos.
 \newblock {\em Proceedings of the International AAAI Conference on Web and
-  Social Media}, pages 531--540, 2018.
+  Social Media}, strony 531--540, 2018.
 
-\bibitem{VotingClassifier}
-Muhammad Saqlain, Bilguun Jargalsaikhan, and Jong~Yun Lee.
-\newblock A voting ensemble classifier for wafer map defect patterns
-  identification in semiconductor manufacturing.
-\newblock {\em IEEE Transactions on Semiconductor Manufacturing}, pages
-  171--182, 2019.
+\bibitem{buzzfeed_news_2018_2023}
+Konrad Banachewicz.
+\newblock Buzzfeed news 2018-2023 dataset, 2023.
+\newblock URL:
+  \url{https://www.kaggle.com/datasets/konradb/buzzfeed-news-2018-2023}.
+\newblock Dostęp: 11 czerwca 2025.
 
-\bibitem{NeuralNetworks}
-Jürgen Schmidhuber.
-\newblock Deep learning in neural networks: An overview.
-\newblock {\em Neural Networks}, pages 85--117, 2015.
-
-\bibitem{metoda15}
-K~V, B~B Al-onazi, V~Simic, E~B Tirkolaee, and C~Jana.
-\newblock Deepfnd: An ensemble-based deep learning approach for the
-  optimization and improvement of fake news detection in digital platform.
-\newblock {\em PeerJ Computer Science}, page e1666, 2023.
-
-\bibitem{metoda3}
-Pawan Verma, Prateek Agrawal, Ivone Amorim, and Radu Prodan.
-\newblock Welfake: Word embedding over linguistic features for fake news
-  detection.
-\newblock {\em IEEE Transactions on Computational Social Systems}, pages 1--13,
-  2021.
-
-\bibitem{WELFake}
-Pawan~Kumar Verma, Prateek Agrawal, Ivone Amorim, and Radu Prodan.
-\newblock Welfake: Word embedding over linguistic features for fake news
-  detection.
-\newblock {\em IEEE Transactions on Computational Social Systems}, pages
-  881--893, 2021.
-
-\bibitem{postprocessing}
-Yi~Zhou and Naman Goel.
-\newblock A post-processing-based fair federated learning framework.
-\newblock {\em arXiv}, 2025.
+\bibitem{Frost2016photon}
+Jarvist~M Frost, Pooya Azarhoosh, Scott McKechnie, Mark van Schilfgaarde, i
+  Aron Walsh.
+\newblock A photon ratchet route to high-efficiency hybrid halide perovskite
+  intermediate band solar cells.
+\newblock {\em arXiv}, 2016.
+\newblock URL: \url{https://arxiv.org/abs/1611.09786}.
 \newblock Dostęp: 10 czerwca 2025.
 
 \end{thebibliography}

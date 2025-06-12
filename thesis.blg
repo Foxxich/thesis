@@ -1,48 +1,48 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
-Reallocating 'name_of_file' (item size: 1) to 6 items.
-The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 12 items.
+The style file: plplain-url.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliography.bib
-You've used 31 entries,
-            2118 wiz_defined-function locations,
-            672 strings with 9956 characters,
-and the built_in function-call counts, 12808 in all, are:
-= -- 1300
-> -- 655
-< -- 25
-+ -- 267
-- -- 226
-* -- 768
-:= -- 2004
-add.period$ -- 96
-call.type$ -- 31
-change.case$ -- 206
+You've used 34 entries,
+            1838 wiz_defined-function locations,
+            610 strings with 9445 characters,
+and the built_in function-call counts, 9747 in all, are:
+= -- 915
+> -- 410
+< -- 26
++ -- 150
+- -- 116
+* -- 469
+:= -- 1376
+add.period$ -- 112
+call.type$ -- 34
+change.case$ -- 34
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 573
-empty$ -- 811
-format.name$ -- 226
-if$ -- 2799
+cite$ -- 34
+duplicate$ -- 566
+empty$ -- 848
+format.name$ -- 116
+if$ -- 2355
 int.to.chr$ -- 0
-int.to.str$ -- 31
+int.to.str$ -- 34
 missing$ -- 30
-newline$ -- 161
-num.names$ -- 62
-pop$ -- 220
+newline$ -- 183
+num.names$ -- 34
+pop$ -- 159
 preamble$ -- 1
-purify$ -- 175
+purify$ -- 0
 quote$ -- 0
-skip$ -- 534
+skip$ -- 424
 stack$ -- 0
-substring$ -- 666
-swap$ -- 272
-text.length$ -- 25
+substring$ -- 505
+swap$ -- 280
+text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 124
+type$ -- 0
 warning$ -- 0
-while$ -- 113
-width$ -- 33
-write$ -- 343
+while$ -- 86
+width$ -- 36
+write$ -- 388
